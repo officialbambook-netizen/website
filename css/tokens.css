@@ -1,0 +1,90 @@
+/* ============================================================
+   LAVERO — DESIGN TOKENS  (single source of truth)
+   ------------------------------------------------------------
+   The ONLY place raw values live. Everything else references
+   these by name. No hex / no magic numbers anywhere else.
+   Values are the canonical brand spec (see Brand-webdesign.md).
+   Load this FIRST, before any other stylesheet.
+   ============================================================ */
+
+:root {
+  /* ---- Brand color (canonical) ---------------------------- */
+  --cream:  #f7efe3;   /* page background */
+  --ivory:  #fff9f0;   /* warm white, card interiors */
+  --sand:   #f0e8d8;   /* warm beige, alternate section backgrounds */
+  --blush:  #c9897e;   /* dusty rose, italic accent / em text */
+  --peach:  #e8c8b8;   /* soft peach, lifestyle warmth */
+  --gold:   #c99a5d;   /* muted gold, borders, icons, stars */
+  --green:  #173c34;   /* deep green, primary CTA buttons only */
+  --ink:    #403632;   /* charcoal brown, headlines & body text */
+  --taupe:  #6f6861;   /* secondary text, nav links, eyebrows (WCAG AA 4.5:1) */
+
+  --line:   rgba(64, 54, 50, 0.14);             /* dividers, card borders */
+  --line-soft: rgba(64, 54, 50, 0.09);          /* lifted surface borders */
+  --line-warm: rgba(201, 154, 93, 0.22);        /* warm accent borders */
+  --shadow: 0 22px 70px rgba(64, 54, 50, 0.12); /* image & card shadows */
+  --shadow-lift: 0 24px 64px rgba(64, 54, 50, 0.13), 0 2px 10px rgba(64, 54, 50, 0.06);
+  --shadow-deep: 0 34px 96px rgba(64, 54, 50, 0.16), 0 10px 28px rgba(64, 54, 50, 0.08);
+  --shadow-glow: 0 28px 92px rgba(201, 154, 93, 0.18), 0 8px 28px rgba(64, 54, 50, 0.08);
+  --shadow-button: 0 14px 32px rgba(201, 137, 126, 0.28);
+  --shadow-blush-pop: 0 6px 22px rgba(201, 137, 126, 0.52), 0 2px 6px rgba(201, 137, 126, 0.28);
+
+  --light-cream: linear-gradient(180deg, rgba(255, 249, 240, 0.62) 0%, rgba(247, 239, 227, 0) 42%, rgba(201, 154, 93, 0.06) 100%);
+  --light-sand: linear-gradient(180deg, rgba(255, 249, 240, 0.36) 0%, rgba(239, 226, 208, 0) 48%, rgba(64, 54, 50, 0.035) 100%);
+  --surface-lit: rgba(255, 249, 240, 0.72);
+
+  /* ---- Semantic aliases (prefer these in new work) -------- */
+  --bg:               var(--cream);
+  --surface:          var(--ivory);
+  --surface-alt:      var(--sand);
+  --text:             var(--ink);
+  --text-muted:       var(--taupe);
+  --accent:           var(--gold);
+  --accent-emphasis:  var(--blush);
+  --cta:              var(--green);
+
+  /* ---- Type ----------------------------------------------- */
+  --serif: "Playfair Display", Didot, "Bodoni 72", "Bodoni MT", Georgia, serif;
+  --sans:  Avenir, Montserrat, "Helvetica Neue", Arial, sans-serif;
+  /* aliases so pages that drifted to --font-* names converge here */
+  --font-display: var(--serif);
+  --font-sans:    var(--sans);
+
+  /* fluid type scale (clamp: min / preferred / max) */
+  --fs-eyebrow: 0.68rem;
+  --fs-body:    clamp(1rem, 1.4vw, 1.12rem);
+  --fs-footer:  clamp(0.9rem, 1vw, 1rem);
+  --fs-h3:      clamp(1.2rem, 1.8vw, 1.65rem);
+  --fs-h2:      clamp(1.6rem, 2.8vw, 2.5rem);
+  --fs-h1:      clamp(2rem, 4vw, 3.5rem);
+
+  /* ---- Spacing scale (rem) -------------------------------- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ---- Layout rhythm -------------------------------------- */
+  --container:   1100px;                                   /* max content width */
+  --section-py:  clamp(var(--space-16), 5.5vw, var(--space-24)); /* section vertical pad */
+  --section-py-b: clamp(var(--space-12), 4.8vw, var(--space-20)); /* section bottom pad */
+  --section-px:  4.5vw;                                    /* section horizontal pad */
+  --grid-gap:    clamp(2rem, 3.5vw, 3.5rem);               /* two-column gap */
+
+  /* ---- Radius ---------------------------------------------- */
+  --radius:    16px;   /* cards, image blocks */
+  --radius-sm: 8px;    /* buttons, small chips */
+  --radius-pill: 999px; /* pills, circles, badges */
+
+  /* ---- Canonical breakpoints (for reference; used in media queries)
+     390 mobile · 768 tablet · 1024 small desktop · 1440 desktop
+     Legacy CSS uses 980/780/640 — reconciled during migration. */
+}

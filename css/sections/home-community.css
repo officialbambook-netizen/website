@@ -1,0 +1,96 @@
+/* Home — "From the community" (stats bar + testimonial cards).
+   Grid layout via .r-grid-4 / .r-grid-3 (home.css). Tokens only. */
+
+.community {
+  padding: var(--section-py) var(--section-px) var(--section-py-b);
+}
+.community-section .eyebrow {
+  display: block;
+  width: fit-content;
+  margin: 0 auto clamp(0.9rem, 1.5vw, 1.4rem);
+  color: var(--gold);
+}
+.community__title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  text-align: center;
+  margin-bottom: 0;
+}
+.community__title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+  font-family: var(--serif);
+}
+
+.community__stats {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-lit);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+  margin-top: 1.6rem;
+}
+.community__stat {
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+}
+.community__stat:not(:last-child) {
+  border-right: 1px solid var(--line);
+}
+.community__stat-num {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+  line-height: 1;
+}
+.community__stat-num span {
+  color: var(--gold);
+  font-size: 0.55em;
+}
+.community__stat-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--taupe);
+  margin: 0.6rem 0 0;
+}
+
+.community__cards {
+  margin-top: clamp(1.6rem, 4vw, 2.5rem);
+  gap: 1.5rem;
+}
+.community__card {
+  background: var(--surface-lit);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lift);
+  padding: 1.4rem 1.6rem;
+}
+.community__card .stars {
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+.community__quote {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+.community__attr {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin: 0 0 0.5rem;
+}
+.community__tag {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.65rem;
+  color: var(--taupe);
+}

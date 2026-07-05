@@ -1,0 +1,81 @@
+/* ============================================================
+   LAVERO — BASE LAYOUT PRIMITIVES
+   ------------------------------------------------------------
+   Reusable structural classes. Tokens only (see tokens.css);
+   no raw hex, no magic numbers. Apply these in markup instead
+   of re-typing inline styles per section.
+   Load AFTER tokens.css.
+   ============================================================ */
+
+/* ---- Container: one canonical max-width ------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  min-width: 0; /* prevent grid/flex blowout */
+}
+
+/* ---- Section: vertical rhythm + background modifiers ------ */
+.section {
+  padding: var(--section-py) var(--section-px) var(--section-py-b);
+}
+.section--cream { background: var(--cream); }
+.section--sand  { background: var(--sand); }
+.section--ivory { background: var(--ivory); }
+
+/* ---- Two-column image + text -----------------------------
+   Desktop: side by side. Mobile (<=768px): single column with
+   the image forced on top via order:-1. Defined ONCE. */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+  align-items: stretch;
+  min-width: 0;
+}
+.two-col > * { min-width: 0; }
+
+.two-col__img {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: clamp(14rem, 36svh, 26rem);
+}
+.two-col__img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.two-col__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+/* Stacks at <=780px (the site's established breakpoint, per CLAUDE.md §3).
+   Screenshot widths 390/768/1024/1440 sit cleanly on either side. */
+@media (max-width: 780px) {
+  .two-col { grid-template-columns: 1fr; }
+  .two-col__img { order: -1; min-height: 420px; }
+}
+
+/* ---- Eyebrow: section label (canonical spec) -------------- */
+.eyebrow {
+  display: inline-block;
+  width: fit-content;
+  margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
+  font-family: var(--sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.55rem;
+}
+
+/* ---- Meta Pixel <noscript> fallback: keep the 1x1 tracking img out of layout. */
+.pixel-noscript { display: none; }

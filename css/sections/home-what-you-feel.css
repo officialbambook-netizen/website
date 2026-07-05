@@ -1,0 +1,110 @@
+/* Home — "Sounds like you?" (what you feel)
+   Two-column image + objection lines. Desktop grid via .container.two-col;
+   mobile stacking already handled in home-sections.css (.sound-like-you-grid /
+   .sound-like-you-img). Tokens only. */
+
+
+.sound-like-you-img {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-deep);
+  min-height: clamp(28rem, 58svh, 42rem);
+}
+.sound-like-you-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.sound-like-you__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: min(100%, 42rem);
+  margin-inline: auto;
+  text-align: left;
+}
+.sound-like-you__title {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 2.8vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+  display: inline-block;
+  width: fit-content;
+  padding-bottom: clamp(var(--space-4), 2vw, var(--space-6));
+  margin-bottom: clamp(var(--space-4), 2vw, var(--space-6));
+  text-align: left;
+  position: relative;
+}
+.sound-like-you__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+}
+.sound-like-you__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: clamp(var(--space-6), 2.3vw, var(--space-8));
+  padding: 0.9rem 2.4rem;
+  min-height: 3rem;
+  background: var(--blush);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-button);
+  transition: background 200ms ease, transform 200ms ease;
+}
+.sound-like-you__cta:hover,
+.sound-like-you__cta:focus-visible {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+.sound-like-you__title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.sound-like-you__list {
+  display: grid;
+  gap: 0;
+}
+.sound-like-you__line {
+  color: var(--ink);
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.7;
+  margin: 0;
+  text-wrap: pretty;
+}
+.sound-like-you__line--closer {
+  padding-top: clamp(var(--space-5), 2vw, var(--space-6));
+  border-top: 1px solid var(--line-soft);
+  margin-top: clamp(var(--space-5), 2vw, var(--space-6));
+}
+.sound-like-you__line--closer em {
+  color: var(--blush);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* --- Grid: image narrower left, copy wider, bigger gap --- */
+.sound-like-you-grid {
+  grid-template-columns: 40% 60%;
+  gap: clamp(var(--space-12), 7vw, var(--space-20));
+}

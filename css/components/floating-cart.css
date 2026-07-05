@@ -1,0 +1,197 @@
+.lv-quick-add {
+  align-items: center;
+  bottom: 1.75rem;
+  display: flex;
+  gap: 0;
+  left: 50%;
+  opacity: 0;
+  position: fixed;
+  transform: translateX(-50%) translateY(70px);
+  transition: transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 280ms ease;
+  z-index: 50;
+}
+
+.lv-quick-add.lv-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.lv-quick-add.lv-footer-visible {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(70px);
+}
+
+.lv-color-picker {
+  --lv-picker-size: 3.3rem;
+  --lv-swatch-size: 2rem;
+  --lv-dot-size: 1.2rem;
+  align-items: center;
+  background: rgba(255, 249, 240, 0.96);
+  border: 1px solid rgba(64, 54, 50, 0.12);
+  border-right: 0;
+  border-radius: 999px 18px 18px 999px;
+  box-shadow: 0 8px 32px rgba(64, 54, 50, 0.12);
+  display: inline-flex;
+  gap: 0.22rem;
+  height: var(--lv-picker-size);
+  justify-content: center;
+  padding: 0 0.55rem;
+  position: relative;
+  width: var(--lv-picker-size);
+  z-index: 1;
+}
+
+.lv-color-swatch {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  height: var(--lv-swatch-size);
+  justify-content: center;
+  padding: 0;
+  width: var(--lv-swatch-size);
+}
+
+.lv-color-picker:not(.is-open) .lv-color-swatch:not(.is-selected) {
+  display: none;
+}
+
+.lv-color-picker.is-open {
+  border-radius: 999px 18px 18px 999px;
+}
+
+.lv-color-picker.is-open .lv-color-swatch {
+  background: rgba(255, 249, 240, 0.98);
+  box-shadow: 0 8px 24px rgba(64, 54, 50, 0.12);
+  height: var(--lv-swatch-size);
+  left: 50%;
+  padding: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  width: var(--lv-swatch-size);
+  z-index: 1;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:nth-child(1) {
+  bottom: 0.65rem;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:nth-child(2) {
+  bottom: 3.35rem;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:nth-child(3) {
+  bottom: 5.75rem;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:nth-child(4) {
+  bottom: 8.25rem;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:nth-child(5) {
+  bottom: 10.75rem;
+}
+
+.lv-color-swatch span {
+  border: 1px solid rgba(64, 54, 50, 0.18);
+  border-radius: 50%;
+  display: block;
+  height: var(--lv-dot-size);
+  width: var(--lv-dot-size);
+}
+
+.lv-color-swatch.is-selected {
+  box-shadow: inset 0 0 0 2px #403632;
+}
+
+.lv-color-picker.is-open .lv-color-swatch.is-selected {
+  box-shadow: inset 0 0 0 2px #403632;
+}
+
+.lv-color-picker.is-open .lv-color-swatch:hover {
+  background: #fff9f0;
+}
+
+.lv-trigger {
+  align-items: center;
+  background: #C98B80;
+  border: none;
+  border-radius: 18px 50px 50px 18px;
+  box-shadow: 0 8px 32px rgba(201, 139, 128, 0.38), 0 2px 10px rgba(0, 0, 0, 0.12);
+  color: #fff9f0;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.71rem;
+  font-weight: 800;
+  gap: 0.55rem;
+  height: 3.3rem;
+  letter-spacing: 0.14em;
+  margin-left: -0.45rem;
+  padding: 0 1.8rem;
+  padding-left: 2.15rem;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  white-space: nowrap;
+}
+
+.lv-trigger:hover {
+  background: #b7796f;
+  box-shadow: 0 12px 36px rgba(201, 139, 128, 0.45);
+}
+
+.lv-cart-status {
+  background: rgba(255, 249, 240, 0.98);
+  border: 1px solid rgba(201, 139, 128, 0.24);
+  border-radius: 999px;
+  bottom: calc(100% + 0.55rem);
+  color: #403632;
+  display: none;
+  font: 700 0.72rem/1.3 Inter, Arial, sans-serif;
+  left: 50%;
+  margin: 0;
+  max-width: min(22rem, 92vw);
+  padding: 0.65rem 0.9rem;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: normal;
+  width: max-content;
+}
+
+.lv-cart-status.is-visible {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .lv-quick-add {
+    bottom: 1rem;
+    gap: 0;
+    max-width: calc(100vw - 1rem);
+  }
+
+  .lv-color-picker {
+    --lv-picker-size: 3rem;
+    --lv-swatch-size: 1.7rem;
+    --lv-dot-size: 1rem;
+    padding: 0 0.35rem;
+  }
+
+  .lv-color-swatch {
+    height: var(--lv-swatch-size);
+    width: var(--lv-swatch-size);
+  }
+
+  .lv-color-swatch span {
+    height: var(--lv-dot-size);
+    width: var(--lv-dot-size);
+  }
+
+  .lv-trigger {
+    font-size: 0.65rem;
+    height: 3rem;
+    padding: 0 1rem;
+  }
+}

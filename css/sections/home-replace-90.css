@@ -1,0 +1,79 @@
+/* Home — "Three months of your water." (replace every 90 days)
+   Centered intro + before/after filter slider (.filter-comparison / JS).
+   Background comes from .section--cream on the element — no override needed.
+   Slider functional styles (clip-path, --position) live in home.css (debt).
+   Tokens only. */
+
+.replace-90-section .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.replace-90-section .eyebrow {
+  display: block;
+  margin: 0 auto clamp(var(--space-3), 1.2vw, var(--space-4));
+  color: var(--gold);
+}
+
+.replace-90-section h2 {
+  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+  line-height: 1.05;
+  max-width: 50rem;
+  margin: 0 auto clamp(var(--space-4), 1.8vw, var(--space-6));
+}
+
+.replace-90-section h2 em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.replace-90-section .replace-90__body {
+  color: var(--taupe);
+  max-width: 42rem;
+  margin: 0 auto clamp(var(--space-8), 4vw, var(--space-14));
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.replace-90__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(var(--space-6), 2.5vw, var(--space-8));
+  padding: 0.9rem 2.4rem;
+  min-height: 3rem;
+  background: var(--blush);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-button);
+  transition: background 200ms ease, transform 200ms ease;
+}
+.replace-90__cta:hover,
+.replace-90__cta:focus-visible {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Separator lines — copy-width, centred, float free of the image */
+.filter-rule {
+  display: block;
+  width: min(42rem, 100%);
+  margin: clamp(var(--space-6), 2.5vw, var(--space-8)) auto 0;
+  border: none;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Slider wrapper */
+.replace-90-section .filter-comparison {
+  border-radius: 0;
+  overflow: hidden;
+  width: 100%;
+  margin-top: clamp(var(--space-6), 2.5vw, var(--space-8));
+}

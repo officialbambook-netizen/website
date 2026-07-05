@@ -1,0 +1,77 @@
+/* Home — "Same routine. Filtered water." (actual results)
+   Desktop 4-col grid + mobile carousel. The grid/carousel display toggle
+   and viewport/track live in home-sections.css; this supplies the grid
+   columns and figure/image styling formerly inline. Tokens only. */
+
+.routine-proof {
+  padding: var(--section-py) 2.5vw var(--section-py-b);
+}
+.routine-proof__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 clamp(var(--space-6), 3vw, var(--space-12));
+}
+.routine-proof-section .eyebrow {
+  display: block;
+  margin: 0 auto 0.9rem;
+  color: var(--gold);
+}
+.routine-proof__title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 auto clamp(var(--space-4), 1.8vw, var(--space-6));
+  max-width: 58rem;
+}
+.routine-proof__title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+.routine-proof__disclaimer {
+  margin: clamp(var(--space-6), 2vw, var(--space-8)) auto 0;
+  max-width: 42rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--taupe);
+  opacity: 0.7;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.results-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.7rem, 1.4vw, 1.2rem);
+  margin-top: clamp(var(--space-10), 3.5vw, var(--space-14));
+}
+.results-grid figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-lift);
+}
+.results-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: block;
+  object-fit: cover;
+}
+
+.routine-proof-slide {
+  margin: 0;
+  min-width: 0;
+  flex: 0 0 100%;
+}
+.routine-proof-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-lift);
+}

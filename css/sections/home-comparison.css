@@ -1,0 +1,274 @@
+/* Home — "Not all shower filters do the same thing" (why it's different)
+   Desktop comparison table (mobile table already class-styled in home.css).
+   Per-cell inline styles replaced with nth-child rules. Tokens only.
+
+   Also defines .section-inner and .c-d — utilities only in home.css,
+   needed here so these sections work when ported to product.html. */
+
+.section-inner {
+  max-width: min(1180px, 100%);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.c-d { text-align: left; }
+@media (min-width: 800px) {
+  .c-d { text-align: center; }
+}
+
+.comparison {
+  padding: var(--section-py) var(--section-px) var(--section-py-b);
+}
+.comparison-section .eyebrow {
+  display: block;
+  margin: 0 auto clamp(0.8rem, 1.2vw, 1rem);
+  color: var(--gold);
+}
+.comparison-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 clamp(1.4rem, 2.2vw, 2rem);
+  text-align: center;
+}
+.comparison-title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.comparison-desktop-wrap { display: flex; justify-content: center; }
+.comparison-table-shell {
+  background: var(--surface-lit);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+  width: 100%;
+}
+
+.comparison-col-labels {
+  display: grid;
+  grid-template-columns: 28% 36% 36%;
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.comparison-col-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9rem 0;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.comparison-col-head--lavero { color: var(--gold); }
+.comparison-col-head--other  { color: var(--taupe); letter-spacing: 0.16em; }
+.comparison-col-labels { font-size: 0.8rem; }
+
+.comparison-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.93rem;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+.comparison-table col:nth-child(1) { width: 28%; }
+.comparison-table col:nth-child(2) { width: 36%; }
+.comparison-table col:nth-child(3) { width: 36%; }
+
+.comparison-table th[scope="row"] {
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.comparison-table td {
+  padding: 0.9rem 1.4rem;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+/* Lavero column (highlighted — left) */
+.comparison-table td:nth-child(2) {
+  color: var(--blush);
+  font-weight: 700;
+  border-left: 2px solid var(--gold);
+  background: rgba(201, 154, 93, 0.08);
+}
+.comparison-table td:nth-child(2)::before {
+  content: "✓ ";
+  color: var(--gold);
+  font-weight: 700;
+}
+/* "Most shower filters" column */
+.comparison-table td:nth-child(3) {
+  color: var(--taupe);
+  border-left: 1px solid var(--line);
+}
+/* Gold pill on the Lavero column header */
+.comparison-section .comparison-col-head--lavero {
+  background: var(--gold);
+  color: var(--ivory);
+  border-radius: 999px;
+  padding: 0.35rem 1.2rem;
+  width: fit-content;
+  margin: auto;
+}
+/* Row dividers on all but the last row */
+.comparison-table tbody tr:not(:last-child) th,
+.comparison-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Mobile/desktop visibility toggle ── */
+.comparison-mobile-only { display: none; }
+
+@media (max-width: 780px) {
+  .comparison-desktop-only { display: none !important; }
+
+  .comparison-mobile-only {
+    display: block;
+    margin-top: 1.6rem;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(64,54,50,0.12);
+    background: var(--ivory);
+    border: 1px solid rgba(201,154,93,0.22);
+  }
+
+  .comparison-mobile-only table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    table-layout: fixed;
+  }
+
+  .comparison-mobile-only table colgroup { display: none; }
+  .comparison-mobile-only thead th:first-child  { width: 44%; }
+  .comparison-mobile-only thead th:nth-child(2) { width: 32%; }
+  .comparison-mobile-only thead th:nth-child(3) { width: 24%; }
+
+  .comparison-mobile-only thead tr {
+    border-bottom: 1px solid rgba(201,154,93,0.2);
+  }
+
+  .comparison-mobile-only thead th {
+    padding: 1.1rem 0.6rem 0.9rem;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(111,104,97,0.45);
+  }
+  .comparison-mobile-only thead th:first-child { text-align: left; padding-left: 1rem; }
+
+  .cmo-th-lavero {
+    background: linear-gradient(160deg, rgba(201,154,93,0.18) 0%, rgba(201,154,93,0.08) 100%) !important;
+    border-left: 1px solid rgba(201,154,93,0.35) !important;
+    border-right: 1px solid rgba(201,154,93,0.35) !important;
+    position: relative;
+    color: #a07035 !important;
+    font-size: 0.74rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    padding-top: 1.4rem !important;
+  }
+  .cmo-th-lavero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #c99a5d 40%, #c99a5d 60%, transparent 100%);
+  }
+
+  .cmo-badge {
+    display: block;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c99a5d;
+    background: rgba(201,154,93,0.15);
+    border: 1px solid rgba(201,154,93,0.4);
+    border-radius: 999px;
+    padding: 0.18rem 0.5rem;
+    margin: 0 auto 0.38rem;
+    width: fit-content;
+    line-height: 1.4;
+  }
+
+  .cmo-th-std {
+    color: rgba(111,104,97,0.4) !important;
+    font-size: 0.62rem !important;
+  }
+
+  .comparison-mobile-only tbody tr {
+    border-bottom: 1px solid rgba(201,154,93,0.12);
+  }
+  .comparison-mobile-only tbody tr:last-child { border-bottom: none; }
+
+  .comparison-mobile-only tbody td:first-child {
+    padding: 0.82rem 0.6rem 0.82rem 1rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  .cmo-lavero {
+    background: linear-gradient(180deg, rgba(201,154,93,0.13) 0%, rgba(201,154,93,0.07) 100%);
+    border-left: 1px solid rgba(201,154,93,0.25);
+    border-right: 1px solid rgba(201,154,93,0.25);
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.82rem 0.4rem;
+  }
+  .cmo-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    background: #c99a5d;
+    color: #fff9f0;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(201,154,93,0.45);
+    line-height: 1;
+  }
+
+  .cmo-std {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.82rem 0.4rem;
+  }
+  .cmo-cross {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: rgba(111,104,97,0.35);
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+}

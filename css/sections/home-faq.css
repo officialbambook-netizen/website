@@ -1,0 +1,90 @@
+/* Home — "Common questions" (FAQ accordion).
+   Open/close is driven by JS toggling inline display/transform; this is the
+   static styling only. Tokens only. */
+
+.faq__eyebrow {
+  display: block;
+  width: fit-content;
+  margin: 0 0 clamp(0.9rem, 1.5vw, 1.2rem);
+  color: var(--gold);
+}
+.faq__grid {
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+}
+.faq-intro h2 {
+  font-style: italic;
+  margin-top: 0;
+}
+.faq-intro h2 em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+  font-family: var(--serif);
+}
+
+#faq-list {
+  background: var(--surface-lit);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  padding: 0 clamp(var(--space-6), 2.6vw, var(--space-10));
+}
+
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: 0; }
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 0;
+  text-align: left;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.faq-icon {
+  color: var(--gold);
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: 1.2rem;
+  transition: transform 250ms ease;
+}
+.faq-a {
+  display: none;
+  padding-bottom: 1.6rem;
+}
+.faq-a p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  opacity: 0.75;
+}
+.faq-a strong { color: var(--ink); opacity: 1; }
+
+.faq-intro__support {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: 0.97rem;
+  color: var(--taupe);
+  line-height: 1.65;
+}
+.faq-intro__support-link {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 154, 93, 0.4);
+  text-underline-offset: 3px;
+  transition: color 200ms ease, text-decoration-color 200ms ease;
+}
+.faq-intro__support-link:hover {
+  color: var(--blush);
+  text-decoration-color: var(--blush);
+}

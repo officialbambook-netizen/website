@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAVERO | My Orders</title>
+  <meta name="description" content="Check on a Lavero order — a dedicated order-lookup page is coming soon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css?v=60a0d605" />
+  <link rel="stylesheet" href="css/base.css?v=3322b48f" />
+  <link rel="stylesheet" href="css/policy.css?v=123de862" />
+  <link rel="stylesheet" href="css/components/main-menu.css?v=ef3c0865">
+  <link rel="stylesheet" href="css/components/floating-cart.css?v=5e6c679a">
+  <link rel="stylesheet" href="css/components/footer.css?v=a3679110">
+  <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <script src="js/main-menu.js?v=fb35a1c0" defer></script>
+</head>
+<body>
+
+  <shopify-store
+    store-domain="mylavero.myshopify.com"
+    public-access-token="d15d14ffe85e175d52071eac07e1834c"
+    country="US"
+    language="en"
+    aria-hidden="true"
+  >
+    <shopify-cart id="cart"></shopify-cart>
+  </shopify-store>
+
+  <header class="lavero-main-menu" aria-label="Primary navigation">
+    <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
+    <a href="index.html" class="lavero-brand" aria-label="Lavero home">
+      <strong>LAVERO</strong>
+      <span>Beauty Shower Filter</span>
+    </a>
+    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
+      <a href="index.html" data-section="home">Home</a>
+      <a href="product.html" data-section="shop">Shop</a>
+      <a href="replacement-filters.html" data-section="filters">Filters</a>
+      <a href="blog.html" data-section="blog">Blog</a>
+      <a href="mission.html" data-section="mission">Mission</a>
+    </nav>
+    <div class="lavero-menu-actions">
+      <button class="lavero-cart-button" type="button" aria-label="Open cart" onclick="openProductCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M6 8h12l-1 10H7L6 8Z"></path>
+          <path d="M9 8a3 3 0 0 1 6 0"></path>
+        </svg>
+        <span class="lavero-cart-badge cart-badge" aria-hidden="true">0</span>
+        <span class="lavero-sr-only">0 items in cart</span>
+      </button>
+      <a href="product.html" class="lavero-shop-button">Shop Lavero</a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="policy-hero">
+      <div class="policy-hero__inner">
+        <span class="policy-hero__eyebrow">Lavero &mdash; Customer Care</span>
+        <h1 class="policy-hero__title">My <em>Orders</em></h1>
+        <p class="policy-hero__meta">An order-lookup page is on the way.</p>
+      </div>
+    </div>
+
+    <div class="policy-body">
+      <div class="policy-prose">
+        <p class="policy-intro">A self-serve order page where you can pull up a recent purchase and tracking is on the way. In the meantime, your order confirmation email has your tracking link, or you can email <a href="mailto:support@mylavero.com">support@mylavero.com</a> with your order number and we'll send a current status.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="about">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand">
+          <strong>LAVERO</strong>
+          <span>Beauty Shower Filter</span>
+        </a>
+        <p>Premium filtration for cleaner water, softer-feeling hair, and happier skin.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="Pinterest">Pi</a>
+          <a href="mailto:hello@lavero.example" aria-label="Email">Em</a>
+        </div>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="product.html">Shower Filter</a></li>
+          <li><a href="replacement-filters.html">Replacement Filters</a></li>
+          <li><a href="product.html">Bundles &amp; Sets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Learn</h3>
+        <ul>
+          <li><a href="water-education.html">Water Education</a></li>
+          <li><a href="product.html#all-reviews">Reviews</a></li>
+          <li><a href="product.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>About</h3>
+        <ul>
+          <li><a href="mission.html">About</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Tips, routines, and offers straight to your inbox.</p>
+        <form class="email-form">
+          <input type="email" placeholder="Email address" aria-label="Email address">
+          <button type="submit" aria-label="Subscribe">&#8594;</button>
+        </form>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 LAVERO. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy.html">Privacy Policy</a> &middot;
+        <a href="terms-of-service.html">Terms of Service</a> &middot;
+        <a href="refund-policy.html">Refund Policy</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>

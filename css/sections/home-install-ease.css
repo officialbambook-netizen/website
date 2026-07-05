@@ -1,0 +1,114 @@
+/* Home — "Easy to put on. Hard to go back." (install ease)
+   Two-column image + benefit list. Layout from .container.two-col;
+   section-specific styling below. Tokens only. */
+
+.install-ease__img {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-deep);
+  align-self: stretch;
+  height: auto;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+}
+.install-ease__img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  position: absolute;
+  inset: 0;
+}
+
+.install-ease__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  min-width: 0;
+}
+
+.install-ease__eyebrow {
+  color: var(--gold);
+  margin-bottom: clamp(var(--space-3), 1.2vw, var(--space-4));
+}
+
+.install-ease__title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 2.8vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 clamp(var(--space-6), 3vw, var(--space-10));
+}
+
+.install-ease__title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.install-ease__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.install-ease__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: clamp(var(--space-5), 2vw, var(--space-8)) 0;
+  border-top: 1px solid var(--line);
+}
+.install-ease__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.install-ease__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(201, 154, 93, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-ease__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  justify-content: center;
+}
+.install-ease__label {
+  font-family: var(--sans);
+  font-size: clamp(0.98rem, 1.35vw, 1.05rem);
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+.install-ease__sub {
+  font-size: clamp(0.88rem, 1.2vw, 0.96rem);
+  color: var(--taupe);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* Mobile: image on top, fixed-ish height (matches prior inline rule) */
+@media (max-width: 780px) {
+  .install-ease__img {
+    order: -1;
+    height: clamp(20rem, 52svh, 28rem);
+    min-height: 0;
+  }
+}

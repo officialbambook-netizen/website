@@ -1,0 +1,331 @@
+/* ============================================================
+   Home — HERO
+   Mobile-first three-tier copy on sand; desktop = photo left / text right.
+   All hero section styles live here canonically. Tokens only.
+   ============================================================ */
+
+/* --- Mobile-first Layout --- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--ivory);
+  color: var(--ink);
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  padding: 0;
+}
+
+.hero-video {
+  width: 100%;
+  height: clamp(20rem, 50svh, 30rem);
+  object-fit: cover;
+  object-position: 38% 30%;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: clamp(0.55rem, 1.8vw, 0.85rem);
+  padding: clamp(1.4rem, 5vw, 2rem) clamp(1.25rem, 6vw, 2.25rem) clamp(1.75rem, 6vw, 2.5rem);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero.is-visible .hero-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Trust labels --- */
+.hero-badge,
+.hero-guarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 249, 240, 0.86);
+  box-shadow: var(--shadow);
+  padding: var(--space-2) var(--space-4);
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.hero-badge {
+  margin-bottom: clamp(0.2rem, 1vw, 0.55rem);
+  justify-content: center;
+  font-size: 0.88em;
+}
+
+.hero-guarantee {
+  border-color: rgba(201, 154, 93, 0.62);
+  margin: 0;
+  padding: 0.28rem 0.75rem;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.hero-guarantee::before {
+  display: none;
+}
+
+.hero-guarantee__icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.hero-guarantee__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Badge star accent */
+.hero-badge__star {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blush);
+  flex-shrink: 0;
+}
+
+/* Badge internals */
+.hero-badge__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-footer);
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.hero-badge__pipe {
+  display: block;
+  width: 1px;
+  height: 0.9rem;
+  background: rgba(201, 154, 93, 0.45);
+  flex-shrink: 0;
+}
+
+.hero-badge__sub {
+  font-family: var(--sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+/* --- Three-tier copy elements --- */
+.hero h1 {
+  margin: 0;
+  max-width: 16ch;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 6vw, 2.85rem);
+  line-height: 1.05;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--blush);
+}
+
+.hero-subhead {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 4vw, 1.3rem);
+  color: var(--ink);
+}
+
+.hero-mech {
+  margin: 0;
+  max-width: 38rem;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* --- CTA row (button + guarantee side by side) --- */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: clamp(0.4rem, 2vw, 0.8rem);
+}
+
+/* --- CTA --- */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 0;
+  padding: 0.9rem 2.4rem;
+  min-height: 3rem;
+  background: var(--blush);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-button);
+  transition: background 200ms ease, transform 200ms ease;
+}
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* --- Trust --- */
+.hero-trust {
+  margin-top: clamp(0.6rem, 2vw, 1.1rem);
+}
+.hero-trust__stars {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+  color: var(--ink);
+}
+.hero-trust__stars .stars {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+/* --- Trust Badges (IM8 style checkmark pills) --- */
+.hero-trust__badges {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-2);
+  margin-top: clamp(0.5rem, 1.8vw, 0.85rem);
+}
+
+.hero-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid var(--line-warm);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 249, 240, 0.64);
+  color: var(--taupe);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  min-height: 0;
+  padding: 0.35rem 0.75rem;
+  white-space: nowrap;
+}
+
+.hero-trust-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* Guarantee internals */
+.hero-guarantee__sixty {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.hero-guarantee__label {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Compact trust badges on all phones — fires before the 390px block */
+@media (max-width: 520px) {
+  .hero-trust__badges {
+    gap: 4px;
+  }
+  .hero-trust-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.32rem;
+  }
+  .hero-trust-badge__icon svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-proof-stack {
+    width: 100%;
+  }
+
+  .hero-badge,
+  .hero-guarantee {
+    max-width: 100%;
+  }
+
+  .hero-guarantee {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+}
+
+/* --- Mobile Breakpoint Overrides --- */
+@media (max-width: 640px) {
+  .hero h1 {
+    white-space: normal;
+  }
+}
+
+/* --- Desktop Breakpoint Layout --- */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 0;
+    grid-template-columns: 48% 52%;
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+    height: clamp(38rem, 80svh, 48rem);
+  }
+
+  .hero-video {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 38% 30%;
+    aspect-ratio: auto;
+  }
+
+  .hero-copy {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: center;
+    gap: clamp(0.9rem, 1.4vw, 1.3rem);
+    padding: clamp(2rem, 4vh, 3.5rem) clamp(2.5rem, 4.5vw, 5rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 3.2vw, 3.3rem);
+  }
+  .hero-subhead {
+    font-size: clamp(1.1rem, 1.45vw, 1.35rem);
+  }
+  .hero-mech {
+    font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+    max-width: 34rem;
+  }
+}

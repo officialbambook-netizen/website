@@ -1,0 +1,99 @@
+/* ===================================
+   PRODUCTS GRID - ZAVELLO THERAPEUTIC
+   =================================== */
+@import 'hero-glitch.css';
+
+.products-section {
+    padding: var(--space-20) 0;
+    background: var(--color-black);
+    border-top: 1px solid rgba(44, 53, 39, 0.05);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(44, 53, 39, 0.1);
+    padding-bottom: 20px;
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-neon-green);
+    margin-bottom: 8px;
+}
+
+.section-headline {
+    font-family: var(--font-display);
+    font-size: 54px;
+    font-weight: 300;
+    color: var(--color-white);
+    margin: 0;
+    line-height: 1;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(44, 53, 39, 0.05);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    border-color: rgba(106, 142, 97, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    transform: translateY(-5px);
+}
+
+.product-card__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.05);
+}
+
+.product-card__content {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.product-card__title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 8px;
+}
+
+.product-card__price {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    color: var(--color-silver);
+    font-weight: 500;
+}

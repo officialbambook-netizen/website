@@ -1,0 +1,180 @@
+/* ===================================
+   PRODUCT DISPLAY PAGE - ZAVELLO
+   =================================== */
+
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 150px 5% 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-visual {
+    position: sticky;
+    top: 150px;
+}
+
+.gallery-main img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 20px;
+    background: var(--color-charcoal);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.gallery-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.gallery-thumbs img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gallery-thumbs img:hover {
+    opacity: 0.8;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: var(--color-white);
+    line-height: 1.1;
+}
+
+.product-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-neon-green);
+    margin-bottom: 30px;
+}
+
+.product-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.product-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-silver);
+    margin-bottom: 40px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.benefits-list li {
+    position: relative;
+    padding-right: 32px;
+    line-height: 1.6;
+    color: var(--color-white);
+}
+
+/* Only show ::before tick on li elements that are positioned (have padding-right for the absolute marker) */
+.benefits-list li::before {
+    content: '';
+    display: none;
+}
+
+.benefits-list li strong {
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background: #FFFFFF;
+    border: 1px solid rgba(44, 53, 39, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.product-actions shopify-add-to-cart {
+    width: 100%;
+    --shopify-button-background: var(--color-white);
+    --shopify-button-color: #FAFAFA;
+    --shopify-button-border-radius: 30px;
+    --shopify-button-padding: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.faqs {
+    margin-top: 60px;
+    border-top: 1px solid rgba(44, 53, 39, 0.1);
+    padding-top: 40px;
+}
+
+.faq-header {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 24px;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(44, 53, 39, 0.05);
+}
+
+.faq-question {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-white);
+    font-size: 16px;
+    width: 100%;
+}
+
+.faq-answer {
+    color: var(--color-silver);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 120px;
+    }
+    .product-visual {
+        position: relative;
+        top: 0;
+    }
+}

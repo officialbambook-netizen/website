@@ -1,0 +1,271 @@
+/* ============================================================
+   LAVERO — SHARED FOOTER COMPONENT
+   ------------------------------------------------------------
+   Cross-page footer. Keep footer styling here so home/product/
+   journal/support pages do not drift from each other.
+   ============================================================ */
+
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255, 249, 240, 0.12);
+  color: var(--ivory);
+  overflow: hidden;
+  padding: clamp(var(--space-16), 7vw, calc(var(--space-24) + var(--space-8))) var(--section-px) var(--space-8);
+  position: relative;
+}
+
+.site-footer::before {
+  color: rgba(255, 249, 240, 0.045);
+  content: "LAVERO";
+  font-family: var(--font-display);
+  font-size: clamp(var(--space-20), 17vw, calc(var(--space-24) * 3));
+  font-weight: 400;
+  inset: auto auto var(--space-8) 50%;
+  letter-spacing: 0.18em;
+  line-height: 0.78;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.footer-watermark {
+  display: none;
+}
+
+.footer-grid,
+.legal {
+  margin-inline: auto;
+  max-width: calc(var(--container) + var(--space-24));
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.footer-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(var(--space-4), 1.6vw, var(--space-5));
+  grid-template-columns: minmax(0, 1.75fr) repeat(4, minmax(0, 0.62fr)) minmax(0, 1.75fr);
+  text-align: left;
+}
+
+.footer-grid > div {
+  min-width: 0;
+}
+
+.footer-grid > div:first-child,
+.footer-grid > div:last-child {
+  background: rgba(255, 249, 240, 0.055);
+  border: 1px solid rgba(255, 249, 240, 0.13);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-deep);
+  padding: var(--space-6);
+}
+
+.footer-grid > div:first-child p,
+.footer-grid > div:last-child p {
+  max-width: 22rem;
+}
+
+.footer-grid > div:not(:first-child):not(:last-child) {
+  border-top: 1px solid rgba(201, 154, 93, 0.34);
+  padding-top: var(--space-4);
+}
+
+.site-footer h3 {
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin: 0 0 var(--space-4);
+  text-transform: uppercase;
+}
+
+.site-footer ul {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer a,
+.site-footer p {
+  color: rgba(255, 249, 240, 0.72);
+  font-family: var(--font-sans);
+  font-size: var(--fs-footer);
+  line-height: 1.65;
+  margin: 0;
+  text-decoration: none;
+}
+
+.site-footer a {
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--ivory);
+}
+
+.footer-brand {
+  color: var(--ivory);
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  min-width: 0;
+  text-transform: uppercase;
+}
+
+.footer-brand strong {
+  color: var(--ivory);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+.footer-brand span {
+  color: rgba(255, 249, 240, 0.58);
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.socials a {
+  align-items: center;
+  border: 1px solid rgba(201, 154, 93, 0.46);
+  border-radius: 50%;
+  color: rgba(255, 249, 240, 0.72);
+  display: inline-flex;
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  height: var(--space-10);
+  justify-content: center;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  width: var(--space-10);
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  background: rgba(201, 154, 93, 0.12);
+  border-color: rgba(201, 154, 93, 0.9);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.email-form {
+  background: rgba(255, 249, 240, 0.08);
+  border: 1px solid rgba(255, 249, 240, 0.16);
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: var(--space-5);
+  padding: var(--space-2);
+}
+
+.email-form input {
+  background: transparent;
+  border: 0;
+  color: var(--ivory);
+  font: inherit;
+  min-width: 0;
+  padding: var(--space-3) var(--space-2);
+}
+
+.email-form input::placeholder {
+  color: rgba(255, 249, 240, 0.46);
+}
+
+.email-form button {
+  background: var(--gold);
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  font: 800 var(--fs-body) var(--font-sans);
+  min-height: var(--space-10);
+  min-width: var(--space-10);
+  padding-inline: var(--space-3);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.email-form button:hover,
+.email-form button:focus-visible {
+  background: var(--ivory);
+  transform: translateY(-1px);
+}
+
+.legal {
+  align-items: center;
+  border-top: 1px solid rgba(255, 249, 240, 0.14);
+  color: rgba(255, 249, 240, 0.46);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--fs-eyebrow);
+  gap: var(--space-4);
+  justify-content: space-between;
+  letter-spacing: 0.04em;
+  margin-top: var(--space-10);
+  padding-top: var(--space-5);
+}
+
+.legal a {
+  color: inherit;
+  font-size: inherit;
+}
+
+.legal a:hover,
+.legal a:focus-visible {
+  color: rgba(255, 249, 240, 0.82);
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid > div:first-child,
+  .footer-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding-inline: var(--space-4);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid > div:first-child,
+  .footer-grid > div:last-child {
+    grid-column: auto;
+  }
+
+  .email-form {
+    grid-template-columns: 1fr;
+  }
+
+  .legal {
+    justify-content: flex-start;
+  }
+}

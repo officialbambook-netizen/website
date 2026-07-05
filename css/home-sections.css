@@ -1,0 +1,267 @@
+/* ============================================================
+   LAVERO — HOMEPAGE SECTION BLOCKS (extracted from inline <style>
+   blocks that were interspersed in the body). Loaded last so these
+   section-scoped responsive rules keep their original cascade order.
+   ============================================================ */
+
+  @media (max-width: 780px) {
+    .sound-like-you-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.2rem !important;
+    }
+    .sound-like-you-img {
+      min-height: 420px !important;
+      order: 1;
+    }
+  }
+
+/* ---- next extracted block ---- */
+
+      @media(max-width:700px){
+        .product-top-grid{ grid-template-columns:1fr !important; }
+        #product-hero-img{ height:auto !important; min-height:0 !important; background:transparent !important; box-shadow:none !important; border-radius:0 !important; aspect-ratio: auto !important; }
+        #product-hero-img img { object-fit:contain !important; height:auto !important; aspect-ratio: 1 / 1 !important; }
+        .product-top-grid h2 { font-size: clamp(2rem,8vw,2.8rem) !important; text-align:center !important; }
+        .product-top-grid p { text-align:center !important; }
+        .product-top-grid > div { text-align:center !important; }
+      }
+    
+
+/* ---- next extracted block ---- */
+
+      .idx-ring {
+        stroke-dashoffset: 326.7;
+        transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    
+
+/* ---- next extracted block ---- */
+
+  @keyframes fsrFadeUp {
+    from { opacity:0; transform:translateY(8px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .fsr-tab.active { background: var(--ink) !important; }
+  .fsr-tab.active .fsr-num { color: var(--gold) !important; }
+  .fsr-tab.active .fsr-name { color: #f0e8d8 !important; }
+  .filter-stage-reveal { animation: fsrFadeUp 0.25s ease; }
+  @media (max-width: 640px) {
+    .fsr-tab { padding: 0.9rem 0.4rem !important; }
+    .fsr-tab .fsr-name { font-size: 0.72rem !important; }
+  }
+
+/* ---- next extracted block ---- */
+
+  @media (max-width: 799px) {
+    .replace-90-section h2 { text-align: center !important; }
+    .replace-90-section .section-inner > p { text-align: center !important; }
+  }
+
+/* ---- next extracted block ---- */
+
+  /* Desktop: grid visible, carousel hidden */
+  .results-grid { display: grid; }
+  .routine-proof-carousel { display: none; }
+
+  .routine-proof-viewport { overflow:hidden; border-radius:16px; max-width:min(86vw,480px); margin:0 auto; }
+  .routine-proof-track { display:flex; transition:transform 420ms ease; will-change:transform; }
+  .routine-proof-nav {
+    appearance:none; position:absolute; top:calc(50% - 1rem); z-index:2;
+    width:2.7rem; height:2.7rem; border:1px solid rgba(194,145,72,0.42); border-radius:50%;
+    background:rgba(248,239,225,0.92); color:var(--ink); box-shadow:0 12px 30px rgba(64,54,50,0.14);
+    cursor:pointer; font-family:var(--serif); font-size:2rem; line-height:1; display:grid; place-items:center;
+  }
+  .routine-proof-prev { left:0; }
+  .routine-proof-next { right:0; }
+  .routine-proof-dots { display:flex; justify-content:center; gap:0.55rem; margin-top:1.2rem; }
+  .routine-proof-dot {
+    appearance:none; width:0.58rem; height:0.58rem; border:0; border-radius:50%;
+    background:rgba(64,54,50,0.25); cursor:pointer; padding:0;
+  }
+  .routine-proof-dot.is-active { background:var(--gold); transform:scale(1.2); }
+
+  @media (max-width: 780px) {
+    .routine-proof-section {
+      padding:clamp(2.4rem,7vh,3.8rem) 4.5vw clamp(5.2rem,10vh,6.5rem) !important;
+    }
+    .routine-proof-section h2 {
+      font-size:clamp(2rem,10vw,3.05rem) !important;
+      white-space:normal;
+    }
+    /* Mobile: hide grid, show carousel */
+    .results-grid { display: none !important; }
+    .routine-proof-carousel {
+      display: block;
+      position: relative;
+      max-width: calc(min(86vw,480px) + 5.5rem);
+      margin: clamp(1.3rem,2.6vh,2.2rem) auto 0;
+      padding: 0 2.75rem 2rem;
+    }
+  }
+
+/* ---- next extracted block ---- */
+
+  .comparison-mobile-only { display: none; }
+
+  @media (max-width: 780px) {
+    .comparison-desktop-only { display: none !important; }
+
+    /* ── Outer card ── */
+    .comparison-mobile-only {
+      display: block;
+      margin-top: 1.6rem;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(64,54,50,0.12);
+      background: var(--ivory);
+      border: 1px solid rgba(201,154,93,0.22);
+    }
+
+    .comparison-mobile-only table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      table-layout: fixed;
+    }
+
+    /* ── Column widths ── */
+    .comparison-mobile-only table colgroup { display: none; }
+    .comparison-mobile-only thead th:first-child  { width: 44%; }
+    .comparison-mobile-only thead th:nth-child(2) { width: 32%; }
+    .comparison-mobile-only thead th:nth-child(3) { width: 24%; }
+
+    /* ── Header row ── */
+    .comparison-mobile-only thead tr {
+      border-bottom: 1px solid rgba(201,154,93,0.2);
+    }
+
+    /* Feature label header (empty) */
+    .comparison-mobile-only thead th {
+      padding: 1.1rem 0.6rem 0.9rem;
+      text-align: center;
+      vertical-align: bottom;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(111,104,97,0.45);
+    }
+    .comparison-mobile-only thead th:first-child { text-align: left; padding-left: 1rem; }
+
+    /* ── LAVERO header — elevated, gold accent ── */
+    .cmo-th-lavero {
+      background: linear-gradient(160deg, rgba(201,154,93,0.18) 0%, rgba(201,154,93,0.08) 100%) !important;
+      border-left: 1px solid rgba(201,154,93,0.35) !important;
+      border-right: 1px solid rgba(201,154,93,0.35) !important;
+      position: relative;
+      color: #a07035 !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.12em !important;
+      padding-top: 1.4rem !important;
+    }
+    .cmo-th-lavero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #c99a5d 40%, #c99a5d 60%, transparent 100%);
+    }
+
+    /* Badge above column name */
+    .cmo-badge {
+      display: block;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c99a5d;
+      background: rgba(201,154,93,0.15);
+      border: 1px solid rgba(201,154,93,0.4);
+      border-radius: 999px;
+      padding: 0.18rem 0.5rem;
+      margin: 0 auto 0.38rem;
+      width: fit-content;
+      line-height: 1.4;
+    }
+
+    /* Standard header */
+    .cmo-th-std {
+      color: rgba(111,104,97,0.4) !important;
+      font-size: 0.62rem !important;
+    }
+
+    /* ── Body rows ── */
+    .comparison-mobile-only tbody tr {
+      border-bottom: 1px solid rgba(201,154,93,0.12);
+    }
+    .comparison-mobile-only tbody tr:last-child { border-bottom: none; }
+
+    /* Feature name cells */
+    .comparison-mobile-only tbody td:first-child {
+      padding: 0.82rem 0.6rem 0.82rem 1rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-align: left;
+      line-height: 1.3;
+    }
+
+    /* ── LAVERO cells — warm, elevated ── */
+    .cmo-lavero {
+      background: linear-gradient(180deg, rgba(201,154,93,0.13) 0%, rgba(201,154,93,0.07) 100%);
+      border-left: 1px solid rgba(201,154,93,0.25);
+      border-right: 1px solid rgba(201,154,93,0.25);
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.82rem 0.4rem;
+    }
+    .cmo-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      background: #c99a5d;
+      color: #fff9f0;
+      font-size: 0.8rem;
+      font-weight: 900;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(201,154,93,0.45);
+      line-height: 1;
+    }
+
+    /* ── Standard cells — muted ── */
+    .cmo-std {
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.82rem 0.4rem;
+    }
+    .cmo-cross {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      color: rgba(111,104,97,0.35);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+
+/* ---- next extracted block ---- */
+
+  @media (max-width: 799px) {
+    .community-section h2 { text-align: center; }
+    .community-section .r-grid-3 blockquote,
+    .community-section .r-grid-3 p { text-align: center; }
+    .community-section .r-grid-3 > div { text-align: center; }
+    .community-section .r-grid-3 > div span {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }

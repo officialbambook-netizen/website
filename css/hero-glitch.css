@@ -1,0 +1,287 @@
+/* ===================================
+   HERO CAROUSEL - legacy Ofek prototype, classes unused in current pages.
+   :root + body blocks removed (had wrong fonts/colors from old Zavello system).
+   Remaining .hero-carousel/.carousel-* rules are dead CSS — kept as no-op.
+   =================================== */
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    background-color: var(--color-black);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.carousel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(1.05);
+}
+
+.carousel-content-split {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(to left, rgba(250, 250, 250, 0.7) 0%, rgba(250, 250, 250, 0) 50%, rgba(250, 250, 250, 0.8) 100%);
+}
+
+.hero-top-right {
+    position: absolute;
+    top: 180px;
+    right: 80px;
+    max-width: 600px;
+    pointer-events: auto;
+    text-align: right;
+}
+
+.hero-bottom-left {
+    position: absolute;
+    bottom: 100px;
+    left: 80px;
+    max-width: 450px;
+    pointer-events: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.carousel-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--color-neon-green);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.carousel-label::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--color-neon-green);
+}
+
+.carousel-headline {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 8vw, 110px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-white);
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(255,255,255,0.7);
+}
+
+.carousel-tagline {
+    font-family: var(--font-sans);
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 500;
+    color: var(--color-white);
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    border-right: 3px solid var(--color-neon-green);
+    padding-right: 16px;
+    border-left: none;
+    padding-left: 0;
+}
+
+.carousel-description {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-white);
+    margin-bottom: 32px;
+    max-width: 380px;
+}
+
+.carousel-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+}
+
+.price-amount {
+    font-family: var(--font-display);
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.price-unit {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--color-silver);
+}
+
+.carousel-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(44, 53, 39, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-white);
+}
+
+.carousel-nav:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.carousel-nav--prev { right: 40px; }
+.carousel-nav--next { left: 40px; }
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 30px;
+}
+
+.btn-primary:hover {
+    background: var(--color-neon-green);
+    color: #FAF9F6;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(106, 142, 97, 0.2);
+}
+
+.carousel-pagination {
+    position: absolute;
+    bottom: 50px;
+    right: 80px;
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.pagination-dot {
+    width: 30px;
+    height: 3px;
+    background: rgba(44, 53, 39, 0.2);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.pagination-dot:hover {
+    background: rgba(44, 53, 39, 0.5);
+}
+
+.pagination-dot.active {
+    background: var(--color-neon-green);
+    width: 50px;
+}
+
+@media (max-width: 1024px) {
+    .carousel-headline { font-size: 80px; }
+    .hero-top-right { top: 120px; right: 40px; }
+    .hero-bottom-left { bottom: 80px; left: 40px; }
+    .carousel-pagination { right: 40px; }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel { min-height: 500px; height: 85vh; }
+    .carousel-content-split { 
+        background: linear-gradient(to bottom, rgba(250, 250, 250, 0.1) 0%, rgba(250, 250, 250, 0.85) 40%, rgba(250, 250, 250, 1) 100%); 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: flex-end; 
+        padding: 100px 30px 40px; 
+    }
+    .carousel-headline { font-size: 55px; line-height: 1.1; margin-bottom: 10px; }
+    
+    .hero-top-right { 
+        position: relative; 
+        top: auto; right: auto; 
+        width: 100%; 
+        text-align: right; 
+        margin-bottom: 15px; 
+    }
+    
+    .hero-bottom-left { 
+        position: relative; 
+        bottom: auto; left: auto; 
+        width: 100%; 
+        margin: 0; 
+        text-align: right; 
+        align-items: flex-start; /* RTL pushes start to the right */
+    }
+    
+    .carousel-tagline { 
+        border-left: none; padding-left: 0; 
+        border-right: 3px solid var(--color-neon-green); padding-right: 16px; 
+        margin-bottom: 15px; font-size: 20px;
+    }
+    .carousel-description { font-size: 16px; margin-bottom: 25px; }
+    
+    .carousel-nav { display: none; }
+    .carousel-cta { width: 100%; justify-content: flex-start; }
+    .btn-primary { width: 100%; } /* Full width button on mobile */
+    .carousel-pagination { bottom: 30px; left: 50%; transform: translateX(-50%); right: auto; } /* Center dots properly */
+}

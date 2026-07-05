@@ -1,0 +1,370 @@
+/* Offset scroll-snap so keyboard focus is never hidden behind the sticky header */
+html {
+  scroll-padding-top: 130px;
+}
+
+/* Page background fallback (brand cream). Sections set their own
+   --cream/--sand backgrounds for the brand's alternation rhythm. */
+body {
+  background-color: var(--cream);
+}
+
+.lavero-main-menu {
+  align-items: center;
+  background: rgba(255, 249, 240, 0.88);
+  border-bottom: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-lift);
+  box-sizing: border-box;
+  color: var(--ink);
+  display: grid;
+  gap: clamp(var(--space-4), 2.2vw, var(--space-8));
+  grid-template-columns: minmax(240px, auto) 1fr minmax(260px, auto);
+  min-height: 74px;
+  padding: 0.9rem 4.4vw;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(18px);
+}
+
+.lavero-main-menu *,
+.lavero-main-menu *::before,
+.lavero-main-menu *::after {
+  box-sizing: border-box;
+}
+
+.lavero-menu-toggle {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  display: none;
+  font: 700 1.55rem/1 var(--font-sans);
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+}
+
+.lavero-brand {
+  color: var(--ink);
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  justify-self: start;
+  min-width: max-content;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.lavero-brand strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.78rem, 1.9vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  line-height: 0.95;
+}
+
+.lavero-brand span {
+  color: var(--taupe);
+  font: 800 var(--fs-eyebrow)/1.2 var(--font-sans);
+  letter-spacing: 0.24em;
+}
+
+.lavero-menu-links {
+  align-items: center;
+  display: flex;
+  gap: clamp(var(--space-2), 1.4vw, var(--space-5));
+  justify-content: center;
+}
+
+.lavero-menu-links a {
+  align-items: center;
+  border-radius: var(--radius-sm);
+  color: var(--taupe);
+  display: inline-flex;
+  flex-direction: column;
+  font: 800 var(--fs-eyebrow)/1 var(--font-sans);
+  gap: var(--space-2);
+  justify-content: center;
+  letter-spacing: 0.18em;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lavero-menu-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.lavero-menu-links a:hover,
+.lavero-menu-links a:focus-visible {
+  color: var(--ink);
+  background: rgba(64, 54, 50, 0.045);
+}
+
+.lavero-menu-links a:hover::after {
+  width: 60%;
+}
+
+.lavero-menu-links a[aria-current="page"] {
+  color: var(--ink);
+  background: none;
+}
+
+.lavero-menu-links a[aria-current="page"]::after {
+  width: 100%;
+  background: var(--gold);
+}
+
+.lavero-menu-links a:hover,
+.lavero-menu-links a:focus-visible,
+.lavero-menu-links a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.lavero-menu-actions {
+  align-items: center;
+  display: flex;
+  gap: clamp(var(--space-3), 1.4vw, var(--space-5));
+  justify-content: end;
+}
+
+.lavero-cart-button {
+  align-items: center;
+  background: var(--gold);
+  border: none;
+  border-radius: 50%;
+  color: var(--ivory);
+  cursor: pointer;
+  display: inline-grid;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(201, 154, 93, 0.25);
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.lavero-cart-button:hover {
+  box-shadow: 0 8px 24px rgba(201, 154, 93, 0.5), 0 2px 6px rgba(64, 54, 50, 0.1);
+  transform: translateY(-3px);
+}
+
+.lavero-cart-button svg {
+  display: block;
+  height: 22px;
+  width: 22px;
+}
+
+.lavero-shop-button {
+  align-items: center;
+  background: var(--gold);
+  border: none;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 10px rgba(201, 154, 93, 0.28);
+  color: var(--ivory);
+  display: inline-flex;
+  font: 800 var(--fs-eyebrow)/1 var(--font-sans);
+  justify-content: center;
+  letter-spacing: 0.18em;
+  min-height: 40px;
+  min-width: 148px;
+  padding: 0 var(--space-6);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .lavero-shop-button:hover {
+    box-shadow: 0 8px 28px rgba(201, 154, 93, 0.5), 0 3px 8px rgba(64, 54, 50, 0.1);
+    transform: translateY(-3px);
+  }
+}
+
+.lavero-shop-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(201, 154, 93, 0.35);
+}
+
+.lavero-cart-badge {
+  align-items: center;
+  background: var(--ivory);
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  display: none;
+  font: 800 var(--fs-eyebrow)/1 var(--font-sans);
+  height: 1.05rem;
+  justify-content: center;
+  min-width: 1.05rem;
+  padding: 0 0.25rem;
+  position: absolute;
+  right: 0.1rem;
+  top: 0.2rem;
+}
+
+.lavero-sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.lavero-main-menu :focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1080px) {
+  .lavero-main-menu {
+    grid-template-columns: auto 1fr auto;
+    min-height: 64px;
+    padding: 0.75rem 1.1rem;
+  }
+
+  .lavero-menu-toggle {
+    display: inline-grid;
+    grid-column: 1;
+    grid-row: 1;
+    place-items: center;
+  }
+
+  .lavero-brand {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .lavero-brand strong {
+    font-size: 1.65rem;
+    letter-spacing: 0.22em;
+  }
+
+  .lavero-brand span {
+    font-size: 0.52rem;
+  }
+
+  .lavero-menu-links {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lift);
+    color: var(--ink);
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: stretch;
+    padding: 0.6rem 1rem;
+  }
+
+  .lavero-menu-links.is-open {
+    display: flex;
+  }
+
+  .lavero-menu-links a {
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+    justify-content: center;
+    width: 100%;
+  }
+
+  .lavero-menu-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .lavero-menu-links a[aria-current="page"] {
+    color: var(--ink);
+    border-bottom-color: var(--line-soft);
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+
+  .lavero-menu-actions {
+    gap: 0.35rem;
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* Shop button inside the open dropdown (moved there by JS) */
+  .lavero-menu-links .lavero-shop-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.9rem 1rem;
+    background: var(--green);
+    border: 1px solid rgba(23, 60, 52, 0.18);
+    border-radius: var(--radius-sm);
+    color: var(--ivory);
+    font: 900 var(--fs-eyebrow)/1 var(--font-sans);
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-height: 48px;
+    border-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .lavero-main-menu {
+    gap: 0.45rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    min-height: 58px;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .lavero-brand {
+    min-width: 0;
+  }
+
+  .lavero-brand strong {
+    font-size: clamp(1.08rem, 5vw, 1.35rem);
+    letter-spacing: 0.18em;
+  }
+
+  .lavero-brand span {
+    font-size: clamp(0.38rem, 1.7vw, 0.46rem);
+    letter-spacing: 0.14em;
+  }
+
+  .lavero-menu-actions {
+    gap: 0.18rem;
+  }
+
+  .lavero-cart-button {
+    min-width: 34px;
+  }
+
+  .lavero-shop-button {
+    display: inline-flex;
+    font-size: clamp(0.5rem, 2.05vw, 0.58rem);
+    letter-spacing: 0.08em;
+    min-height: 40px;
+    padding: 0 0.48rem;
+  }
+}
