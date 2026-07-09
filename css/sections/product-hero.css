@@ -1,15 +1,11 @@
 /* ============================================================
-   LAVERO — PRODUCT PAGE HERO  (product-hero.css)
+   MYBAMBOOK — PRODUCT PAGE HERO
    ------------------------------------------------------------
-   Elevation pass: Grüns / IM8 polish on Lavero's warm
-   golden-beige identity (Cormorant Garamond + Nunito +
-   --cream / --gold / --blush / --brown token system).
+   Gentle support-product styling: blue-cyan confidence, bamboo
+   warmth, practical cards, and clear sans typography.
 
-   Scoped under .pdp-hero. All values from product.css :root
-   (warm overrides) and tokens.css. Zero raw hex, zero
-   !important, zero inline style=.
-
-   Load LAST in product.html <head>, after product.css.
+   Scoped under .pdp-hero. Load LAST in product.html <head>,
+   after product.css.
    ============================================================ */
 
 
@@ -19,7 +15,7 @@
 
 .pdp-hero {
   display: block;
-  background: var(--cream);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
   padding: var(--space-8) var(--section-px) var(--space-12);
 }
 
@@ -62,11 +58,15 @@
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--sand);
+  background: var(--cream);
   aspect-ratio: 4 / 5;
   max-height: min(calc(100svh - 108px), 640px);
   box-shadow: var(--surface-shadow-strong);
   border: 1px solid var(--line);
+}
+
+.pdp-hero__gal-main .gal-image {
+  object-position: center;
 }
 
 .pdp-hero__gal-main.is-gallery-square {
@@ -166,6 +166,11 @@
   display: block;
 }
 
+.pdp-page .pdp-hero__thumbs .pdp-hero__thumb:not(:first-child),
+.pdp-page .pdp-hero__gal-main .gal-arrow {
+  display: none;
+}
+
 .pdp-hero__thumb.is-active,
 .pdp-hero__thumb:hover {
   border-color: var(--gold);
@@ -189,10 +194,10 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  border: 1px solid var(--line-warm);
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 249, 240, 0.86);
-  box-shadow: var(--shadow);
+  background: var(--ivory);
+  box-shadow: var(--surface-shadow);
   padding: var(--space-2) var(--space-4);
   width: fit-content;
   white-space: nowrap;
@@ -201,16 +206,16 @@
 .pdp-hero__badge-star {
   display: inline-flex;
   align-items: center;
-  color: var(--gold);
+  color: var(--blush);
   flex-shrink: 0;
 }
 
 .pdp-hero__badge-title {
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--font-display);
+  font-style: normal;
   font-size: var(--fs-footer);
-  font-weight: 700;
-  color: var(--gold);
+  font-weight: 800;
+  color: var(--brown);
 }
 
 .pdp-hero__badge-pipe {
@@ -275,30 +280,30 @@
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 800;
-  color: var(--gold);
+  color: var(--blush);
 }
 
 /* ── H1 + subhead ───────────────────────────────────────── */
 .pdp-hero__title {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 800;
   color: var(--brown);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: 0;
+  font-size: clamp(2.25rem, 4vw, 3.55rem);
   margin: 0;
 }
 
 .pdp-hero__title em {
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 800;
   color: var(--blush);
 }
 
 .pdp-hero__subhead {
   font-family: var(--font-sans);
   font-size: clamp(0.9rem, 1.1vw, 1rem);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--taupe);
   line-height: 1.7;
   margin: 0;
@@ -319,23 +324,22 @@
   align-items: center;
   gap: var(--space-2);
   background: var(--ivory);
-  border: 1px solid rgba(74,61,57,0.22);
-  border-bottom-color: rgba(74,61,57,0.32);
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: var(--space-2) var(--space-3);
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0;
   color: var(--brown);
-  box-shadow: 0 3px 8px rgba(64,54,50,0.09), inset 0 1px 0 rgba(255,255,255,0.9);
+  box-shadow: var(--surface-shadow);
 }
 
 .pdp-hero__chip-check {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  color: var(--gold);
+  color: var(--blush);
 }
 
 /* ============================================================
@@ -350,7 +354,7 @@
 .pdp-hero__card {
   background: var(--surface-fill);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) + var(--space-2));
   box-shadow: var(--surface-shadow-strong);
   overflow: hidden;
 }
@@ -376,9 +380,9 @@
   z-index: 2;
 }
 .pdp-sold-num {
-  font-family: var(--font-display);
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 900;
   line-height: 1;
   letter-spacing: 0.02em;
   text-align: center;
@@ -395,7 +399,7 @@
 }
 
 .pdp-hero__card-body {
-  padding: clamp(var(--space-5), 2.5vw, var(--space-8));
+  padding: clamp(var(--space-6), 2.8vw, var(--space-10));
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -403,14 +407,14 @@
 
 /* ── Price block ────────────────────────────────────────── */
 .pdp-hero__price-block {
-  padding-bottom: var(--space-4);
+  padding: var(--space-2) 0 var(--space-6);
   border-bottom: 1px solid var(--line);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .pdp-hero__price-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-3);
   flex-wrap: wrap;
 }
@@ -447,6 +451,15 @@
   line-height: 1;
 }
 
+.pdp-hero__offer-status {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  color: var(--brown);
+  max-width: 9ch;
+}
+
 .pdp-hero__price-badge {
   display: inline-flex;
   align-items: center;
@@ -465,16 +478,16 @@
 
 .pdp-hero__price-sub {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 800;
   color: var(--brown);
-  margin-top: var(--space-2);
+  margin-top: var(--space-4);
 }
 
 .pdp-hero__price-refill {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: clamp(0.88rem, 1vw, 0.96rem);
+  font-weight: 650;
   color: var(--taupe);
   margin-top: var(--space-2);
   line-height: 1.6;
@@ -483,10 +496,11 @@
 /* ── Color + qty on ONE row ─────────────────────────────── */
 .pdp-hero__options-row {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: var(--space-4);
-  padding: var(--space-5) 0 var(--space-4);
-  margin-bottom: var(--space-4);
+  padding: 0 0 var(--space-6);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
 }
 
 .pdp-hero__options-row .color-options {
@@ -558,9 +572,9 @@
 }
 
 .color-swatch-selected {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--brown);
 }
 
@@ -587,34 +601,67 @@
   box-shadow: 0 0 0 2px var(--ivory), 0 0 0 4px var(--gold);
 }
 
+.color-swatch-btn--cyan,
+.pdp-sticky-bar__color-dot--cyan,
+.pdp-sticky-bar__color-opt-dot--cyan {
+  background: var(--green);
+}
+
+.color-swatch-btn--charcoal,
+.pdp-sticky-bar__color-dot--charcoal,
+.pdp-sticky-bar__color-opt-dot--charcoal {
+  background: var(--brown);
+}
+
+.color-swatch-btn--sand,
+.pdp-sticky-bar__color-dot--sand,
+.pdp-sticky-bar__color-opt-dot--sand {
+  background: var(--sand);
+}
+
+.color-swatch-btn--bamboo,
+.pdp-sticky-bar__color-dot--bamboo,
+.pdp-sticky-bar__color-opt-dot--bamboo {
+  background: var(--gold);
+}
+
 /* Qty stepper — compact, right-aligned in the options row */
 .pdp-hero__qty-wrap {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: var(--space-1);
 }
 
 .pdp-hero__qty-label {
-  display: none;
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--taupe);
 }
 
 .pdp-hero .qty-stepper {
   border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   overflow: hidden;
   background: var(--ivory);
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(44px, 1fr));
+  min-width: 168px;
 }
 
 .pdp-hero .qty-btn {
   background: transparent;
   color: var(--taupe);
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 300;
-  width: 38px;
-  height: 42px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  width: auto;
+  height: 56px;
   transition: background 140ms ease, color 140ms ease;
 }
 
@@ -622,27 +669,27 @@
 .pdp-hero .qty-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
 .pdp-hero .qty-count {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.18rem;
   color: var(--brown);
-  min-width: 36px;
+  min-width: 44px;
   text-align: center;
   border-left: 1px solid var(--line);
   border-right: 1px solid var(--line);
-  line-height: 42px;
+  line-height: 56px;
 }
 
 /* ── Filter bundle section ──────────────────────────────── */
 .pdp-hero__bundle-label {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brown);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 
 .pdp-hero__bundle-note {
@@ -650,18 +697,19 @@
   text-transform: none;
   letter-spacing: 0;
   font-weight: 500;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--taupe);
 }
 
 .pdp-hero .filter-bundle-section {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 .pdp-hero .filter-bundle-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-2);
-  padding-top: var(--space-5);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  padding-top: var(--space-3);
 }
 
 .pdp-hero .filter-bundle-card {
@@ -669,10 +717,14 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  padding: var(--space-3) var(--space-2) var(--space-2);
+  min-height: 112px;
+  padding: var(--space-6) var(--space-3) var(--space-3);
   text-align: center;
   position: relative;
   transition: border-color 180ms ease, box-shadow 180ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .pdp-hero .filter-bundle-card:hover {
@@ -681,15 +733,15 @@
 
 .pdp-hero .filter-bundle-card.is-selected {
   border-color: var(--gold);
-  border-width: 1.5px;
-  box-shadow: 0 2px 10px rgba(201, 154, 93, 0.12);
+  border-width: 2px;
+  box-shadow: var(--surface-shadow);
 }
 
 .pdp-hero .filter-bundle-card-days {
   display: block;
   font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 0.84rem;
+  font-weight: 900;
+  font-size: clamp(0.92rem, 1.2vw, 1.08rem);
   color: var(--brown);
   line-height: 1.2;
 }
@@ -697,8 +749,8 @@
 .pdp-hero .filter-bundle-card-sub {
   display: block;
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.7rem;
+  font-weight: 750;
+  font-size: 0.76rem;
   color: var(--taupe);
   margin-top: var(--space-1);
 }
@@ -706,17 +758,17 @@
 /* Best Value — floats above the card */
 .pdp-hero .filter-bundle-best-value {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--gold);
+  background: var(--blush);
   color: var(--ivory);
   font-family: var(--font-sans);
-  font-size: 0.52rem;
+  font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 2px 9px;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
@@ -724,7 +776,7 @@
 /* Save badge */
 .pdp-hero .filter-bundle-card-save {
   display: inline-block;
-  background: var(--gold);
+  background: var(--blush);
   color: var(--ivory);
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
@@ -734,6 +786,15 @@
   text-transform: uppercase;
   padding: 2px 7px;
   margin-top: var(--space-1);
+}
+
+.pdp-hero__bundle-summary {
+  color: var(--taupe);
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1vw, 0.98rem);
+  font-weight: 800;
+  line-height: 1.5;
+  margin: var(--space-4) 0 0;
 }
 
 /* ── Cart status ────────────────────────────────────────── */
@@ -748,28 +809,29 @@
 .pdp-hero .act-group {
   display: grid;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .pdp-hero .btn-cta {
-  background: var(--gold);
+  background: var(--blush);
   color: var(--ivory);
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.88rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-button);
   transition: background 200ms ease, transform 180ms ease, box-shadow 180ms ease;
-  min-height: 58px;
+  min-height: 68px;
   border: none;
   gap: var(--space-2);
+  width: 100%;
 }
 
 .pdp-hero .btn-cta:hover,
 .pdp-hero .btn-cta:focus-visible {
-  background: var(--brown);
+  background: var(--green);
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(64, 54, 50, 0.15);
 }
@@ -1193,7 +1255,7 @@
 }
 
 .pdp-sticky-bar__price {
-  font-family: "Playfair Display", Didot, "Bodoni 72", "Bodoni MT", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--brown);
@@ -1213,7 +1275,7 @@
 
 .pdp-sticky-bar__cta {
   flex-shrink: 0;
-  background: var(--gold);
+  background: var(--blush);
   color: var(--ivory);
   font-family: var(--font-sans);
   font-weight: 750;
@@ -1244,7 +1306,7 @@
 }
 
 .pdp-sticky-bar__cta:hover {
-  background: var(--brown);
+  background: var(--green);
   color: var(--ivory);
   box-shadow: 0 6px 18px rgba(64, 54, 50, 0.12);
   transform: translateY(-1px);
@@ -1267,7 +1329,11 @@
   .pdp-hero__inner { gap: var(--space-6); }
 
   .pdp-hero .filter-bundle-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-hero .filter-bundle-card {
+    min-height: 94px;
   }
 
   .pdp-hero__price-amount {
@@ -1859,7 +1925,7 @@
 }
 
 /* ============================================================
-   DEPTH PASS — warm product tactility, not software gloss
+   DEPTH PASS — soft product tactility, not software gloss
    ============================================================ */
 
 .pdp-hero__gal-main,

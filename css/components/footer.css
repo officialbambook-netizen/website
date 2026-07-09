@@ -16,7 +16,7 @@
 
 .site-footer::before {
   color: rgba(255, 249, 240, 0.045);
-  content: "LAVERO";
+  content: "MYBAMBOOK";
   font-family: var(--font-display);
   font-size: clamp(var(--space-20), 17vw, calc(var(--space-24) * 3));
   font-weight: 400;
@@ -123,6 +123,10 @@
   text-transform: uppercase;
 }
 
+.footer-brand--mybambook {
+  text-transform: none;
+}
+
 .footer-brand strong {
   color: var(--ivory);
   font-family: var(--font-display);
@@ -132,11 +136,17 @@
   line-height: 1;
 }
 
-.footer-brand span {
+.footer-brand > span {
   color: rgba(255, 249, 240, 0.58);
   font-size: var(--fs-eyebrow);
   font-weight: 800;
   letter-spacing: 0.28em;
+}
+
+.footer-brand strong .footer-brand__bamboo {
+  color: var(--gold);
+  font: inherit;
+  letter-spacing: inherit;
 }
 
 .socials {

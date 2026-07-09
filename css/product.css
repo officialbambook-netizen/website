@@ -1,7 +1,7 @@
 /* ============================================================
-   LAVERO — PRODUCT PAGE STYLES (extracted from product.html)
-   Keeps Cormorant Garamond / Nunito fonts and product-page token
-   overrides — intentionally different from index.html brand spec.
+   MYBAMBOOK — PRODUCT PAGE STYLES
+   Support-product token layer for the Bambook Compression Gloves
+   PDP: calm blue-cyan, bamboo warmth, and clear sans typography.
    ============================================================ */
 
     /* ===================================================
@@ -9,21 +9,25 @@
        All original nav/footer vars updated to brand spec
     ==================================================== */
     :root {
-      --cream:        #F1E7DA;
-      --ivory:        #FFF9F2;
-      --sand:         #F7EFE4;
-      --blush:        #C98B80;
-      --rose-soft:    #D19A90;
-      --gold:         #B88E4A;
-      --green:        #173C34;
-      --brown:        #4A3D39;
-      --taupe:        #5B4F48;
-      --line:         rgba(74,61,57,0.15);
-      --surface-shadow: 0 20px 52px rgba(64,54,50,0.08), 0 3px 12px rgba(64,54,50,0.04);
-      --surface-shadow-strong: 0 28px 72px rgba(64,54,50,0.12), 0 8px 24px rgba(64,54,50,0.06);
-      --surface-fill: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(255,248,239,0.94) 100%);
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-sans:    'Nunito', system-ui, sans-serif;
+      --cream:        #EAF7FA;
+      --ivory:        #FBFDFB;
+      --sand:         #F3E9DA;
+      --blush:        #2596BE;
+      --rose-soft:    #8FC8C0;
+      --gold:         #C48B45;
+      --green:        #1D6F8F;
+      --brown:        #102536;
+      --taupe:        #5A6F78;
+      --ink:          #102536;
+      --line:         rgba(16,37,54,0.14);
+      --line-warm:    rgba(196,139,69,0.24);
+      --surface-shadow: 0 20px 52px rgba(16,37,54,0.08), 0 3px 12px rgba(16,37,54,0.04);
+      --surface-shadow-strong: 0 28px 72px rgba(16,37,54,0.13), 0 8px 24px rgba(16,37,54,0.07);
+      --surface-fill: linear-gradient(180deg, rgba(251,253,251,0.98) 0%, rgba(234,247,250,0.9) 100%);
+      --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+      --font-sans:    'Inter', system-ui, sans-serif;
+      --serif:        'Manrope', 'Inter', system-ui, sans-serif;
+      --sans:         'Inter', system-ui, sans-serif;
     }
 
     /* ===================================================
@@ -32,7 +36,7 @@
     *, *::before, *::after { box-sizing: border-box; min-width: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: linear-gradient(180deg, #fdf8f2 0%, #f7efe3 35%, #fdf8f2 100%);
+      background: linear-gradient(180deg, #FBFDFB 0%, #EAF7FA 38%, #FBFDFB 100%);
       color: var(--brown);
       font-family: var(--font-sans);
       margin: 0;
@@ -112,7 +116,7 @@
       display: block; color: var(--gold); font: 700 11px var(--font-sans);
       letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 14px;
     }
-    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.06; margin: 0; }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.06; margin: 0; }
     h1 { font-size: clamp(36px,4.6vw,62px); }
     h2 { font-size: clamp(32px,4vw,54px); }
     h3 { font-size: clamp(21px,2vw,28px); }

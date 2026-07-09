@@ -3,855 +3,183 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LAVERO | Beauty Shower Filter</title>
+    <title>MyBambook | Everyday Hand Support</title>
     <meta
       name="description"
-      content="LAVERO is a premium beauty shower filter for cleaner-feeling water, softer-looking hair, and calmer skin."
+      content="MyBambook makes Bambook compression gloves for gentle, practical hand support through typing, chores, errands, reading, and rest."
     />
-    <!-- Brand display serif (Playfair Display) — so every visitor sees the editorial face, not the Georgia fallback. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <!-- Design tokens: single source of truth. Must load first. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tokens.css?v=60a0d605" />
-    <!-- Base layout primitives (.container/.section/.two-col/.eyebrow). -->
     <link rel="stylesheet" href="css/base.css?v=3322b48f" />
-    <!-- Homepage styles (extracted from the former inline style block). -->
-    <link rel="stylesheet" href="css/home.css?v=ef04c486" />
-    <!-- Per-section styles (extracted from inline blocks during refactor). -->
-    <link rel="stylesheet" href="css/sections/home-hero.css?v=51583096" />
-    <link rel="stylesheet" href="css/sections/home-what-you-feel.css?v=624dfc39" />
-    <link rel="stylesheet" href="css/sections/home-product.css?v=cea11734" />
-    <link rel="stylesheet" href="css/sections/home-routine-proof.css?v=2cba0180" />
-    <link rel="stylesheet" href="css/sections/home-replace-90.css?v=0382586f" />
-    <link rel="stylesheet" href="css/sections/home-community.css?v=543be1d2" />
-    <link rel="stylesheet" href="css/sections/home-the-offer.css?v=f26a9cf5" />
-    <link rel="stylesheet" href="css/sections/home-faq.css?v=bfe84207" />
-    <link rel="stylesheet" href="css/sections/home-comparison.css?v=c6f6c373" />
-    <link rel="stylesheet" href="css/sections/home-fair-question.css?v=4054afe0" />
-    <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f" />
-    <link rel="stylesheet" href="css/sections/home-install-ease.css?v=3ccefed2" />
-  <!-- Shopify Storefront Web Components -->
-  <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
-  <link rel="stylesheet" href="css/components/main-menu.css?v=ef3c0865">
-  <link rel="stylesheet" href="css/components/floating-cart.css?v=5e6c679a">
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=11ac067b">
-  <!-- Extracted homepage section blocks (loaded last). -->
-  <link rel="stylesheet" href="css/home-sections.css?v=3c12a9b2">
-  <link rel="stylesheet" href="css/components/footer.css?v=a3679110">
-  <script src="js/main-menu.js?v=fb35a1c0" defer></script>
-</head>
-  <body>
+    <link rel="stylesheet" href="css/mybambook-theme.css?v=f18638a1" />
+    <link rel="stylesheet" href="css/components/main-menu.css?v=3fa474a0">
+    <link rel="stylesheet" href="css/components/footer.css?v=e2d76920">
+    <script src="js/main-menu.js?v=fb35a1c0" defer></script>
+    <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  </head>
+  <body class="mybambook-page mybambook-home">
 
-  <!-- Shopify store context — hidden from assistive technology; cart is handled by the universal Lavero drawer -->
-  <shopify-store
-    store-domain="mylavero.myshopify.com"
-    public-access-token="d15d14ffe85e175d52071eac07e1834c"
-    country="US"
-    language="en"
-    aria-hidden="true"
-  >
-    <shopify-cart id="cart"></shopify-cart>
-  </shopify-store>
+    <shopify-store
+      store-domain="w1c0ed-5s.myshopify.com"
+      public-access-token="f2863bebc601b26a3c6f35a9c63c560e"
+      country="US"
+      language="en"
+      aria-hidden="true"
+    >
+      <shopify-cart id="cart"></shopify-cart>
+    </shopify-store>
 
-<header class="lavero-main-menu" aria-label="Primary navigation">
-  <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
-  <a href="index.html" class="lavero-brand" aria-label="Lavero home">
-    <strong>LAVERO</strong>
-    <span>Beauty Shower Filter</span>
-  </a>
-  <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
-    <a href="index.html" data-section="home">Home</a>
-    <a href="product.html" data-section="shop">Shop</a>
-    <a href="replacement-filters.html" data-section="filters">Filters</a>
-    <a href="water-education.html" data-section="science">Science</a>
-    <a href="mission.html" data-section="mission">Mission</a>
-  </nav>
-  <div class="lavero-menu-actions">
-    <button class="lavero-cart-button" type="button" aria-label="Open cart" onclick="openProductCart()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <path d="M6 8h12l-1 10H7L6 8Z"></path>
-        <path d="M9 8a3 3 0 0 1 6 0"></path>
-      </svg>
-      <span class="lavero-cart-badge cart-badge" aria-hidden="true">0</span>
-      <span class="lavero-sr-only">0 items in cart</span>
-    </button>
-    <a href="product.html" class="lavero-shop-button">Shop Lavero</a>
-  </div>
-</header>
+    <header class="lavero-main-menu" aria-label="Primary navigation">
+      <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
+      <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook home">
+        <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
+        <span>Compression Gloves</span>
+      </a>
+      <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
+        <a href="index.html" data-section="home" aria-current="page">Home</a>
+        <a href="product.html" data-section="shop">Shop</a>
+        <a href="faq.html" data-section="faq">FAQ</a>
+        <a href="mission.html" data-section="mission">About</a>
+      </nav>
+      <div class="lavero-menu-actions">
+        <a href="product.html" class="lavero-shop-button">Shop Bambook</a>
+      </div>
+    </header>
 
     <main>
-      <section class="hero reveal-page" id="shop">
-<img
-  class="hero-video"
-  src="assets/curl-woman-showering.jpeg"
-  alt="Woman with curly hair rinsing in the shower"
-/>
-        <div class="hero-copy">
-          <div class="hero-badge">
-            <span class="hero-badge__star" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-            <span class="hero-badge__title">Customer Choice</span>
-            <span class="hero-badge__pipe" aria-hidden="true"></span>
-            <span class="hero-badge__sub">Picked by 1520+ customers</span>
-          </div>
-          <h1><em>Your</em> hair was never the <em>problem</em></h1>
-          <p class="hero-mech">Your tap water is chlorinated to stay clean. That same chlorine strips the oil your hair makes to protect itself — before your shampoo, your conditioner, anything else gets a chance.</p>
-          <div class="hero-cta-row">
-            <a class="hero-cta" id="home-hero-cta" href="product.html">Fix Your Routine</a>
-            <p class="hero-guarantee"><span class="hero-guarantee__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg></span><span class="hero-guarantee__text"><span class="hero-guarantee__sixty">60 Day Money Back</span><span class="hero-guarantee__label">Guarantee</span></span></p>
-          </div>
-          <div class="hero-trust">
-            <p class="hero-trust__stars">
-              <span class="stars" aria-label="4.8 out of 5 stars">★★★★★</span>
-              4.8 · 359 reviews
-            </p>
-            <div class="hero-trust__badges">
-              <div class="hero-trust-badge">
-                <span class="hero-trust-badge__icon" aria-hidden="true">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 8h12l-1 10H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/>
-                  </svg>
-                </span>
-                <span class="hero-trust-badge__text">Fast Shipping</span>
-              </div>
-              <div class="hero-trust-badge">
-                <span class="hero-trust-badge__icon" aria-hidden="true">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                  </svg>
-                </span>
-                <span class="hero-trust-badge__text">Secure Payments</span>
-              </div>
-              <div class="hero-trust-badge">
-                <span class="hero-trust-badge__icon" aria-hidden="true">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
-                  </svg>
-                </span>
-                <span class="hero-trust-badge__text">Premium Quality</span>
-              </div>
+      <section class="mb-hero reveal-page is-visible" id="home">
+        <div class="mb-hero__inner">
+          <div class="mb-hero__copy">
+            <span class="mb-kicker">MyBambook · Compression Gloves</span>
+            <h1>Support for hands that do <em>a lot.</em></h1>
+            <p class="mb-hero__lead">Gentle compression gloves made for the little hand moments that keep repeating: typing, cooking, scrolling, reading, tidying, and winding down.</p>
+            <ul class="mb-benefit-list" aria-label="Key benefits">
+              <li>Gentle everyday compression</li>
+              <li>Open-finger dexterity for real tasks</li>
+              <li>Soft bamboo-inspired feel and calm fit</li>
+              <li>Easy to keep nearby at work, home, or on the go</li>
+            </ul>
+            <div class="mb-hero__actions">
+              <a class="mb-button" href="product.html">View Bambook Gloves</a>
+              <a class="mb-link-button" href="faq.html">Read FAQ</a>
             </div>
+          </div>
+          <figure class="mb-hero__media">
+            <img src="assets/mybambook-hero-mug-gloves-2026-07-07.png" alt="Hands wearing MyBambook compression gloves while holding a mug" loading="eager" fetchpriority="high">
+          </figure>
+        </div>
+      </section>
+
+      <section class="mb-section mb-section--ivory reveal-page">
+        <div class="mb-section__inner">
+          <div class="mb-centered">
+            <p class="eyebrow">Everyday Wear</p>
+            <h2 class="mb-section-title">Support that fits into your day.</h2>
+          </div>
+          <div class="mb-grid-4">
+            <article class="mb-card">
+              <h3>Work &amp; Focus</h3>
+              <p>Comfort while you type, write, click, and move through desk work.</p>
+            </article>
+            <article class="mb-card">
+              <h3>Daily Tasks</h3>
+              <p>Open fingertips keep ordinary chores and touch tasks practical.</p>
+            </article>
+            <article class="mb-card">
+              <h3>Rest &amp; Relax</h3>
+              <p>Soft support for reading, evening routines, and slower moments.</p>
+            </article>
+            <article class="mb-card">
+              <h3>On The Go</h3>
+              <p>Lightweight enough to keep close when your hands want backup.</p>
+            </article>
           </div>
         </div>
       </section>
 
-<section class="water-reality reveal-page" aria-labelledby="water-reality-title">
-  <div class="water-reality-grid">
-    <div class="water-reality-copy">
-      <p class="water-reality-kicker">Why your water matters</p>
-      <h2 id="water-reality-title">Here's what was <em>actually</em> happening.</h2>
-      <div class="water-reality-body">
-        <p>Tap water is treated with chlorine to keep you safe. That's not the problem.</p>
-        <p><em class="body-accent">The actual problem:</em> that same chlorine strips the thin oil layer your hair makes to protect itself — before your shampoo, your conditioner, anything else gets a chance.</p>
-        <p class="water-reality-closer">The <em>fix</em> isn't a better product. It's cleaner <em>water.</em></p>
-      </div>
-    </div>
-    <figure class="water-reality-media">
-      <img src="assets/lavero-water-contaminants.png" alt="Illustration of a water drop showing chlorine, heavy metals, hard minerals, bacteria, and contaminants touching a strand of hair">
-    </figure>
-  </div>
-</section>
-
-<!-- What You Feel -->
-<section class="section section--ivory reveal-page sound-like-you">
-
-  <div class="container two-col sound-like-you-grid">
-
-    <!-- Left: image only, no overlay -->
-    <figure class="sound-like-you-img">
-      <img src="assets/curls-in-mirror.jpeg" alt="Woman examining her curls in a bathroom mirror surrounded by hair products">
-    </figure>
-
-    <!-- Right: text -->
-    <div class="sound-like-you__text">
-      <h2 class="sound-like-you__title">Sounds like <em>you?</em></h2>
-      <div class="sound-like-you__list">
-        <p class="sound-like-you__line">You notice it after a move. Or maybe your colour just started fading faster than it should. You try new shampoos. Switch conditioners. Cut back on heat. You upgrade everything until the shelf fills up. Nothing changes.</p>
-        <p class="sound-like-you__line sound-like-you__line--closer"><em>Nothing</em> sticks when the problem <em>starts</em> before your products do.</p>
-      </div>
-      <a class="sound-like-you__cta" href="product.html">The Solution</a>
-    </div>
-
-  </div>
-</section>
-
-
-<section class="section section--sand reveal-page c-d product">
-  <div class="section-inner product__inner">
-
-    <!-- The Product -->
-    <div class="product-top-grid">
-
-      <!-- Left col: headline + body text, then stage content vertically centered in remaining space -->
-      <div class="product__text">
-        <p class="product__intro"><em>Clean</em> water <em>first.</em> Products second.</p>
-        <h2 class="product__title">So we <em>filtered</em> it out.</h2>
-        <p class="product__body">Lavero is a shower filter designed to reduce up to 99% of the chlorine — so the products you already pay for stop washing down the drain. It filters your water through four stages before it touches your hair and skin.</p>
-
-        <!-- Stats block -->
-        <div class="product__stats">
-          <div class="product__stat">
-            <span class="product__stat-up">Filters up to</span>
-            <strong class="product__stat-num">99%</strong>
-            <span class="product__stat-label">Chlorine</span>
-          </div>
-          <div class="product__stat">
-            <span class="product__stat-up">Filters up to</span>
-            <strong class="product__stat-num">97%</strong>
-            <span class="product__stat-label">Heavy metals</span>
-          </div>
-          <div class="product__stat">
-            <span class="product__stat-up">Filters up to</span>
-            <strong class="product__stat-num">95%</strong>
-            <span class="product__stat-label">Sediment &amp; microplastics</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right col: image -->
-      <figure id="product-hero-img">
-        <img src="assets/Filter-stages.jpeg" alt="Lavero filter stages — micro mesh, ion exchange resin, activated carbon ACF, final micro mesh">
-      </figure>
-
-    </div>
-
-
-
-
-  </div>
-</section>
-
-<!-- Replace Every 90 Days -->
-<section class="section section--ivory reveal-page c-d replace-90-section">
-  <div class="section-inner">
-    <p class="eyebrow">Replace every 90 days</p>
-    <h2>Three <em>months</em> of your water.<br>This is what it <em>absorbed.</em></h2>
-    <p class="replace-90__body">Every shower, the filter captures chlorine, heavy metals, and sediment before they reach your hair and skin. After 90 days you can see everything it caught.</p>
-
-    <hr class="filter-rule">
-    <!-- Filter comparison slider -->
-    <div class="filter-comparison" id="filterComparison">
-      <img class="fc-img fc-after" src="assets/lavero-filter-after.png" alt="Clean filter">
-      <img class="fc-img fc-before" src="assets/lavero-filter-before.png" alt="Used filter">
-      <label for="fcSlider" class="sr-only">Drag to compare clean vs used filter</label>
-      <input type="range" min="0" max="100" value="50" class="fc-slider" id="fcSlider" aria-label="Drag to compare clean vs used filter">
-      <div class="fc-line" aria-hidden="true"></div>
-      <div class="fc-button" aria-hidden="true">&lt; &gt;</div>
-    </div>
-
-    <a href="product.html" class="replace-90__cta">Save on filter packs</a>
-
-  </div>
-</section>
-<script>
-  (function(){
-    const slider = document.getElementById('fcSlider');
-    const container = document.getElementById('filterComparison');
-    if (!slider) return;
-    slider.addEventListener('input', function(e) {
-      container.style.setProperty('--position', e.target.value + '%');
-    });
-  })();
-</script>
-
-<!-- Same Routine Results -->
-<section class="section--sand reveal-page routine-proof-section routine-proof">
-  <div class="routine-proof__inner">
-    <p class="eyebrow">Same routine. Filtered water.</p>
-    <h2 class="routine-proof__title"><em>Some</em> results will <em>shock</em> you</h2>
-
-    <!-- Desktop: 4-column grid -->
-    <div class="results-grid">
-      <figure>
-        <img src="assets/1.png" alt="Hair before and after using Lavero shower filter">
-      </figure>
-      <figure>
-        <img src="assets/2.png" alt="Skin before and after using Lavero shower filter">
-      </figure>
-      <figure>
-        <img src="assets/3.png" alt="Skin texture before and after using Lavero shower filter">
-      </figure>
-      <figure>
-        <img src="assets/4.png" alt="Curly hair before and after using Lavero shower filter">
-      </figure>
-    </div>
-
-    <!-- Mobile: carousel -->
-    <div class="routine-proof-carousel" data-routine-proof-carousel>
-      <button class="routine-proof-nav routine-proof-prev" type="button" aria-label="Previous result">&lsaquo;</button>
-      <div class="routine-proof-viewport">
-        <div class="routine-proof-track">
-          <figure class="routine-proof-slide">
-            <img src="assets/1.png" alt="Hair before and after using Lavero shower filter">
+      <section class="mb-section mb-section--cream reveal-page">
+        <div class="mb-section__inner mb-split">
+          <figure class="mb-split__media">
+            <img src="assets/mybambook-desk-gloves-2026-07-07.png" alt="Hands wearing MyBambook compression gloves while typing on a laptop" loading="lazy">
           </figure>
-          <figure class="routine-proof-slide">
-            <img src="assets/2.png" alt="Skin before and after using Lavero shower filter">
-          </figure>
-          <figure class="routine-proof-slide">
-            <img src="assets/3.png" alt="Skin texture before and after using Lavero shower filter">
-          </figure>
-          <figure class="routine-proof-slide">
-            <img src="assets/4.png" alt="Curly hair before and after using Lavero shower filter">
-          </figure>
-        </div>
-      </div>
-      <button class="routine-proof-nav routine-proof-next" type="button" aria-label="Next result">&rsaquo;</button>
-      <div class="routine-proof-dots" aria-label="Choose result image">
-        <button class="routine-proof-dot is-active" type="button" aria-label="Show result 1" aria-current="true"></button>
-        <button class="routine-proof-dot" type="button" aria-label="Show result 2"></button>
-        <button class="routine-proof-dot" type="button" aria-label="Show result 3"></button>
-        <button class="routine-proof-dot" type="button" aria-label="Show result 4"></button>
-      </div>
-    </div>
-
-    <p class="routine-proof__disclaimer">Real Lavero customers. Results vary — water quality, hair type, and skin condition all play a role.</p>
-
-  </div>
-</section>
-<script>
-  (function() {
-    var carousel = document.querySelector('[data-routine-proof-carousel]');
-    if (!carousel) return;
-    var track = carousel.querySelector('.routine-proof-track');
-    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.routine-proof-slide'));
-    var dots = Array.prototype.slice.call(carousel.querySelectorAll('.routine-proof-dot'));
-    var prev = carousel.querySelector('.routine-proof-prev');
-    var next = carousel.querySelector('.routine-proof-next');
-    var realSlideCount = slides.length;
-    var current = 1;
-    var isMoving = false;
-    if (realSlideCount < 2) return;
-    var firstClone = slides[0].cloneNode(true);
-    var lastClone = slides[realSlideCount - 1].cloneNode(true);
-    firstClone.setAttribute('aria-hidden', 'true');
-    lastClone.setAttribute('aria-hidden', 'true');
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, slides[0]);
-    slides = Array.prototype.slice.call(carousel.querySelectorAll('.routine-proof-slide'));
-    function realIndex() {
-      if (current === 0) return realSlideCount - 1;
-      if (current === realSlideCount + 1) return 0;
-      return current - 1;
-    }
-    function updateDots() {
-      var activeIndex = realIndex();
-      dots.forEach(function(dot, i) {
-        dot.classList.toggle('is-active', i === activeIndex);
-        if (i === activeIndex) dot.setAttribute('aria-current','true');
-        else dot.removeAttribute('aria-current');
-      });
-    }
-    function moveTo(index, animate) {
-      isMoving = animate;
-      current = index;
-      track.style.transition = animate ? 'transform 420ms ease' : 'none';
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
-      updateDots();
-    }
-    prev.addEventListener('click', function() { if (!isMoving) moveTo(current - 1, true); });
-    next.addEventListener('click', function() { if (!isMoving) moveTo(current + 1, true); });
-    dots.forEach(function(dot, i) {
-      dot.addEventListener('click', function() { if (!isMoving) moveTo(i + 1, true); });
-    });
-    track.addEventListener('transitionend', function() {
-      isMoving = false;
-      if (current === 0) moveTo(realSlideCount, false);
-      if (current === realSlideCount + 1) moveTo(1, false);
-    });
-    moveTo(current, false);
-  })();
-</script>
-
-<!-- Easy to Put On -->
-<section class="section section--ivory reveal-page install-ease">
-  <div class="container two-col install-ease__grid">
-
-    <!-- Image -->
-    <figure class="install-ease__img">
-      <img src="assets/Install-ease-image.jpeg" alt="Hands screwing the Lavero shower head onto the shower arm — no tools required">
-    </figure>
-
-    <!-- Text -->
-    <div class="install-ease__text">
-      <p class="eyebrow install-ease__eyebrow">Fits in 60 seconds</p>
-      <h2 class="install-ease__title"><em>Easy</em> to put <em>on.</em><br>Hard to <em>go</em> back.</h2>
-
-      <ul class="install-ease__list">
-
-        <li class="install-ease__item">
-          <span class="install-ease__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              <line x1="3" y1="21" x2="21" y2="3"/>
-            </svg>
-          </span>
-          <div class="install-ease__copy">
-            <p class="install-ease__label">Screws on in less than 60 seconds</p>
-            <p class="install-ease__sub">No tools needed. No mess. Just twist.</p>
+          <div>
+            <p class="eyebrow">Built For Real Use</p>
+            <h2 class="mb-section-title">Made for the hand moments that <em>repeat.</em></h2>
+            <p>MyBambook is being built around practical daily wear, not a complicated routine. The goal is simple: support that feels easy to put on, easy to keep nearby, and easy to keep wearing while the day keeps moving.</p>
+            <ul class="mb-benefit-list" aria-label="Why MyBambook is practical">
+              <li>Fingerless shape for typing and phone use</li>
+              <li>Close fit without turning support into a production</li>
+              <li>Pairs naturally with work, home tasks, and rest</li>
+            </ul>
           </div>
-        </li>
+        </div>
+      </section>
 
-        <li class="install-ease__item">
-          <span class="install-ease__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="7" r="3"/>
-              <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-              <line x1="3" y1="3" x2="21" y2="21"/>
-            </svg>
-          </span>
-          <div class="install-ease__copy">
-            <p class="install-ease__label">No plumber, no bathroom changes</p>
-            <p class="install-ease__sub">Fits any standard shower arm — renter-friendly.</p>
+      <section class="mb-section mb-section--sand reveal-page">
+        <div class="mb-section__inner">
+          <div class="mb-centered">
+            <p class="eyebrow">Quiet Support</p>
+            <h2 class="mb-section-title">Not medical drama. Just something helpful to reach for.</h2>
+            <p>Bambook compression gloves are a comfort and support product. They are not a medical treatment, and they do not replace professional advice for a diagnosed condition.</p>
           </div>
-        </li>
-
-        <li class="install-ease__item">
-          <span class="install-ease__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-            </svg>
-          </span>
-          <div class="install-ease__copy">
-            <p class="install-ease__label">Stronger pressure, better-feeling water</p>
-            <p class="install-ease__sub">Purified flow your hair and skin will notice.</p>
+          <div class="mb-grid-3">
+            <article class="mb-card">
+              <h3>Soft Routine Fit</h3>
+              <p>A product you can keep on through normal moments, not something that interrupts them.</p>
+            </article>
+            <article class="mb-card">
+              <h3>Clear Fit Guidance</h3>
+              <p>Size and fit details will be finalized before checkout is connected.</p>
+            </article>
+            <article class="mb-card">
+              <h3>Offer Pending</h3>
+              <p>Final price, bundles, and checkout wiring are still being confirmed.</p>
+            </article>
           </div>
-        </li>
-
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- Why It's Different -->
-<section class="section--sand reveal-page c-d comparison-section comparison">
-  <div class="section-inner">
-
-    <p class="eyebrow">Why ours is better</p>
-
-    <h2 class="comparison-title">Not all <em>filters</em> are the <em>same</em></h2>
-
-    <!-- Comparison table -->
-    <div class="comparison-desktop-wrap">
-      <div class="comparison-table-shell comparison-desktop-only">
-        <div class="comparison-col-labels" aria-hidden="true">
-          <div></div>
-          <div class="comparison-col-head comparison-col-head--lavero">★ Lavero</div>
-          <div class="comparison-col-head comparison-col-head--other">Most shower filters</div>
         </div>
-        <table class="comparison-table" aria-label="Lavero compared with most shower filters">
-          <colgroup>
-            <col>
-            <col>
-            <col>
-          </colgroup>
-          <tbody>
-          <tr>
-            <th scope="row">Designed for</th>
-            <td>your hair &amp; skin</td>
-            <td>cleaner water</td>
-          </tr>
-          <tr>
-            <th scope="row">Filtration</th>
-            <td>4 stages</td>
-            <td>basic carbon</td>
-          </tr>
-          <tr>
-            <th scope="row">Pressure</th>
-            <td>stronger</td>
-            <td>usually weaker</td>
-          </tr>
-          <tr>
-            <th scope="row">Lifespan</th>
-            <td>90 days</td>
-            <td>clogs up</td>
-          </tr>
-          <tr>
-            <th scope="row">Made for</th>
-            <td>women serious about hair &amp; skin</td>
-            <td>anyone with a shower</td>
-          </tr>
-          <tr>
-            <th scope="row">Design</th>
-            <td>looks good in your shower</td>
-            <td>basic &amp; bulky</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      </section>
 
-    <!-- Mobile-only comparison table -->
-    <div class="comparison-mobile-only">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="cmo-th-lavero">★ Lavero</th>
-            <th class="cmo-th-std">Standard</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Designed for your hair &amp; skin</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-          <tr>
-            <td>4-stage filtration</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-          <tr>
-            <td>Stronger pressure</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-          <tr>
-            <td>90-day filter lifespan</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-          <tr>
-            <td>Women serious about hair &amp; skin</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-          <tr>
-            <td>Looks good in your shower</td>
-            <td class="cmo-lavero"><span class="cmo-check">✓</span></td>
-            <td class="cmo-std"><span class="cmo-cross">✗</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</section>
-
-<!-- A Fair Question -->
-<section class="section--ivory reveal-page c-d fair-question">
-
-    <p class="eyebrow fair-question__eyebrow">A Fair Question</p>
-
-    <h2 class="fair-question__title">"Wait — can't I just find something cheaper on Amazon?"</h2>
-
-    <p class="fair-question__lead"><em>Fair</em> question. Here's the <em>honest</em> answer.</p>
-
-  <div class="section-inner fair-question__inner">
-
-    <div class="fair-question__card">
-
-      <div class="fair-question__body-wrap">
-        <p class="fair-question__body">Most filters come from the same 3–4 factories. Mass-produced. No real testing. Low-grade carbon that barely moves the needle on chlorine — and does nothing about the heavy metals. Switch it out after a few weeks and you'll notice nothing changed.</p>
-      </div>
-
-      <div class="fair-question__kicker-wrap">
-        <p class="fair-question__kicker"><em>That's</em> not a <em>cheaper</em> decision. That's a <em>delayed</em> one.</p>
-      </div>
-
-    </div>
-
-    <a href="product.html" class="fair-question__cta">Save now 30%</a>
-
-  </div>
-</section>
-
-<!-- From the Community -->
-
-<section class="section--sand reveal-page c-d community-section community">
-  <div class="section-inner">
-    <p class="eyebrow">From the Community</p>
-    <h2 class="community__title">Former <em>skeptics</em> share their <em>real</em> thoughts</h2>
-
-    <!-- Stats bar -->
-    <div class="r-grid-4 community__stats">
-      <div class="community__stat">
-        <p class="community__stat-num">94<span>%</span></p>
-        <p class="community__stat-label">felt softer hair</p>
-      </div>
-      <div class="community__stat">
-        <p class="community__stat-num">91<span>%</span></p>
-        <p class="community__stat-label">routine fixed</p>
-      </div>
-      <div class="community__stat">
-        <p class="community__stat-num">83<span>%</span></p>
-        <p class="community__stat-label">color lasts longer</p>
-      </div>
-      <div class="community__stat">
-        <p class="community__stat-num">79<span>%</span></p>
-        <p class="community__stat-label">calmer skin</p>
-      </div>
-    </div>
-
-    <!-- Testimonials grid -->
-    <div class="r-grid-3 community__cards">
-      <div class="community__card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="community__quote">"I moved apartments and my hair changed overnight. I spent eight months trying to figure out what was wrong. It was the water the whole time. It was never my hair."</blockquote>
-        <p class="community__attr">Apartment Therapy · NBC Select Verified Tester</p>
-        <span class="community__tag">Wavy / fine</span>
-      </div>
-      <div class="community__card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="community__quote">"I bought it for my hair. My skin was the first thing I noticed. I have eczema-prone skin and my first week was genuinely calmer. I don't really understand why but I'm not going back."</blockquote>
-        <p class="community__attr">VERIFIED BUYER</p>
-        <span class="community__tag">Sensitive / eczema-prone</span>
-      </div>
-      <div class="community__card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-        <blockquote class="community__quote">"My stylist asked what I changed at my last appointment. I told her I stopped washing my color in chlorinated water. She wasn't surprised."</blockquote>
-        <p class="community__attr">Verified Buyer</p>
-        <span class="community__tag">Color-treated</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- The Offer -->
-<section class="section--ivory reveal-page the-offer">
-  <div class="the-offer__cert-wrap">
-    <div class="lavero-guarantee-certificate">
-      <span aria-hidden="true" class="the-offer__cert-rule the-offer__cert-rule--top"></span>
-      <span aria-hidden="true" class="the-offer__cert-rule the-offer__cert-rule--bottom"></span>
-      <p class="the-offer__cert-label">LAVERO GUARANTEE</p>
-      <p class="the-offer__cert-head"><span class="accent">60 days.</span> Zero risk.</p>
-      <p class="the-offer__cert-sub">If you don't feel a difference in your hair, your skin, or your routine — reach out. Every dollar comes back. No questions, no forms, no back-and-forth.</p>
-    </div>
-  </div>
-  <div class="section-inner the-offer__inner">
-    <p class="eyebrow">Make the change.</p>
-    <h2 class="the-offer__title">Time to <em>upgrade</em> your <em>water</em>.</h2>
-
-    <!-- Single One-Time Purchase Card -->
-    <div class="the-offer__card">
-      <div class="the-offer__card-stripe"></div>
-      <div class="the-offer__card-body">
-        <p class="the-offer__card-label">Lavero Beauty Shower Filter</p>
-        <div class="the-offer__price">
-          <span class="the-offer__price-currency">$</span>
-          <span class="the-offer__price-amount">139</span>
+      <section class="mb-final reveal-page">
+        <div class="mb-final__inner">
+          <span class="mb-kicker">MyBambook · Everyday Hand Support</span>
+          <h2>Your hands do a lot. Give them support that keeps up.</h2>
+          <p>Soft enough for daily wear. Practical enough for the things you still need to do.</p>
+          <a class="mb-button" href="product.html">View Bambook Gloves</a>
         </div>
-        <p class="the-offer__price-note"><em>Showerhead</em> + <em>free filter</em></p>
-        <hr class="the-offer__divider">
-        <ul class="the-offer__features">
-          <li class="the-offer__feature"><span class="the-offer__feature-icon">✦</span>First filter included</li>
-          <li class="the-offer__feature"><span class="the-offer__feature-icon">✦</span>Save on refills in advance</li>
-          <li class="the-offer__feature"><span class="the-offer__feature-icon">✦</span>No subscription</li>
-          <li class="the-offer__feature"><span class="the-offer__feature-icon">✦</span>Replace in 60 seconds</li>
-        </ul>
-        <a href="product.html" class="button the-offer__cta">Get Lavero — $139</a>
-      </div>
-      <p class="the-offer__fine">✦ 60-Day Money-Back Guarantee ✦</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Common Questions / FAQ -->
-<section class="section section--sand reveal-page faq">
-  <div class="section-inner r-grid-2 faq__grid">
-
-    <!-- Left: intro -->
-    <div class="faq-intro">
-      <p class="eyebrow faq__eyebrow">Common Questions</p>
-      <h2>The <em>questions</em> <em>worth</em> asking.</h2>
-      <p class="faq-intro__support">Don't see your question here?<br>We're easy to reach — <a href="mailto:support@mylavero.com" class="faq-intro__support-link">contact us</a> and we'll get back to you.</p>
-    </div>
-
-    <!-- Right: accordion -->
-    <div id="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          I rent. Does this work in my apartment?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Yes. Lavero hand-tightens directly onto your existing showerhead fitting — no tools, no drilling, no permanent changes to the plumbing. It removes just as easily when you move out. Works in any standard shower in any rental.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Does this fix hard water or remove minerals?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p><strong>No — and that distinction matters.</strong> Lavero removes chlorine and organic compounds. It does not remove calcium or magnesium (hard water minerals). Those require a water softener, which is a different product category with different mechanics. If you have hard water build-up on your fixtures, you may need both — but Lavero solves the chlorine problem specifically, which is the variable most directly affecting hair product performance.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          I tried a cheap shower filter once and noticed nothing.
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Most mass-market shower filters are designed for sediment and water clarity — they use basic mesh media that catches particles. They're not built for hair chemistry. Lavero uses a 4-stage pathway including activated carbon / ACF and ion exchange resin, which is what actually reduces free chlorine at the level your hair can feel. The filtration media is the difference.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Does my hair type matter?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Chlorine doesn't discriminate by curl pattern. The mechanism — chlorine bonding to the hair shaft and blocking product absorption — affects every hair type. The curly and textured hair community discovered it first because they were testing the most variables. But straight hair, color-treated hair, fine hair, and wavy hair all sit in the same shower water. The benefit applies regardless of type.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          How do I know when to change the filter?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Every 90 days based on average household use. Cartridge refills are available at $35 — replacing takes about 60 seconds.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          What if I've had a bad experience with a water softener?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>A common one. Water softeners replace hard minerals (calcium, magnesium) with sodium ions — which is why hair can feel limp, heavy, or greasy after a softener. Lavero is different. It specifically targets chlorine and organic compounds and leaves your water's mineral content intact. The mechanism is completely different, and the result is different too.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Does it make a difference for skin, not just hair?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Yes. Chlorine doesn't discriminate — it's in the water hitting your skin for the entire shower. Removing it means your skin barrier isn't fighting that exposure daily, and whatever you apply afterward — moisturizer, body oil, serum — lands on cleaner skin. People with sensitive or reactive skin tend to notice it fastest.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          What is your return policy?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>If your hair doesn't feel different in 60 days, we'll refund you in full. You don't need to return the filter. No shipping label, no questions. We'd rather you have both the money and the filter than argue about it.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<script>
-  (function(){
-    const items = document.querySelectorAll('.faq-item');
-    items.forEach(function(item) {
-      const btn = item.querySelector('.faq-q');
-      const ans = item.querySelector('.faq-a');
-      const icon = item.querySelector('.faq-icon');
-      btn.addEventListener('click', function() {
-        const isOpen = ans.style.display === 'block';
-        /* collapse all */
-        items.forEach(function(i) {
-          i.querySelector('.faq-a').style.display = 'none';
-          i.querySelector('.faq-icon').textContent = '+';
-          i.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
-          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        });
-        /* expand the clicked one if it was closed */
-        if (!isOpen) {
-          ans.style.display = 'block';
-          icon.textContent = '×';
-          icon.style.transform = 'rotate(90deg)';
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  })();
-
-  /* Mobile menu — was in the removed cart.js; restored here with aria-expanded support */
-  function toggleMobileMenu(btn) {
-    var nav = document.getElementById('primary-nav');
-    var isOpen = nav.classList.toggle('active');
-    if (btn) btn.setAttribute('aria-expanded', String(isOpen));
-    /* close with ESC */
-    if (isOpen) {
-      document.addEventListener('keydown', function escClose(e) {
-        if (e.key === 'Escape') {
-          nav.classList.remove('active');
-          if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
-          document.removeEventListener('keydown', escClose);
-        }
-      });
-    }
-  }
-</script>
-
-<!-- Final CTA -->
-<section class="section--sand reveal-page final-cta">
-  <!-- Watermark — visible on light bg -->
-  <div class="final-cta__watermark-wrap">
-    <span class="final-cta-watermark">LAVERO</span>
-  </div>
-  <div class="section-inner final-cta__inner">
-
-    <!-- Eyebrow + rule -->
-    <p class="final-cta__eyebrow">Lavero · The Step Before Everything</p>
-
-    <!-- Headings -->
-    <h2 class="final-cta__title">Your routine was never the problem.</h2>
-    <h2 class="final-cta__title final-cta__title--accent"><em>Fix the one thing that was.</em></h2>
-
-    <!-- Body -->
-    <p class="final-cta__body">You already have the products. You already know your routine.</p>
-    <p class="final-cta__kicker">Every dollar you spent on products just needed <em>better water</em> to work on.</p>
-
-    <!-- CTA -->
-<a href="product.html" class="button final-cta__button">Get Lavero — $139</a>
-    <p class="final-cta__note">✦ 60-Day Money-Back Guarantee ✦</p>
-
-  </div>
-</section>
-
-
-
-
-
+      </section>
     </main>
 
     <footer class="site-footer" id="about">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="footer-brand">
-            <strong>LAVERO</strong>
-            <span>Beauty Shower Filter</span>
+          <a href="index.html" class="footer-brand footer-brand--mybambook" aria-label="MyBambook home">
+            <strong><span>My</span><span class="footer-brand__bamboo">Bambook</span></strong>
+            <span>Compression Gloves</span>
           </a>
-          <p>Premium filtration for cleaner water, softer-feeling hair, and happier skin.</p>
+          <p>Compression gloves for everyday hand support, built to fit into real routines.</p>
           <div class="socials">
             <a href="#" aria-label="Instagram">Ig</a>
             <a href="#" aria-label="TikTok">Tk</a>
             <a href="#" aria-label="Pinterest">Pi</a>
-            <a href="mailto:hello@lavero.example" aria-label="Email">Em</a>
+            <a href="mailto:hello@mybambook.example" aria-label="Email">Em</a>
           </div>
         </div>
         <div>
           <h3>Shop</h3>
           <ul>
-            <li><a href="product.html">Shower Filter</a></li>
-            <li><a href="replacement-filters.html">Replacement Filters</a></li>
-            <li><a href="product.html">Bundles &amp; Sets</a></li>
+            <li><a href="product.html">Bambook Gloves</a></li>
+            <li><a href="product.html#fit">Fit Guidance</a></li>
+            <li><a href="product.html#product">Bundle Setup</a></li>
           </ul>
         </div>
         <div>
           <h3>Learn</h3>
           <ul>
-            <li><a href="water-education.html">Water Education</a></li>
-            <li><a href="product.html#all-reviews">Reviews</a></li>
-            <li><a href="product.html#faq">FAQ</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="product.html#how-it-helps">How It Helps</a></li>
+            <li><a href="mission.html">About MyBambook</a></li>
           </ul>
         </div>
         <div>
@@ -873,7 +201,7 @@
         </div>
         <div>
           <h3>Stay in the loop</h3>
-          <p>Tips, routines, and offers straight to your inbox.</p>
+          <p>Fit notes, launch updates, and practical hand-support tips.</p>
           <form class="email-form">
             <input type="email" placeholder="Email address" aria-label="Email address">
             <button type="submit" aria-label="Subscribe">&#8594;</button>
@@ -881,7 +209,7 @@
         </div>
       </div>
       <div class="legal">
-        <span>&copy; 2026 LAVERO. All rights reserved.</span>
+        <span>&copy; 2026 MyBambook. All rights reserved.</span>
         <span>
           <a href="privacy-policy.html">Privacy Policy</a> &middot;
           <a href="terms-of-service.html">Terms of Service</a> &middot;
@@ -889,135 +217,18 @@
         </span>
       </div>
     </footer>
-<!-- Shopify cart drawer is rendered by <shopify-cart id="cart"> above.
-     The old static mock dialog has been removed. -->
-<script>
-  const revealPages = document.querySelectorAll('.reveal-page');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('is-visible');
-      });
-    },
-    { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
-  );
-  revealPages.forEach((page) => observer.observe(page));
 
-const comparisonFrame = document.querySelector('[data-comparison-frame]');
-const comparisonHandle = document.querySelector('[data-comparison-handle]');
-
-if (comparisonFrame && comparisonHandle) {
-  const updateComparison = (clientX) => {
-    const bounds = comparisonFrame.getBoundingClientRect();
-    const next = Math.min(100, Math.max(0, ((clientX - bounds.left) / bounds.width) * 100));
-    comparisonFrame.style.setProperty('--slider-position', `${next}%`);
-    comparisonFrame.setAttribute('aria-valuenow', Math.round(next));
-  };
-
-  let activePointerId = null;
-
-  comparisonFrame.addEventListener('dragstart', (event) => event.preventDefault());
-  comparisonFrame.querySelectorAll('img').forEach((image) => {
-    image.addEventListener('dragstart', (event) => event.preventDefault());
-  });
-
-  comparisonHandle.addEventListener('pointerdown', (event) => {
-    event.preventDefault();
-    activePointerId = event.pointerId;
-    comparisonHandle.setPointerCapture(event.pointerId);
-    updateComparison(event.clientX);
-  });
-
-  comparisonHandle.addEventListener('pointermove', (event) => {
-    if (activePointerId !== event.pointerId) return;
-    event.preventDefault();
-    updateComparison(event.clientX);
-  });
-
-  const releasePointer = (event) => {
-    if (activePointerId !== event.pointerId) return;
-    comparisonHandle.releasePointerCapture(event.pointerId);
-    activePointerId = null;
-  };
-
-  comparisonHandle.addEventListener('pointerup', releasePointer);
-  comparisonHandle.addEventListener('pointercancel', releasePointer);
-
-  comparisonFrame.addEventListener('keydown', (event) => {
-    const current = Number(comparisonFrame.getAttribute('aria-valuenow')) || 50;
-    let next = current;
-
-    if (event.key === 'ArrowLeft') next = current - 5;
-    if (event.key === 'ArrowRight') next = current + 5;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = 100;
-    if (next === current) return;
-
-    event.preventDefault();
-    const clamped = Math.min(100, Math.max(0, next));
-    comparisonFrame.style.setProperty('--slider-position', `${clamped}%`);
-    comparisonFrame.setAttribute('aria-valuenow', clamped);
-  });
-}
-</script>
-  <script src="js/universal-cart.js?v=e94e5736"></script>
-  <script src="js/cart.js?v=ee0a6fc2"></script>
-  <script src="js/floating-cart.js?v=74034224"></script>
-  <script src="https://widget.tabnav.com/limited-widget.min.js.gz?req=DRznML0eo7r3ckQ971j29JKhtIVXNrAriHM" tnv-data-config='{"language":"us-en","color":"#405ec3","buttonColor":"#405ec3","buttonSize":"small","widgetSize":"small","widgetLocation":"right","buttonLocation":"bottom"}' defer></script>
-  <noscript> JavaScript is required for <a href="https://tabnav.com/accessibility-widget">tabnav accessibility widget</a> to work properly. </noscript>
-  <!-- ======================================================
-       HOMEPAGE STICKY BAR — mirrors product page bar
-  ====================================================== -->
-  <style>
-    /* Hide the old floating pill on the homepage */
-    #lv-quick-add, .lv-quick-add { display: none !important; }
-  </style>
-
-  <div class="pdp-sticky-bar" id="home-sticky-bar" role="complementary" aria-label="Shop Lavero">
-    <div class="pdp-sticky-bar__container">
-      <div class="pdp-sticky-bar__left">
-        <div class="pdp-sticky-bar__thumb" aria-hidden="true">
-          <img src="assets/curl-woman-showering.jpeg" alt="">
-        </div>
-        <div class="pdp-sticky-bar__info">
-          <span class="pdp-sticky-bar__name">
-            <span class="desktop-text">Lavero <em>Beauty</em> Shower Filter</span>
-            <span class="mobile-text">Lavero's <em>Beauty</em></span>
-          </span>
-          <div class="pdp-sticky-bar__sub-row">
-            <span class="pdp-sticky-bar__guarantee">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="desktop-text">60-day money-back</span>
-              <span class="mobile-text">60 days</span>
-            </span>
-            <span class="pdp-sticky-bar__price-mobile mobile-text">$139</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pdp-sticky-bar__right">
-        <span class="pdp-sticky-bar__price">$139</span>
-        <a class="pdp-sticky-bar__cta" href="product.html" aria-label="Shop Lavero">
-          Shop Now
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Homepage sticky bar — show once hero CTA scrolls off screen
-    (function() {
-      var trigger = document.getElementById('home-hero-cta');
-      var bar = document.getElementById('home-sticky-bar');
-      if (!trigger || !bar) return;
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          bar.classList.toggle('is-visible', !entry.isIntersecting);
-        });
-      }, { threshold: 0.1 });
-      obs.observe(trigger);
-    })();
-  </script>
-
+    <script>
+      const revealPages = document.querySelectorAll('.reveal-page');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+          });
+        },
+        { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
+      );
+      revealPages.forEach((page) => observer.observe(page));
+    </script>
   </body>
 </html>

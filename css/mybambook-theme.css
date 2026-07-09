@@ -1,0 +1,459 @@
+/* ============================================================
+   MYBAMBOOK — SHARED PAGE THEME
+   Scoped to selected static pages so legacy pages are not rethemed
+   by accident. Product page keeps its own product.css layer.
+   ============================================================ */
+
+:root {
+  --cream: rgb(234 247 250);
+  --ivory: rgb(251 253 251);
+  --sand: rgb(243 233 218);
+  --blush: rgb(37 150 190);
+  --peach: rgb(143 200 192);
+  --gold: rgb(196 139 69);
+  --green: rgb(29 111 143);
+  --ink: rgb(16 37 54);
+  --taupe: rgb(90 111 120);
+  --line: rgb(16 37 54 / 14%);
+  --line-soft: rgb(16 37 54 / 9%);
+  --line-warm: rgb(196 139 69 / 24%);
+  --shadow: 0 22px 70px rgb(16 37 54 / 10%);
+  --shadow-lift: 0 24px 64px rgb(16 37 54 / 11%), 0 2px 10px rgb(16 37 54 / 5%);
+  --shadow-deep: 0 34px 96px rgb(16 37 54 / 14%), 0 10px 28px rgb(16 37 54 / 7%);
+  --shadow-button: 0 16px 36px rgb(37 150 190 / 24%);
+  --surface-lit: rgb(251 253 251 / 78%);
+  --bg: var(--cream);
+  --surface: var(--ivory);
+  --surface-alt: var(--sand);
+  --text: var(--ink);
+  --text-muted: var(--taupe);
+  --accent: var(--gold);
+  --accent-emphasis: var(--blush);
+  --cta: var(--blush);
+  --serif: "Manrope", "Inter", system-ui, sans-serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --font-display: var(--serif);
+  --font-sans: var(--sans);
+}
+
+body.mybambook-page {
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 40%, var(--ivory) 100%);
+  color: var(--ink);
+  font-family: var(--sans);
+  margin: 0;
+  overflow-x: clip;
+}
+
+.mybambook-page h1,
+.mybambook-page h2,
+.mybambook-page h3,
+.mybambook-page p {
+  margin-top: 0;
+}
+
+.mybambook-page h1,
+.mybambook-page h2,
+.mybambook-page h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.mybambook-page h1 em,
+.mybambook-page h2 em,
+.mybambook-page h3 em {
+  color: var(--blush);
+  font-style: normal;
+}
+
+.mybambook-page p {
+  color: var(--taupe);
+  font-family: var(--sans);
+  line-height: 1.72;
+}
+
+.mybambook-page .lavero-main-menu {
+  background: rgb(251 253 251 / 90%);
+}
+
+.mybambook-page .lavero-shop-button,
+.mybambook-page .mb-button,
+.mybambook-page .final-cta__button {
+  background: var(--blush);
+  box-shadow: var(--shadow-button);
+}
+
+.mybambook-page .lavero-shop-button:hover,
+.mybambook-page .lavero-shop-button:focus-visible,
+.mybambook-page .mb-button:hover,
+.mybambook-page .mb-button:focus-visible {
+  background: var(--green);
+}
+
+.mybambook-page .eyebrow {
+  color: var(--gold);
+  margin-left: 0;
+}
+
+.mb-section {
+  padding: var(--section-py) var(--section-px) var(--section-py-b);
+}
+
+.mb-section--ivory {
+  background: var(--ivory);
+}
+
+.mb-section--cream {
+  background: var(--cream);
+}
+
+.mb-section--sand {
+  background: var(--sand);
+}
+
+.mb-section__inner {
+  margin-inline: auto;
+  max-width: calc(var(--container) + var(--space-24));
+  width: 100%;
+}
+
+.mb-hero {
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+  padding: clamp(var(--space-8), 5vw, var(--space-16)) var(--section-px) var(--space-16);
+}
+
+.mb-hero__inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(var(--space-8), 4vw, var(--space-16));
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  margin-inline: auto;
+  max-width: calc(var(--container) + var(--space-24));
+}
+
+.mb-hero__copy {
+  min-width: 0;
+}
+
+.mb-kicker {
+  color: var(--gold);
+  display: block;
+  font: 800 var(--fs-eyebrow)/1.3 var(--sans);
+  letter-spacing: 0.18em;
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+}
+
+.mb-hero h1 {
+  font-size: clamp(2.45rem, 5vw, 5rem);
+  line-height: 1.02;
+  margin: 0;
+  max-width: 12ch;
+  text-wrap: balance;
+}
+
+.mb-hero__lead {
+  font-size: clamp(1rem, 1.3vw, 1.14rem);
+  margin: clamp(var(--space-5), 2vw, var(--space-6)) 0 0;
+  max-width: 42rem;
+}
+
+.mb-hero__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: clamp(var(--space-6), 2.6vw, var(--space-8));
+}
+
+.mb-button,
+.mb-link-button {
+  align-items: center;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  font: 800 var(--fs-eyebrow)/1 var(--sans);
+  justify-content: center;
+  letter-spacing: 0.14em;
+  min-height: 3.5rem;
+  padding: 0 var(--space-8);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.mb-button {
+  color: var(--ivory);
+}
+
+.mb-link-button {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.mb-link-button:hover,
+.mb-link-button:focus-visible {
+  border-color: var(--blush);
+  color: var(--blush);
+}
+
+.mb-hero__media {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-deep);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.mb-hero__media img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mb-benefit-list {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: clamp(var(--space-6), 2.6vw, var(--space-8)) 0 0;
+  padding: 0;
+}
+
+.mb-benefit-list li {
+  align-items: center;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  display: flex;
+  font: 700 var(--fs-footer)/1.35 var(--sans);
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+}
+
+.mb-benefit-list li::before {
+  color: var(--gold);
+  content: "✓";
+  font-weight: 900;
+}
+
+.mb-grid-4,
+.mb-grid-3,
+.mb-grid-2 {
+  display: grid;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+
+.mb-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mb-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mb-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mb-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(var(--space-5), 2vw, var(--space-8));
+}
+
+.mb-card img {
+  border-radius: var(--radius-sm);
+  display: block;
+  height: auto;
+  margin-bottom: var(--space-4);
+  width: 100%;
+}
+
+.mb-card h3 {
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.mb-card p {
+  font-size: var(--fs-footer);
+  margin: 0;
+}
+
+.mb-section-title {
+  font-size: clamp(2rem, 3.6vw, 3.8rem);
+  line-height: 1.06;
+  margin: 0 0 clamp(var(--space-6), 3vw, var(--space-10));
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+.mb-centered {
+  margin-inline: auto;
+  max-width: 780px;
+  text-align: center;
+}
+
+.mb-centered .eyebrow {
+  margin-inline: auto;
+}
+
+.mb-centered .mb-section-title {
+  margin-inline: auto;
+}
+
+.mb-split {
+  align-items: center;
+  display: grid;
+  gap: clamp(var(--space-8), 4vw, var(--space-16));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.mb-split__media {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  margin: 0;
+  overflow: hidden;
+}
+
+.mb-split__media img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mb-faq-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.mb-faq-list details {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: var(--space-4) var(--space-5);
+}
+
+.mb-faq-list summary {
+  color: var(--ink);
+  cursor: pointer;
+  font: 800 var(--fs-footer)/1.4 var(--sans);
+}
+
+.mb-faq-list details p {
+  margin: var(--space-3) 0 0;
+}
+
+.mb-final {
+  background: var(--ink);
+  color: var(--ivory);
+  overflow: hidden;
+  padding: clamp(var(--space-16), 7vw, var(--space-24)) var(--section-px);
+  position: relative;
+  text-align: center;
+}
+
+.mb-final::before {
+  bottom: var(--space-4);
+  color: rgb(251 253 251 / 5%);
+  content: "MYBAMBOOK";
+  font-family: var(--font-display);
+  font-size: clamp(var(--space-20), 17vw, calc(var(--space-24) * 3));
+  font-weight: 800;
+  left: 50%;
+  letter-spacing: 0.16em;
+  line-height: 0.8;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.mb-final__inner {
+  margin-inline: auto;
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
+
+.mb-final h2 {
+  color: var(--ivory);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.06;
+  margin: 0;
+}
+
+.mb-final p {
+  color: rgb(251 253 251 / 72%);
+  margin: var(--space-5) auto 0;
+  max-width: 34rem;
+}
+
+.mb-final .mb-button {
+  margin-top: var(--space-8);
+}
+
+.policy-hero::before {
+  content: "MYBAMBOOK";
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.mybambook-policy .policy-hero__title,
+.mybambook-policy .policy-section__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.mybambook-policy .policy-hero__title em {
+  font-style: normal;
+}
+
+@media (max-width: 1024px) {
+  .mb-hero__inner,
+  .mb-split,
+  .mb-grid-4,
+  .mb-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .mb-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .mb-hero {
+    padding-top: var(--space-8);
+  }
+
+  .mb-hero__inner,
+  .mb-split,
+  .mb-grid-4,
+  .mb-grid-3,
+  .mb-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .mb-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+  }
+
+  .mb-button,
+  .mb-link-button {
+    width: 100%;
+  }
+}

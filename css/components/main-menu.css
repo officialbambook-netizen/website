@@ -66,10 +66,24 @@ body {
   line-height: 0.95;
 }
 
-.lavero-brand span {
+.lavero-brand--mybambook {
+  text-transform: none;
+}
+
+.lavero-brand__bamboo {
+  color: var(--green);
+}
+
+.lavero-brand > span {
   color: var(--taupe);
   font: 800 var(--fs-eyebrow)/1.2 var(--font-sans);
   letter-spacing: 0.24em;
+}
+
+.lavero-brand strong .lavero-brand__bamboo {
+  color: var(--green);
+  font: inherit;
+  letter-spacing: inherit;
 }
 
 .lavero-menu-links {
@@ -259,7 +273,7 @@ body {
     letter-spacing: 0.22em;
   }
 
-  .lavero-brand span {
+  .lavero-brand > span {
     font-size: 0.52rem;
   }
 
@@ -347,7 +361,7 @@ body {
     letter-spacing: 0.18em;
   }
 
-  .lavero-brand span {
+  .lavero-brand > span {
     font-size: clamp(0.38rem, 1.7vw, 0.46rem);
     letter-spacing: 0.14em;
   }
