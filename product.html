@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/base.css?v=3322b48f">
   <link rel="stylesheet" href="css/product.css?v=5ca49913">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=6de45f63">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=9571fa88">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=66f5bce6">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=c6f6c373">
@@ -29,7 +29,7 @@
   <shopify-store
     store-domain="w1c0ed-5s.myshopify.com"
     public-access-token="f2863bebc601b26a3c6f35a9c63c560e"
-    country="US"
+    country="IL"
     language="en"
     aria-hidden="true"
   >
@@ -142,13 +142,13 @@
                 <span class="pdp-hero__price-badge">Setup Mode</span>
               </div>
               <p class="pdp-hero__price-sub" id="price-sub-text">Bundle and checkout setup will be connected after the real Bambook product setup is confirmed.</p>
-              <p class="pdp-hero__price-refill">Choose a color, pick how many pairs make sense for your routine, and keep the final checkout safely pending for now.</p>
+              <p class="pdp-hero__price-refill">Choose a size, pick how many pairs make sense for your routine, and keep the final checkout safely pending for now.</p>
             </div>
 
-            <!-- Color picker + qty stepper -->
+            <!-- Size picker + qty stepper -->
             <div class="pdp-hero__options-row">
-              <!-- JS injects color picker here — leave empty -->
-              <div class="color-options" id="color-options" aria-live="polite"></div>
+              <!-- JS injects size picker here — leave empty -->
+              <div class="color-options" id="size-options" aria-live="polite"></div>
 
               <div class="pdp-hero__qty-wrap">
                 <span class="pdp-hero__qty-label">Qty</span>
@@ -458,14 +458,13 @@
         </div>
       </div>
 
-      <!-- Compact color selector — JS populates selected state -->
-      <div class="pdp-sticky-bar__color-wrap" id="sticky-color-wrap" aria-label="Choose colour">
-        <button class="pdp-sticky-bar__color-btn" id="sticky-color-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
-          <span class="pdp-sticky-bar__color-dot" id="sticky-color-dot"></span>
-          <span class="pdp-sticky-bar__color-label" id="sticky-color-label">Blue Cyan</span>
+      <!-- Compact size selector — JS populates selected state -->
+      <div class="pdp-sticky-bar__color-wrap" id="sticky-size-wrap" aria-label="Choose size">
+        <button class="pdp-sticky-bar__color-btn" id="sticky-size-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="pdp-sticky-bar__color-label" id="sticky-size-label">Size M</span>
           <svg class="pdp-sticky-bar__color-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <ul class="pdp-sticky-bar__color-menu" id="sticky-color-menu" role="listbox" aria-label="Colour options">
+        <ul class="pdp-sticky-bar__color-menu" id="sticky-size-menu" role="listbox" aria-label="Size options">
           <!-- JS renders li[role=option] items here -->
         </ul>
       </div>
@@ -772,79 +771,68 @@
        SCRIPT
   ================================================= -->
   <script>
-    const COLOR_OPTIONS = ['Blue Cyan', 'Charcoal', 'Bamboo'];
-    const state = { colors: ['Blue Cyan'], plan: 'one-time', quantity: 1, pairBundle: 0 };
+    const SIZE_OPTIONS = ['S', 'M', 'L'];
+    const state = { sizes: ['M'], plan: 'one-time', quantity: 1, pairBundle: 0 };
 
-    const COLOR_CLASS = {
-      'Blue Cyan': 'cyan',
-      Charcoal: 'charcoal',
-      Bamboo: 'bamboo'
-    };
-
-    function renderColorSelectors() {
-      const mount = document.getElementById('color-options');
+    function renderSizeSelectors() {
+      const mount = document.getElementById('size-options');
       if (!mount) return;
 
-      state.colors = Array.from({ length: state.quantity }, (_, i) => state.colors[i] || state.colors[0] || COLOR_OPTIONS[0]);
+      state.sizes = Array.from({ length: state.quantity }, (_, i) => state.sizes[i] || state.sizes[0] || SIZE_OPTIONS[1]);
 
-      mount.innerHTML = state.colors.map((color, index) => `
+      mount.innerHTML = state.sizes.map((size, index) => `
         <div class="color-swatch-picker" data-picker="${index}">
           <p class="color-swatch-header">
-            <span class="color-swatch-label">Color${state.quantity > 1 ? ` ${index + 1}` : ''}</span>
+            <span class="color-swatch-label">Size${state.quantity > 1 ? ` ${index + 1}` : ''}</span>
             <span class="color-swatch-sep" aria-hidden="true">—</span>
-            <span class="color-swatch-selected" id="color-name-${index}">${color}</span>
+            <span class="color-swatch-selected" id="size-name-${index}">${size}</span>
           </p>
-          <div class="color-swatch-options" role="group" aria-label="Choose color">
-            ${COLOR_OPTIONS.map(opt => `
+          <div class="color-swatch-options" role="group" aria-label="Choose size">
+            ${SIZE_OPTIONS.map(opt => `
               <button
-                class="color-swatch-btn color-swatch-btn--${COLOR_CLASS[opt]}${opt === color ? ' is-selected' : ''}"
+                class="size-swatch-btn${opt === size ? ' is-selected' : ''}"
                 type="button"
-                aria-label="${opt}"
-                aria-pressed="${opt === color ? 'true' : 'false'}"
-                data-color-index="${index}"
-                data-color="${opt}"
-              ></button>
+                aria-label="Size ${opt}"
+                aria-pressed="${opt === size ? 'true' : 'false'}"
+                data-size-index="${index}"
+                data-size="${opt}"
+              >${opt}</button>
             `).join('')}
           </div>
         </div>`).join('');
 
-      mount.querySelectorAll('.color-swatch-btn').forEach(btn => {
+      mount.querySelectorAll('.size-swatch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const idx = Number(btn.dataset.colorIndex);
-          state.colors[idx] = btn.dataset.color;
-          renderColorSelectors();
+          const idx = Number(btn.dataset.sizeIndex);
+          state.sizes[idx] = btn.dataset.size;
+          renderSizeSelectors();
         });
       });
 
-      // Sync sticky color selector
-      const stickyDot = document.getElementById('sticky-color-dot');
-      const stickyLabel = document.getElementById('sticky-color-label');
-      const stickyMenu = document.getElementById('sticky-color-menu');
+      // Sync sticky size selector
+      const stickyLabel = document.getElementById('sticky-size-label');
+      const stickyMenu = document.getElementById('sticky-size-menu');
 
-      const activeColor = state.colors[0] || 'Blue Cyan';
+      const activeSize = state.sizes[0] || SIZE_OPTIONS[1];
 
-      if (stickyDot) {
-        stickyDot.className = `pdp-sticky-bar__color-dot pdp-sticky-bar__color-dot--${COLOR_CLASS[activeColor]}`;
-      }
-      if (stickyLabel) stickyLabel.textContent = activeColor;
+      if (stickyLabel) stickyLabel.textContent = `Size ${activeSize}`;
 
       if (stickyMenu) {
-        stickyMenu.innerHTML = COLOR_OPTIONS.map(opt => `
-          <li class="pdp-sticky-bar__color-opt${opt === activeColor ? ' is-selected' : ''}"
+        stickyMenu.innerHTML = SIZE_OPTIONS.map(opt => `
+          <li class="pdp-sticky-bar__color-opt${opt === activeSize ? ' is-selected' : ''}"
               role="option"
-              aria-selected="${opt === activeColor ? 'true' : 'false'}"
-              data-color="${opt}">
-            <span class="pdp-sticky-bar__color-opt-dot pdp-sticky-bar__color-opt-dot--${COLOR_CLASS[opt]}"></span>
-            ${opt}
+              aria-selected="${opt === activeSize ? 'true' : 'false'}"
+              data-size="${opt}">
+            Size ${opt}
           </li>
         `).join('');
 
         stickyMenu.querySelectorAll('.pdp-sticky-bar__color-opt').forEach(opt => {
           opt.addEventListener('click', (e) => {
             e.stopPropagation();
-            state.colors = state.colors.map(() => opt.dataset.color);
-            renderColorSelectors();
-            const btn = document.getElementById('sticky-color-btn');
+            state.sizes = state.sizes.map(() => opt.dataset.size);
+            renderSizeSelectors();
+            const btn = document.getElementById('sticky-size-btn');
             if (btn) btn.setAttribute('aria-expanded', 'false');
             stickyMenu.classList.remove('is-open');
           });
@@ -865,7 +853,14 @@
 
     async function addSelectedProductsToShopifyCart(event) {
       event?.preventDefault();
-      showCartStatus('MyBambook checkout is being connected. Final price and cart wiring will be added after product setup is confirmed.');
+      if (!window.LaveroCart) {
+        showCartStatus('Cart is unavailable right now. Please try again.');
+        return;
+      }
+      await window.LaveroCart.addConfiguredProduct({
+        sizes: state.sizes,
+        quantity: state.quantity
+      }, { statusId: 'cart-status' });
     }
 
     async function buySelectedProductsNow(event) {
@@ -918,13 +913,13 @@
       const plusBtn  = document.getElementById('qty-plus');
       if (minusBtn) minusBtn.disabled = state.quantity <= 1;
       if (plusBtn)  plusBtn.disabled  = state.quantity >= 4;
-      renderColorSelectors();
+      renderSizeSelectors();
     }
 
     // Set initial state
     updatePlanCards(state.plan);
     updateBundleSummary();
-    renderColorSelectors();
+    renderSizeSelectors();
 
     // Quantity: handled by changeQty() called from inline onclick on qty buttons
 
@@ -1008,7 +1003,7 @@
       }
     });
 
-    renderColorSelectors();
+    renderSizeSelectors();
 
     // Sticky bar — show once main CTA button scrolls off screen
     (function initStickyBar() {
@@ -1038,20 +1033,20 @@
         syncViewportGap();
       }
 
-      // Color selector toggle
-      const colorBtn = document.getElementById('sticky-color-btn');
-      const colorMenu = document.getElementById('sticky-color-menu');
-      if (colorBtn && colorMenu) {
-        colorBtn.addEventListener('click', function(e) {
+      // Size selector toggle
+      const sizeBtn = document.getElementById('sticky-size-btn');
+      const sizeMenu = document.getElementById('sticky-size-menu');
+      if (sizeBtn && sizeMenu) {
+        sizeBtn.addEventListener('click', function(e) {
           e.stopPropagation();
-          const isOpen = colorBtn.getAttribute('aria-expanded') === 'true';
-          colorBtn.setAttribute('aria-expanded', String(!isOpen));
-          colorMenu.classList.toggle('is-open', !isOpen);
+          const isOpen = sizeBtn.getAttribute('aria-expanded') === 'true';
+          sizeBtn.setAttribute('aria-expanded', String(!isOpen));
+          sizeMenu.classList.toggle('is-open', !isOpen);
         });
 
         document.addEventListener('click', function() {
-          colorBtn.setAttribute('aria-expanded', 'false');
-          colorMenu.classList.remove('is-open');
+          sizeBtn.setAttribute('aria-expanded', 'false');
+          sizeMenu.classList.remove('is-open');
         });
       }
     })();
@@ -1082,5 +1077,6 @@
   <script src="https://widget.tabnav.com/limited-widget.min.js.gz?req=DRznML0eo7r3ckQ971j29JKhtIVXNrAriHM" tnv-data-config='{"language":"us-en","color":"#405ec3","buttonColor":"#405ec3","buttonSize":"small","widgetSize":"small","widgetLocation":"right","buttonLocation":"bottom"}' defer></script>
   <noscript> JavaScript is required for <a href="https://tabnav.com/accessibility-widget">tabnav accessibility widget</a> to work properly. </noscript>
 
+  <script src="js/universal-cart.js?v=7c3f5d47"></script>
 </body>
 </html>

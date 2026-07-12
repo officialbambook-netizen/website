@@ -625,6 +625,32 @@
   background: var(--gold);
 }
 
+/* ── Size pills (S/M/L) — text pill, not a color swatch ─── */
+.size-swatch-btn {
+  min-width: 40px;
+  height: 34px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--line);
+  background: var(--ivory);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brown);
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.size-swatch-btn:hover {
+  border-color: var(--gold);
+}
+
+.size-swatch-btn.is-selected {
+  border-color: var(--gold);
+  background: rgba(184, 142, 74, 0.1);
+  color: var(--gold);
+}
+
 /* Qty stepper — compact, right-aligned in the options row */
 .pdp-hero__qty-wrap {
   flex-shrink: 0;

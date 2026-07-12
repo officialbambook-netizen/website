@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/base.css?v=3322b48f">
   <link rel="stylesheet" href="css/product.css?v=5ca49913">
   <!-- Product hero elevation — warm tokens, loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=6de45f63">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=9571fa88">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f">
   <link rel="stylesheet" href="css/components/footer.css?v=e2d76920">
@@ -28,7 +28,7 @@
   <shopify-store
     store-domain="w1c0ed-5s.myshopify.com"
     public-access-token="f2863bebc601b26a3c6f35a9c63c560e"
-    country="US"
+    country="IL"
     language="en"
   >
     <shopify-cart id="shopify-cart-pdp"></shopify-cart>
@@ -1011,7 +1011,7 @@
   <!-- ================================================
        SCRIPT
   ================================================= -->
-  <script src="js/universal-cart.js?v=e94e5736"></script>
+  <script src="js/universal-cart.js?v=7c3f5d47"></script>
   <script>
     // The 2-pack uses Shopify's FILTER2PACK code for $10 off.
     // The 3-pack BOGO is handled by Shopify's automatic discount.
@@ -1075,22 +1075,24 @@
       if (hintMonths) hintMonths.textContent = months + ' months';
     }
 
+    // This page's filter-refill product has no Bambook equivalent — addFilterOnly/
+    // buyFilterOnlyNow were removed from universal-cart.js. Page pending a content
+    // decision (retire vs. repurpose); these guard against a broken click meanwhile.
     async function addFiltersToCart(event) {
       event?.preventDefault();
-      await window.LaveroCart.addFilterOnly({
-        filterCount: getFilterCount(),
-        discountCode: getBundle().discountCode,
-        statusId: 'cart-status'
-      });
+      showCartStatus('This product is not yet available.');
     }
 
     async function buyFiltersNow(event) {
       event?.preventDefault();
-      await window.LaveroCart.buyFilterOnlyNow({
-        filterCount: getFilterCount(),
-        discountCode: getBundle().discountCode,
-        statusId: 'cart-status'
-      });
+      showCartStatus('This product is not yet available.');
+    }
+
+    function showCartStatus(message) {
+      var status = document.getElementById('cart-status');
+      if (!status) return;
+      status.textContent = message || '';
+      status.classList.toggle('is-visible', Boolean(message));
     }
 
     // Filter bundle card selection
@@ -1299,7 +1301,7 @@
       if (saved.length) window.LaveroCart.setBadge(saved.length);
     })();
   </script>
-  <script src="js/cart.js?v=ee0a6fc2"></script>
+  <script src="js/cart.js?v=bad6c805"></script>
   <script src="js/floating-cart.js?v=74034224"></script>
   <script src="https://widget.tabnav.com/limited-widget.min.js.gz?req=DRznML0eo7r3ckQ971j29JKhtIVXNrAriHM" tnv-data-config='{"language":"us-en","color":"#405ec3","buttonColor":"#405ec3","buttonSize":"small","widgetSize":"small","widgetLocation":"right","buttonLocation":"bottom"}' defer></script>
   <noscript> JavaScript is required for <a href="https://tabnav.com/accessibility-widget">tabnav accessibility widget</a> to work properly. </noscript>

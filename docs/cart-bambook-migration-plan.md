@@ -1,8 +1,13 @@
 # Cart Migration Plan — `universal-cart.js` from Lavero → Bambook
 
-## Status: PLANNED, NOT YET IMPLEMENTED
+## Status: DONE. Cart is live and purchasable end-to-end on product.html.
 
-Blocked on the real Bambook Shopify product variant ID(s) from the operator. `<shopify-store>` web components across all 14 pages already point at the correct Bambook store (`w1c0ed-5s.myshopify.com` / token `f2863bebc601b26a3c6f35a9c63c560e` — see `00_CONTROL/TASK_LOG.md`, 2026-07-09 entry). This plan covers the remaining piece: `js/universal-cart.js` and its callers still run 100% Lavero shower-filter logic — hardcoded endpoint, token, variant IDs, product copy, and a "filter refill" bundle concept that doesn't exist for gloves.
+`js/universal-cart.js` runs against the real Bambook store: `STOREFRONT_ENDPOINT`/`STOREFRONT_TOKEN` point at `w1c0ed-5s.myshopify.com`, `normalizeCheckoutUrl` allow-lists that domain, `SIZE_VARIANTS` holds the real S/M/L variant IDs (Light Gray, the store's only color), `buyerIdentity.countryCode` is `'IL'`, and the filter-refill bundle system is deleted. `product.html` now has a real S/M/L pill size selector wired to `LaveroCart.addConfiguredProduct`, and actually loads `universal-cart.js` (it never had before). Verified end-to-end in a real browser against the live Storefront API — see `00_CONTROL/TASK_LOG.md` 2026-07-12 entries for full detail, including the currency bug fix (hardcoded `$` → real ₪ from Shopify) and the country-code fix (`US`→`IL`, both in `buyerIdentity` and every page's `<shopify-store country>` attribute).
+
+**Remaining, low-urgency, not blocking checkout:**
+- `js/floating-cart.js`'s quick-add tray (only loads on `blog.html`/`replacement-filters.html`, non-primary pages) still shows a broken color-swatch fallback and hardcoded `$139`.
+- `product.html`'s 1/2/3-"Pairs" bundle cards are cosmetic only — not wired to `state.quantity` or the cart call. This is a bundle-pricing/discount decision (does 3 pairs mean quantity=3, or a distinct bundle SKU/discount code?), not a code bug.
+- `replacement-filters.html`'s fate (retire vs. repurpose) is still undecided; its cart buttons are stubbed to fail safely.
 
 ---
 

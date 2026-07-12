@@ -15,7 +15,7 @@ function openProductCart() {
 
 function pushToMockCart() {
   if (window.LaveroCart) {
-    window.LaveroCart.addQuickProduct({ color: 'White' });
+    window.LaveroCart.addQuickProduct();
   }
 }
 

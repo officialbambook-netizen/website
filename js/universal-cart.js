@@ -1,19 +1,14 @@
 (function () {
-  var STOREFRONT_ENDPOINT = 'https://mylavero.myshopify.com/api/2024-10/graphql.json';
-  var STOREFRONT_TOKEN = 'd15d14ffe85e175d52071eac07e1834c';
+  var STOREFRONT_ENDPOINT = 'https://w1c0ed-5s.myshopify.com/api/2024-10/graphql.json';
+  var STOREFRONT_TOKEN = 'f2863bebc601b26a3c6f35a9c63c560e';
   var STORAGE_KEY = 'laveroCart';
 
-  var SHOPIFY_VARIANTS = {
-    White: { variantId: 'gid://shopify/ProductVariant/48566463463656' },
-    Pink: { variantId: 'gid://shopify/ProductVariant/48566463365352' },
-    Beige: { variantId: 'gid://shopify/ProductVariant/48566462841064' },
-    Black: { variantId: 'gid://shopify/ProductVariant/48566463660264' },
-    Gray: { variantId: 'gid://shopify/ProductVariant/48566463594728' }
+  var SIZE_VARIANTS = {
+    S: { variantId: 'gid://shopify/ProductVariant/43638796943473' },
+    M: { variantId: 'gid://shopify/ProductVariant/43638796910705' },
+    L: { variantId: 'gid://shopify/ProductVariant/43638796877937' }
   };
-
-  var FILTER_VARIANT_ID = 'gid://shopify/ProductVariant/48568647287016';
-  var FILTER_PRICE = 35;
-  var BUNDLE_DISCOUNT_CODES = { 2: 'FILTER2PACK' };
+  var DEFAULT_SIZE = 'M';
 
   var CART_LINE_FIELDS = [
     'id quantity',
@@ -29,13 +24,19 @@
   ].join('\n');
 
   var currentCart = null;
-  var currentConfig = { colors: ['White'], plan: 'one-time', quantity: 1, filterBundle: 0 };
+  var currentConfig = { sizes: [DEFAULT_SIZE], plan: 'one-time', quantity: 1 };
+
+  function currencySymbol(code) {
+    var map = { ILS: '₪', USD: '$', EUR: '€', GBP: '£' };
+    if (code && map[code]) return map[code];
+    return code ? code + ' ' : '$';
+  }
 
   // --- Meta Pixel helpers --------------------------------------------------
   // fbq is loaded once site-wide by js/meta-pixel.js; these no-op safely on any
   // page without the pixel. Every value/id comes from the live Shopify cart —
   // never hardcoded (Shopify is the source of truth). Currency uses the cart's
-  // currencyCode when present and falls back to USD (single-region US store).
+  // currencyCode when present and falls back to USD if the cart has no lines yet.
   function fbTrack(eventName, params) {
     if (typeof window.fbq === 'function') window.fbq('track', eventName, params || {});
   }
@@ -166,29 +167,28 @@
 
   function normalizeConfig(config) {
     var next = config || {};
-    var colors = Array.isArray(next.colors) && next.colors.length
-      ? next.colors.slice()
-      : [next.color || 'White'];
-    var quantity = Math.max(1, Number(next.quantity || colors.length || 1));
-    colors = Array.from({ length: quantity }, function (_, index) {
-      return colors[index] || colors[0] || 'White';
+    var sizes = Array.isArray(next.sizes) && next.sizes.length
+      ? next.sizes.slice()
+      : [next.size || DEFAULT_SIZE];
+    var quantity = Math.max(1, Number(next.quantity || sizes.length || 1));
+    sizes = Array.from({ length: quantity }, function (_, index) {
+      return sizes[index] || sizes[0] || DEFAULT_SIZE;
     });
 
     return {
-      colors: colors,
+      sizes: sizes,
       plan: 'one-time',
-      quantity: quantity,
-      filterBundle: Math.max(0, Number(next.filterBundle || 0))
+      quantity: quantity
     };
   }
 
   function selectedLines(config) {
-    return config.colors.map(function (color, index) {
-      var variant = SHOPIFY_VARIANTS[color];
+    return config.sizes.map(function (size, index) {
+      var variant = SIZE_VARIANTS[size];
       if (!variant || !variant.variantId) {
-        throw new Error('Shower head ' + (index + 1) + ' (' + color + ') is currently unavailable.');
+        throw new Error('Size ' + size + ' is currently unavailable.');
       }
-      return { color: color, variantId: variant.variantId, quantity: 1 };
+      return { size: size, variantId: variant.variantId, quantity: 1 };
     });
   }
 
@@ -196,9 +196,9 @@
     if (!url) return url;
     try {
       var parsed = new URL(url);
-      var allowedHosts = ['checkout.mylavero.com', 'mylavero.myshopify.com'];
+      var allowedHosts = ['w1c0ed-5s.myshopify.com'];
       if (allowedHosts.indexOf(parsed.hostname) === -1) {
-        parsed.hostname = 'mylavero.myshopify.com';
+        parsed.hostname = 'w1c0ed-5s.myshopify.com';
       }
       return parsed.toString();
     } catch (e) {
@@ -207,26 +207,17 @@
   }
 
   async function buildShopifyCart(config) {
-    var showerLines = selectedLines(config).map(function (line) {
+    var lines = selectedLines(config).map(function (line) {
       return { merchandiseId: line.variantId, quantity: line.quantity };
     });
-    var allLines = showerLines.slice();
 
-    if (config.filterBundle > 0) {
-      allLines.push({
-        merchandiseId: FILTER_VARIANT_ID,
-        quantity: config.filterBundle * config.quantity
-      });
-    }
-
-    var bundleCode = BUNDLE_DISCOUNT_CODES[config.filterBundle];
     var data = await storefrontFetch([
       'mutation cartCreate($input: CartInput!) {',
       '  cartCreate(input: $input) {',
       '    cart {',
       '      id checkoutUrl',
       '      lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
-      '      cost { subtotalAmount { amount } totalAmount { amount } }',
+      '      cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }',
       '      discountCodes { code applicable }',
       '    }',
       '    userErrors { field message }',
@@ -234,9 +225,8 @@
       '}'
     ].join('\n'), {
       input: {
-        lines: allLines,
-        discountCodes: bundleCode ? [bundleCode] : [],
-        buyerIdentity: { countryCode: 'US' }
+        lines: lines,
+        buyerIdentity: { countryCode: 'IL' }
       }
     });
 
@@ -269,6 +259,7 @@
       return;
     }
 
+    var sym = currencySymbol(cart.cost && cart.cost.totalAmount && cart.cost.totalAmount.currencyCode);
     var items = cart.lines.edges.map(function (edge) {
       var node = edge.node;
       var merchandise = node.merchandise || {};
@@ -276,7 +267,7 @@
       return {
         title: product.title || 'Lavero Beauty Shower Filter',
         bundle: merchandise.title || 'Standard',
-        priceStr: '$' + (parseFloat(node.cost.totalAmount.amount) || 0).toFixed(2),
+        priceStr: sym + (parseFloat(node.cost.totalAmount.amount) || 0).toFixed(2),
         imgURL: merchandise.image && merchandise.image.url
           ? merchandise.image.url
           : (product.featuredImage && product.featuredImage.url ? product.featuredImage.url : 'assets/lavero-woman-shower.jpeg')
@@ -285,6 +276,7 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       cartId: cart.id || '',
       checkoutUrl: cart.checkoutUrl || '',
+      currencySymbol: sym,
       items: items
     }));
   }
@@ -304,6 +296,7 @@
 
     var items = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.items) ? parsed.items : []);
     var checkoutUrl = parsed && !Array.isArray(parsed) ? parsed.checkoutUrl : '';
+    var sym = (parsed && !Array.isArray(parsed) && parsed.currencySymbol) || '$';
 
     if (!items.length) {
       if (linesEl) linesEl.innerHTML = '<div class="cdlg-empty">Your cart is empty.</div>';
@@ -323,12 +316,12 @@
         '  <div style="flex:1;">',
         '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));">' + escapeHTML(item.title || 'Lavero Beauty Shower Filter') + '</div>',
         '    <div style="color:var(--taupe,#786f68);font-size:13px;margin-top:3px;">' + escapeHTML(item.bundle || 'Standard') + '</div>',
-        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));margin-top:8px;">' + escapeHTML(item.priceStr || '$0.00') + '</div>',
+        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));margin-top:8px;">' + escapeHTML(item.priceStr || (sym + '0.00')) + '</div>',
         '  </div>',
         '</div>'
       ].join('');
     }).join('');
-    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">Subtotal</span><span class="cdlg-total-value">$' + sum.toFixed(2) + '</span></div>';
+    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">Subtotal</span><span class="cdlg-total-value">' + escapeHTML(sym) + sum.toFixed(2) + '</span></div>';
     if (checkoutBtn) {
       if (checkoutUrl) {
         checkoutBtn.href = normalizeCheckoutUrl(checkoutUrl);
@@ -362,20 +355,12 @@
     }
     if (checkoutBtn) checkoutBtn.style.display = '';
 
-    var showerLines = edges.filter(function (edge) {
-      return edge.node.merchandise.id !== FILTER_VARIANT_ID;
-    });
-    var filterRefillLines = edges.filter(function (edge) {
-      return edge.node.merchandise.id === FILTER_VARIANT_ID;
-    });
-    var showerUnitCount = showerLines.reduce(function (sum, edge) {
-      return sum + edge.node.quantity;
-    }, 0);
-    var filterUnitCount = filterRefillLines.reduce(function (sum, edge) {
+    var sym = currencySymbol(cart.cost && cart.cost.totalAmount && cart.cost.totalAmount.currencyCode);
+    var unitCount = edges.reduce(function (sum, edge) {
       return sum + edge.node.quantity;
     }, 0);
 
-    setBadge(showerUnitCount || filterUnitCount);
+    setBadge(unitCount);
 
     function lineActualTotal(node) {
       var subtotal = parseFloat(node.cost && node.cost.subtotalAmount && node.cost.subtotalAmount.amount);
@@ -394,7 +379,7 @@
 
     try {
       var linesHTML = '';
-      showerLines.forEach(function (edge) {
+      edges.forEach(function (edge) {
         var node = edge.node;
         var merchandise = node.merchandise;
         var img = (merchandise.image && merchandise.image.url) ||
@@ -402,13 +387,13 @@
         var lineTotal = lineActualTotal(node);
 
         // Compare-at strikethrough comes from Shopify (variant compareAtPrice) — never a
-        // hardcoded anchor. Shows e.g. $199 struck → $139 once compareAtPrice is set in admin.
+        // hardcoded anchor. Shows e.g. sym199 struck → sym139 once compareAtPrice is set in admin.
         var unitCompareAt = parseFloat(merchandise.compareAtPrice && merchandise.compareAtPrice.amount) || 0;
         var compareTotal = unitCompareAt * node.quantity;
         var showCompare = compareTotal > lineTotal + 0.01;
-        var showerPriceHTML = showCompare
-          ? '<span class="cdlg-item-original">$' + compareTotal.toFixed(2) + '</span><span class="cdlg-item-price">$' + lineTotal.toFixed(2) + '</span>'
-          : '<span class="cdlg-item-price">$' + lineTotal.toFixed(2) + '</span>';
+        var priceHTML = showCompare
+          ? '<span class="cdlg-item-original">' + escapeHTML(sym) + compareTotal.toFixed(2) + '</span><span class="cdlg-item-price">' + escapeHTML(sym) + lineTotal.toFixed(2) + '</span>'
+          : '<span class="cdlg-item-price">' + escapeHTML(sym) + lineTotal.toFixed(2) + '</span>';
 
         linesHTML += [
           '<div class="cdlg-item">',
@@ -418,40 +403,8 @@
           '    <div class="cdlg-item-variant">' + escapeHTML(merchandise.title) + '</div>',
           '    <div class="cdlg-item-bottom">',
           '      <span class="cdlg-item-qty">Qty ' + node.quantity + '</span>',
-          '      <span>' + showerPriceHTML + '</span>',
+          '      <span>' + priceHTML + '</span>',
           '    </div>',
-          '    <button class="cdlg-item-remove" type="button" data-cart-line-id="' + escapeHTML(node.id) + '">Remove</button>',
-          '  </div>',
-          '</div>'
-        ].join('');
-      });
-
-      filterRefillLines.forEach(function (edge) {
-        var node = edge.node;
-        var merchandise = node.merchandise;
-        var img = (merchandise.image && merchandise.image.url) ||
-          (merchandise.product.featuredImage && merchandise.product.featuredImage.url);
-        var origTotal = FILTER_PRICE * node.quantity;
-        var actualTotal = lineActualTotal(node);
-        var saving = Math.max(0, origTotal - actualTotal);
-        var hasDiscount = saving > 0.01;
-
-        var refillVariant = hasDiscount ? 'Bundle discount applied' : 'One-time filter supply';
-        var refillPriceHTML = hasDiscount
-          ? '<span class="cdlg-item-original">$' + origTotal.toFixed(2) + '</span><span class="cdlg-item-price">$' + actualTotal.toFixed(2) + '</span>'
-          : '<span class="cdlg-item-price">$' + actualTotal.toFixed(2) + '</span>';
-
-        linesHTML += [
-          '<div class="cdlg-item">',
-          img ? '<img class="cdlg-item-img" src="' + escapeHTML(img) + '" alt="">' : '<div class="cdlg-item-img-placeholder"></div>',
-          '  <div class="cdlg-item-body">',
-          '    <div class="cdlg-item-name">Filter Refill</div>',
-          '    <div class="cdlg-item-variant">' + refillVariant + '</div>',
-          '    <div class="cdlg-item-bottom">',
-          '      <span class="cdlg-item-qty">Qty ' + node.quantity + '</span>',
-          '      <span>' + refillPriceHTML + '</span>',
-          '    </div>',
-          hasDiscount ? '    <div class="cdlg-item-save">Bundle Save -$' + saving.toFixed(2) + '</div>' : '',
           '    <button class="cdlg-item-remove" type="button" data-cart-line-id="' + escapeHTML(node.id) + '">Remove</button>',
           '  </div>',
           '</div>'
@@ -469,26 +422,9 @@
       console.error('renderCartDialog error:', renderErr);
     }
 
-    var totalsHTML = '';
-    if (filterRefillLines.length) {
-      var filterQty = filterRefillLines.reduce(function (n, e) { return n + e.node.quantity; }, 0);
-      var origFilterCost = filterQty * FILTER_PRICE;
-      var actualFilterCost = filterRefillLines.reduce(function (sum, e) {
-        return sum + lineActualTotal(e.node);
-      }, 0);
-      var savedAmount = Math.max(0, origFilterCost - actualFilterCost);
-      if (savedAmount > 0.01) {
-        totalsHTML += [
-          '<div class="cdlg-totals-row"><span class="cdlg-totals-label">Filter refill' + (filterQty > 1 ? 's' : '') + ' (&times;' + filterQty + ')</span><span class="cdlg-totals-value" style="text-decoration:line-through;">$' + origFilterCost.toFixed(2) + '</span></div>',
-          '<div class="cdlg-totals-row"><span class="cdlg-totals-discount-label">Bundle savings</span><span class="cdlg-totals-discount-value">-$' + savedAmount.toFixed(2) + '</span></div>'
-        ].join('');
-      }
-    }
-
     var todayBill = parseFloat(cart.cost.totalAmount.amount);
     if (isNaN(todayBill)) todayBill = 0;
-    totalsHTML += '<div class="cdlg-total-row"><span class="cdlg-total-label">Today&apos;s bill</span><span class="cdlg-total-value">$' + todayBill.toFixed(2) + '</span></div>';
-    totalsEl.innerHTML = totalsHTML;
+    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">Today&apos;s bill</span><span class="cdlg-total-value">' + escapeHTML(sym) + todayBill.toFixed(2) + '</span></div>';
     if (checkoutBtn) checkoutBtn.href = normalizeCheckoutUrl(cart.checkoutUrl);
   }
 
@@ -498,7 +434,7 @@
       '  cart(id: $id) {',
       '    id checkoutUrl',
       '    lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
-      '    cost { subtotalAmount { amount } totalAmount { amount } }',
+      '    cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }',
       '    discountCodes { code applicable }',
       '  }',
       '}'
@@ -533,22 +469,6 @@
     }
   }
 
-  async function clearCartDiscountCodes(cartId) {
-    return storefrontFetch([
-      'mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {',
-      '  cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {',
-      '    cart {',
-      '      id checkoutUrl',
-      '      lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
-      '      cost { subtotalAmount { amount } totalAmount { amount } }',
-      '      discountCodes { code applicable }',
-      '    }',
-      '    userErrors { field message }',
-      '  }',
-      '}'
-    ].join('\n'), { cartId: cartId, discountCodes: [] });
-  }
-
   async function removeCartLine(lineId) {
     if (!currentCart || !lineId) return;
     showStatus('Removing...');
@@ -559,7 +479,7 @@
         '    cart {',
         '      id checkoutUrl',
         '      lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
-        '      cost { subtotalAmount { amount } totalAmount { amount } }',
+        '      cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }',
         '      discountCodes { code applicable }',
         '    }',
         '    userErrors { field message }',
@@ -570,15 +490,6 @@
       var errors = data.cartLinesRemove.userErrors;
       if (errors.length) throw new Error(errors[0].message);
       var cartAfter = data.cartLinesRemove.cart;
-      try {
-        var cleared = await clearCartDiscountCodes(cartAfter.id);
-        var clearErrors = cleared.cartDiscountCodesUpdate.userErrors;
-        if (!clearErrors.length && cleared.cartDiscountCodesUpdate.cart) {
-          cartAfter = cleared.cartDiscountCodesUpdate.cart;
-        }
-      } catch (clearErr) {
-        console.warn('cartDiscountCodesUpdate failed (non-fatal):', clearErr);
-      }
       render(cartAfter, currentConfig);
       showStatus('');
     } catch (e) {
@@ -634,80 +545,10 @@
 
   async function addQuickProduct(options) {
     return addConfiguredProduct({
-      colors: [(options && options.color) || 'White'],
+      sizes: [(options && options.size) || DEFAULT_SIZE],
       plan: 'one-time',
-      quantity: 1,
-      filterBundle: 0
+      quantity: 1
     }, { statusId: options && options.statusId });
-  }
-
-  async function buildFilterOnlyCart(filterCount, discountCode) {
-    var qty = Math.max(1, Number(filterCount || 0));
-    var bundleCode = discountCode || BUNDLE_DISCOUNT_CODES[qty] || null;
-    var lines = [{
-      merchandiseId: FILTER_VARIANT_ID,
-      quantity: qty
-    }];
-    var data = await storefrontFetch([
-      'mutation cartCreate($input: CartInput!) {',
-      '  cartCreate(input: $input) {',
-      '    cart {',
-      '      id checkoutUrl',
-      '      lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
-      '      cost { subtotalAmount { amount } totalAmount { amount } }',
-      '      discountCodes { code applicable }',
-      '    }',
-      '    userErrors { field message }',
-      '  }',
-      '}'
-    ].join('\n'), {
-      input: {
-        lines: lines,
-        discountCodes: bundleCode ? [bundleCode] : [],
-        buyerIdentity: { countryCode: 'US' }
-      }
-    });
-    var errors = data.cartCreate.userErrors;
-    if (errors.length) throw new Error(errors[0].message);
-    return data.cartCreate.cart;
-  }
-
-  async function addFilterOnly(options) {
-    var opts = options || {};
-    var filterCount = Math.max(1, Number(opts.filterCount || 1));
-    var filterConfig = { colors: [], plan: 'one-time', quantity: 0, filterBundle: filterCount };
-
-    showStatus('Adding to cart...', opts.statusId);
-    try {
-      var cart = await buildFilterOnlyCart(filterCount, opts.discountCode);
-      render(cart, filterConfig);
-      fbTrack('AddToCart', cartEventParams(cart));
-      showStatus('', opts.statusId);
-      open();
-      return cart;
-    } catch (e) {
-      showStatus(e.message || 'Something went wrong. Please try again.', opts.statusId);
-      return null;
-    }
-  }
-
-  async function buyFilterOnlyNow(options) {
-    var opts = options || {};
-    var filterCount = Math.max(1, Number(opts.filterCount || 1));
-    var filterConfig = { colors: [], plan: 'one-time', quantity: 0, filterBundle: filterCount };
-
-    showStatus('Processing...', opts.statusId);
-    try {
-      var cart = await buildFilterOnlyCart(filterCount, opts.discountCode);
-      render(cart, filterConfig);
-      fbTrack('AddToCart', cartEventParams(cart));
-      fbTrack('InitiateCheckout', cartEventParams(cart));
-      window.location.href = normalizeCheckoutUrl(cart.checkoutUrl);
-      return cart;
-    } catch (e) {
-      showStatus(e.message || 'Something went wrong. Please try again.', opts.statusId);
-      return null;
-    }
   }
 
   async function buyConfiguredProductNow(config, options) {
@@ -740,21 +581,13 @@
   });
 
   window.LaveroCart = {
-    colors: ['White', 'Pink', 'Beige', 'Black', 'Gray'],
-    colorDots: {
-      White: '#EEEAE4',
-      Pink: '#C98B80',
-      Beige: '#C4A882',
-      Black: '#2C2C2C',
-      Gray: '#8A8480'
-    },
-    getVariantId: function (color) {
-      return SHOPIFY_VARIANTS[color] && SHOPIFY_VARIANTS[color].variantId;
+    sizes: ['S', 'M', 'L'],
+    defaultSize: DEFAULT_SIZE,
+    getVariantId: function (size) {
+      return SIZE_VARIANTS[size] && SIZE_VARIANTS[size].variantId;
     },
     addQuickProduct: addQuickProduct,
     addConfiguredProduct: addConfiguredProduct,
-    addFilterOnly: addFilterOnly,
-    buyFilterOnlyNow: buyFilterOnlyNow,
     buyConfiguredProductNow: buyConfiguredProductNow,
     open: open,
     close: close,
