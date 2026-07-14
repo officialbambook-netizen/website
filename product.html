@@ -13,9 +13,9 @@
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=60a0d605">
   <link rel="stylesheet" href="css/base.css?v=3322b48f">
-  <link rel="stylesheet" href="css/product.css?v=5ca49913">
+  <link rel="stylesheet" href="css/product.css?v=98d977fd">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=9571fa88">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=d6acecd3">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=66f5bce6">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=c6f6c373">
@@ -40,22 +40,21 @@
        NAV
   ================================================= -->
   <header class="lavero-main-menu" aria-label="Primary navigation">
-  <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
-  <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook home">
-    <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
-    <span>Compression Gloves</span>
-  </a>
-  <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
-    <a href="index.html" data-section="home">Home</a>
-    <a href="product.html" data-section="shop">Shop</a>
-    <a href="#fit" data-section="fit">Fit</a>
-    <a href="#how-it-helps" data-section="support">Support</a>
-    <a href="#faq" data-section="faq">FAQ</a>
-  </nav>
-  <div class="lavero-menu-actions">
-    <a href="product.html" class="lavero-shop-button">Shop Bambook</a>
-  </div>
-</header>
+    <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
+    <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook home">
+      <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
+      <span>Compression Gloves</span>
+    </a>
+    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
+      <a href="index.html" data-section="home">Home</a>
+      <a href="product.html" data-section="shop" aria-current="page">Shop</a>
+      <a href="faq.html" data-section="faq">FAQ</a>
+      <a href="mission.html" data-section="mission">About</a>
+    </nav>
+    <div class="lavero-menu-actions">
+      <a href="product.html" class="lavero-shop-button">Shop Bambook</a>
+    </div>
+  </header>
 
   <!-- ================================================
        1. HERO — GALLERY + BUY PANEL
@@ -98,16 +97,15 @@
 
         <!-- Rating + sold on one line -->
         <div class="pdp-hero__meta">
-          <a href="#faq" class="pdp-hero__rating" aria-label="Daily hand support with a comfort-first fit">
-            <span class="pdp-hero__stars" role="img" aria-label="Comfort-first">★★★★★</span>
-            <span class="pdp-hero__rating-text">Comfort-first fit</span>
+          <a href="#faq" class="pdp-hero__rating" aria-label="New product, comfort-first fit">
+            <span class="pdp-hero__rating-text">New · comfort-first fit</span>
           </a>
         </div>
 
         <!-- H1 + subhead -->
         <h1 class="pdp-hero__title">Bambook <em>Compression</em> Gloves</h1>
 
-        <p class="pdp-hero__subhead">Gentle compression gloves for the hand moments that keep repeating. Made to feel soft, practical, and easy to keep on while you type, cook, read, rest, and move through the day.</p>
+        <p class="pdp-hero__subhead">Gentle compression gloves for hands that ache by evening and feel stiff before you're even up. Soft enough to wear overnight, open enough to keep doing everything you'd do without them.</p>
 
         <!-- 2×2 proof chips -->
         <ul class="pdp-hero__chips" aria-label="Key benefits">
@@ -131,18 +129,18 @@
 
         <!-- Buy card -->
         <div class="pdp-hero__card-wrap">
-          <span class="pdp-hero__sold-badge"><strong class="pdp-sold-num">New</strong><span class="pdp-sold-sub">MyBambook preview</span></span>
+          <span class="pdp-hero__sold-badge"><strong class="pdp-sold-num">New</strong><span class="pdp-sold-sub">Just launched</span></span>
           <div class="pdp-hero__card" id="pdp-hero-card">
           <div class="pdp-hero__card-body">
 
             <!-- Price block -->
             <div class="pdp-hero__price-block">
               <div class="pdp-hero__price-row">
-                <div class="pdp-hero__offer-status" id="display-price">Offer setup pending</div>
-                <span class="pdp-hero__price-badge">Setup Mode</span>
+                <div class="pdp-hero__offer-status" id="display-price">₪179 for 1 pair</div>
+                <span class="pdp-hero__price-badge">60-Day Guarantee</span>
               </div>
-              <p class="pdp-hero__price-sub" id="price-sub-text">Bundle and checkout setup will be connected after the real Bambook product setup is confirmed.</p>
-              <p class="pdp-hero__price-refill">Choose a size, pick how many pairs make sense for your routine, and keep the final checkout safely pending for now.</p>
+              <p class="pdp-hero__price-sub" id="price-sub-text">Or 2 pairs for ₪219 — the bundle most people choose (one for the day, one for overnight).</p>
+              <p class="pdp-hero__price-refill">Pick your size below, then choose how many pairs make sense for your routine.</p>
             </div>
 
             <!-- Size picker + qty stepper -->
@@ -161,25 +159,20 @@
             </div>
 
             <!-- Extra pair upsell -->
-            <div class="filter-bundle-section" id="filter-bundle-section" aria-label="Choose extra pairs">
-              <span class="pdp-hero__bundle-label">Choose your pair setup <span class="pdp-hero__bundle-note">· desk, bag, bedside</span></span>
+            <div class="filter-bundle-section" id="filter-bundle-section" aria-label="Choose your pair setup">
+              <span class="pdp-hero__bundle-label">Choose your pair setup <span class="pdp-hero__bundle-note">· one for now, one for later</span></span>
               <div class="filter-bundle-grid" role="group">
                 <div class="filter-bundle-card is-selected" data-bundle="0" tabindex="0" role="button" aria-pressed="true">
                   <span class="filter-bundle-card-days">1 Pair</span>
-                  <span class="filter-bundle-card-sub">single set</span>
+                  <span class="filter-bundle-card-sub">₪179</span>
                 </div>
                 <div class="filter-bundle-card" data-bundle="1" tabindex="0" role="button" aria-pressed="false">
+                  <span class="filter-bundle-best-value">Save ₪139</span>
                   <span class="filter-bundle-card-days">2 Pairs</span>
-                  <span class="filter-bundle-card-sub">desk + bedside</span>
-                </div>
-                <div class="filter-bundle-card" data-bundle="2" tabindex="0" role="button" aria-pressed="false">
-                  <span class="filter-bundle-best-value">Best Value</span>
-                  <span class="filter-bundle-card-days">3 Pairs</span>
-                  <span class="filter-bundle-card-sub">work + home + spare</span>
-                  <span class="filter-bundle-card-save">most practical</span>
+                  <span class="filter-bundle-card-sub">₪219 · one on, one in the wash</span>
                 </div>
               </div>
-              <p class="pdp-hero__bundle-summary" id="bundle-summary">You'll choose 1 pair once checkout setup is ready.</p>
+              <p class="pdp-hero__bundle-summary" id="bundle-summary">You've chosen 1 pair — ₪179.</p>
             </div>
 
             <!-- Cart status -->
@@ -189,27 +182,27 @@
             <div class="act-group">
               <button class="btn-cta" id="pdp-hero-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 10H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
-                Request Bambook Setup
+                Add to Cart
               </button>
-              <button class="btn-ghost" type="button" onclick="buySelectedProductsNow(event)">View Fit Details</button>
+              <a class="pdp-hero__checkout-link" href="#" onclick="buySelectedProductsNow(event)">Buy Now</a>
             </div>
 
             <!-- Guarantee line -->
-            <p class="pdp-hero__guarantee-line">Try them through your real daily routine.</p>
+            <p class="pdp-hero__guarantee-line">Try them for 60 days. If they're not right for your hands, send them back.</p>
 
             <!-- Trust row -->
             <div class="pdp-hero__trust" aria-label="Purchase guarantees">
               <span class="pdp-hero__trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-                Daily wear
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                60-day guarantee
               </span>
               <span class="pdp-hero__trust-item">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Checkout pending
+                Secure checkout
               </span>
               <span class="pdp-hero__trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Fit guidance
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                Real size guide
               </span>
             </div>
 
@@ -249,7 +242,7 @@
                 <span class="pdp-obj__lead">What if I am between sizes?</span>
                 <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </summary>
-              <p class="pdp-obj__sub">Choose the fit that feels snug without pinching. A full size guide will replace this note once the final product specs are added.</p>
+              <p class="pdp-obj__sub">Measure around your knuckles: S is 15–18cm, M is 18–20cm, L is 20–23cm. Getting the size right matters — too tight can feel restrictive, too loose won't give you the support. When in doubt, measure twice before you order.</p>
             </details>
           </li>
 
@@ -279,19 +272,14 @@
           </div>
         </div><!-- /.pdp-community-stats -->
 
-        <!-- What's in the box -->
+        <!-- What do you get -->
         <div class="pdp-inbox" id="fit">
-          <span class="eyebrow eyebrow--ruled">What's in the Box</span>
+          <span class="eyebrow eyebrow--ruled">What do you get</span>
           <div class="pdp-inbox__grid">
             <div class="pdp-inbox__card">
               <svg class="pdp-inbox__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
               <span class="pdp-inbox__name">Compression Gloves</span>
               <span class="pdp-inbox__guarantee">fingerless pair</span>
-            </div>
-            <div class="pdp-inbox__card">
-              <svg class="pdp-inbox__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-              <span class="pdp-inbox__name">Fit Card</span>
-              <span class="pdp-inbox__sub">quick reference</span>
             </div>
             <div class="pdp-inbox__card">
               <!-- Envelope / email guide -->
@@ -453,7 +441,6 @@
               <span class="desktop-text">daily support</span>
               <span class="mobile-text">support</span>
             </span>
-            <span class="pdp-sticky-bar__price-mobile mobile-text sticky-price-val">Offer pending</span>
           </div>
         </div>
       </div>
@@ -470,9 +457,8 @@
       </div>
 
       <div class="pdp-sticky-bar__right">
-        <span class="pdp-sticky-bar__price sticky-price-val" id="sticky-price">Offer pending</span>
-        <button class="pdp-sticky-bar__cta" id="sticky-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)" aria-label="Request Bambook setup">
-          Request Setup
+        <button class="pdp-sticky-bar__cta" id="sticky-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)" aria-label="Add Bambook gloves to cart">
+          Add to Cart
         </button>
       </div>
     </div>
@@ -660,7 +646,7 @@
 
         <details class="faq-item">
           <summary>What makes MyBambook different?</summary>
-          <p>MyBambook is being rebuilt around practical daily wear: support that feels easy to keep nearby, easy to put on, and easy to use while your day keeps moving.</p>
+          <p>A real size guide instead of a guess, a straightforward 60-day guarantee instead of fine print, and gentle bamboo fabric built for actual daily wear — not just how it photographs.</p>
         </details>
 
         <details class="faq-item">
@@ -690,7 +676,7 @@
       <p class="final-cta__kicker">Soft enough for daily wear. Practical enough for the things you still need to do.</p>
 
       <a href="#product" class="button final-cta__button">View Bambook Gloves</a>
-      <p class="final-cta__note">Comfort-first daily support</p>
+      <p class="final-cta__note">Real size guide · 60-day guarantee</p>
 
     </div>
   </section>
@@ -711,7 +697,7 @@
           <a href="#" aria-label="Instagram">Ig</a>
           <a href="#" aria-label="TikTok">Tk</a>
           <a href="#" aria-label="Pinterest">Pi</a>
-          <a href="mailto:hello@mybambook.example" aria-label="Email">Em</a>
+          <a href="mailto:support@mybambook.com" aria-label="Email">Em</a>
         </div>
       </div>
       <div>
@@ -757,7 +743,7 @@
       </div>
     </div>
     <div class="legal">
-      <span>&copy; 2026 MYBAMBOOK. All rights reserved.</span>
+      <span>&copy; 2026 MyBambook. All rights reserved.</span>
       <span>
         <a href="privacy-policy.html">Privacy Policy</a> &middot;
         <a href="terms-of-service.html">Terms of Service</a> &middot;
@@ -884,8 +870,9 @@
       const summary = document.getElementById('bundle-summary');
       if (!summary) return;
       const pairCount = state.pairBundle + 1;
+      const price = pairCount === 1 ? '₪179' : '₪219';
       const label = pairCount === 1 ? '1 pair' : `${pairCount} pairs`;
-      summary.textContent = `You'll choose ${label} once checkout setup is ready.`;
+      summary.textContent = `You've chosen ${label} — ${price}.`;
     }
 
     document.querySelectorAll('.filter-bundle-card[data-bundle]').forEach(card => {

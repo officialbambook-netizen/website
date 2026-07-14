@@ -1,3 +1,10 @@
+<!--
+  INACTIVE TEMPLATE — DO NOT USE AS-IS.
+  Leftover from the Lavero (shower-water-filter) site scaffold this workspace was cloned from.
+  Content below still describes the Lavero brand/product, not MyBambook compression gloves.
+  Flagged 2026-07-14 (operator instruction) — deferred, not deleted or rewritten.
+  Needs a real MyBambook-branded rebuild before this page goes live. See 00_CONTROL/TASK_LOG.md 2026-07-14.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +23,9 @@
   <!-- Product page styles (Cormorant/Nunito warm token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=60a0d605">
   <link rel="stylesheet" href="css/base.css?v=3322b48f">
-  <link rel="stylesheet" href="css/product.css?v=5ca49913">
+  <link rel="stylesheet" href="css/product.css?v=98d977fd">
   <!-- Product hero elevation — warm tokens, loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=9571fa88">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=d6acecd3">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f">
   <link rel="stylesheet" href="css/components/footer.css?v=e2d76920">
@@ -38,30 +45,21 @@
        NAV
   ================================================= -->
   <header class="lavero-main-menu" aria-label="Primary navigation">
-  <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
-  <a href="index.html" class="lavero-brand" aria-label="Lavero home">
-    <strong>LAVERO</strong>
-    <span>Beauty Shower Filter</span>
-  </a>
-  <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
-    <a href="index.html" data-section="home">Home</a>
-    <a href="product.html" data-section="shop">Shop</a>
-    <a href="replacement-filters.html" data-section="filters">Filters</a>
-    <a href="water-education.html" data-section="science">Science</a>
-    <a href="mission.html" data-section="mission">Mission</a>
-  </nav>
-  <div class="lavero-menu-actions">
-    <button class="lavero-cart-button" type="button" aria-label="Open cart" onclick="openProductCart()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <path d="M6 8h12l-1 10H7L6 8Z"></path>
-        <path d="M9 8a3 3 0 0 1 6 0"></path>
-      </svg>
-      <span class="lavero-cart-badge cart-badge" aria-hidden="true">0</span>
-      <span class="lavero-sr-only">0 items in cart</span>
-    </button>
-    <a href="product.html" class="lavero-shop-button">Shop Lavero</a>
-  </div>
-</header>
+    <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
+    <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook home">
+      <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
+      <span>Compression Gloves</span>
+    </a>
+    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
+      <a href="index.html" data-section="home">Home</a>
+      <a href="product.html" data-section="shop">Shop</a>
+      <a href="faq.html" data-section="faq">FAQ</a>
+      <a href="mission.html" data-section="mission">About</a>
+    </nav>
+    <div class="lavero-menu-actions">
+      <a href="product.html" class="lavero-shop-button">Shop Bambook</a>
+    </div>
+  </header>
 
   <!-- ================================================
        1. HERO — GALLERY + BUY PANEL

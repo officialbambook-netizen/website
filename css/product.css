@@ -321,7 +321,7 @@
       text-transform: uppercase; color: var(--brown); margin-bottom: 10px; display: block;
     }
     .filter-bundle-grid {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 10px;
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 10px;
       padding-top: 16px;
     }
     .filter-bundle-card {

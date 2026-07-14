@@ -864,6 +864,27 @@
 
 .pdp-hero .btn-cta:active { transform: none; }
 
+.pdp-hero .pdp-hero__checkout-link {
+  justify-self: center;
+  color: var(--brown);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+  padding: var(--space-1) var(--space-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+  text-transform: uppercase;
+  transition: color 140ms ease;
+}
+
+.pdp-hero .pdp-hero__checkout-link:hover,
+.pdp-hero .pdp-hero__checkout-link:focus-visible {
+  color: var(--green);
+}
+
 .pdp-hero .btn-ghost {
   background: transparent;
   border: none;
@@ -973,7 +994,7 @@
   transform: translateX(-50%) translateY(calc(100% + 2rem));
   z-index: 900;
   width: calc(100% - 1.5rem);
-  max-width: 720px;
+  max-width: 900px;
   background: var(--ivory);
   border: none;
   border-radius: 999px;
@@ -1003,10 +1024,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 6px;
+  gap: var(--space-2);
 }
 @media (min-width: 768px) {
-  .pdp-sticky-bar__container { gap: 12px; }
+  .pdp-sticky-bar__container { gap: var(--space-4); }
 }
 
 /* Left side group */
@@ -1015,12 +1036,12 @@
   align-items: center;
   gap: 8px;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 @media (min-width: 768px) {
   .pdp-sticky-bar__left {
-    flex: 1;
+    flex: 1 1 22rem;
   }
 }
 
@@ -1049,6 +1070,7 @@
   flex-direction: column;
   gap: 1px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .pdp-sticky-bar__name {
@@ -1105,6 +1127,7 @@
 }
 
 .pdp-sticky-bar__price-mobile {
+  display: none;
   font-family: "Playfair Display", Didot, "Bodoni 72", "Bodoni MT", Georgia, serif;
   font-size: 1.32rem;
   font-weight: 700;
@@ -1272,6 +1295,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
@@ -1281,20 +1305,20 @@
 }
 
 .pdp-sticky-bar__price {
+  display: none;
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--brown);
   white-space: nowrap;
   line-height: 1;
-  display: none;
   align-items: center;
   margin: 0;
 }
 
 @media (min-width: 768px) {
   .pdp-sticky-bar__price {
-    display: inline-flex;
+    display: none;
     font-size: 1.7rem;
   }
 }
@@ -1305,12 +1329,12 @@
   color: var(--ivory);
   font-family: var(--font-sans);
   font-weight: 750;
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
   border-radius: var(--radius-pill);
-  padding: 8px 12px;
+  padding: 8px 14px;
   cursor: pointer;
   transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
@@ -1324,8 +1348,8 @@
 
 @media (min-width: 768px) {
   .pdp-sticky-bar__cta {
-    font-size: 0.8rem;
-    padding: 12px 24px;
+    font-size: 0.84rem;
+    padding: 12px 30px;
     min-height: 46px;
     box-shadow: 0 4px 14px rgba(201, 154, 93, 0.25);
   }
