@@ -30,8 +30,8 @@
   --accent: var(--gold);
   --accent-emphasis: var(--blush);
   --cta: var(--blush);
-  --serif: "Manrope", "Inter", system-ui, sans-serif;
-  --sans: "Inter", system-ui, sans-serif;
+  --serif: "Heebo", "Inter", system-ui, sans-serif;
+  --sans: "Heebo", "Inter", system-ui, sans-serif;
   --font-display: var(--serif);
   --font-sans: var(--sans);
 }
@@ -93,7 +93,7 @@ body.mybambook-page {
 
 .mybambook-page .eyebrow {
   color: var(--gold);
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .mb-section {
@@ -139,8 +139,8 @@ body.mybambook-page {
 .mb-kicker {
   color: var(--gold);
   display: block;
-  font: 800 var(--fs-eyebrow)/1.3 var(--sans);
-  letter-spacing: 0.18em;
+  font: 800 var(--fs-body)/1.3 var(--sans);
+  letter-spacing: 0.04em;
   margin-bottom: var(--space-4);
   text-transform: uppercase;
 }
@@ -433,6 +433,38 @@ body.mybambook-page {
   .mb-grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* ============================================================
+   RTL (Hebrew) typography adaptations
+   Hebrew is unicameral and has no tracking tradition — the wide
+   Latin eyebrow/button letter-spacing hurts Hebrew legibility.
+   Neutralize it on RTL pages, then restore tracking only on the
+   Latin-only brand marks and watermarks.
+   ============================================================ */
+html[dir="rtl"] body.mybambook-page *,
+html[dir="rtl"] body.mybambook-page *::before,
+html[dir="rtl"] body.mybambook-page *::after {
+  letter-spacing: normal;
+}
+
+html[dir="rtl"] .mybambook-page .lavero-brand strong,
+html[dir="rtl"] .mybambook-page .footer-brand strong {
+  letter-spacing: 0.22em;
+}
+
+html[dir="rtl"] .mybambook-page .site-footer::before {
+  letter-spacing: 0.18em;
+}
+
+html[dir="rtl"] .mybambook-page .mb-final::before {
+  letter-spacing: 0.16em;
+}
+
+/* Hebrew has no italics — browsers fake an ugly slant; emphasize with
+   the existing weight/color instead. */
+html[dir="rtl"] body.mybambook-page em {
+  font-style: normal;
 }
 
 @media (max-width: 780px) {

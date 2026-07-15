@@ -50,7 +50,7 @@
   display: grid;
   gap: clamp(var(--space-4), 1.6vw, var(--space-5));
   grid-template-columns: minmax(0, 1.75fr) repeat(4, minmax(0, 0.62fr)) minmax(0, 1.75fr);
-  text-align: left;
+  text-align: start;
 }
 
 .footer-grid > div {

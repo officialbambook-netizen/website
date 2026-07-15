@@ -95,10 +95,10 @@
       '.cdlg-item-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:12px;}',
       '.cdlg-item-qty{font:500 12px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);}',
       '.cdlg-item-price{font:700 14px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);}',
-      '.cdlg-item-original{font:500 13px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);text-decoration:line-through;margin-right:5px;}',
+      '.cdlg-item-original{font:500 13px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);text-decoration:line-through;margin-inline-end:5px;}',
       '.cdlg-item-remove{background:none;border:none;font:500 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);cursor:pointer;padding:0;text-decoration:underline;margin-top:5px;display:block;}',
       '.cdlg-item-remove:hover{color:var(--blush,#c98b80);}',
-      '.cdlg-item-save{font:600 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--gold,#b88e4a);margin-top:3px;text-align:right;}',
+      '.cdlg-item-save{font:600 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--gold,#b88e4a);margin-top:3px;text-align:end;}',
       '.cdlg-totals-row{display:flex;justify-content:space-between;padding:5px 0;gap:16px;}',
       '.cdlg-totals-label,.cdlg-totals-value{font:500 13px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);}',
       '.cdlg-totals-value{color:var(--brown,#403632);}',
@@ -107,7 +107,7 @@
       '.cdlg-total-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 0;border-top:2px solid var(--line,#eadfd3);margin-top:6px;}',
       '.cdlg-total-label{font:800 15px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);}',
       '.cdlg-total-value{font:800 19px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);}',
-      '.cdlg-checkout{display:block;background:var(--brown,#403632);color:var(--ivory,#fff9f0);text-align:center;padding:16px;border-radius:10px;font:800 13px var(--font-sans,Inter,Arial,sans-serif);letter-spacing:.12em;text-decoration:none;margin-top:14px;text-transform:uppercase;transition:background .2s;}',
+      '.cdlg-checkout{display:block;background:var(--brown,#403632);color:var(--ivory,#fff9f0);text-align:center;padding:16px;border-radius:10px;font:800 13px var(--font-sans,Inter,Arial,sans-serif);letter-spacing:normal;text-decoration:none;margin-top:14px;text-transform:uppercase;transition:background .2s;}',
       '.cdlg-checkout:hover{background:var(--green,#173c34);}',
       '.cdlg-trust{text-align:center;font:500 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);margin:10px 0 0;}',
       '.cdlg-empty{text-align:center;padding:48px 0 40px;color:var(--taupe,#786f68);font:500 14px var(--font-sans,Inter,Arial,sans-serif);}',
@@ -125,16 +125,16 @@
     if (drawer) return drawer;
 
     document.body.insertAdjacentHTML('beforeend', [
-      '<dialog id="lavero-cart-dialog" aria-label="Shopping cart">',
+      '<dialog id="lavero-cart-dialog" aria-label="עגלת קניות">',
       '  <div class="cdlg-header">',
-      '    <h2 class="cdlg-title">Your Cart</h2>',
-      '    <button class="cdlg-close" type="button" aria-label="Close cart">&times;</button>',
+      '    <h2 class="cdlg-title">העגלה שלכם</h2>',
+      '    <button class="cdlg-close" type="button" aria-label="סגירת העגלה">&times;</button>',
       '  </div>',
       '  <div class="cdlg-body"><div id="lavero-cart-lines"></div></div>',
       '  <div class="cdlg-footer">',
       '    <div id="lavero-cart-totals"></div>',
-      '    <a id="lavero-checkout-btn" href="#" class="cdlg-checkout">Checkout</a>',
-      '    <p class="cdlg-trust">Free shipping &nbsp;&middot;&nbsp; 60-day money-back guarantee</p>',
+      '    <a id="lavero-checkout-btn" href="#" class="cdlg-checkout">לתשלום</a>',
+      '    <p class="cdlg-trust">משלוח חינם &nbsp;&middot;&nbsp; אחריות החזר כספי — 60 יום</p>',
       '  </div>',
       '</dialog>'
     ].join(''));
@@ -159,7 +159,7 @@
       },
       body: JSON.stringify({ query: query, variables: variables })
     });
-    if (!res.ok) throw new Error('Network error. Please try again.');
+    if (!res.ok) throw new Error('שגיאת רשת. נסו שוב.');
     var json = await res.json();
     if (json.errors) throw new Error(json.errors[0].message);
     return json.data;
@@ -186,7 +186,7 @@
     return config.sizes.map(function (size, index) {
       var variant = SIZE_VARIANTS[size];
       if (!variant || !variant.variantId) {
-        throw new Error('Size ' + size + ' is currently unavailable.');
+        throw new Error('מידה ' + size + ' אינה זמינה כרגע.');
       }
       return { size: size, variantId: variant.variantId, quantity: 1 };
     });
@@ -249,7 +249,7 @@
       badge.style.display = count > 0 ? 'flex' : 'none';
     });
     document.querySelectorAll('.lavero-sr-only, #cart-count-label').forEach(function (el) {
-      el.textContent = count + ' ' + (count === 1 ? 'item' : 'items') + ' in cart';
+      el.textContent = count + ' ' + (count === 1 ? 'פריט' : 'פריטים') + ' בעגלה';
     });
   }
 
@@ -265,9 +265,9 @@
       var merchandise = node.merchandise || {};
       var product = merchandise.product || {};
       return {
-        title: product.title || 'Lavero Beauty Shower Filter',
-        bundle: merchandise.title || 'Standard',
-        priceStr: sym + (parseFloat(node.cost.totalAmount.amount) || 0).toFixed(2),
+        title: product.title || 'כפפות קומפרסיה MyBambook',
+        bundle: merchandise.title || 'סטנדרטי',
+        priceStr: (parseFloat(node.cost.totalAmount.amount) || 0).toFixed(2) + ' ' + sym,
         imgURL: merchandise.image && merchandise.image.url
           ? merchandise.image.url
           : (product.featuredImage && product.featuredImage.url ? product.featuredImage.url : 'assets/lavero-woman-shower.jpeg')
@@ -299,7 +299,7 @@
     var sym = (parsed && !Array.isArray(parsed) && parsed.currencySymbol) || '$';
 
     if (!items.length) {
-      if (linesEl) linesEl.innerHTML = '<div class="cdlg-empty">Your cart is empty.</div>';
+      if (linesEl) linesEl.innerHTML = '<div class="cdlg-empty">העגלה שלכם ריקה.</div>';
       if (totalsEl) totalsEl.innerHTML = '';
       if (checkoutBtn) checkoutBtn.style.display = 'none';
       setBadge(0);
@@ -314,14 +314,14 @@
         '<div class="cdlg-line">',
         '  <img src="' + escapeHTML(item.imgURL || 'assets/lavero-woman-shower.jpeg') + '" alt="">',
         '  <div style="flex:1;">',
-        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));">' + escapeHTML(item.title || 'Lavero Beauty Shower Filter') + '</div>',
-        '    <div style="color:var(--taupe,#786f68);font-size:13px;margin-top:3px;">' + escapeHTML(item.bundle || 'Standard') + '</div>',
-        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));margin-top:8px;">' + escapeHTML(item.priceStr || (sym + '0.00')) + '</div>',
+        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));">' + escapeHTML(item.title || 'כפפות קומפרסיה MyBambook') + '</div>',
+        '    <div style="color:var(--taupe,#786f68);font-size:13px;margin-top:3px;">' + escapeHTML(item.bundle || 'סטנדרטי') + '</div>',
+        '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));margin-top:8px;">' + escapeHTML(item.priceStr || ('0.00 ' + sym)) + '</div>',
         '  </div>',
         '</div>'
       ].join('');
     }).join('');
-    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">Subtotal</span><span class="cdlg-total-value">' + escapeHTML(sym) + sum.toFixed(2) + '</span></div>';
+    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">סכום ביניים</span><span class="cdlg-total-value">' + sum.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
     if (checkoutBtn) {
       if (checkoutUrl) {
         checkoutBtn.href = normalizeCheckoutUrl(checkoutUrl);
@@ -347,7 +347,7 @@
 
     var edges = cart && cart.lines ? cart.lines.edges : [];
     if (!edges.length) {
-      linesEl.innerHTML = '<div class="cdlg-empty">Your cart is empty.</div>';
+      linesEl.innerHTML = '<div class="cdlg-empty">העגלה שלכם ריקה.</div>';
       totalsEl.innerHTML = '';
       if (checkoutBtn) checkoutBtn.style.display = 'none';
       setBadge(0);
@@ -392,8 +392,8 @@
         var compareTotal = unitCompareAt * node.quantity;
         var showCompare = compareTotal > lineTotal + 0.01;
         var priceHTML = showCompare
-          ? '<span class="cdlg-item-original">' + escapeHTML(sym) + compareTotal.toFixed(2) + '</span><span class="cdlg-item-price">' + escapeHTML(sym) + lineTotal.toFixed(2) + '</span>'
-          : '<span class="cdlg-item-price">' + escapeHTML(sym) + lineTotal.toFixed(2) + '</span>';
+          ? '<span class="cdlg-item-original">' + compareTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span><span class="cdlg-item-price">' + lineTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span>'
+          : '<span class="cdlg-item-price">' + lineTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span>';
 
         linesHTML += [
           '<div class="cdlg-item">',
@@ -402,10 +402,10 @@
           '    <div class="cdlg-item-name">' + escapeHTML(merchandise.product.title) + '</div>',
           '    <div class="cdlg-item-variant">' + escapeHTML(merchandise.title) + '</div>',
           '    <div class="cdlg-item-bottom">',
-          '      <span class="cdlg-item-qty">Qty ' + node.quantity + '</span>',
+          '      <span class="cdlg-item-qty">כמות ' + node.quantity + '</span>',
           '      <span>' + priceHTML + '</span>',
           '    </div>',
-          '    <button class="cdlg-item-remove" type="button" data-cart-line-id="' + escapeHTML(node.id) + '">Remove</button>',
+          '    <button class="cdlg-item-remove" type="button" data-cart-line-id="' + escapeHTML(node.id) + '">הסרה</button>',
           '  </div>',
           '</div>'
         ].join('');
@@ -418,13 +418,13 @@
         });
       });
     } catch (renderErr) {
-      linesEl.innerHTML = '<div class="cdlg-empty" style="color:var(--blush,#c98b80);">Error rendering cart: ' + escapeHTML(renderErr.message) + '</div>';
+      linesEl.innerHTML = '<div class="cdlg-empty" style="color:var(--blush,#c98b80);">שגיאה בהצגת העגלה: ' + escapeHTML(renderErr.message) + '</div>';
       console.error('renderCartDialog error:', renderErr);
     }
 
     var todayBill = parseFloat(cart.cost.totalAmount.amount);
     if (isNaN(todayBill)) todayBill = 0;
-    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">Today&apos;s bill</span><span class="cdlg-total-value">' + escapeHTML(sym) + todayBill.toFixed(2) + '</span></div>';
+    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">לתשלום היום</span><span class="cdlg-total-value">' + todayBill.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
     if (checkoutBtn) checkoutBtn.href = normalizeCheckoutUrl(cart.checkoutUrl);
   }
 
@@ -471,7 +471,7 @@
 
   async function removeCartLine(lineId) {
     if (!currentCart || !lineId) return;
-    showStatus('Removing...');
+    showStatus('מסירים…');
     try {
       var data = await storefrontFetch([
         'mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {',
@@ -493,7 +493,7 @@
       render(cartAfter, currentConfig);
       showStatus('');
     } catch (e) {
-      showStatus(e.message || 'Could not remove item. Please try again.');
+      showStatus(e.message || 'לא הצלחנו להסיר את הפריט. נסו שוב.');
     }
   }
 
@@ -529,7 +529,7 @@
       return null;
     }
 
-    showStatus('Adding to cart...', options && options.statusId);
+    showStatus('מוסיפים לסל…', options && options.statusId);
     try {
       var cart = await buildShopifyCart(nextConfig);
       render(cart, nextConfig);
@@ -561,7 +561,7 @@
       return null;
     }
 
-    showStatus('Processing...', options && options.statusId);
+    showStatus('מעבדים את ההזמנה…', options && options.statusId);
     try {
       var cart = await buildShopifyCart(nextConfig);
       render(cart, nextConfig);

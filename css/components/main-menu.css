@@ -99,14 +99,13 @@ body {
   color: var(--taupe);
   display: inline-flex;
   flex-direction: column;
-  font: 800 var(--fs-eyebrow)/1 var(--font-sans);
+  font: 900 var(--fs-body)/1.05 var(--font-sans);
   gap: var(--space-2);
   justify-content: center;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.02em;
   min-height: 44px;
   padding: 0 var(--space-3);
   text-decoration: none;
-  text-transform: uppercase;
   white-space: nowrap;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -226,7 +225,7 @@ body {
   min-width: 1.05rem;
   padding: 0 0.25rem;
   position: absolute;
-  right: 0.1rem;
+  inset-inline-end: 0.1rem;
   top: 0.2rem;
 }
 
@@ -299,7 +298,9 @@ body {
   .lavero-menu-links a {
     border-bottom: 1px solid var(--line-soft);
     color: var(--ink);
+    font-size: var(--fs-body);
     justify-content: center;
+    min-height: 52px;
     width: 100%;
   }
 
@@ -334,10 +335,9 @@ body {
     border: 1px solid rgba(23, 60, 52, 0.18);
     border-radius: var(--radius-sm);
     color: var(--ivory);
-    font: 900 var(--fs-eyebrow)/1 var(--font-sans);
-    letter-spacing: 0.16em;
+    font: 900 var(--fs-body)/1 var(--font-sans);
+    letter-spacing: 0.02em;
     text-decoration: none;
-    text-transform: uppercase;
     min-height: 48px;
     border-bottom: 0;
     white-space: nowrap;

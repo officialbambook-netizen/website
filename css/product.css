@@ -24,10 +24,10 @@
       --surface-shadow: 0 20px 52px rgba(16,37,54,0.08), 0 3px 12px rgba(16,37,54,0.04);
       --surface-shadow-strong: 0 28px 72px rgba(16,37,54,0.13), 0 8px 24px rgba(16,37,54,0.07);
       --surface-fill: linear-gradient(180deg, rgba(251,253,251,0.98) 0%, rgba(234,247,250,0.9) 100%);
-      --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
-      --font-sans:    'Inter', system-ui, sans-serif;
-      --serif:        'Manrope', 'Inter', system-ui, sans-serif;
-      --sans:         'Inter', system-ui, sans-serif;
+      --font-display: 'Heebo', 'Inter', system-ui, sans-serif;
+      --font-sans:    'Heebo', 'Inter', system-ui, sans-serif;
+      --serif:        'Heebo', 'Inter', system-ui, sans-serif;
+      --sans:         'Heebo', 'Inter', system-ui, sans-serif;
     }
 
     /* ===================================================
@@ -101,7 +101,7 @@
     .lavero-shop-button:active { transform: translateY(-1px); }
     .mobile-menu-btn { display: none; font-size: 28px; }
     .cart-badge {
-      position: absolute; top: 0; right: -8px;
+      position: absolute; top: 0; inset-inline-end: -8px;
       background: var(--ivory); color: var(--ink); font-size: 11px; font-weight: bold;
       height: 18px; min-width: 18px; border-radius: 50%;
       display: none; align-items: center; justify-content: center; padding: 0 4px;
@@ -113,8 +113,8 @@
     .section { padding: var(--section-py) 5% var(--section-py-b); }
     .sec-inner { max-width: 1240px; margin: 0 auto; width: 100%; }
     .eyebrow {
-      display: block; color: var(--gold); font: 700 11px var(--font-sans);
-      letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 14px;
+      display: block; color: var(--gold); font: 800 var(--fs-body)/1.25 var(--font-sans);
+      letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px;
     }
     h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.06; margin: 0; }
     h1 { font-size: clamp(36px,4.6vw,62px); }
@@ -260,7 +260,7 @@
     }
     .color-picker-btn:hover { border-color: var(--gold); }
     .color-picker-btn[aria-expanded="true"] { border-color: var(--gold); }
-    .color-picker-label { flex: 1; text-align: left; }
+    .color-picker-label { flex: 1; text-align: start; }
     .color-picker-chevron { flex-shrink: 0; transition: transform 0.2s ease; }
     .color-picker-btn[aria-expanded="true"] .color-picker-chevron { transform: rotate(180deg); }
     .color-picker-dropdown {
@@ -272,7 +272,7 @@
     .color-picker-option {
       align-items: center; background: none; border: none; cursor: pointer;
       display: flex; font: 600 13px var(--font-sans); color: var(--brown);
-      gap: 10px; padding: 10px 14px; text-align: left; width: 100%;
+      gap: 10px; padding: 10px 14px; text-align: start; width: 100%;
       transition: background 0.15s ease;
     }
     .color-picker-option:hover { background: var(--sand); }
@@ -404,8 +404,8 @@
       box-shadow: 0 4px 18px rgba(64, 54, 50, 0.14);
       transform: translateY(-50%) scale(1.06);
     }
-    .gal-arrow.prev { left: 12px; }
-    .gal-arrow.next { right: 12px; }
+    .gal-arrow.prev { inset-inline-start: 12px; }
+    .gal-arrow.next { inset-inline-end: 12px; }
 
     /* Buy panel */
     .buy-panel {
@@ -454,13 +454,13 @@
     .sel-wrap::after {
       content: ""; border-right: 1.5px solid var(--taupe); border-bottom: 1.5px solid var(--taupe);
       height: 7px; width: 7px; pointer-events: none;
-      position: absolute; right: 16px; top: 50%; transform: translateY(-64%) rotate(45deg);
+      position: absolute; inset-inline-end: 16px; top: 50%; transform: translateY(-64%) rotate(45deg);
     }
     .plan-choice { margin: 0 0 22px; display: grid; gap: 10px; }
     .plan-btn {
       display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 14px;
       background: var(--cream); border: 1.5px solid var(--line); border-radius: 10px;
-      cursor: pointer; padding: 16px; text-align: left;
+      cursor: pointer; padding: 16px; text-align: start;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
     .plan-btn[aria-pressed="true"] { background: rgba(23,60,52,0.05); border-color: var(--green); }
@@ -514,7 +514,7 @@
     .pdp-acc summary::-webkit-details-marker { display: none; }
     .pdp-acc summary::after {
       content: "+"; font: 300 22px var(--font-sans); color: var(--gold);
-      flex-shrink: 0; margin-left: 10px;
+      flex-shrink: 0; margin-inline-start: 10px;
     }
     details[open].pdp-acc > summary::after { content: "−"; }
     .pdp-acc-body { padding: 4px 0 18px; }
@@ -565,14 +565,14 @@
     ==================================================== */
     .proof-bar { background: var(--blush); display: grid; grid-template-columns: repeat(4,1fr); }
     .proof-item {
-      border-right: 1px solid rgba(255,249,240,0.16); padding: 32px 24px;
+      border-inline-end: 1px solid rgba(255,249,240,0.16); padding: 32px 24px;
       text-align: center; position: relative;
     }
     .proof-item::before {
       content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
       width: 36px; height: 3px; background: rgba(255,249,240,0.55); border-radius: 0 0 3px 3px;
     }
-    .proof-item:last-child { border-right: none; }
+    .proof-item:last-child { border-inline-end: none; }
     .proof-label {
       display: block; font: 700 10px var(--font-sans); letter-spacing: 0.16em;
       text-transform: uppercase; color: rgba(255,249,240,0.6); margin-bottom: 8px;
@@ -883,7 +883,7 @@
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after {
       content: "+"; font: 300 26px var(--font-sans); color: var(--blush);
-      position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+      position: absolute; inset-inline-end: 0; top: 50%; transform: translateY(-50%);
     }
     details[open] > summary::after { content: "−"; }
     .faq-item p { max-width: 680px; padding: 0 0 24px; font-size: clamp(15px,1.2vw,17px); color: var(--taupe); }
@@ -1030,7 +1030,7 @@
       cursor: default;
     }
     #lb-close {
-      position: fixed; top: 20px; right: 24px;
+      position: fixed; top: 20px; inset-inline-end: 24px;
       background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
       color: #fff; font-size: 26px; width: 44px; height: 44px;
       cursor: pointer; display: grid; place-items: center;
@@ -1142,8 +1142,8 @@
       .pdp-stat-grid { max-width: 100%; }
       .proof-bar     { grid-template-columns: repeat(2,1fr); }
       .proof-item    { border-bottom: 1px solid rgba(255,249,240,0.12); }
-      .proof-item:nth-child(odd)    { border-right: 1px solid rgba(255,249,240,0.16); }
-      .proof-item:nth-child(even)   { border-right: none; }
+      .proof-item:nth-child(odd)    { border-inline-end: 1px solid rgba(255,249,240,0.16); }
+      .proof-item:nth-child(even)   { border-inline-end: none; }
       .proof-item:nth-last-child(-n+2) { border-bottom: none; }
     }
     @media (max-width: 860px) {
@@ -1195,7 +1195,7 @@
       .filter-comparison { aspect-ratio: 3/1; }
       .fc-slider { touch-action: none; }
       .proof-bar  { grid-template-columns: 1fr; }
-      .proof-item { border-right: none !important; border-bottom: 1px solid rgba(255,249,240,0.12); }
+      .proof-item { border-inline-end: none !important; border-bottom: 1px solid rgba(255,249,240,0.12); }
       .proof-item:last-child { border-bottom: none; }
       .ext-reviews-masonry {
         grid-template-columns: 1fr;
@@ -2048,12 +2048,12 @@
 
 .pdp-page .comparison-table td:nth-child(2) {
   background: rgba(184, 142, 74, 0.08);
-  border-left: 1px solid rgba(201, 154, 93, 0.24);
+  border-inline-start: 1px solid rgba(201, 154, 93, 0.24);
   color: var(--brown);
 }
 
 .pdp-page .comparison-table td:nth-child(3) {
-  border-left: 1px solid rgba(74, 61, 57, 0.1);
+  border-inline-start: 1px solid rgba(74, 61, 57, 0.1);
 }
 
 @media (max-width: 780px) {
@@ -2406,4 +2406,36 @@ details.faq-item::after,
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+/* ============================================================
+   RTL (Hebrew) typography adaptations — product page
+   Hebrew has no tracking tradition; neutralize Latin
+   letter-spacing on RTL pages, then restore it only on the
+   Latin-only brand marks and watermarks.
+   ============================================================ */
+html[dir="rtl"] body.pdp-page *,
+html[dir="rtl"] body.pdp-page *::before,
+html[dir="rtl"] body.pdp-page *::after {
+  letter-spacing: normal;
+}
+
+html[dir="rtl"] .pdp-page .lavero-brand strong,
+html[dir="rtl"] .pdp-page .footer-brand strong {
+  letter-spacing: 0.22em;
+}
+
+html[dir="rtl"] .pdp-page .site-footer::before {
+  letter-spacing: 0.18em;
+}
+
+html[dir="rtl"] .pdp-page .final-cta-watermark {
+  letter-spacing: clamp(0.02em, 0.6vw, 0.1em);
+}
+
+/* Hebrew has no italics — browsers fake an ugly slant; emphasize with
+   the existing weight/color instead. */
+html[dir="rtl"] body.pdp-page em {
+  font-style: normal;
 }

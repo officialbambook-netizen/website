@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.c-d { text-align: left; }
+.c-d { text-align: start; }
 @media (min-width: 800px) {
   .c-d { text-align: center; }
 }
@@ -89,7 +89,7 @@
   padding: 0.9rem 1.4rem;
   font-weight: 700;
   color: var(--ink);
-  text-align: left;
+  text-align: start;
   font-size: 0.9rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -104,7 +104,7 @@
 .comparison-table td:nth-child(2) {
   color: var(--blush);
   font-weight: 700;
-  border-left: 2px solid var(--gold);
+  border-inline-start: 2px solid var(--gold);
   background: rgba(201, 154, 93, 0.08);
 }
 .comparison-table td:nth-child(2)::before {
@@ -115,7 +115,7 @@
 /* "Most shower filters" column */
 .comparison-table td:nth-child(3) {
   color: var(--taupe);
-  border-left: 1px solid var(--line);
+  border-inline-start: 1px solid var(--line);
 }
 /* Gold pill on the Lavero column header */
 .comparison-section .comparison-col-head--lavero {
@@ -174,7 +174,7 @@
     text-transform: uppercase;
     color: rgba(111,104,97,0.45);
   }
-  .comparison-mobile-only thead th:first-child { text-align: left; padding-left: 1rem; }
+  .comparison-mobile-only thead th:first-child { text-align: start; padding-inline-start: 1rem; }
 
   .cmo-th-lavero {
     background: linear-gradient(160deg, rgba(201,154,93,0.18) 0%, rgba(201,154,93,0.08) 100%) !important;
@@ -222,13 +222,14 @@
   .comparison-mobile-only tbody tr:last-child { border-bottom: none; }
 
   .comparison-mobile-only tbody td:first-child {
-    padding: 0.82rem 0.6rem 0.82rem 1rem;
+    padding: 0.82rem 0.6rem;
+    padding-inline-start: 1rem;
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--ink);
-    text-align: left;
+    text-align: start;
     line-height: 1.3;
   }
 

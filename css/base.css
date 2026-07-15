@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
+  text-align: start;
 }
 
 /* Stacks at <=780px (the site's established breakpoint, per CLAUDE.md §3).
@@ -68,9 +68,9 @@
   width: fit-content;
   margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
   font-family: var(--sans);
-  font-size: var(--fs-eyebrow);
+  font-size: var(--fs-body);
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--taupe);
   border-bottom: 2px solid var(--gold);
