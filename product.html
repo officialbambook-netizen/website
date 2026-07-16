@@ -14,9 +14,9 @@
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=60a0d605">
   <link rel="stylesheet" href="css/base.css?v=5d6b56df">
-  <link rel="stylesheet" href="css/product.css?v=324bee2a">
+  <link rel="stylesheet" href="css/product.css?v=f34cfa23">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=2cddc79f">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=68e96d7d">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=d24cd5a2">
@@ -153,8 +153,13 @@
 
             <!-- Size picker + qty stepper -->
             <div class="pdp-hero__options-row">
-              <!-- JS injects size picker here — leave empty -->
-              <div class="color-options" id="size-options" aria-live="polite"></div>
+              <div class="pdp-hero__size-area">
+                <!-- JS injects size picker here — leave empty -->
+                <div class="color-options" id="size-options" aria-live="polite"></div>
+                <a class="pdp-hero__size-guide-link" href="assets/mybambook-size-guide-hebrew.svg" target="_blank" rel="noopener" aria-label="פתיחת מדריך המידות של MyBambook בחלון חדש">
+                  מדריך מידות
+                </a>
+              </div>
 
               <div class="pdp-hero__qty-wrap">
                 <span class="pdp-hero__qty-label">כמות</span>
@@ -171,12 +176,12 @@
               <div class="filter-bundle-grid" role="group">
                 <div class="filter-bundle-card is-selected" data-bundle="0" tabindex="0" role="button" aria-pressed="true">
                   <span class="filter-bundle-card-days">זוג אחד</span>
-                  <span class="filter-bundle-card-sub"><span class="filter-bundle-card-compare">&rlm;279&nbsp;₪</span> &rlm;179&nbsp;₪</span>
+                  <span class="filter-bundle-card-sub">&rlm;179&nbsp;₪</span>
                 </div>
                 <div class="filter-bundle-card" data-bundle="1" tabindex="0" role="button" aria-pressed="false">
                   <span class="filter-bundle-best-value">חיסכון של 110&nbsp;₪</span>
                   <span class="filter-bundle-card-days">2 זוגות</span>
-                  <span class="filter-bundle-card-sub"><span class="filter-bundle-card-compare">&rlm;329&nbsp;₪</span> &rlm;219&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
+                  <span class="filter-bundle-card-sub">&rlm;219&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
                 </div>
               </div>
               <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד — 179&nbsp;₪.</p>
@@ -479,9 +484,9 @@
     <div class="pdp-cert">
       <span aria-hidden="true" class="pdp-cert__rule pdp-cert__rule--top"></span>
       <span aria-hidden="true" class="pdp-cert__rule pdp-cert__rule--bottom"></span>
-      <p class="pdp-cert__label">הערות ההתאמה של MyBambook</p>
-      <p class="pdp-cert__head"><span class="pdp-cert__accent">לבישה יומיומית.</span> משימות אמיתיות.</p>
-      <p class="pdp-cert__sub">לבשו אותן בהקלדה, בסידורים, במטלות, בגלילה ובמנוחת הערב. המטרה: תמיכה שקטה שבאמת אפשר להשאיר על הידיים.</p>
+      <p class="pdp-cert__label">האחריות של MyBambook</p>
+      <p class="pdp-cert__head"><span class="pdp-cert__accent">60 יום.</span> בלי סיכון.</p>
+      <p class="pdp-cert__sub">אם הכפפות לא מרגישות נכונות לידיים שלכם — כתבו לנו. נחזיר לכם את הכסף, בלי טפסים מסובכים ובלי סיבובים מיותרים.</p>
     </div>
   </div>
 
@@ -615,7 +620,7 @@
 
       <div class="fair-question__card">
         <div class="fair-question__body-wrap">
-          <p class="fair-question__body">הרבה כפפות קומפרסיה נראות דומות במבט ראשון. ההבדל הוא אם אפשר באמת להשאיר אותן על הידיים לאורך החיים הרגילים: הקלדה, בישול, גלילה, סידור הבית ומנוחה — בלי להוריד אותן כל רגע.</p>
+          <p class="fair-question__body">כשמחפשים כפפות קומפרסיה זולות במקומות כמו אליאקספרס או אמזון, רואים שוב ושוב את אותן תלונות: בד שנפרם, חום מוגזם, בד שלא נושם מספיק, מידה שלא יושבת נכון, ותפרים שמתחילים ללחוץ בדיוק במקום הלא נכון. אלה בדיוק הדברים שחשבנו עליהם ב־MyBambook: כפפות מבד במבוק איכותי, בגזרה שנועדה לתת לחץ עדין ואחיד, עם תחושה רכה ונושמת יותר לשימוש יומיומי. לא עוד כפפה שמורידים אחרי כמה דקות — אלא זוג שאפשר באמת להשאיר על הידיים.</p>
         </div>
         <div class="fair-question__kicker-wrap">
           <p class="fair-question__kicker"><em>זו</em> לא החלטה <em>זולה</em> יותר. זו החלטה <em>דחויה</em>.</p>
@@ -624,6 +629,118 @@
 
       <a href="#product" class="fair-question__cta">לצפייה בכפפות</a>
 
+    </div>
+  </section>
+
+  <!-- ================================================
+       BAMBOO BENEFITS CAROUSEL
+  ================================================= -->
+  <section class="section section--ivory reveal-page bamboo-benefits" aria-labelledby="bamboo-benefits-heading">
+    <div class="bamboo-benefits__header">
+      <h2 id="bamboo-benefits-heading">למה במבוק כל כך מתאים לכפפות?</h2>
+      <span class="bamboo-benefits__rule" aria-hidden="true"></span>
+      <p>לבמבוק יש שילוב נדיר של רכות, נשימה ותחושה נעימה — בדיוק מה שכפפת קומפרסיה יומיומית צריכה.</p>
+    </div>
+
+    <div class="bamboo-benefits__marquee" aria-label="יתרונות בד הבמבוק">
+      <div class="bamboo-benefits__track">
+        <div class="bamboo-benefits__group">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>ידידותי יותר לסביבה</h3>
+            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי ונעים</h3>
+            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>רעננות יומיומית</h3>
+            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>ויסות חום</h3>
+            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+          </article>
+        </div>
+        <div class="bamboo-benefits__group" aria-hidden="true">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>ידידותי יותר לסביבה</h3>
+            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי ונעים</h3>
+            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>רעננות יומיומית</h3>
+            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>ויסות חום</h3>
+            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+          </article>
+        </div>
+        <div class="bamboo-benefits__group" aria-hidden="true">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>ידידותי יותר לסביבה</h3>
+            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי ונעים</h3>
+            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>רעננות יומיומית</h3>
+            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>ויסות חום</h3>
+            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -754,7 +871,8 @@
       <span>
         <a href="privacy-policy.html">מדיניות פרטיות</a> &middot;
         <a href="terms-of-service.html">תנאי שימוש</a> &middot;
-        <a href="refund-policy.html">מדיניות החזרים</a>
+        <a href="refund-policy.html">מדיניות החזרים</a> &middot;
+        <a href="accessibility.html">הצהרת נגישות</a>
       </span>
     </div>
   </footer>
@@ -889,7 +1007,7 @@
       const priceUnit = document.getElementById('price-unit');
       const pairCount = state.pairBundle + 1;
       const price = pairCount === 1 ? '179 ₪' : '219 ₪';
-      const compareAt = pairCount === 1 ? '279 ₪' : '329 ₪';
+      const compareAt = pairCount === 1 ? '279 ₪' : '558 ₪';
       const label = pairCount === 1 ? 'זוג אחד' : `${pairCount} זוגות`;
       if (compareAtPrice) compareAtPrice.textContent = compareAt;
       if (currentPrice) currentPrice.textContent = price;

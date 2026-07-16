@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MyBambook | משלוחים ואספקה</title>
-  <meta name="description" content="מדיניות המשלוחים של MyBambook — משלוח בישראל, זמן אספקה משוער של 7–14 ימי עסקים, מעקב אחר ההזמנה, ומה עושים אם החבילה מתעכבת. מגובה באחריות ל-60 יום." />
+  <title>MyBambook | טופס ביטול עסקה</title>
+  <meta name="description" content="טופס ביטול עסקה של MyBambook — מסירת הודעת ביטול על פי חוק הגנת הצרכן. מלאו את הפרטים ושלחו אלינו, או כתבו ישירות ל-support@mybambook.com." />
   <meta property="og:locale" content="he_IL" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@
     <div class="policy-hero" id="top">
       <div class="policy-hero__inner">
         <span class="policy-hero__eyebrow">MyBambook — שירות לקוחות</span>
-        <h1 class="policy-hero__title">משלוחים <em>ואספקה</em></h1>
+        <h1 class="policy-hero__title">טופס ביטול <em>עסקה</em></h1>
         <p class="policy-hero__meta">עודכן לאחרונה: 16 ביולי 2026</p>
       </div>
     </div>
@@ -63,8 +63,8 @@
       <ul class="policy-nav__list">
         <li><a href="terms-of-service.html">תקנון ותנאי שימוש</a></li>
         <li><a href="refund-policy.html">החזרות וביטול עסקה</a></li>
-        <li><a href="cancellation-form.html">טופס ביטול עסקה</a></li>
-        <li class="active"><a href="shipping-returns.html">משלוחים</a></li>
+        <li class="active"><a href="cancellation-form.html">טופס ביטול עסקה</a></li>
+        <li><a href="shipping-returns.html">משלוחים</a></li>
         <li><a href="privacy-policy.html">מדיניות פרטיות</a></li>
         <li><a href="accessibility.html">הצהרת נגישות</a></li>
       </ul>
@@ -75,75 +75,70 @@
       <div class="policy-prose">
 
         <!-- Overview -->
-        <p class="policy-intro">אנחנו מספקים את המוצרים שלנו בישראל. לאחר אישור ההזמנה, זמן האספקה המשוער הוא <strong>7–14 ימי עסקים</strong>; במקרים חריגים האספקה עשויה להימשך זמן רב יותר. אנו מאמינים בשקיפות — ולכן מציגים את טווח הזמנים בגלוי ולא מבטיחים הבטחות שלא נוכל לעמוד בהן. כל הזמנה מגובה ב<a href="refund-policy.html">אחריות MyBambook להחזר כספי מלא בתוך 60 יום</a>.</p>
+        <p class="policy-intro">בטופס זה ניתן למסור לנו הודעת ביטול עסקה. מילוי הטופס פותח את תוכנת הדוא"ל שלכם עם הודעה מוכנה אל <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> — כל שנותר הוא ללחוץ "שליחה". אפשר גם לכתוב לנו ישירות למייל זה. לפני הביטול מומלץ לעיין בעמוד <a href="refund-policy.html">החזרות, ביטול עסקה והחזר כספי</a>, המפרט את אחריות ה-60 יום, את זכות הביטול החוקית ל-14 יום ואת אופן ההחזרה.</p>
 
-        <!-- Section 1 -->
+        <!-- Form -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <span class="policy-section__num">אזור אספקה</span>
-            <h2 class="policy-section__title">היכן אנו מספקים</h2>
+            <h2 class="policy-section__title">פרטי הביטול</h2>
           </div>
-          <p>אנו מספקים את המוצרים ברחבי ישראל. ככל שקיימות מגבלות אספקה לאזורים מסוימים, הן יוצגו בעמוד התשלום. אנא ודאו כי כתובת המשלוח שהזנתם נכונה ומלאה — כתובת שגויה או חלקית עלולה לעכב את האספקה. לצורך תיאום המשלוח נמסור לחברת השילוח את שמכם, כתובתכם ופרטי ההתקשרות בלבד, בהתאם ל<a href="privacy-policy.html">מדיניות הפרטיות</a>.</p>
+
+          <form id="cancel-form" class="policy-form" action="mailto:support@mybambook.com" method="post" enctype="text/plain" novalidate>
+            <div class="policy-form__grid">
+              <div class="policy-form__field">
+                <label for="name">שם מלא</label>
+                <input type="text" id="name" name="name" autocomplete="name" dir="auto" required>
+              </div>
+              <div class="policy-form__field">
+                <label for="order">מספר הזמנה</label>
+                <input type="text" id="order" name="order" dir="ltr" required>
+              </div>
+              <div class="policy-form__field">
+                <label for="email">אימייל</label>
+                <input type="email" id="email" name="email" autocomplete="email" dir="ltr" required>
+              </div>
+              <div class="policy-form__field">
+                <label for="phone">טלפון</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" dir="ltr">
+              </div>
+              <div class="policy-form__field">
+                <label for="received">תאריך קבלת המוצר</label>
+                <input type="date" id="received" name="received" dir="ltr">
+              </div>
+              <div class="policy-form__field">
+                <label for="reason">סיבת הביטול</label>
+                <select id="reason" name="reason">
+                  <option value="נמלכתי בדעתי / החלטה אישית">נמלכתי בדעתי / החלטה אישית</option>
+                  <option value="מוצר פגום">מוצר פגום</option>
+                  <option value="מוצר שאינו תואם את שהוזמן">מוצר שאינו תואם את שהוזמן</option>
+                  <option value="המוצר לא סופק במועד">המוצר לא סופק במועד</option>
+                  <option value="אחר">אחר</option>
+                </select>
+              </div>
+              <div class="policy-form__field policy-form__field--full">
+                <label for="notes">הערות (לא חובה)</label>
+                <textarea id="notes" name="notes" dir="auto"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="policy-form__submit">שליחת הודעת הביטול</button>
+
+            <p class="policy-form__note">בלחיצה על "שליחת הודעת הביטול" תיפתח תוכנת הדוא"ל שלכם עם הודעה מוכנה מראש; ההודעה נשלחת רק לאחר שתלחצו "שליחה" בתוכנת הדוא"ל. אם הטופס אינו נפתח אצלכם, כתבו לנו ישירות ל-<a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> עם הפרטים שלמעלה.</p>
+          </form>
         </div>
 
-        <!-- Section 2 -->
+        <!-- What happens next -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <span class="policy-section__num">זמני אספקה</span>
-            <h2 class="policy-section__title">כמה זמן זה לוקח</h2>
+            <h2 class="policy-section__title">מה קורה אחרי השליחה</h2>
           </div>
-          <p>זמן האספקה המשוער הוא 7–14 ימי עסקים ממועד אישור ההזמנה. "ימי עסקים" הם ימים ראשון עד חמישי, ואינם כוללים ימי שישי, שבת, ערבי חג וחגים. במקרים חריגים — כגון עומסי שילוח, תקופות מבצע או נסיבות שאינן בשליטתנו — האספקה עשויה להימשך זמן רב יותר. זמני האספקה הם הערכה בלבד ואינם מובטחים.</p>
-        </div>
-
-        <!-- Section 3 -->
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">מעקב</span>
-            <h2 class="policy-section__title">מעקב אחר ההזמנה</h2>
-          </div>
-          <p>לאחר שההזמנה נשלחת, נעדכן אתכם בדוא"ל. ככל שסופק מספר מעקב, תוכלו לעקוב אחר החבילה באמצעותו. אם לא קיבלתם עדכון תוך זמן סביר, בדקו את תיבת הדוא"ל (כולל תיקיית הספאם) ופנו אלינו בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> עם מספר ההזמנה.</p>
-        </div>
-
-        <!-- Section 4 -->
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">עלויות</span>
-            <h2 class="policy-section__title">דמי משלוח ומחירים</h2>
-          </div>
-          <p>דמי המשלוח, ככל שחלים, יוצגו במלואם בעמוד התשלום לפני השלמת ההזמנה. המחירים באתר נקובים בשקלים חדשים (₪) וכוללים מע"מ כדין. הבעלות והסיכון במוצר עוברים אליכם עם מסירתו, בכפוף לתשלום מלא.</p>
-        </div>
-
-        <!-- Section 5 -->
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">עיכובים</span>
-            <h2 class="policy-section__title">אם החבילה מתעכבת</h2>
-          </div>
-          <p>אנו עושים כל שביכולתנו לעמוד בטווח הזמנים המשוער, אך חלק מהעיכובים תלויים בחברת השילוח ואינם בשליטתנו הישירה. אם חלף טווח האספקה המשוער והחבילה טרם הגיעה, פנו אלינו בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> — נבדוק את הסטטוס מול חברת השילוח ונדאג שהעניין ייפתר. זכות הביטול החוקית בשל אי-אספקה במועד שמורה לכם בהתאם לחוק הגנת הצרכן.</p>
-        </div>
-
-        <!-- Section 6 -->
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">החזרות</span>
-            <h2 class="policy-section__title">החזרות וביטול עסקה</h2>
-          </div>
-          <p>רוצים להחזיר מוצר או לבטל עסקה? כל הפרטים — אחריות ה-60 יום, זכות הביטול החוקית ל-14 יום, טיפול במוצר פגום ואופן ביצוע ההחזר — מרוכזים בעמוד <a href="refund-policy.html">החזרות, ביטול עסקה והחזר כספי</a>. בכל מקרה, פנו אלינו תחילה בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> לפני שליחת מוצר בחזרה.</p>
-        </div>
-
-        <!-- Section 7 -->
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">יצירת קשר</span>
-            <h2 class="policy-section__title">שאלות על המשלוח</h2>
-          </div>
-          <p>לכל שאלה על הזמנה או משלוח, פנו אלינו בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a>. נאשר את קבלת פנייתכם בתוך 2 ימי עסקים ונשתדל לטפל בה בתוך 14 ימי עסקים.</p>
+          <p>נאשר את קבלת ההודעה בתוך 2 ימי עסקים, נלווה אתכם באופן ההחזרה, ונבצע את ההחזר הכספי בהתאם למסלול הרלוונטי — כמפורט בעמוד <a href="refund-policy.html">החזרות, ביטול עסקה והחזר כספי</a>. במקרה של מוצר פגום, אי-התאמה או אי-אספקה במועד לא ייגבו דמי ביטול ואנו נתאם איסוף; בביטול מסוג "נמלכתי בדעתי" עשויים לחול דמי ביטול בשיעור של 5% ממחיר העסקה או 100&nbsp;₪, הנמוך מביניהם, בהתאם לחוק.</p>
         </div>
 
         <!-- Contact card -->
         <div class="policy-contact">
-          <span class="policy-contact__eyebrow">מעקב אחר הזמנה</span>
-          <p>יש שאלה על החבילה שלכם? כתבו לנו עם מספר ההזמנה.</p>
+          <span class="policy-contact__eyebrow">מעדיפים לכתוב לנו?</span>
+          <p>שלחו לנו את פרטי הביטול ישירות במייל ונטפל בזה.</p>
           <p><a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a></p>
         </div>
 
@@ -201,6 +196,7 @@
         <h3>שירות</h3>
         <ul>
           <li><a href="mailto:support@mybambook.com">צרו קשר</a></li>
+          <li><a href="cancellation-form.html">טופס ביטול עסקה</a></li>
           <li><a href="shipping-returns.html">משלוחים</a></li>
           <li><a href="accessibility.html">הצהרת נגישות</a></li>
         </ul>
@@ -236,6 +232,28 @@
       { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
     );
     revealPages.forEach((page) => observer.observe(page));
+
+    const cancelForm = document.getElementById('cancel-form');
+    if (cancelForm) {
+      cancelForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const val = (id) => (document.getElementById(id)?.value || '').trim();
+        const subject = 'הודעת ביטול עסקה — הזמנה ' + (val('order') || '');
+        const body = [
+          'הודעת ביטול עסקה',
+          '',
+          'שם מלא: ' + val('name'),
+          'מספר הזמנה: ' + val('order'),
+          'אימייל: ' + val('email'),
+          'טלפון: ' + val('phone'),
+          'תאריך קבלת המוצר: ' + val('received'),
+          'סיבת הביטול: ' + val('reason'),
+          'הערות: ' + val('notes')
+        ].join('\n');
+        window.location.href = 'mailto:support@mybambook.com?subject=' +
+          encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    }
   </script>
 </body>
 </html>

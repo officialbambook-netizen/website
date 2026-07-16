@@ -406,7 +406,9 @@ body.mybambook-page {
   margin-top: var(--space-8);
 }
 
-.policy-hero::before {
+/* Scoped so it beats policy.css's shared ".policy-hero::before" (which sets
+   content:"LAVERO") regardless of stylesheet load order — the theme must win. */
+.mybambook-policy .policy-hero::before {
   content: "MYBAMBOOK";
   font-family: var(--font-display);
   font-weight: 800;

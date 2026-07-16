@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="473" viewBox="0 0 900 473" role="img" aria-labelledby="title desc">
+  <title id="title">מדריך מידות לכפפות MyBambook</title>
+  <desc id="desc">טבלת מידות לכפפות קומפרסיה: מידה S היא 8 סנטימטר או 3.0 אינץ׳, מידה M היא 9 סנטימטר או 3.5 אינץ׳, מידה L היא 10.5 סנטימטר ומעלה או 4.25 אינץ׳ ומעלה.</desc>
+  <rect width="900" height="473" fill="#f9faf6"/>
+  <rect x="0" y="0" width="900" height="170" fill="#191919"/>
+
+  <g stroke="#1f1f1f" stroke-width="2">
+    <line x1="300" y1="0" x2="300" y2="473"/>
+    <line x1="600" y1="0" x2="600" y2="473"/>
+    <line x1="0" y1="170" x2="900" y2="170"/>
+    <line x1="0" y1="271" x2="900" y2="271"/>
+    <line x1="0" y1="372" x2="900" y2="372"/>
+  </g>
+
+  <g font-family="Heebo, Arial, sans-serif" text-anchor="middle">
+    <g fill="#f9faf6" direction="rtl" unicode-bidi="plaintext">
+      <text x="750" y="65" font-size="44" font-weight="900">מידה</text>
+      <text x="750" y="107" font-size="23" font-weight="700">כפפות</text>
+      <text x="750" y="137" font-size="23" font-weight="700">MyBambook</text>
+
+      <text x="450" y="65" font-size="44" font-weight="900">ס״מ</text>
+      <text x="450" y="107" font-size="23" font-weight="700">מדדו לרוחב</text>
+      <text x="450" y="137" font-size="23" font-weight="700">מפרקי האצבעות</text>
+
+      <text x="150" y="65" font-size="44" font-weight="900">אינץ׳</text>
+      <text x="150" y="107" font-size="23" font-weight="700">מדידה מקבילה</text>
+      <text x="150" y="137" font-size="23" font-weight="700">באינץ׳</text>
+    </g>
+
+    <g fill="#181818" font-size="48" font-weight="900">
+      <text x="750" y="238">S</text>
+      <text x="450" y="238">8</text>
+      <text x="150" y="238">3.0″</text>
+
+      <text x="750" y="339">M</text>
+      <text x="450" y="339">9</text>
+      <text x="150" y="339">3.5″</text>
+
+      <text x="750" y="440">L</text>
+      <text x="450" y="440">10.5+</text>
+      <text x="150" y="440">4.25″+</text>
+    </g>
+  </g>
+</svg>

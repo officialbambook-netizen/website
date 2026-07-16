@@ -286,9 +286,98 @@
   padding-bottom: 0.15rem;
 }
 
+/* ---- Cancellation-notice form (טופס ביטול עסקה) ----------- */
+
+.policy-form {
+  margin-top: var(--space-8);
+}
+
+.policy-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-5);
+}
+
+.policy-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.policy-form__field--full {
+  grid-column: 1 / -1;
+}
+
+.policy-form label {
+  font-family: var(--sans);
+  font-size: var(--fs-footer);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.policy-form input,
+.policy-form select,
+.policy-form textarea {
+  font-family: var(--sans);
+  font-size: var(--fs-footer);
+  color: var(--ink);
+  background: var(--ivory);
+  border: 1px solid rgba(64, 54, 50, 0.18);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.policy-form textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.policy-form input:focus,
+.policy-form select:focus,
+.policy-form textarea:focus {
+  outline: 2px solid var(--blush);
+  outline-offset: 2px;
+  border-color: var(--blush);
+}
+
+.policy-form__submit {
+  font-family: var(--sans);
+  font-size: var(--fs-footer);
+  font-weight: 800;
+  color: var(--ivory);
+  background: var(--blush);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-4) var(--space-8);
+  cursor: pointer;
+  margin-top: var(--space-6);
+  transition: filter 0.18s;
+}
+
+.policy-form__submit:hover,
+.policy-form__submit:focus-visible {
+  filter: brightness(0.94);
+}
+
+.policy-form__note {
+  font-family: var(--sans);
+  font-size: var(--fs-footer);
+  color: var(--taupe);
+  line-height: 1.7;
+  margin-top: var(--space-5);
+}
+
 /* ---- Responsive ------------------------------------------ */
 
 @media (max-width: 640px) {
+  .policy-form__grid {
+    grid-template-columns: 1fr;
+  }
+
   .policy-section__hd {
     align-items: flex-start;
   }

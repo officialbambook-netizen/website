@@ -529,6 +529,29 @@
   margin-bottom: 0;
 }
 
+.pdp-hero__size-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.pdp-hero__size-guide-link {
+  display: inline-flex;
+  align-items: center;
+  margin-block-start: var(--space-3);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+
+.pdp-hero__size-guide-link:hover {
+  color: var(--brown);
+}
+
 /* Color picker — styling the JS-injected .color-picker elements */
 .pdp-hero .color-picker { width: 100%; }
 

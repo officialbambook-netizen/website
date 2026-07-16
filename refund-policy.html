@@ -1,74 +1,72 @@
-<!--
-  INACTIVE TEMPLATE — DO NOT USE AS-IS.
-  Leftover from the Lavero (shower-water-filter) site scaffold this workspace was cloned from.
-  Content below still describes the Lavero brand/product, not MyBambook compression gloves.
-  Flagged 2026-07-14 (operator instruction) — deferred, not deleted or rewritten.
-  Needs a real MyBambook-branded rebuild before this page goes live. See 00_CONTROL/TASK_LOG.md 2026-07-14.
--->
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LAVERO | Returns &amp; Refunds</title>
-  <meta name="description" content="Lavero's Returns and Refunds Policy — 60-day returns, how to start a return, and what to expect." />
+  <title>MyBambook | החזרות, ביטול עסקה והחזר כספי</title>
+  <meta name="description" content="מדיניות ההחזרות של MyBambook — אחריות להחזר כספי מלא בתוך 60 יום, לצד זכות הביטול החוקית ל-14 יום לפי חוק הגנת הצרכן. כך מבטלים, מחזירים ומקבלים החזר." />
+  <meta property="og:locale" content="he_IL" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css?v=60a0d605" />
   <link rel="stylesheet" href="css/base.css?v=5d6b56df" />
-  <link rel="stylesheet" href="css/policy.css?v=123de862" />
+  <link rel="stylesheet" href="css/mybambook-theme.css?v=49924c85" />
+  <link rel="stylesheet" href="css/policy.css?v=61ec1e8d" />
   <link rel="stylesheet" href="css/components/main-menu.css?v=a5558a07">
-  <link rel="stylesheet" href="css/components/floating-cart.css?v=5e6c679a">
   <link rel="stylesheet" href="css/components/footer.css?v=b1a5c1ac">
-  <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
   <script src="js/main-menu.js?v=fb35a1c0" defer></script>
+  <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
-<body>
+<body class="mybambook-page mybambook-policy">
 
   <shopify-store
     store-domain="w1c0ed-5s.myshopify.com"
     public-access-token="f2863bebc601b26a3c6f35a9c63c560e"
     country="IL"
-    language="en"
+    language="he"
     aria-hidden="true"
   >
     <shopify-cart id="cart"></shopify-cart>
   </shopify-store>
-  <header class="lavero-main-menu" aria-label="Primary navigation">
-    <button class="lavero-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
-    <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook home">
+
+  <header class="lavero-main-menu" aria-label="ניווט ראשי">
+    <button class="lavero-menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
+    <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook — דף הבית">
       <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
-      <span>Compression Gloves</span>
+      <span>כפפות קומפרסיה</span>
     </a>
-    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="Site sections">
-      <a href="index.html" data-section="home">Home</a>
-      <a href="product.html" data-section="shop">Shop</a>
-      <a href="faq.html" data-section="faq">FAQ</a>
-      <a href="mission.html" data-section="mission">About</a>
+    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="חלקי האתר">
+      <a href="index.html" data-section="home">בית</a>
+      <a href="product.html" data-section="shop">חנות</a>
+      <a href="faq.html" data-section="faq">שאלות נפוצות</a>
+      <a href="mission.html" data-section="mission">אודות</a>
     </nav>
     <div class="lavero-menu-actions">
-      <a href="product.html" class="lavero-shop-button">Shop Bambook</a>
+      <a href="product.html" class="lavero-shop-button">לרכישה</a>
     </div>
   </header>
 
   <main>
 
     <!-- Hero -->
-    <div class="policy-hero">
+    <div class="policy-hero" id="top">
       <div class="policy-hero__inner">
-        <span class="policy-hero__eyebrow">Lavero &mdash; Customer Care</span>
-        <h1 class="policy-hero__title">Returns &amp; <em>Refunds</em></h1>
-        <p class="policy-hero__meta">Last updated: June 8, 2026</p>
+        <span class="policy-hero__eyebrow">MyBambook — שירות לקוחות</span>
+        <h1 class="policy-hero__title">החזרות וביטול <em>עסקה</em></h1>
+        <p class="policy-hero__meta">עודכן לאחרונה: 16 ביולי 2026</p>
       </div>
     </div>
 
     <!-- Policy navigation -->
-    <nav class="policy-nav" aria-label="Policy pages">
+    <nav class="policy-nav" aria-label="עמודי מדיניות">
       <ul class="policy-nav__list">
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="terms-of-service.html">Terms of Service</a></li>
-        <li class="active"><a href="refund-policy.html">Returns &amp; Refunds</a></li>
+        <li><a href="terms-of-service.html">תקנון ותנאי שימוש</a></li>
+        <li class="active"><a href="refund-policy.html">החזרות וביטול עסקה</a></li>
+        <li><a href="cancellation-form.html">טופס ביטול עסקה</a></li>
+        <li><a href="shipping-returns.html">משלוחים</a></li>
+        <li><a href="privacy-policy.html">מדיניות פרטיות</a></li>
+        <li><a href="accessibility.html">הצהרת נגישות</a></li>
       </ul>
     </nav>
 
@@ -77,82 +75,102 @@
       <div class="policy-prose">
 
         <!-- Overview -->
-        <p class="policy-intro">We want you to love your Lavero. If you're not completely satisfied with your purchase, you may request a return within 60 days of delivery. To be eligible for a return, the item must have been purchased directly from Lavero, and must be unused and uninstalled in its original condition — meaning no signs of use, installation, or damage beyond what was reasonably necessary to examine the product. To start a return, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> before sending anything back.</p>
+        <p class="policy-intro">אנחנו רוצים שתאהבו את הכפפות שלכם. לכן אנו מציעים <strong>אחריות MyBambook להחזר כספי מלא בתוך 60 יום</strong> ממועד קבלת המוצר. זוהי התחייבות מרצון של החברה, המתווספת לזכויות המוקנות לכם על פי חוק — ובכלל זה זכות הביטול החוקית ל-14 יום בעסקת מכר מרחוק — ואינה גורעת מהן בשום צורה. עמוד זה מסביר בנפרד את שני המסלולים: את אחריות ה-60 יום שלנו (סעיף 1), ואת זכות הביטול החוקית והטיפול במוצר פגום (סעיפים 2–4). לכל החזרה, אנא פנו אלינו תחילה בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> — לפני שליחת המוצר בחזרה.</p>
 
-        <!-- Returns -->
+        <!-- Section 1 — 60-day guarantee -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Returns</h2>
+            <span class="policy-section__num">אחריות MyBambook</span>
+            <h2 class="policy-section__title">החזר כספי מלא בתוך 60 יום</h2>
           </div>
-          <p>This means the filter has not been fitted to a shower head, has not had water passed through it, and where possible is returned in its original packaging. Items must not have been modified, tampered with, or damaged after delivery.</p>
-          <p>You have a legal obligation to take reasonable care of the products while they are in your possession and before they are returned to us. If you fail to comply with this obligation, we may have the right to deduct an amount from your refund reflecting the diminished value of the product resulting from handling beyond what was necessary to establish its condition, characteristics, and functioning.</p>
-          <p>Products that have been installed and used are not eligible for return under our standard returns policy. However, this does not affect your rights in the event that the product was damaged, defective, or faulty when delivered to you. Nothing in this policy affects your statutory rights.</p>
-          <p>To start a return, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> before sending anything back — our team will verify your purchase, provide the return address, and give you instructions to ensure your return is processed smoothly. We may request proof of purchase, such as your order confirmation, to process your request. Returns sent back without prior approval from our team may not be accepted.</p>
-          <p>When returning a product, please package the parcel securely and include a note with your name and order number inside the parcel. Return shipping costs are the responsibility of the customer for standard returns. Where an item arrives damaged, is confirmed by us to be defective on arrival, or has been incorrectly delivered, we will cover the cost of return shipping by providing a prepaid return label or reimbursing documented return shipping costs upon confirmation. We recommend using a trackable shipping method for all returns, as we are not responsible for items that are lost or damaged in transit on their way back to us under any circumstances. Please save your proof of postage and tracking information until your refund has been confirmed.</p>
+          <p>אם בתוך 60 יום ממועד קבלת המוצר אינכם מרוצים — גם אם ניסיתם וללבשתם את הכפפות — צרו איתנו קשר ונחזיר לכם את מלוא הסכום ששילמתם עבור המוצר. זו הבטחת המותג שלנו, ואנחנו עומדים מאחוריה. כדי לממש את האחריות: פנו אלינו בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> עם מספר ההזמנה, נלווה אתכם בתהליך ההחזרה, ולאחר קבלת המוצר נבצע את ההחזר לאמצעי התשלום המקורי.</p>
+          <p>אחריות ה-60 יום ניתנת מרצון וחלה על מוצרים שנרכשו ישירות מ-MyBambook. מטעמי היגיינה והוגנות אנו עשויים להגביל את מספר היחידות המכוסות בכל הזמנה ולסייג את האחריות במקרים של ניצול לרעה או של מוצר שניזוק באופן החורג משימוש סביר. האחריות אינה גורעת מזכויותיכם החוקיות המפורטות בסעיפים הבאים, ואם מגיע לכם החזר על פי דין — תקבלו את המיטיב מביניהם.</p>
         </div>
 
-        <!-- Refunds -->
+        <!-- Section 2 — statutory 14-day cancellation -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Refunds</h2>
+            <span class="policy-section__num">זכות חוקית</span>
+            <h2 class="policy-section__title">ביטול עסקה תוך 14 יום (חוק הגנת הצרכן)</h2>
           </div>
-          <p>Once we receive and inspect your returned item, we will send you a notification confirming whether your refund has been approved or rejected. If the return does not meet our eligibility criteria — for example, if the item shows signs of use or installation beyond what was necessary to examine it — we will notify you by email and the item may be returned to you.</p>
-          <p>Approved refunds are issued to your original payment method within 10 business days of our receiving the return. Refunds are made using the same method originally used to pay for your purchase. If you received any promotional or other discount when you paid, any refund will only reflect the amount you actually paid for the product.</p>
-          <p>Please note that processing times may vary depending on your bank or card issuer, and some institutions may take additional business days beyond our processing window before the credit appears on your statement. If more than 15 business days have passed since we received your return and you have not yet received your refund, please check with your bank or payment provider first, as there is often processing time before a refund is posted. If you have done this and still have not received your refund, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> with your order number.</p>
+          <p>בנוסף לאחריות המסחרית, ובמנותק ממנה, עומדת לכם הזכות לבטל עסקת מכר מרחוק על פי חוק הגנת הצרכן, התשמ"א–1981, ותקנות הגנת הצרכן (ביטול עסקה), התשע"א–2010. ניתן לבטל את העסקה בתוך 14 יום ממועד קבלת המוצר או ממועד קבלת מסמך הגילוי (המסמך המפרט את פרטי העסקה), לפי המאוחר מביניהם.</p>
+          <p><strong>ביטול שאינו עקב פגם או אי-התאמה (למשל "נמלכתם בדעתכם"):</strong> עליכם להחזיר את המוצר לחברה, והחזרתו היא באחריותכם ועל חשבונכם. אנו רשאים לגבות דמי ביטול בשיעור של 5% ממחיר העסקה או 100&nbsp;₪ — הנמוך מביניהם. את יתרת התמורה נשיב לכם בתוך 14 יום ממועד קבלת הודעת הביטול, לאותו אמצעי תשלום שבו בוצעה העסקה.</p>
+          <p>המוצר יוחזר כשהוא במצבו המקורי — לא נעשה בו שימוש החורג מבדיקה סבירה, ללא נזק, ובאריזתו המקורית ככל הניתן. את הודעת הביטול ניתן למסור לנו בכתב בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> או באמצעות <a href="cancellation-form.html">טופס ביטול עסקה</a>, בצירוף שמכם ומספר ההזמנה.</p>
         </div>
 
-        <!-- Damaged or Defective Items -->
+        <!-- Section 3 — protected groups -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Damaged or Defective Items</h2>
+            <span class="policy-section__num">אוכלוסיות מוגנות</span>
+            <h2 class="policy-section__title">תקופת ביטול מוארכת — עד ארבעה חודשים</h2>
           </div>
-          <p>Please inspect your order immediately upon arrival. If your item arrives damaged, defective, or incorrect due to a shipping or manufacturing issue, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> on the same day you receive your package. When contacting us, please include your order number and two photos of the item from different angles on a plain, well-lit background, clearly showing the damage or defect.</p>
-          <p>We reserve the right to determine, based on the photographic evidence provided, whether the damage is the result of a shipping or manufacturing issue or was caused by the customer after delivery. If an item has developed a fault after delivery that is not due to customer misuse, accidental damage, or fair wear and tear, please contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> as soon as the fault becomes apparent and we will assess each case on its merits.</p>
-          <p>Claims submitted after the day of delivery for damage that was apparent on receipt cannot be accepted. Damage caused by the customer after delivery is not eligible for a return or refund.</p>
+          <p>על פי חוק הגנת הצרכן, לצרכן שהוא אדם עם מוגבלות, אזרח ותיק (בן 65 ומעלה) או עולה חדש, עומדת זכות לבטל עסקת מכר מרחוק בתוך ארבעה חודשים ממועד ביצוע העסקה, קבלת המוצר או קבלת מסמך הגילוי (לפי המאוחר), ובלבד שההתקשרות כללה שיחה בין העוסק לצרכן (לרבות תקשורת אלקטרונית). אנו רשאים לבקש תעודה או אישור המעידים על ההשתייכות לאחת מקבוצות אלה. יתר תנאי הביטול, לרבות מצב המוצר ודמי הביטול, חלים כמפורט בסעיף הקודם.</p>
         </div>
 
-        <!-- Water Quality and Skin -->
+        <!-- Section 4 — defect / mismatch -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Water Quality and Skin</h2>
+            <span class="policy-section__num">מוצר פגום</span>
+            <h2 class="policy-section__title">פגם, אי-התאמה או מוצר שגוי</h2>
           </div>
-          <p>Lavero's filter is designed to remove harmful elements from your water — it does not come into direct contact with your skin. In the rare event that changes in your water quality affect your skin and you believe this to be related to your Lavero product, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a> within 24 hours of noticing the reaction. Please include: (a) the product you were using; (b) the type of reaction experienced; (c) how long after use the reaction occurred; and (d) whether you have consulted a healthcare professional. As a goodwill gesture, we will refund the value of the product. We may request additional information or photos to assist our review. Nothing in this section limits your legal rights.</p>
+          <p>אם המוצר הגיע פגום, פגום באריזתו, שאינו תואם את שהוזמן או את המידע שנמסר לכם, לא סופק במועד, או במקרה של הפרה אחרת מצד החברה — <strong>לא ייגבו ממכם דמי ביטול</strong>, ואנו נדאג לתיאום איסוף המוצר מהמקום שאליו נמסר ולביצוע החזר, החלפה או תיקון בהתאם לדין. אנא בדקו את המשלוח עם קבלתו, וצרו עמנו קשר בהקדם בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a> בצירוף מספר ההזמנה ושתי תמונות של המוצר מזוויות שונות על רקע בהיר, המדגישות את הפגם. אין באמור כדי לגרוע מזכויותיכם לפי חוק הגנת הצרכן, חוק המכר, התשכ"ח–1968, וכל דין.</p>
         </div>
 
-        <!-- Exchanges -->
+        <!-- Section 5 — how to return -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Exchanges</h2>
+            <span class="policy-section__num">אופן ההחזרה</span>
+            <h2 class="policy-section__title">איך מחזירים מוצר</h2>
           </div>
-          <p>We don't currently offer direct exchanges. The simplest way to try a different product is to return your eligible item in accordance with our returns process and place a new order — our team is happy to assist with any questions you may have about the process.</p>
+          <p>בכל מסלול — פנו אלינו תחילה בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a>, ואנו נאמת את הרכישה, נמסור לכם את כתובת ההחזרה ונלווה אתכם בתהליך. אנו עשויים לבקש הוכחת רכישה, כגון אישור ההזמנה. מוצר שיישלח בחזרה ללא תיאום מראש עלול שלא להתקבל. בעת החזרת מוצר, ארזו את החבילה באופן בטוח וצרפו פתק ובו שמכם ומספר ההזמנה. אנו ממליצים להשתמש בשיטת משלוח עם מעקב ולשמור את אישור המשלוח עד להשלמת ההחזר, שכן איננו אחראים למוצרים שאבדו או ניזוקו בדרכם חזרה אלינו. עלות משלוח ההחזרה בביטול "נמלכתי בדעתי" חלה עליכם; במקרה של פגם, אי-התאמה או טעות מצדנו — נישא בעלות ההחזרה או נתאם איסוף.</p>
         </div>
 
-        <!-- Statutory Rights -->
+        <!-- Section 6 — refund timing -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Your Statutory Rights</h2>
+            <span class="policy-section__num">ההחזר הכספי</span>
+            <h2 class="policy-section__title">מועד וביצוע ההחזר</h2>
           </div>
-          <p>Nothing in this Returns &amp; Refunds Policy limits or affects your statutory rights as a consumer under applicable law. If you have any concerns about your legal rights in relation to a purchase, you may contact your local consumer protection agency or seek independent legal advice.</p>
+          <p>לאחר קבלת המוצר ובדיקתו, נעדכן אתכם אם ההחזר אושר. החזר מאושר יבוצע לאותו אמצעי תשלום שבו שולמה העסקה: בביטול חוקי — בתוך 14 יום ממועד קבלת הודעת הביטול; באחריות ה-60 יום — בהקדם לאחר קבלת המוצר ובדיקתו. אם קיבלתם הנחה או מבצע, ההחזר ישקף את הסכום ששולם בפועל. שימו לב כי משך הזמן עד להופעת הזיכוי בדף החשבון או בכרטיס האשראי תלוי גם בבנק או בחברת האשראי, ועשוי להימשך מספר ימי עסקים נוספים מעבר לזמן העיבוד שלנו. אם חלפו למעלה מ-15 ימי עסקים מקבלת המוצר ולא נקלט זיכוי, בדקו תחילה מול הבנק או ספק התשלום, ואם הבעיה נמשכת — פנו אלינו עם מספר ההזמנה.</p>
         </div>
 
-        <!-- Contact -->
+        <!-- Section 7 — exchanges -->
         <div class="policy-section">
           <div class="policy-section__hd">
-            <h2 class="policy-section__title">Contact</h2>
+            <span class="policy-section__num">החלפות</span>
+            <h2 class="policy-section__title">החלפת מוצר או מידה</h2>
           </div>
-          <p>For any questions about your return, refund, or order, contact us at <a href="mailto:support@mylavero.com">support@mylavero.com</a>. We will acknowledge your inquiry within 2 business days and aim to resolve it within 14 business days.</p>
+          <p>נכון להיום איננו מבצעים החלפות ישירות. הדרך הפשוטה לקבל מידה או מוצר אחר היא להחזיר את המוצר המזכה בהתאם לתהליך שלמעלה ולבצע הזמנה חדשה. צוות השירות שלנו ישמח לסייע לכם בבחירת המידה ובכל שאלה בדרך.</p>
+        </div>
+
+        <!-- Section 8 — exclusions -->
+        <div class="policy-section">
+          <div class="policy-section__hd">
+            <span class="policy-section__num">חריגים</span>
+            <h2 class="policy-section__title">מקרים שבהם זכות הביטול החוקית מוגבלת</h2>
+          </div>
+          <p>הדין הישראלי מסייג את זכות הביטול החוקית לגבי מוצרים מסוימים — בין היתר מוצרים שיוצרו במיוחד עבור הצרכן לפי מידותיו או דרישתו, טובין פסידים, ומוצרים שאינם ניתנים להחזרה מטעמי הגנת בריאות או היגיינה לאחר שנפתחו. סייגים אלה נוגעים לזכות הביטול החוקית בלבד; אחריות ה-60 יום של MyBambook (סעיף 1) רחבה יותר ומאפשרת החזר גם לאחר התנסות סבירה במוצר, בכפוף לתנאיה. בכל מקרה, מוצר שהוחזר לאחר שימוש החורג מבדיקה והתאמה סבירות, או שערכו פחת עקב שימוש או נזק — עשוי להיות מנוכה מסכום ההחזר בהתאם לדין.</p>
+        </div>
+
+        <!-- Section 9 — contact -->
+        <div class="policy-section">
+          <div class="policy-section__hd">
+            <span class="policy-section__num">יצירת קשר</span>
+            <h2 class="policy-section__title">אנחנו כאן בשבילכם</h2>
+          </div>
+          <p>לכל שאלה על החזרה, ביטול עסקה או הזמנה — פנו אלינו בכתובת <a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a>. נאשר את קבלת פנייתכם בתוך 2 ימי עסקים ונשתדל לטפל בה בתוך 14 ימי עסקים. אין באמור בעמוד זה כדי לגרוע מזכויותיכם על פי כל דין.</p>
         </div>
 
         <!-- Contact card -->
         <div class="policy-contact">
-          <span class="policy-contact__eyebrow">Start a return</span>
-          <p>Email us before sending anything back and we'll take care of the rest.</p>
-          <p><a href="mailto:support@mylavero.com">support@mylavero.com</a></p>
+          <span class="policy-contact__eyebrow">פתיחת החזרה</span>
+          <p>כתבו לנו לפני שליחת המוצר בחזרה — ואנחנו נדאג לכל השאר.</p>
+          <p><a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a></p>
         </div>
 
         <!-- Back to top -->
         <div class="policy-back">
-          <a href="#top">&#8593; Back to top</a>
+          <a href="#top">&#8593; חזרה למעלה</a>
         </div>
 
       </div>
@@ -163,69 +181,82 @@
   <footer class="site-footer" id="about">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="footer-brand">
-          <strong>LAVERO</strong>
-          <span>Beauty Shower Filter</span>
+        <a href="index.html" class="footer-brand footer-brand--mybambook" aria-label="MyBambook — דף הבית">
+          <strong><span>My</span><span class="footer-brand__bamboo">Bambook</span></strong>
+          <span>כפפות קומפרסיה</span>
         </a>
-        <p>Premium filtration for cleaner water, softer-feeling hair, and happier skin.</p>
+        <p>כפפות קומפרסיה לתמיכה יומיומית בידיים, בנויות להשתלב בשגרה אמיתית.</p>
         <div class="socials">
-          <a href="#" aria-label="Instagram">Ig</a>
-          <a href="#" aria-label="TikTok">Tk</a>
-          <a href="#" aria-label="Pinterest">Pi</a>
-          <a href="mailto:hello@lavero.example" aria-label="Email">Em</a>
+          <a href="#" aria-label="אינסטגרם">Ig</a>
+          <a href="#" aria-label="טיקטוק">Tk</a>
+          <a href="#" aria-label="פינטרסט">Pi</a>
+          <a href="mailto:support@mybambook.com" aria-label="אימייל">Em</a>
         </div>
       </div>
       <div>
-        <h3>Shop</h3>
+        <h3>חנות</h3>
         <ul>
-          <li><a href="product.html">Shower Filter</a></li>
-          <li><a href="replacement-filters.html">Replacement Filters</a></li>
-          <li><a href="product.html">Bundles &amp; Sets</a></li>
+          <li><a href="product.html">כפפות Bambook</a></li>
+          <li><a href="product.html#fit">מדריך התאמה</a></li>
+          <li><a href="product.html#product">בחירת מארז</a></li>
         </ul>
       </div>
       <div>
-        <h3>Learn</h3>
+        <h3>מידע</h3>
         <ul>
-          <li><a href="water-education.html">Water Education</a></li>
-          <li><a href="product.html#all-reviews">Reviews</a></li>
-          <li><a href="product.html#faq">FAQ</a></li>
+          <li><a href="faq.html">שאלות נפוצות</a></li>
+          <li><a href="product.html#how-it-helps">איך זה עוזר</a></li>
+          <li><a href="mission.html">על MyBambook</a></li>
         </ul>
       </div>
       <div>
-        <h3>About</h3>
+        <h3>אודות</h3>
         <ul>
-          <li><a href="mission.html">About</a></li>
-          <li><a href="terms-of-service.html">Terms of Service</a></li>
-          <li><a href="refund-policy.html">Refund Policy</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="mission.html">אודות</a></li>
+          <li><a href="terms-of-service.html">תקנון ותנאי שימוש</a></li>
+          <li><a href="refund-policy.html">החזרות וביטול עסקה</a></li>
+          <li><a href="privacy-policy.html">מדיניות פרטיות</a></li>
         </ul>
       </div>
       <div>
-        <h3>Support</h3>
+        <h3>שירות</h3>
         <ul>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="shipping-returns.html">Shipping &amp; Returns</a></li>
-          <li><a href="orders.html">My Orders</a></li>
+          <li><a href="mailto:support@mybambook.com">צרו קשר</a></li>
+          <li><a href="shipping-returns.html">משלוחים</a></li>
+          <li><a href="accessibility.html">הצהרת נגישות</a></li>
         </ul>
       </div>
       <div>
-        <h3>Stay in the loop</h3>
-        <p>Tips, routines, and offers straight to your inbox.</p>
+        <h3>נשארים בעניינים</h3>
+        <p>טיפים להתאמה, עדכוני השקה ועצות מעשיות לתמיכה בידיים.</p>
         <form class="email-form">
-          <input type="email" placeholder="Email address" aria-label="Email address">
-          <button type="submit" aria-label="Subscribe">&#8594;</button>
+          <input type="email" dir="ltr" placeholder="כתובת אימייל" aria-label="כתובת אימייל">
+          <button type="submit" aria-label="הרשמה">&#8592;</button>
         </form>
       </div>
     </div>
     <div class="legal">
-      <span>&copy; 2026 LAVERO. All rights reserved.</span>
+      <span>&copy; 2026 MyBambook. כל הזכויות שמורות.</span>
       <span>
-        <a href="privacy-policy.html">Privacy Policy</a> &middot;
-        <a href="terms-of-service.html">Terms of Service</a> &middot;
-        <a href="refund-policy.html">Refund Policy</a>
+        <a href="terms-of-service.html">תקנון</a> &middot;
+        <a href="refund-policy.html">החזרות וביטול עסקה</a> &middot;
+        <a href="privacy-policy.html">מדיניות פרטיות</a> &middot;
+        <a href="accessibility.html">הצהרת נגישות</a>
       </span>
     </div>
   </footer>
 
+  <script>
+    const revealPages = document.querySelectorAll('.reveal-page');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
+    );
+    revealPages.forEach((page) => observer.observe(page));
+  </script>
 </body>
 </html>
