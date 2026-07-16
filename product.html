@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/meta-pixel.js?v=9bd4bc7d"></script>
+  <noscript><img height="1" width="1" hidden alt="" src="https://www.facebook.com/tr?id=890745560218621&ev=PageView&noscript=1" /></noscript>
   <title>כפפות קומפרסיה MyBambook | תמיכה יומיומית לידיים</title>
   <meta name="description" content="כפפות קומפרסיה מבד במבוק ללבישה יומיומית: קצות אצבעות חופשיים, מדריך מידות אמיתי ואחריות החזר כספי של 60 יום. זוג אחד 179 ₪, שני זוגות 219 ₪.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1205,5 +1207,15 @@
   <noscript> נדרש JavaScript כדי ש<a href="https://tabnav.com/accessibility-widget">ווידג׳ט הנגישות של tabnav</a> יפעל כראוי. </noscript>
 
   <script src="js/universal-cart.js?v=8acd3cc7"></script>
+  <script>
+    (function () {
+      if (typeof fbq !== 'function' || !window.LaveroCart) return;
+      var variantId = window.LaveroCart.getVariantId(window.LaveroCart.defaultSize);
+      fbq('track', 'ViewContent', {
+        content_type: 'product',
+        content_ids: variantId ? [variantId] : []
+      });
+    })();
+  </script>
 </body>
 </html>
