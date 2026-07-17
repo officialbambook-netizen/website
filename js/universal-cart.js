@@ -37,6 +37,10 @@
   // page without the pixel. Every value/id comes from the live Shopify cart —
   // never hardcoded (Shopify is the source of truth). Currency uses the cart's
   // currencyCode when present and falls back to USD if the cart has no lines yet.
+  // Only AddToCart fires from here — InitiateCheckout/AddPaymentInfo/Purchase are
+  // fired by Shopify's own Facebook & Instagram Sales Channel on its checkout
+  // pages. Don't re-add InitiateCheckout here; it duplicated Shopify's event
+  // (confirmed in Events Manager 2026-07-16) and was removed for that reason.
   function fbTrack(eventName, params) {
     if (typeof window.fbq === 'function') window.fbq('track', eventName, params || {});
   }
@@ -141,12 +145,6 @@
 
     drawer = document.getElementById('lavero-cart-dialog');
     drawer.querySelector('.cdlg-close').addEventListener('click', close);
-    var checkoutLink = drawer.querySelector('#lavero-checkout-btn');
-    if (checkoutLink) {
-      checkoutLink.addEventListener('click', function () {
-        fbTrack('InitiateCheckout', cartEventParams(currentCart));
-      });
-    }
     return drawer;
   }
 
@@ -566,7 +564,6 @@
       var cart = await buildShopifyCart(nextConfig);
       render(cart, nextConfig);
       fbTrack('AddToCart', cartEventParams(cart));
-      fbTrack('InitiateCheckout', cartEventParams(cart));
       window.location.href = normalizeCheckoutUrl(cart.checkoutUrl);
       return cart;
     } catch (e) {
