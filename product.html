@@ -16,7 +16,7 @@
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=60a0d605">
   <link rel="stylesheet" href="css/base.css?v=5d6b56df">
-  <link rel="stylesheet" href="css/product.css?v=f34cfa23">
+  <link rel="stylesheet" href="css/product.css?v=7bfa3189">
   <!-- Product hero elevation — loads last. -->
   <link rel="stylesheet" href="css/sections/product-hero.css?v=68e96d7d">
   <!-- Shared sections from home -->
@@ -677,6 +677,16 @@
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
           </article>
+          <article class="bamboo-benefit" aria-hidden="true">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit" aria-hidden="true">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+          </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
@@ -709,6 +719,16 @@
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
           </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+          </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
@@ -740,11 +760,41 @@
             <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>רך במיוחד</h3>
+            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>תחושה נקייה יותר</h3>
+            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
           </article>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    (function syncBambooMarqueeLoop() {
+      const track = document.querySelector('.bamboo-benefits__track');
+      if (!track) return;
+
+      function syncLoopDistance() {
+        const cards = track.querySelectorAll('.bamboo-benefit');
+        const firstRepeat = cards[8];
+        if (!cards[0] || !firstRepeat) return;
+
+        const distance = firstRepeat.getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+        if (distance > 0) track.style.setProperty('--bamboo-loop-distance', distance + 'px');
+      }
+
+      requestAnimationFrame(syncLoopDistance);
+      window.addEventListener('load', syncLoopDistance, { once: true });
+      window.addEventListener('resize', syncLoopDistance);
+    })();
+  </script>
 
   <!-- ================================================
        8. FAQ

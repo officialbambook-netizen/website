@@ -2396,7 +2396,10 @@ details.faq-item::after,
 
 .bamboo-benefits__track {
   display: flex;
+  gap: clamp(var(--space-5), 1.6vw, var(--space-8));
+  padding-inline: clamp(var(--space-4), 2vw, var(--space-8));
   width: max-content;
+  --bamboo-loop-distance: 33.333333%;
   animation: bamboo-benefits-marquee 34s linear infinite;
   will-change: transform;
 }
@@ -2406,10 +2409,7 @@ details.faq-item::after,
 }
 
 .bamboo-benefits__group {
-  display: flex;
-  align-items: stretch;
-  gap: clamp(var(--space-6), 2.4vw, var(--space-12));
-  padding-inline: clamp(var(--space-4), 2vw, var(--space-8));
+  display: contents;
 }
 
 .bamboo-benefit {
@@ -2445,11 +2445,11 @@ details.faq-item::after,
 
 @keyframes bamboo-benefits-marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-33.333333%); }
+  to { transform: translateX(calc(-1 * var(--bamboo-loop-distance))); }
 }
 
 @media (max-width: 780px) {
-  .bamboo-benefits__group {
+  .bamboo-benefits__track {
     gap: var(--space-6);
     padding-inline: var(--space-5);
   }
