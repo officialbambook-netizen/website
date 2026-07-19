@@ -583,6 +583,12 @@
     getVariantId: function (size) {
       return SIZE_VARIANTS[size] && SIZE_VARIANTS[size].variantId;
     },
+    // Catalog-format ID for Meta Pixel content_ids: the bare numeric variant id
+    // as a string ("43638796910705"), matching the Commerce Manager catalog.
+    getVariantNumericId: function (size) {
+      var gid = SIZE_VARIANTS[size] && SIZE_VARIANTS[size].variantId;
+      return gid ? variantNumericId(gid) : '';
+    },
     addQuickProduct: addQuickProduct,
     addConfiguredProduct: addConfiguredProduct,
     buyConfiguredProductNow: buyConfiguredProductNow,

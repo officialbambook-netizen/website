@@ -1253,11 +1253,11 @@
       if (row) observer.observe(row);
     })();
   </script>
-  <script src="js/universal-cart.js?v=b0c9303a"></script>
+  <script src="js/universal-cart.js?v=5ca47c17"></script>
   <script>
     (function () {
       if (typeof fbq !== 'function' || !window.LaveroCart) return;
-      var variantId = window.LaveroCart.getVariantId(window.LaveroCart.defaultSize);
+      var variantId = window.LaveroCart.getVariantNumericId(window.LaveroCart.defaultSize);
       fbq('track', 'ViewContent', {
         content_type: 'product',
         content_ids: variantId ? [variantId] : []
