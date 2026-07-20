@@ -270,19 +270,19 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--taupe);
+  color: var(--blush);
   text-decoration: none;
   transition: color 0.18s;
 }
 
 .policy-nav__list a:hover,
 .policy-nav__list a:focus-visible {
-  color: var(--gold);
+  color: var(--green);
 }
 
 .policy-nav__list li.active a {
-  color: var(--gold);
-  border-bottom: 1px solid var(--gold);
+  color: var(--blush);
+  border-bottom: 1px solid var(--blush);
   padding-bottom: 0.15rem;
 }
 

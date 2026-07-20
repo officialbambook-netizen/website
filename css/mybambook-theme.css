@@ -412,6 +412,7 @@ body.mybambook-page {
   content: "MYBAMBOOK";
   font-family: var(--font-display);
   font-weight: 800;
+  color: color-mix(in srgb, var(--blush) 18%, transparent);
 }
 
 .mybambook-policy .policy-hero__title,
@@ -420,7 +421,12 @@ body.mybambook-page {
   font-weight: 800;
 }
 
+.mybambook-policy .policy-hero__title {
+  color: var(--blush);
+}
+
 .mybambook-policy .policy-hero__title em {
+  color: inherit;
   font-style: normal;
 }
 
