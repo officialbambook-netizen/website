@@ -11,20 +11,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Heebo (Hebrew display + UI) with Inter as Latin fallback. -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/components/main-menu.css?v=a5558a07">
-  <script src="js/main-menu.js?v=fb35a1c0" defer></script>
+  <link rel="stylesheet" href="css/components/main-menu.css?v=40452949">
+  <script src="js/main-menu.js?v=cd73019f" defer></script>
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
-  <link rel="stylesheet" href="css/tokens.css?v=60a0d605">
-  <link rel="stylesheet" href="css/base.css?v=5d6b56df">
-  <link rel="stylesheet" href="css/product.css?v=de0c11d4">
+  <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7">
+  <link rel="stylesheet" href="css/base.css?v=07bcde07">
+  <link rel="stylesheet" href="css/product.css?v=55220cc3">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=68e96d7d">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=0f51a99a">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
-  <link rel="stylesheet" href="css/sections/home-comparison.css?v=d24cd5a2">
+  <link rel="stylesheet" href="css/sections/home-comparison.css?v=542eb696">
   <link rel="stylesheet" href="css/sections/home-fair-question.css?v=4054afe0">
   <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f">
-  <link rel="stylesheet" href="css/components/footer.css?v=b6a68d78">
+  <link rel="stylesheet" href="css/components/footer.css?v=1d3a7535">
   <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
 <body class="pdp-page">
@@ -42,20 +42,20 @@
   <!-- ================================================
        NAV
   ================================================= -->
-  <header class="lavero-main-menu" aria-label="ניווט ראשי">
-    <button class="lavero-menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="lavero-primary-nav" onclick="toggleLaveroMenu(this)">&#9776;</button>
-    <a href="index.html" class="lavero-brand lavero-brand--mybambook" aria-label="MyBambook — דף הבית">
-      <strong><span>My</span><span class="lavero-brand__bamboo">Bambook</span></strong>
+  <header class="bambook-main-menu" aria-label="ניווט ראשי">
+    <button class="bambook-menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="bambook-primary-nav" onclick="toggleBambookMenu(this)">&#9776;</button>
+    <a href="index.html" class="bambook-brand bambook-brand--mybambook" aria-label="MyBambook — דף הבית">
+      <strong><span>My</span><span class="bambook-brand__bamboo">Bambook</span></strong>
       <span>כפפות קומפרסיה</span>
     </a>
-    <nav class="lavero-menu-links" id="lavero-primary-nav" aria-label="חלקי האתר">
+    <nav class="bambook-menu-links" id="bambook-primary-nav" aria-label="חלקי האתר">
       <a href="index.html" data-section="home">בית</a>
       <a href="product.html" data-section="shop" aria-current="page">חנות</a>
       <a href="faq.html" data-section="faq">שאלות נפוצות</a>
       <a href="mission.html" data-section="mission">אודות</a>
     </nav>
-    <div class="lavero-menu-actions">
-      <a href="product.html" class="lavero-shop-button">לרכישה</a>
+    <div class="bambook-menu-actions">
+      <a href="product.html" class="bambook-shop-button">לרכישה</a>
     </div>
   </header>
 
@@ -158,9 +158,18 @@
               <div class="pdp-hero__size-area">
                 <!-- JS injects size picker here — leave empty -->
                 <div class="color-options" id="size-options" aria-live="polite"></div>
-                <a class="pdp-hero__size-guide-link" href="assets/mybambook-size-guide-hebrew.svg" target="_blank" rel="noopener" aria-label="פתיחת מדריך המידות של MyBambook בחלון חדש">
+                <button class="pdp-hero__size-guide-link" type="button" id="size-guide-toggle" aria-expanded="false" aria-controls="pdp-size-guide">
                   מדריך מידות
-                </a>
+                </button>
+                <div class="pdp-size-guide" id="pdp-size-guide" hidden>
+                  <div class="pdp-size-guide__header">
+                    <span>מדריך מידות</span>
+                    <button class="pdp-size-guide__close" type="button" aria-label="סגירת מדריך המידות">×</button>
+                  </div>
+                  <figure class="pdp-size-guide__chart">
+                    <img src="assets/mybambook-size-guide-hebrew.svg" alt="טבלת מידות לכפפות MyBambook: S שמונה סנטימטר, M תשעה סנטימטר, L עשרה וחצי סנטימטר ומעלה." loading="lazy">
+                  </figure>
+                </div>
               </div>
 
               <div class="pdp-hero__qty-wrap">
@@ -569,7 +578,7 @@
         <div class="comparison-table-shell comparison-desktop-only">
           <div class="comparison-col-labels" aria-hidden="true">
             <div></div>
-            <div class="comparison-col-head comparison-col-head--lavero">★ MyBambook</div>
+            <div class="comparison-col-head comparison-col-head--bambook">★ MyBambook</div>
             <div class="comparison-col-head comparison-col-head--other">כפפות בסיסיות</div>
           </div>
           <table class="comparison-table" aria-label="MyBambook בהשוואה לכפפות קומפרסיה בסיסיות">
@@ -591,17 +600,17 @@
           <thead>
             <tr>
               <th></th>
-              <th class="cmo-th-lavero">★ MyBambook</th>
+              <th class="cmo-th-bambook">★ MyBambook</th>
               <th class="cmo-th-std">בסיסיות</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>תמיכה יומית בידיים</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>גזרה ללא אצבעות, נוחה למשימות</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>קלות בשימוש בבית</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>הכוונת מידות פשוטה</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>נבנו לשגרה אמיתית</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>מראה שקט ולביש</td><td class="cmo-lavero"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>תמיכה יומית בידיים</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>גזרה ללא אצבעות, נוחה למשימות</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>קלות בשימוש בבית</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>הכוונת מידות פשוטה</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>נבנו לשגרה אמיתית</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
+            <tr><td>מראה שקט ולביש</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -677,16 +686,6 @@
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
           </article>
-          <article class="bamboo-benefit" aria-hidden="true">
-            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
-          </article>
-          <article class="bamboo-benefit" aria-hidden="true">
-            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
-          </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
@@ -719,16 +718,6 @@
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
           </article>
-          <article class="bamboo-benefit">
-            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
-          </article>
-          <article class="bamboo-benefit">
-            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
-          </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
@@ -760,16 +749,6 @@
             <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
             <h3>ויסות חום</h3>
             <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
-          </article>
-          <article class="bamboo-benefit">
-            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
-          </article>
-          <article class="bamboo-benefit">
-            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
           </article>
         </div>
       </div>
@@ -783,7 +762,7 @@
 
       function syncLoopDistance() {
         const cards = track.querySelectorAll('.bamboo-benefit');
-        const firstRepeat = cards[8];
+        const firstRepeat = cards[6];
         if (!cards[0] || !firstRepeat) return;
 
         const distance = firstRepeat.getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
@@ -1016,20 +995,20 @@
 
     async function addSelectedProductsToShopifyCart(event) {
       event?.preventDefault();
-      if (!window.LaveroCart) {
+      if (!window.BambookCart) {
         showCartStatus('העגלה לא זמינה כרגע. נסו שוב בעוד רגע.');
         return;
       }
-      await window.LaveroCart.addConfiguredProduct(selectedCheckoutConfig(), { statusId: 'cart-status' });
+      await window.BambookCart.addConfiguredProduct(selectedCheckoutConfig(), { statusId: 'cart-status' });
     }
 
     async function buySelectedProductsNow(event) {
       event?.preventDefault();
-      if (!window.LaveroCart) {
+      if (!window.BambookCart) {
         showCartStatus('העגלה לא זמינה כרגע. נסו שוב בעוד רגע.');
         return;
       }
-      await window.LaveroCart.buyConfiguredProductNow(selectedCheckoutConfig(), { statusId: 'cart-status' });
+      await window.BambookCart.buyConfiguredProductNow(selectedCheckoutConfig(), { statusId: 'cart-status' });
     }
 
     function selectedCheckoutConfig() {
@@ -1102,6 +1081,36 @@
 
     // Quantity: handled by changeQty() called from inline onclick on qty buttons
 
+    (function initSizeGuideDropdown() {
+      const toggle = document.getElementById('size-guide-toggle');
+      const panel = document.getElementById('pdp-size-guide');
+      const close = panel && panel.querySelector('.pdp-size-guide__close');
+      if (!toggle || !panel) return;
+
+      function setSizeGuideOpen(isOpen) {
+        panel.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      toggle.addEventListener('click', function() {
+        setSizeGuideOpen(panel.hidden);
+      });
+
+      if (close) {
+        close.addEventListener('click', function() {
+          setSizeGuideOpen(false);
+          toggle.focus();
+        });
+      }
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && !panel.hidden) {
+          setSizeGuideOpen(false);
+          toggle.focus();
+        }
+      });
+    })();
+
     // Hero gallery
     const galleryImages = Array.from(document.querySelectorAll('[data-gal-image]'));
     const thumbBtns = Array.from(document.querySelectorAll('.pdp-hero__thumb'));
@@ -1168,8 +1177,8 @@
     })();
 
     // Mobile menu
-    function toggleLaveroMenu(btn) {
-      const nav = document.getElementById('lavero-primary-nav');
+    function toggleBambookMenu(btn) {
+      const nav = document.getElementById('bambook-primary-nav');
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
       if (nav) nav.classList.toggle('is-open', !expanded);
@@ -1177,8 +1186,8 @@
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        const menuBtn = document.querySelector('.lavero-menu-toggle');
-        if (menuBtn && menuBtn.getAttribute('aria-expanded') === 'true') toggleLaveroMenu(menuBtn);
+        const menuBtn = document.querySelector('.bambook-menu-toggle');
+        if (menuBtn && menuBtn.getAttribute('aria-expanded') === 'true') toggleBambookMenu(menuBtn);
       }
     });
 
@@ -1253,11 +1262,11 @@
       if (row) observer.observe(row);
     })();
   </script>
-  <script src="js/universal-cart.js?v=5ca47c17"></script>
+  <script src="js/universal-cart.js?v=79be3323"></script>
   <script>
     (function () {
-      if (typeof fbq !== 'function' || !window.LaveroCart) return;
-      var variantId = window.LaveroCart.getVariantNumericId(window.LaveroCart.defaultSize);
+      if (typeof fbq !== 'function' || !window.BambookCart) return;
+      var variantId = window.BambookCart.getVariantNumericId(window.BambookCart.defaultSize);
       fbq('track', 'ViewContent', {
         content_type: 'product',
         content_ids: variantId ? [variantId] : []

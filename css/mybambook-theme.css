@@ -73,19 +73,19 @@ body.mybambook-page {
   line-height: 1.72;
 }
 
-.mybambook-page .lavero-main-menu {
+.mybambook-page .bambook-main-menu {
   background: rgb(251 253 251 / 90%);
 }
 
-.mybambook-page .lavero-shop-button,
+.mybambook-page .bambook-shop-button,
 .mybambook-page .mb-button,
 .mybambook-page .final-cta__button {
   background: var(--blush);
   box-shadow: var(--shadow-button);
 }
 
-.mybambook-page .lavero-shop-button:hover,
-.mybambook-page .lavero-shop-button:focus-visible,
+.mybambook-page .bambook-shop-button:hover,
+.mybambook-page .bambook-shop-button:focus-visible,
 .mybambook-page .mb-button:hover,
 .mybambook-page .mb-button:focus-visible {
   background: var(--green);
@@ -171,10 +171,12 @@ body.mybambook-page {
 .mb-link-button {
   align-items: center;
   border-radius: var(--radius-pill);
+  box-sizing: border-box;
   display: inline-flex;
   font: 800 var(--fs-eyebrow)/1 var(--sans);
   justify-content: center;
   letter-spacing: 0.14em;
+  max-width: 100%;
   min-height: 3.5rem;
   padding: 0 var(--space-8);
   text-decoration: none;
@@ -366,19 +368,20 @@ body.mybambook-page {
 }
 
 .mb-final::before {
-  bottom: var(--space-4);
+  bottom: auto;
   color: rgb(251 253 251 / 5%);
   content: "MYBAMBOOK";
   font-family: var(--font-display);
-  font-size: clamp(var(--space-20), 17vw, calc(var(--space-24) * 3));
+  font-size: clamp(var(--space-12), 12vw, calc(var(--space-24) * 2.8));
   font-weight: 800;
   left: 50%;
-  letter-spacing: 0.16em;
+  letter-spacing: 0;
   line-height: 0.8;
   pointer-events: none;
   position: absolute;
   text-transform: uppercase;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
 }
 
@@ -407,15 +410,17 @@ body.mybambook-page {
 }
 
 /* Scoped so it beats policy.css's shared ".policy-hero::before" (which sets
-   content:"LAVERO") regardless of stylesheet load order — the theme must win. */
+   content:"MYBAMBOOK") regardless of stylesheet load order — the theme must win. */
 .mybambook-policy .policy-hero::before {
-  bottom: 0;
+  bottom: auto;
   content: "MYBAMBOOK";
   font-family: var(--font-display);
   font-size: clamp(var(--space-12), 13vw, calc(var(--space-24) * 2.8));
   font-weight: 800;
   line-height: 1;
   color: color-mix(in srgb, var(--blush) 18%, transparent);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .mybambook-policy .policy-hero__title,
@@ -459,7 +464,7 @@ html[dir="rtl"] body.mybambook-page *::after {
   letter-spacing: normal;
 }
 
-html[dir="rtl"] .mybambook-page .lavero-brand strong,
+html[dir="rtl"] .mybambook-page .bambook-brand strong,
 html[dir="rtl"] .mybambook-page .footer-brand strong {
   letter-spacing: 0.22em;
 }

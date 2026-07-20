@@ -1,7 +1,7 @@
 (function () {
   var STOREFRONT_ENDPOINT = 'https://w1c0ed-5s.myshopify.com/api/2024-10/graphql.json';
   var STOREFRONT_TOKEN = 'f2863bebc601b26a3c6f35a9c63c560e';
-  var STORAGE_KEY = 'laveroCart';
+  var STORAGE_KEY = 'bambookCart';
 
   var SIZE_VARIANTS = {
     S: { variantId: 'gid://shopify/ProductVariant/43638796943473' },
@@ -75,12 +75,12 @@
   }
 
   function ensureStyles() {
-    if (document.getElementById('lavero-universal-cart-styles')) return;
+    if (document.getElementById('bambook-universal-cart-styles')) return;
     document.head.insertAdjacentHTML('beforeend', [
-      '<style id="lavero-universal-cart-styles">',
-      '#lavero-cart-dialog{border:none;padding:0;margin:0 auto 0 0;border-radius:0 18px 18px 0;max-width:min(480px,96vw);width:100%;height:100vh;max-height:100vh;background:var(--ivory,#fff9f0);box-shadow:24px 0 72px rgba(64,54,50,.22);overflow:clip;}',
-      '#lavero-cart-dialog[open]{display:flex;flex-direction:column;}',
-      '#lavero-cart-dialog::backdrop{background:rgba(40,32,28,.52);backdrop-filter:blur(4px);}',
+      '<style id="bambook-universal-cart-styles">',
+      '#bambook-cart-dialog{border:none;padding:0;margin:0 auto 0 0;border-radius:0 18px 18px 0;max-width:min(480px,96vw);width:100%;height:100vh;max-height:100vh;background:var(--ivory,#fff9f0);box-shadow:24px 0 72px rgba(64,54,50,.22);overflow:clip;}',
+      '#bambook-cart-dialog[open]{display:flex;flex-direction:column;}',
+      '#bambook-cart-dialog::backdrop{background:rgba(40,32,28,.52);backdrop-filter:blur(4px);}',
       '.cdlg-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px 16px;border-bottom:1px solid var(--line,#eadfd3);flex-shrink:0;}',
       '.cdlg-title{margin:0;font:700 19px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);}',
       '.cdlg-close{background:var(--cream,#f7efe3);border:none;border-radius:50%;width:34px;height:34px;font-size:19px;cursor:pointer;color:var(--brown,#403632);display:grid;place-items:center;flex-shrink:0;transition:background .15s;}',
@@ -115,7 +115,7 @@
       '.cdlg-checkout:hover{background:var(--green,#173c34);}',
       '.cdlg-trust{text-align:center;font:500 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);margin:10px 0 0;}',
       '.cdlg-empty{text-align:center;padding:48px 0 40px;color:var(--taupe,#786f68);font:500 14px var(--font-sans,Inter,Arial,sans-serif);}',
-      '@media(max-width:520px){#lavero-cart-dialog{border-radius:0 18px 18px 0;width:min(420px,92vw);}.cdlg-header,.cdlg-body,.cdlg-footer{padding-left:20px;padding-right:20px;}}',
+      '@media(max-width:520px){#bambook-cart-dialog{border-radius:0 18px 18px 0;width:min(420px,92vw);}.cdlg-header,.cdlg-body,.cdlg-footer{padding-left:20px;padding-right:20px;}}',
       '</style>'
     ].join(''));
   }
@@ -125,25 +125,25 @@
     var legacy = document.getElementById('custom-cart');
     if (legacy) legacy.remove();
 
-    var drawer = document.getElementById('lavero-cart-dialog');
+    var drawer = document.getElementById('bambook-cart-dialog');
     if (drawer) return drawer;
 
     document.body.insertAdjacentHTML('beforeend', [
-      '<dialog id="lavero-cart-dialog" aria-label="עגלת קניות">',
+      '<dialog id="bambook-cart-dialog" aria-label="עגלת קניות">',
       '  <div class="cdlg-header">',
       '    <h2 class="cdlg-title">העגלה שלכם</h2>',
       '    <button class="cdlg-close" type="button" aria-label="סגירת העגלה">&times;</button>',
       '  </div>',
-      '  <div class="cdlg-body"><div id="lavero-cart-lines"></div></div>',
+      '  <div class="cdlg-body"><div id="bambook-cart-lines"></div></div>',
       '  <div class="cdlg-footer">',
-      '    <div id="lavero-cart-totals"></div>',
-      '    <a id="lavero-checkout-btn" href="#" class="cdlg-checkout">לתשלום</a>',
+      '    <div id="bambook-cart-totals"></div>',
+      '    <a id="bambook-checkout-btn" href="#" class="cdlg-checkout">לתשלום</a>',
       '    <p class="cdlg-trust">משלוח חינם &nbsp;&middot;&nbsp; אחריות החזר כספי — 60 יום</p>',
       '  </div>',
       '</dialog>'
     ].join(''));
 
-    drawer = document.getElementById('lavero-cart-dialog');
+    drawer = document.getElementById('bambook-cart-dialog');
     drawer.querySelector('.cdlg-close').addEventListener('click', close);
     return drawer;
   }
@@ -242,11 +242,11 @@
   }
 
   function setBadge(count) {
-    document.querySelectorAll('.lavero-cart-badge, .cart-badge').forEach(function (badge) {
+    document.querySelectorAll('.bambook-cart-badge, .cart-badge').forEach(function (badge) {
       badge.textContent = String(count);
       badge.style.display = count > 0 ? 'flex' : 'none';
     });
-    document.querySelectorAll('.lavero-sr-only, #cart-count-label').forEach(function (el) {
+    document.querySelectorAll('.bambook-sr-only, #cart-count-label').forEach(function (el) {
       el.textContent = count + ' ' + (count === 1 ? 'פריט' : 'פריטים') + ' בעגלה';
     });
   }
@@ -268,7 +268,7 @@
         priceStr: (parseFloat(node.cost.totalAmount.amount) || 0).toFixed(2) + ' ' + sym,
         imgURL: merchandise.image && merchandise.image.url
           ? merchandise.image.url
-          : (product.featuredImage && product.featuredImage.url ? product.featuredImage.url : 'assets/lavero-woman-shower.jpeg')
+          : (product.featuredImage && product.featuredImage.url ? product.featuredImage.url : 'assets/bambook-woman-shower.jpeg')
       };
     });
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -281,9 +281,9 @@
 
   function renderSavedCart() {
     ensureDrawer();
-    var linesEl = document.getElementById('lavero-cart-lines');
-    var totalsEl = document.getElementById('lavero-cart-totals');
-    var checkoutBtn = document.getElementById('lavero-checkout-btn');
+    var linesEl = document.getElementById('bambook-cart-lines');
+    var totalsEl = document.getElementById('bambook-cart-totals');
+    var checkoutBtn = document.getElementById('bambook-checkout-btn');
     var parsed = null;
 
     try {
@@ -310,7 +310,7 @@
       sum += price;
       return [
         '<div class="cdlg-line">',
-        '  <img src="' + escapeHTML(item.imgURL || 'assets/lavero-woman-shower.jpeg') + '" alt="">',
+        '  <img src="' + escapeHTML(item.imgURL || 'assets/bambook-woman-shower.jpeg') + '" alt="">',
         '  <div style="flex:1;">',
         '    <div style="font-weight:700;font-size:15px;color:var(--ink,var(--brown,#403632));">' + escapeHTML(item.title || 'כפפות קומפרסיה MyBambook') + '</div>',
         '    <div style="color:var(--taupe,#786f68);font-size:13px;margin-top:3px;">' + escapeHTML(item.bundle || 'סטנדרטי') + '</div>',
@@ -337,9 +337,9 @@
     currentConfig = normalizeConfig(config || currentConfig);
     syncCartToLocalStorage(cart);
 
-    var linesEl = document.getElementById('lavero-cart-lines');
-    var totalsEl = document.getElementById('lavero-cart-totals');
-    var checkoutBtn = document.getElementById('lavero-checkout-btn');
+    var linesEl = document.getElementById('bambook-cart-lines');
+    var totalsEl = document.getElementById('bambook-cart-totals');
+    var checkoutBtn = document.getElementById('bambook-checkout-btn');
 
     if (!linesEl || !totalsEl) return;
 
@@ -511,7 +511,7 @@
   }
 
   function close() {
-    var drawer = document.getElementById('lavero-cart-dialog');
+    var drawer = document.getElementById('bambook-cart-dialog');
     if (!drawer) return;
     if (typeof drawer.close === 'function') drawer.close();
     else drawer.removeAttribute('open');
@@ -577,7 +577,7 @@
     renderSavedCart();
   });
 
-  window.LaveroCart = {
+  window.BambookCart = {
     sizes: ['S', 'M', 'L'],
     defaultSize: DEFAULT_SIZE,
     getVariantId: function (size) {
@@ -600,6 +600,6 @@
     removeCartLine: removeCartLine
   };
 
-  window.openLaveroCart = open;
+  window.openBambookCart = open;
   window.openProductCart = open;
 })();

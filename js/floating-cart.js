@@ -17,23 +17,23 @@
     if (document.getElementById('pdp-sticky-bar')) return;
     if (document.getElementById('lv-quick-add')) return;
 
-    var colors = window.LaveroCart && Array.isArray(window.LaveroCart.colors)
-      ? window.LaveroCart.colors
+    var colors = window.BambookCart && Array.isArray(window.BambookCart.colors)
+      ? window.BambookCart.colors
       : fallbackColors;
-    var dots = window.LaveroCart && window.LaveroCart.colorDots
-      ? window.LaveroCart.colorDots
+    var dots = window.BambookCart && window.BambookCart.colorDots
+      ? window.BambookCart.colorDots
       : fallbackDots;
 
     var html =
-      '<div class="lv-quick-add" id="lv-quick-add" aria-label="Quick add Lavero shower filter">' +
-        '<div class="lv-color-picker" role="group" aria-label="Choose product color" aria-expanded="false">' +
+      '<div class="lv-quick-add" id="lv-quick-add" aria-label="הוספה מהירה — MyBambook">' +
+        '<div class="lv-color-picker" role="group" aria-label="בחירת צבע" aria-expanded="false">' +
           colors.map(function (color) {
             return '<button class="lv-color-swatch' + (color === selectedColor ? ' is-selected' : '') + '" type="button" data-color="' + color + '" aria-label="' + color + '" aria-pressed="' + (color === selectedColor ? 'true' : 'false') + '">' +
               '<span style="background:' + dots[color] + '"></span>' +
             '</button>';
           }).join('') +
         '</div>' +
-        '<button class="lv-trigger" id="lv-trigger" type="button" aria-label="Add selected Lavero filter to cart">' +
+        '<button class="lv-trigger" id="lv-trigger" type="button" aria-label="הוספה לסל">' +
           cartSvg() +
           '<span>Add to Cart · $139</span>' +
         '</button>' +
@@ -85,8 +85,8 @@
     });
 
     trigger.addEventListener('click', function () {
-      if (!window.LaveroCart) return;
-      window.LaveroCart.addQuickProduct({
+      if (!window.BambookCart) return;
+      window.BambookCart.addQuickProduct({
         color: selectedColor,
         statusId: 'lv-cart-status'
       });
@@ -95,7 +95,7 @@
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         setPickerOpen(false);
-        if (window.LaveroCart) window.LaveroCart.close();
+        if (window.BambookCart) window.BambookCart.close();
       }
     });
   }

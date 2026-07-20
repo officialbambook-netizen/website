@@ -10,7 +10,7 @@
   max-width: 1560px;
   margin: 0 auto clamp(3.2rem, 5.5vw, 5rem);
 }
-.lavero-guarantee-certificate {
+.bambook-guarantee-certificate {
   background: var(--surface-lit);
   border: 1px solid var(--line-soft);
   border-radius: 18px;

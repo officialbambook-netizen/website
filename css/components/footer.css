@@ -1,5 +1,5 @@
 /* ============================================================
-   LAVERO — SHARED FOOTER COMPONENT
+   MYBAMBOOK — SHARED FOOTER COMPONENT
    ------------------------------------------------------------
    Cross-page footer. Keep footer styling here so home/product/
    journal/support pages do not drift from each other.
@@ -20,13 +20,15 @@
   font-family: var(--font-display);
   font-size: clamp(var(--space-12), 13vw, calc(var(--space-24) * 2.8));
   font-weight: 400;
-  inset: auto auto var(--space-8) 50%;
+  inset: auto;
+  left: 50%;
   letter-spacing: 0;
   line-height: 1;
   pointer-events: none;
   position: absolute;
   text-transform: uppercase;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   user-select: none;
   white-space: nowrap;
   z-index: 0;

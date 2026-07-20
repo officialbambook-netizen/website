@@ -82,7 +82,7 @@
       font: 800 12px var(--font-sans); letter-spacing: 0.14em; text-transform: uppercase;
     }
     .nav-link.active, .nav-link:hover { color: var(--ivory); }
-    .lavero-shop-button {
+    .bambook-shop-button {
       display: inline-flex; align-items: center; justify-content: center;
       background: var(--gold); border: none; border-radius: 8px;
       color: var(--ivory); text-decoration: none;
@@ -93,12 +93,12 @@
       -webkit-tap-highlight-color: transparent;
     }
     @media (hover: hover) {
-      .lavero-shop-button:hover {
+      .bambook-shop-button:hover {
         box-shadow: 0 8px 28px rgba(201, 154, 93, 0.5), 0 3px 8px rgba(64, 54, 50, 0.1);
         transform: translateY(-3px);
       }
     }
-    .lavero-shop-button:active { transform: translateY(-1px); }
+    .bambook-shop-button:active { transform: translateY(-1px); }
     .mobile-menu-btn { display: none; font-size: 28px; }
     .cart-badge {
       position: absolute; top: 0; inset-inline-end: -8px;
@@ -2031,7 +2031,7 @@
   font-family: var(--font-sans);
 }
 
-.pdp-page .comparison-section .comparison-col-head--lavero {
+.pdp-page .comparison-section .comparison-col-head--bambook {
   border-radius: var(--radius-pill);
 }
 
@@ -2546,7 +2546,7 @@ html[dir="rtl"] body.pdp-page *::after {
   letter-spacing: normal;
 }
 
-html[dir="rtl"] .pdp-page .lavero-brand strong,
+html[dir="rtl"] .pdp-page .bambook-brand strong,
 html[dir="rtl"] .pdp-page .footer-brand strong {
   letter-spacing: 0.22em;
 }

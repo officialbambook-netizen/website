@@ -535,9 +535,15 @@
 }
 
 .pdp-hero__size-guide-link {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin-block-start: var(--space-3);
+  min-height: 44px;
+  padding-inline: var(--space-3);
   color: var(--gold);
   font-family: var(--font-sans);
   font-size: 0.86rem;
@@ -550,6 +556,57 @@
 
 .pdp-hero__size-guide-link:hover {
   color: var(--brown);
+}
+
+.pdp-size-guide {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  margin-block-start: var(--space-3);
+  overflow: hidden;
+}
+
+.pdp-size-guide__header {
+  align-items: center;
+  background: var(--cream);
+  color: var(--brown);
+  display: flex;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 900;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+}
+
+.pdp-size-guide__close {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--brown);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+  height: 44px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 44px;
+}
+
+.pdp-size-guide__chart {
+  margin: 0;
+  overflow-x: auto;
+  padding: var(--space-3);
+}
+
+.pdp-size-guide__chart img {
+  display: block;
+  height: auto;
+  min-width: min(680px, 100%);
+  width: 100%;
 }
 
 /* Color picker — styling the JS-injected .color-picker elements */
@@ -671,7 +728,7 @@
 /* ── Size pills (S/M/L) — text pill, not a color swatch ─── */
 .size-swatch-btn {
   min-width: 40px;
-  height: 34px;
+  min-height: 44px;
   padding: 0 var(--space-3);
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--line);
@@ -1241,6 +1298,7 @@
   white-space: nowrap;
   transition: all 180ms ease;
   min-width: 90px;
+  min-height: 44px;
   box-shadow: 0 1px 4px rgba(64, 54, 50, 0.02);
 }
 

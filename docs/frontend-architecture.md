@@ -35,7 +35,7 @@ Audit of the current code (2026-06-04):
 |---|---|
 | `index.html` | 3,133 lines — **2,075 inside 10 inline `<style>` blocks** + **290 inline `style=` attributes** |
 | `product.html` | 2,332 lines — own `:root`, 4 `<style>` blocks, 20 inline styles |
-| Tokens | Defined in **4 disagreeing `:root` blocks** across **2 naming systems** (`--cream/--gold/--ink` vs `--lavero-nav-*/--color-charcoal`); `--sand` defined 3×, spacing scale half-finished |
+| Tokens | Defined in **4 disagreeing `:root` blocks** across **2 naming systems** (`--cream/--gold/--ink` vs `--bambook-nav-*/--color-charcoal`); `--sand` defined 3×, spacing scale half-finished |
 | Layout | Two-col→stacked grid + section padding **re-typed inline per section** → no single source of truth → spacing drift + "fixed desktop, broke mobile" |
 | External CSS | `footer/main-menu/floating-cart/hero-glitch/product-page/products.css` are clean & small — **not** the problem |
 
@@ -113,7 +113,7 @@ Refactor must be **visually near-identical** to today — the Playwright baselin
 - **Phase 3 — index.html, section by section.** Per section: swap inline styles → classes, move its `<style>` block → `css/sections/<name>.css`. Screenshot-diff after **each** section. 13 sections.
 - **Phase 4 — product.html + blog/mission/articles.** Same pattern. 10 product sections.
 - **Phase 5 — Dedupe.** Remove dead CSS, fold duplicate component styles, move `footer/menu/floating-cart` into `components/`.
-- **Phase 6 — Guardrails.** Build `preview/` isolation page; rewrite `lavero-web-developer/SKILL.md` to enforce: tokens-only, zero inline styles, reuse primitives, Playwright before/after.
+- **Phase 6 — Guardrails.** Build `preview/` isolation page; rewrite `bambook-web-developer/SKILL.md` to enforce: tokens-only, zero inline styles, reuse primitives, Playwright before/after.
 
 ### Core rules going forward
 - Mobile-first. Never fix desktop by breaking mobile (Playwright catches it).

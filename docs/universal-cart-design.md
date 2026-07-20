@@ -36,7 +36,7 @@ Existing page-specific UI must call the module instead of duplicating cart logic
 
 ## Public Interface
 
-The universal cart module exposes functions on `window.LaveroCart`:
+The universal cart module exposes functions on `window.BambookCart`:
 
 - `addQuickProduct({ color })`: adds one shower filter in the selected color with the default quick-add offer.
 - `addConfiguredProduct(config)`: adds the product-page configured selection, including colors, purchase choice, quantity, and refill bundle.
@@ -57,7 +57,7 @@ The floating control becomes a compact fixed tray with:
 - Five accessible color swatches matching the product-page color names and dot colors.
 - White selected by default.
 
-Clicking Add to Cart calls `window.LaveroCart.addQuickProduct({ color: selectedColor })`.
+Clicking Add to Cart calls `window.BambookCart.addQuickProduct({ color: selectedColor })`.
 
 The control must not redirect to `product.html`.
 
@@ -70,7 +70,7 @@ Changes:
 - Move drawer markup or injection into the universal module so every page can render it.
 - Position it as a left-side drawer.
 - Keep the existing product-page line item display, totals, remove buttons, checkout link, trust text, and empty state.
-- Ensure `openLaveroCart()` and navigation cart buttons call the universal drawer.
+- Ensure `openBambookCart()` and navigation cart buttons call the universal drawer.
 
 ## Error Handling
 

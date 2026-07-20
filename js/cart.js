@@ -5,29 +5,29 @@ function toggleMobileMenu() {
   nav.classList.toggle('active');
 }
 
-function openLaveroCart() {
-  if (window.LaveroCart) window.LaveroCart.open();
+function openBambookCart() {
+  if (window.BambookCart) window.BambookCart.open();
 }
 
 function openProductCart() {
-  openLaveroCart();
+  openBambookCart();
 }
 
 function pushToMockCart() {
-  if (window.LaveroCart) {
-    window.LaveroCart.addQuickProduct();
+  if (window.BambookCart) {
+    window.BambookCart.addQuickProduct();
   }
 }
 
 function renderCustomCart() {
-  if (window.LaveroCart) window.LaveroCart.open();
+  if (window.BambookCart) window.BambookCart.open();
 }
 
 function removeFromMock() {
   renderCustomCart();
 }
 
-function addToLaveroCart(item) {
-  if (!item || !window.LaveroCart) return;
-  window.LaveroCart.open();
+function addToBambookCart(item) {
+  if (!item || !window.BambookCart) return;
+  window.BambookCart.open();
 }

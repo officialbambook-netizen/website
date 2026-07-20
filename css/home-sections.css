@@ -1,5 +1,5 @@
 /* ============================================================
-   LAVERO — HOMEPAGE SECTION BLOCKS (extracted from inline <style>
+   MYBAMBOOK — HOMEPAGE SECTION BLOCKS (extracted from inline <style>
    blocks that were interspersed in the body). Loaded last so these
    section-scoped responsive rules keep their original cascade order.
    ============================================================ */
@@ -148,8 +148,8 @@
     }
     .comparison-mobile-only thead th:first-child { text-align: left; padding-left: 1rem; }
 
-    /* ── LAVERO header — elevated, gold accent ── */
-    .cmo-th-lavero {
+    /* ── MYBAMBOOK header — elevated, gold accent ── */
+    .cmo-th-bambook {
       background: linear-gradient(160deg, rgba(201,154,93,0.18) 0%, rgba(201,154,93,0.08) 100%) !important;
       border-left: 1px solid rgba(201,154,93,0.35) !important;
       border-right: 1px solid rgba(201,154,93,0.35) !important;
@@ -160,7 +160,7 @@
       letter-spacing: 0.12em !important;
       padding-top: 1.4rem !important;
     }
-    .cmo-th-lavero::before {
+    .cmo-th-bambook::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -209,8 +209,8 @@
       line-height: 1.3;
     }
 
-    /* ── LAVERO cells — warm, elevated ── */
-    .cmo-lavero {
+    /* ── MYBAMBOOK cells — warm, elevated ── */
+    .cmo-bambook {
       background: linear-gradient(180deg, rgba(201,154,93,0.13) 0%, rgba(201,154,93,0.07) 100%);
       border-left: 1px solid rgba(201,154,93,0.25);
       border-right: 1px solid rgba(201,154,93,0.25);

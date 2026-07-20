@@ -1,18 +1,18 @@
 :root {
-  --lavero-nav-blush: #c98b80;
-  --lavero-nav-ivory: #fff9f0;
-  --lavero-nav-cream: #efe6dc;
-  --lavero-page-bg: #e8d8c4;
-  --lavero-nav-ink: #403632;
-  --lavero-nav-line: rgba(255, 249, 240, 0.22);
-  --lavero-nav-serif: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --lavero-nav-sans: Avenir, Montserrat, "Nunito", "Helvetica Neue", Arial, sans-serif;
+  --bambook-nav-blush: #c98b80;
+  --bambook-nav-ivory: #fff9f0;
+  --bambook-nav-cream: #efe6dc;
+  --bambook-page-bg: #e8d8c4;
+  --bambook-nav-ink: #403632;
+  --bambook-nav-line: rgba(255, 249, 240, 0.22);
+  --bambook-nav-serif: Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --bambook-nav-sans: Avenir, Montserrat, "Nunito", "Helvetica Neue", Arial, sans-serif;
 
   /* Keep page/section backgrounds aligned with the top-right CTA hover beige. */
-  --cream: var(--lavero-page-bg);
-  --sand: var(--lavero-page-bg);
-  --color-black: var(--lavero-page-bg);
-  --color-charcoal: var(--lavero-page-bg);
+  --cream: var(--bambook-page-bg);
+  --sand: var(--bambook-page-bg);
+  --color-black: var(--bambook-page-bg);
+  --color-charcoal: var(--bambook-page-bg);
 }
 
 /* Offset scroll-snap so keyboard focus is never hidden behind the sticky header */
@@ -27,15 +27,15 @@ section,
 .article-wrap,
 .journal-header,
 .journal-grid {
-  background-color: var(--lavero-page-bg) !important;
+  background-color: var(--bambook-page-bg) !important;
 }
 
-.lavero-main-menu {
+.bambook-main-menu {
   align-items: center;
   background: rgba(201, 137, 126, 0.92);
-  border-bottom: 1px solid var(--lavero-nav-line);
+  border-bottom: 1px solid var(--bambook-nav-line);
   box-sizing: border-box;
-  color: var(--lavero-nav-ivory);
+  color: var(--bambook-nav-ivory);
   display: grid;
   gap: clamp(1rem, 2.5vw, 2rem);
   grid-template-columns: minmax(240px, auto) 1fr minmax(260px, auto);
@@ -48,26 +48,26 @@ section,
   backdrop-filter: blur(18px);
 }
 
-.lavero-main-menu *,
-.lavero-main-menu *::before,
-.lavero-main-menu *::after {
+.bambook-main-menu *,
+.bambook-main-menu *::before,
+.bambook-main-menu *::after {
   box-sizing: border-box;
 }
 
-.lavero-menu-toggle {
+.bambook-menu-toggle {
   background: transparent;
   border: 0;
-  color: var(--lavero-nav-ivory);
+  color: var(--bambook-nav-ivory);
   cursor: pointer;
   display: none;
-  font: 700 1.55rem/1 var(--lavero-nav-sans);
+  font: 700 1.55rem/1 var(--bambook-nav-sans);
   min-height: 44px;
   min-width: 44px;
   padding: 0;
 }
 
-.lavero-brand {
-  color: var(--lavero-nav-ivory);
+.bambook-brand {
+  color: var(--bambook-nav-ivory);
   display: inline-flex;
   flex-direction: column;
   gap: 0.18rem;
@@ -77,31 +77,31 @@ section,
   text-transform: uppercase;
 }
 
-.lavero-brand strong {
+.bambook-brand strong {
   color: inherit;
-  font-family: var(--lavero-nav-serif);
+  font-family: var(--bambook-nav-serif);
   font-size: clamp(2rem, 2.1vw, 2.55rem);
   font-weight: 400;
   letter-spacing: 0.28em;
   line-height: 0.95;
 }
 
-.lavero-brand span {
+.bambook-brand span {
   color: inherit;
-  font: 900 0.64rem/1.2 var(--lavero-nav-sans);
+  font: 900 0.64rem/1.2 var(--bambook-nav-sans);
   letter-spacing: 0.28em;
 }
 
-.lavero-menu-links {
+.bambook-menu-links {
   align-items: center;
   display: flex;
   gap: clamp(1.35rem, 2.2vw, 2.85rem);
   justify-content: center;
 }
 
-.lavero-menu-links a {
+.bambook-menu-links a {
   color: rgba(255, 249, 240, 0.9);
-  font: 900 0.78rem/1 var(--lavero-nav-sans);
+  font: 900 0.78rem/1 var(--bambook-nav-sans);
   letter-spacing: 0.16em;
   min-height: 44px;
   display: inline-flex;
@@ -111,24 +111,24 @@ section,
   white-space: nowrap;
 }
 
-.lavero-menu-links a:hover,
-.lavero-menu-links a:focus-visible,
-.lavero-menu-links a[aria-current="page"] {
-  color: var(--lavero-nav-ivory);
+.bambook-menu-links a:hover,
+.bambook-menu-links a:focus-visible,
+.bambook-menu-links a[aria-current="page"] {
+  color: var(--bambook-nav-ivory);
 }
 
-.lavero-menu-actions {
+.bambook-menu-actions {
   align-items: center;
   display: flex;
   gap: clamp(1rem, 1.8vw, 2rem);
   justify-content: end;
 }
 
-.lavero-cart-button {
+.bambook-cart-button {
   align-items: center;
   background: transparent;
   border: 0;
-  color: var(--lavero-nav-ivory);
+  color: var(--bambook-nav-ivory);
   cursor: pointer;
   display: inline-grid;
   min-height: 44px;
@@ -138,20 +138,20 @@ section,
   position: relative;
 }
 
-.lavero-cart-button svg {
+.bambook-cart-button svg {
   display: block;
   height: 22px;
   width: 22px;
 }
 
-.lavero-shop-button {
+.bambook-shop-button {
   align-items: center;
-  background: var(--lavero-nav-cream);
+  background: var(--bambook-nav-cream);
   border: 1px solid rgba(255, 249, 240, 0.45);
   border-radius: 8px;
-  color: var(--lavero-nav-ink);
+  color: var(--bambook-nav-ink);
   display: inline-flex;
-  font: 900 0.78rem/1 var(--lavero-nav-sans);
+  font: 900 0.78rem/1 var(--bambook-nav-sans);
   justify-content: center;
   letter-spacing: 0.16em;
   min-height: 68px;
@@ -164,22 +164,22 @@ section,
 }
 
 @media (hover: hover) {
-  .lavero-shop-button:hover {
-    background: var(--lavero-page-bg);
+  .bambook-shop-button:hover {
+    background: var(--bambook-page-bg);
   }
 }
 
-.lavero-shop-button:active {
-  background: var(--lavero-page-bg);
+.bambook-shop-button:active {
+  background: var(--bambook-page-bg);
 }
 
-.lavero-cart-badge {
+.bambook-cart-badge {
   align-items: center;
   background: #173c34;
   border-radius: 999px;
-  color: var(--lavero-nav-ivory);
+  color: var(--bambook-nav-ivory);
   display: none;
-  font: 800 0.65rem/1 var(--lavero-nav-sans);
+  font: 800 0.65rem/1 var(--bambook-nav-sans);
   height: 1.05rem;
   justify-content: center;
   min-width: 1.05rem;
@@ -189,7 +189,7 @@ section,
   top: 0.2rem;
 }
 
-.lavero-sr-only {
+.bambook-sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -201,43 +201,43 @@ section,
   width: 1px;
 }
 
-.lavero-main-menu :focus-visible {
-  outline: 2px solid var(--lavero-nav-cream);
+.bambook-main-menu :focus-visible {
+  outline: 2px solid var(--bambook-nav-cream);
   outline-offset: 4px;
 }
 
 @media (max-width: 1080px) {
-  .lavero-main-menu {
+  .bambook-main-menu {
     grid-template-columns: auto 1fr auto;
     min-height: 86px;
     padding: 1rem 1.1rem;
   }
 
-  .lavero-menu-toggle {
+  .bambook-menu-toggle {
     display: inline-grid;
     place-items: center;
   }
 
-  .lavero-brand {
+  .bambook-brand {
     justify-self: center;
     text-align: center;
   }
 
-  .lavero-brand strong {
+  .bambook-brand strong {
     font-size: 1.65rem;
     letter-spacing: 0.22em;
   }
 
-  .lavero-brand span {
+  .bambook-brand span {
     font-size: 0.52rem;
   }
 
-  .lavero-menu-links {
-    background: var(--lavero-nav-ivory);
+  .bambook-menu-links {
+    background: var(--bambook-nav-ivory);
     border: 1px solid rgba(64, 54, 50, 0.12);
     border-radius: 12px;
     box-shadow: 0 18px 44px rgba(64, 54, 50, 0.16);
-    color: var(--lavero-nav-ink);
+    color: var(--bambook-nav-ink);
     display: none;
     flex-direction: column;
     gap: 0;
@@ -246,23 +246,23 @@ section,
     padding: 0.6rem 1rem;
   }
 
-  .lavero-menu-links.is-open {
+  .bambook-menu-links.is-open {
     display: flex;
   }
 
-  .lavero-menu-links a {
+  .bambook-menu-links a {
     border-bottom: 1px solid rgba(64, 54, 50, 0.12);
-    color: var(--lavero-nav-ink);
+    color: var(--bambook-nav-ink);
     justify-content: center;
     width: 100%;
   }
 
-  .lavero-menu-links a:last-child {
+  .bambook-menu-links a:last-child {
     border-bottom: 0;
   }
 
   /* "Home" (and any active page) must always be black — overrides the global ivory active colour */
-  .lavero-menu-links a[aria-current="page"] {
+  .bambook-menu-links a[aria-current="page"] {
     color: #000 !important;
     border-bottom-color: rgba(64, 54, 50, 0.12);
     font-weight: 900;
@@ -271,23 +271,23 @@ section,
     text-underline-offset: 3px;
   }
 
-  .lavero-menu-actions {
+  .bambook-menu-actions {
     gap: 0.35rem;
   }
 
   /* Shop button inside the open dropdown (moved there by JS) */
-  .lavero-menu-links .lavero-shop-button {
+  .bambook-menu-links .bambook-shop-button {
     display: flex !important;
     align-items: center;
     justify-content: center;
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.9rem 1rem;
-    background: var(--lavero-nav-cream);
+    background: var(--bambook-nav-cream);
     border: 1px solid rgba(64, 54, 50, 0.14);
     border-radius: 8px;
-    color: var(--lavero-nav-ink) !important;
-    font: 900 0.78rem/1 var(--lavero-nav-sans);
+    color: var(--bambook-nav-ink) !important;
+    font: 900 0.78rem/1 var(--bambook-nav-sans);
     letter-spacing: 0.16em;
     text-decoration: none !important;
     text-transform: uppercase;
@@ -298,36 +298,36 @@ section,
 }
 
 @media (max-width: 520px) {
-  .lavero-main-menu {
+  .bambook-main-menu {
     gap: 0.45rem;
     grid-template-columns: auto minmax(0, 1fr) auto;
     min-height: 78px;
     padding: 0.75rem 0.7rem;
   }
 
-  .lavero-brand {
+  .bambook-brand {
     min-width: 0;
   }
 
-  .lavero-brand strong {
+  .bambook-brand strong {
     font-size: clamp(1.08rem, 5vw, 1.35rem);
     letter-spacing: 0.18em;
   }
 
-  .lavero-brand span {
+  .bambook-brand span {
     font-size: clamp(0.38rem, 1.7vw, 0.46rem);
     letter-spacing: 0.14em;
   }
 
-  .lavero-menu-actions {
+  .bambook-menu-actions {
     gap: 0.18rem;
   }
 
-  .lavero-cart-button {
+  .bambook-cart-button {
     min-width: 34px;
   }
 
-  .lavero-shop-button {
+  .bambook-shop-button {
     display: inline-flex;
     font-size: clamp(0.5rem, 2.05vw, 0.58rem);
     letter-spacing: 0.08em;

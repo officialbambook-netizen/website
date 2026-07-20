@@ -1,5 +1,5 @@
 /* ============================================================
-   LAVERO — POLICY PAGES (privacy · terms · refund)
+   MYBAMBOOK — POLICY PAGES (privacy · terms · refund)
    ------------------------------------------------------------
    Shared layout for all legal/policy pages.
    Tokens only — no raw hex, no magic spacing.
@@ -16,7 +16,7 @@
 }
 
 .policy-hero::before {
-  content: "LAVERO";
+  content: "MYBAMBOOK";
   position: absolute;
   bottom: -0.05em;
   left: 50%;
@@ -265,10 +265,16 @@
 }
 
 .policy-nav__list a {
+  align-items: center;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
   font-family: var(--sans);
   font-size: 0.68rem;
   font-weight: 700;
+  justify-content: center;
   letter-spacing: 0.14em;
+  min-height: 44px;
+  padding: 0 var(--space-2);
   text-transform: uppercase;
   color: var(--blush);
   text-decoration: none;
@@ -283,7 +289,6 @@
 .policy-nav__list li.active a {
   color: var(--blush);
   border-bottom: 1px solid var(--blush);
-  padding-bottom: 0.15rem;
 }
 
 /* ---- Cancellation-notice form (טופס ביטול עסקה) ----------- */

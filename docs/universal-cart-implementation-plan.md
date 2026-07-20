@@ -4,7 +4,7 @@
 
 **Goal:** Build one Shopify-backed Lavero cart shared by the homepage, product page, blog, mission, and article pages.
 
-**Architecture:** Add `js/universal-cart.js` as the single cart owner. Page scripts call `window.LaveroCart` for quick add, configured product add, drawer opening, badge updates, removal, and checkout. The floating CTA keeps only quick-add color UI and delegates cart work to the universal module.
+**Architecture:** Add `js/universal-cart.js` as the single cart owner. Page scripts call `window.BambookCart` for quick add, configured product add, drawer opening, badge updates, removal, and checkout. The floating CTA keeps only quick-add color UI and delegates cart work to the universal module.
 
 **Tech Stack:** Static HTML, CSS, vanilla JavaScript, Shopify Storefront API.
 
@@ -17,8 +17,8 @@
 - Modify: `js/cart.js`
 - Modify: `js/main-menu.js`
 
-- [ ] Create `window.LaveroCart` with Shopify constants, cart creation, drawer injection, drawer rendering, line removal, badge sync, fallback localStorage rendering, `addQuickProduct`, `addConfiguredProduct`, `buyConfiguredProductNow`, `open`, `render`, `setBadge`, and `showStatus`.
-- [ ] Make `openLaveroCart()` and `openProductCart()` call `window.LaveroCart.open()`.
+- [ ] Create `window.BambookCart` with Shopify constants, cart creation, drawer injection, drawer rendering, line removal, badge sync, fallback localStorage rendering, `addQuickProduct`, `addConfiguredProduct`, `buyConfiguredProductNow`, `open`, `render`, `setBadge`, and `showStatus`.
+- [ ] Make `openBambookCart()` and `openProductCart()` call `window.BambookCart.open()`.
 - [ ] Reduce legacy `js/cart.js` to compatibility wrappers so old mock cart code does not inject `#custom-cart`.
 
 ### Task 2: Floating Quick Add
@@ -31,7 +31,7 @@
 - [ ] Add accessible color swatches for White, Pink, Beige, Black, and Gray.
 - [ ] Default selected color to White.
 - [ ] Make the Add to Cart button pink.
-- [ ] On click, call `window.LaveroCart.addQuickProduct({ color })`.
+- [ ] On click, call `window.BambookCart.addQuickProduct({ color })`.
 
 ### Task 3: Product Page Integration
 
@@ -41,8 +41,8 @@
 - [ ] Remove the page-owned cart drawer markup and CSS.
 - [ ] Remove the page-owned Shopify cart creation/rendering/removal functions.
 - [ ] Keep product-page state, color selection, plan selection, quantity, refill bundle, and price rendering.
-- [ ] Make `addSelectedProductsToShopifyCart(event)` call `LaveroCart.addConfiguredProduct(...)`.
-- [ ] Make `buySelectedProductsNow(event)` call `LaveroCart.buyConfiguredProductNow(...)`.
+- [ ] Make `addSelectedProductsToShopifyCart(event)` call `BambookCart.addConfiguredProduct(...)`.
+- [ ] Make `buySelectedProductsNow(event)` call `BambookCart.buyConfiguredProductNow(...)`.
 - [ ] Ensure Escape closes the universal drawer.
 
 ### Task 4: Site-Wide Script Loading
@@ -58,7 +58,7 @@
 
 - [ ] Load `js/universal-cart.js` before `js/cart.js` and `js/floating-cart.js`.
 - [ ] Remove old static `#custom-cart` dialogs and backdrop styles from non-product pages.
-- [ ] Keep existing header cart buttons, now backed by `openLaveroCart()`.
+- [ ] Keep existing header cart buttons, now backed by `openBambookCart()`.
 
 ### Task 5: Verification
 
@@ -67,6 +67,6 @@
 
 - [ ] Confirm no page redirects floating Add to Cart to `product.html`.
 - [ ] Confirm `#custom-cart` is gone.
-- [ ] Confirm quick add opens `#lavero-cart-dialog`.
+- [ ] Confirm quick add opens `#bambook-cart-dialog`.
 - [ ] Confirm product Add to Cart still uses selected colors, plan, quantity, and refill bundle.
 - [ ] Confirm mobile layout keeps the floating tray usable.

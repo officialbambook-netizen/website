@@ -2,7 +2,7 @@ import os
 import re
 import sys
 
-site_dir = '/Users/openclaworion/Documents/Lavero project/LaveroWork/05_WEBSITE/site'
+site_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(site_dir)
 
 missing_assets = []
@@ -19,7 +19,7 @@ for root, _, files in os.walk('.'):
             # Find all src="..." and href="..."
             matches = re.findall(r'(src|href)="([^"]+)"', content)
             for attr, link in matches:
-                if link.startswith('http') or link.startswith('mailto:') or link.startswith('#') or link.startswith('//'):
+                if link.startswith('http') or link.startswith('mailto:') or link.startswith('tel:') or link.startswith('#') or link.startswith('//'):
                     external_links.append(link)
                     continue
                 
