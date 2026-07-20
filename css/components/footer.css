@@ -18,11 +18,11 @@
   color: rgba(255, 249, 240, 0.045);
   content: "MYBAMBOOK";
   font-family: var(--font-display);
-  font-size: clamp(var(--space-20), 17vw, calc(var(--space-24) * 3));
+  font-size: clamp(var(--space-12), 13vw, calc(var(--space-24) * 2.8));
   font-weight: 400;
   inset: auto auto var(--space-8) 50%;
-  letter-spacing: 0.18em;
-  line-height: 0.78;
+  letter-spacing: 0;
+  line-height: 1;
   pointer-events: none;
   position: absolute;
   text-transform: uppercase;

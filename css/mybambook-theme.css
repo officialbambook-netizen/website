@@ -409,9 +409,12 @@ body.mybambook-page {
 /* Scoped so it beats policy.css's shared ".policy-hero::before" (which sets
    content:"LAVERO") regardless of stylesheet load order — the theme must win. */
 .mybambook-policy .policy-hero::before {
+  bottom: 0;
   content: "MYBAMBOOK";
   font-family: var(--font-display);
+  font-size: clamp(var(--space-12), 13vw, calc(var(--space-24) * 2.8));
   font-weight: 800;
+  line-height: 1;
   color: color-mix(in srgb, var(--blush) 18%, transparent);
 }
 
@@ -462,7 +465,7 @@ html[dir="rtl"] .mybambook-page .footer-brand strong {
 }
 
 html[dir="rtl"] .mybambook-page .site-footer::before {
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
 }
 
 html[dir="rtl"] .mybambook-page .mb-final::before {

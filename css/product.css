@@ -2552,7 +2552,7 @@ html[dir="rtl"] .pdp-page .footer-brand strong {
 }
 
 html[dir="rtl"] .pdp-page .site-footer::before {
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
 }
 
 html[dir="rtl"] .pdp-page .final-cta-watermark {
