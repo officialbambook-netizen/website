@@ -1272,14 +1272,18 @@
       if (row) observer.observe(row);
     })();
   </script>
-  <script src="js/universal-cart.js?v=79be3323"></script>
+  <script src="js/universal-cart.js?v=db489da3"></script>
   <script>
     (function () {
       if (typeof fbq !== 'function' || !window.BambookCart) return;
       var variantId = window.BambookCart.getVariantNumericId(window.BambookCart.defaultSize);
       fbq('track', 'ViewContent', {
         content_type: 'product',
-        content_ids: variantId ? [variantId] : []
+        content_ids: variantId ? [variantId] : [],
+        // Mirror AddToCart's item-level shape. item_price is omitted on purpose:
+        // no cart exists at view time and client JS carries no price constant
+        // (site rule) — content_ids / contents.id already match the catalog.
+        contents: variantId ? [{ id: variantId, quantity: 1 }] : []
       });
     })();
   </script>

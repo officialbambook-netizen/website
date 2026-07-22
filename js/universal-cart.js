@@ -50,18 +50,38 @@
   function cartEdges(cart) {
     return (cart && cart.lines && cart.lines.edges) ? cart.lines.edges : [];
   }
+  // Per-line detail for Meta's `contents` array: id (bare numeric variant, as a
+  // string), quantity, and item_price (per-unit, post-discount). item_price is
+  // derived from the live Shopify line cost — sum(item_price * quantity) across
+  // lines reconciles with the event `value` — never a hardcoded price.
+  function cartContents(cart) {
+    return cartEdges(cart).map(function (edge) {
+      var node = edge.node;
+      var quantity = Number(node.quantity) || 0;
+      var lineTotal = 0;
+      try { lineTotal = parseFloat(node.cost.totalAmount.amount) || 0; } catch (e) {}
+      var unitPrice = quantity > 0 ? lineTotal / quantity : lineTotal;
+      return {
+        id: variantNumericId(node.merchandise.id),
+        quantity: quantity,
+        item_price: Math.round(unitPrice * 100) / 100
+      };
+    });
+  }
   function cartEventParams(cart) {
     var currency = 'USD';
     var value = 0;
     try { value = parseFloat(cart.cost.totalAmount.amount) || 0; } catch (e) {}
     try { currency = cart.cost.totalAmount.currencyCode || 'USD'; } catch (e) {}
+    var contents = cartContents(cart);
     return {
       content_type: 'product',
-      content_ids: cartEdges(cart).map(function (edge) {
-        return variantNumericId(edge.node.merchandise.id);
-      }),
-      num_items: cartEdges(cart).reduce(function (sum, edge) {
-        return sum + (Number(edge.node.quantity) || 0);
+      // content_ids and contents describe the same lines two ways. Meta accepts
+      // either and prefers contents for item-level quantity/price, so send both.
+      content_ids: contents.map(function (item) { return item.id; }),
+      contents: contents,
+      num_items: contents.reduce(function (sum, item) {
+        return sum + item.quantity;
       }, 0),
       value: value,
       currency: currency
