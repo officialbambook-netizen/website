@@ -166,7 +166,6 @@
   display: block;
 }
 
-.pdp-page .pdp-hero__thumbs .pdp-hero__thumb:not(:first-child),
 .pdp-page .pdp-hero__gal-main .gal-arrow {
   display: none;
 }
@@ -1751,74 +1750,6 @@
   font-weight: 600;
   color: var(--taupe);
   letter-spacing: 0.01em;
-}
-
-/* ============================================================
-   WHAT'S IN THE BOX
-   ============================================================ */
-
-.pdp-inbox {
-  padding: var(--space-5) 0 var(--space-2);
-  border-top: 1px solid var(--line-warm);
-  box-shadow: none;
-}
-
-.pdp-inbox__grid {
-  display: flex;
-  flex-direction: row;
-  gap: var(--space-2);
-  margin-top: var(--space-3);
-}
-
-.pdp-inbox__card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--space-1);
-  padding: var(--space-3) var(--space-2);
-  background: rgba(255, 249, 240, 0.5);
-  border: 1px solid rgba(74, 61, 57, 0.1);
-  border-radius: var(--radius-sm);
-  box-shadow: inset 0 1px 0 rgba(255, 249, 240, 0.72);
-  text-align: center;
-}
-
-.pdp-inbox__icon {
-  width: 16px;
-  height: 16px;
-  color: var(--gold);
-  flex-shrink: 0;
-}
-
-.pdp-inbox__name {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--brown);
-  line-height: 1.3;
-}
-
-.pdp-inbox__sub {
-  font-family: var(--font-sans);
-  font-size: 0.67rem;
-  font-weight: 500;
-  color: var(--taupe);
-}
-
-.pdp-inbox__guarantee {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(201, 154, 93, 0.35);
-  border-radius: 999px;
-  padding: 0.15rem 0.5rem;
-  margin-top: var(--space-1);
-  white-space: nowrap;
 }
 
 /* ============================================================

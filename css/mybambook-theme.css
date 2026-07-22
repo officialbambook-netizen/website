@@ -217,6 +217,112 @@ body.mybambook-page {
   width: 100%;
 }
 
+.mb-hero--home {
+  background: var(--ivory);
+  padding: 0;
+}
+
+.mb-hero--home .mb-hero__inner {
+  align-items: stretch;
+  display: grid;
+  gap: 0;
+  grid-template-areas: "hero";
+  grid-template-columns: 1fr;
+  height: min(980px, calc(100svh - 72px));
+  max-width: none;
+  min-height: min(980px, calc(100svh - 72px));
+  position: relative;
+}
+
+.mb-hero--home .mb-hero__inner::after {
+  content: "";
+  display: none;
+  grid-area: hero;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.mb-hero--home .mb-hero__copy {
+  align-self: center;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  grid-area: hero;
+  justify-content: center;
+  justify-self: stretch;
+  margin-left: auto;
+  margin-right: 0;
+  max-width: min(54rem, 48vw);
+  min-height: 100%;
+  padding: clamp(var(--space-10), 6vw, var(--space-18)) clamp(var(--space-6), 7vw, var(--space-20)) clamp(var(--space-10), 6vw, var(--space-18)) clamp(var(--space-6), 5vw, var(--space-14));
+  position: relative;
+  z-index: 2;
+}
+
+.mb-hero--home .mb-kicker {
+  font: 900 clamp(1.02rem, 1.8vw, 1.35rem)/1.3 var(--sans);
+  letter-spacing: 0;
+  margin-bottom: clamp(var(--space-4), 2vw, var(--space-6));
+}
+
+.mb-hero--home h1 {
+  color: var(--ink);
+  display: grid;
+  font-size: clamp(3.2rem, 6.7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  max-width: 9.5ch;
+  text-align: right;
+  text-shadow: 0 2px 12px rgb(251 253 251 / 55%);
+}
+
+.mb-hero--home h1 span,
+.mb-hero--home h1 em {
+  display: block;
+}
+
+.mb-hero--home h1 em {
+  color: var(--accent-emphasis);
+  font-weight: 900;
+  text-shadow: 0 2px 12px rgb(251 253 251 / 46%);
+}
+
+.mb-hero--home .mb-hero__lead {
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1.9vw, 1.42rem);
+  font-weight: 800;
+  line-height: 1.65;
+  margin: clamp(var(--space-5), 2.4vw, var(--space-8)) 0 0;
+  max-width: 38rem;
+  text-align: right;
+  text-shadow: 0 1px 8px rgb(251 253 251 / 62%);
+}
+
+.mb-hero--home .mb-hero__media {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  grid-area: hero;
+  inset: 0;
+  min-height: 100%;
+  position: absolute;
+}
+
+.mb-hero--home .mb-hero__media::before {
+  display: none;
+}
+
+.mb-hero--home .mb-hero__media img {
+  aspect-ratio: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  position: relative;
+  z-index: 1;
+}
+
 .mb-benefit-list {
   display: grid;
   gap: var(--space-2);
@@ -446,6 +552,13 @@ body.mybambook-page {
     grid-template-columns: 1fr;
   }
 
+  .mb-hero--home .mb-hero__inner {
+    grid-template-areas:
+      "media"
+      "copy";
+    min-height: 0;
+  }
+
   .mb-grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -488,7 +601,6 @@ html[dir="rtl"] body.mybambook-page em {
     padding-top: var(--space-8);
   }
 
-  .mb-hero__inner,
   .mb-split,
   .mb-grid-4,
   .mb-grid-3,
@@ -502,6 +614,62 @@ html[dir="rtl"] body.mybambook-page em {
 
   .mb-button,
   .mb-link-button {
+    width: 100%;
+  }
+
+  .mb-hero--home {
+    padding-top: 0;
+  }
+
+  .mb-hero--home .mb-hero__inner {
+    grid-template-areas: "hero";
+    grid-template-columns: 1fr;
+    min-height: min(820px, calc(100svh - 64px));
+  }
+
+  .mb-hero--home .mb-hero__media img {
+    aspect-ratio: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+  }
+
+  .mb-hero--home .mb-hero__media::before {
+    display: none;
+  }
+
+  .mb-hero--home .mb-hero__copy {
+    align-self: end;
+    background: transparent;
+    max-width: none;
+    min-height: auto;
+    padding: clamp(var(--space-16), 34svh, var(--space-24)) var(--section-px) clamp(var(--space-7), 8vw, var(--space-10));
+    width: 100%;
+  }
+
+  .mb-hero--home .mb-hero__inner::after {
+    display: none;
+  }
+
+  .mb-hero--home .mb-kicker {
+    font-size: clamp(0.92rem, 4.2vw, 1.12rem);
+    text-align: right;
+  }
+
+  .mb-hero--home h1 {
+    font-size: clamp(2rem, 9.4vw, 3rem);
+    line-height: 1;
+    max-width: 100%;
+  }
+
+  .mb-hero--home .mb-hero__lead {
+    font-size: clamp(0.9rem, 3.9vw, 1rem);
+    line-height: 1.5;
+  }
+
+  .mb-hero--home .mb-hero__actions {
+    box-sizing: border-box;
+    padding-inline-start: var(--space-16);
     width: 100%;
   }
 }

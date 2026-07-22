@@ -100,21 +100,42 @@ section,
 }
 
 .bambook-menu-links a {
+  align-items: center;
   color: rgba(255, 249, 240, 0.9);
+  display: inline-flex;
+  flex-direction: column;
   font: 900 0.78rem/1 var(--bambook-nav-sans);
+  gap: 0.5rem;
+  justify-content: center;
   letter-spacing: 0.16em;
   min-height: 44px;
-  display: inline-flex;
-  align-items: center;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.bambook-menu-links a::after {
+  background: var(--bambook-nav-cream);
+  border-radius: 999px;
+  content: '';
+  display: block;
+  height: 2px;
+  transition: width 0.25s ease;
+  width: 0;
 }
 
 .bambook-menu-links a:hover,
 .bambook-menu-links a:focus-visible,
 .bambook-menu-links a[aria-current="page"] {
   color: var(--bambook-nav-ivory);
+}
+
+.bambook-menu-links a:hover::after {
+  width: 60%;
+}
+
+.bambook-menu-links a[aria-current="page"]::after {
+  width: 100%;
 }
 
 .bambook-menu-actions {

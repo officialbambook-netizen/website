@@ -12,13 +12,13 @@
   <!-- Heebo (Hebrew display + UI) with Inter as Latin fallback. -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/components/main-menu.css?v=40452949">
-  <script src="js/main-menu.js?v=cd73019f" defer></script>
+  <script src="js/main-menu.js?v=150500c2" defer></script>
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7">
   <link rel="stylesheet" href="css/base.css?v=07bcde07">
   <link rel="stylesheet" href="css/product.css?v=55220cc3">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=0f51a99a">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=6bab53ef">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=542eb696">
@@ -71,13 +71,41 @@
         <!-- Thumbnail rail (JS-driven active state via .is-active on thumbs) -->
         <div class="pdp-hero__thumbs" role="list" aria-label="תמונות מוצר ממוזערות">
           <button class="pdp-hero__thumb is-active" type="button" aria-label="הצגת תמונה 1" onclick="setGal(0)" role="listitem">
-            <img src="assets/mybambook-hero-mug-gloves-2026-07-07.png" alt="" loading="lazy">
+            <img src="assets/product-gallery/01-daily-actions.jpg" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 2" onclick="setGal(1)" role="listitem">
+            <img src="assets/product-gallery/02-natural-breathable-support.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 3" onclick="setGal(2)" role="listitem">
+            <img src="assets/product-gallery/03-consumer-results-green.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 4" onclick="setGal(3)" role="listitem">
+            <img src="assets/product-gallery/04-kitchen-cooking.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 5" onclick="setGal(4)" role="listitem">
+            <img src="assets/product-gallery/05-reading-tea.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 6" onclick="setGal(5)" role="listitem">
+            <img src="assets/product-gallery/06-laptop-typing.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 7" onclick="setGal(6)" role="listitem">
+            <img src="assets/product-gallery/07-smartphone-use.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 8" onclick="setGal(7)" role="listitem">
+            <img src="assets/product-gallery/08-sizing-chart.webp" alt="" loading="lazy">
           </button>
         </div>
 
         <!-- Main image — gal-main class kept for product.css rules + JS -->
         <div class="pdp-hero__gal-main gal-main">
-          <img class="gal-image is-active" data-gal-image src="assets/mybambook-hero-mug-gloves-2026-07-07.png" alt="ידיים לובשות כפפות קומפרסיה ללא אצבעות של MyBambook ומחזיקות ספל" loading="eager" decoding="async" fetchpriority="high">
+          <img class="gal-image is-active" data-gal-image src="assets/product-gallery/01-daily-actions.jpg" alt="ידיים לובשות כפפות קומפרסיה אפורות של MyBambook בפעולות יומיומיות" loading="eager" decoding="async" fetchpriority="high">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/02-natural-breathable-support.png" alt="אישה לובשת כפפות קומפרסיה אפורות ליד מחשב" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/03-consumer-results-green.png" alt="אינפוגרפיקת תוצאות משתמשים בעברית" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking.png" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea.png" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing.png" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use.png" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/08-sizing-chart.webp" alt="טבלת מידות למדידת רוחב כף היד" loading="lazy" decoding="async">
           <!-- Everyday support badge overlaid on image -->
           <div class="pdp-hero__gal-badge" aria-hidden="true">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -295,26 +323,8 @@
           </div>
         </div><!-- /.pdp-community-stats -->
 
-        <!-- What do you get -->
-        <div class="pdp-inbox" id="fit">
-          <span class="eyebrow eyebrow--ruled">מה מקבלים</span>
-          <div class="pdp-inbox__grid">
-            <div class="pdp-inbox__card">
-              <svg class="pdp-inbox__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
-              <span class="pdp-inbox__name">כפפות קומפרסיה</span>
-              <span class="pdp-inbox__guarantee">זוג ללא אצבעות</span>
-            </div>
-            <div class="pdp-inbox__card">
-              <!-- Envelope / email guide -->
-              <svg class="pdp-inbox__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              <span class="pdp-inbox__name">מדריך PDF</span>
-              <span class="pdp-inbox__sub">נשלח למייל שלכם</span>
-            </div>
-          </div>
-        </div><!-- /.pdp-inbox -->
-
         <!-- Everyday support moments — compact 2x2 -->
-        <div class="pdp-benefits">
+        <div class="pdp-benefits" id="fit">
           <p class="pdp-benefits__intro"><em>תמיכה</em> איפה שהיום באמת קורה.</p>
           <h3 class="pdp-benefits__hd">נועדו לרגעי הידיים <em>שחוזרים על עצמם.</em></h3>
           <div class="pdp-ben-grid">
@@ -448,9 +458,9 @@
   <!-- Sticky add-to-cart bar — appears once main CTA scrolls out of view -->
   <div class="pdp-sticky-bar" id="pdp-sticky-bar" role="complementary" aria-label="הוספה מהירה לסל">
     <div class="pdp-sticky-bar__container">
-      <div class="pdp-sticky-bar__left">
+        <div class="pdp-sticky-bar__left">
         <div class="pdp-sticky-bar__thumb" aria-hidden="true">
-          <img src="assets/mybambook-hero-mug-gloves-2026-07-07.png" alt="">
+          <img src="assets/product-gallery/01-daily-actions.jpg" alt="">
         </div>
 
         <div class="pdp-sticky-bar__info">

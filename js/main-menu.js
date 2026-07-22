@@ -40,14 +40,15 @@ window.openBambookCart = function () {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var path = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'index';
+  var pageName = path.replace(/\.html$/, '') || 'index';
   var activeByPage = {
-    'index.html': 'home',
-    'product.html': 'shop',
-    'faq.html': 'faq',
-    'mission.html': 'mission',
+    'index': 'home',
+    'product': 'shop',
+    'faq': 'faq',
+    'mission': 'mission',
   };
-  var activeSection = activeByPage[path] || '';
+  var activeSection = activeByPage[pageName] || '';
 
   document.querySelectorAll('.bambook-menu-links a[data-section]').forEach(function (link) {
     if (link.dataset.section === activeSection) {
