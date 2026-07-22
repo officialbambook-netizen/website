@@ -6,7 +6,7 @@
   <script src="js/meta-pixel.js?v=9bd4bc7d"></script>
   <noscript><img height="1" width="1" hidden alt="" src="https://www.facebook.com/tr?id=890745560218621&ev=PageView&noscript=1" /></noscript>
   <title>כפפות קומפרסיה MyBambook | תמיכה יומיומית לידיים</title>
-  <meta name="description" content="כפפות קומפרסיה מבד במבוק ללבישה יומיומית: קצות אצבעות חופשיים, מדריך מידות אמיתי ואחריות החזר כספי של 60 יום. זוג אחד 179 ₪, שני זוגות 219 ₪.">
+  <meta name="description" content="כפפות קומפרסיה מבד במבוק ללבישה יומיומית: קצות אצבעות חופשיים, מדריך מידות אמיתי ואחריות החזר כספי של 60 יום. זוג אחד 179 ₪, שני זוגות 249 ₪, שלושה זוגות 299 ₪.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Heebo (Hebrew display + UI) with Inter as Latin fallback. -->
@@ -177,7 +177,7 @@
                 </div>
                 <span class="pdp-hero__price-badge">אחריות 60 יום</span>
               </div>
-              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־219&nbsp;₪ — אחד ליום, אחד ללילה.</p>
+              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־249&nbsp;₪ — אחד ליום, אחד ללילה. שלושה ב־299&nbsp;₪.</p>
               <p class="pdp-hero__price-refill">בחרו מידה למטה, ואז החליטו כמה זוגות מתאימים לשגרה שלכם.</p>
             </div>
 
@@ -218,12 +218,18 @@
                   <span class="filter-bundle-card-sub">&rlm;179&nbsp;₪</span>
                 </div>
                 <div class="filter-bundle-card" data-bundle="1" tabindex="0" role="button" aria-pressed="false">
-                  <span class="filter-bundle-best-value">חיסכון של 139&nbsp;₪</span>
+                  <span class="filter-bundle-best-value">הכי פופולרי</span>
                   <span class="filter-bundle-card-days">2 זוגות</span>
-                  <span class="filter-bundle-card-sub">&rlm;219&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
+                  <span class="filter-bundle-card-sub">&rlm;249&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
+                </div>
+                <div class="filter-bundle-card" data-bundle="2" tabindex="0" role="button" aria-pressed="false">
+                  <span class="filter-bundle-best-value">התמורה הטובה ביותר</span>
+                  <span class="filter-bundle-card-days">3 זוגות</span>
+                  <span class="filter-bundle-card-sub">&rlm;299&nbsp;₪ · מלאי לכל השנה</span>
                 </div>
               </div>
               <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד — 179&nbsp;₪.</p>
+              <p class="pdp-hero__price-refill">בהזמנת 2 זוגות ומעלה — מדריך טיפוח הידיים הדיגיטלי מצורף במתנה.</p>
             </div>
 
             <!-- Cart status -->
@@ -1047,12 +1053,17 @@
       const currentPrice = document.getElementById('current-price');
       const priceUnit = document.getElementById('price-unit');
       const pairCount = state.pairBundle + 1;
-      const price = pairCount === 1 ? '179 ₪' : '219 ₪';
-      const compareAt = pairCount === 1 ? '279 ₪' : '558 ₪';
+      // Display labels only — the charged price comes from Shopify at checkout
+      // (bundle discount configured in Shopify admin). Keep in sync with
+      // 01_BRAIN/OFFER_STRUCTURE.md and the Shopify automatic-discount rules.
+      const PAIR_PRICE = { 1: '179 ₪', 2: '249 ₪', 3: '299 ₪' };
+      const PAIR_COMPARE = { 1: '279 ₪', 2: '558 ₪', 3: '837 ₪' };
+      const price = PAIR_PRICE[pairCount] || PAIR_PRICE[1];
+      const compareAt = PAIR_COMPARE[pairCount] || PAIR_COMPARE[1];
       const label = pairCount === 1 ? 'זוג אחד' : `${pairCount} זוגות`;
       if (compareAtPrice) compareAtPrice.textContent = compareAt;
       if (currentPrice) currentPrice.textContent = price;
-      if (priceUnit) priceUnit.textContent = pairCount === 1 ? 'לזוג אחד' : 'ל־2 זוגות';
+      if (priceUnit) priceUnit.textContent = pairCount === 1 ? 'לזוג אחד' : `ל־${pairCount} זוגות`;
       if (summary) summary.textContent = `בחרתם ${label} — ${price}.`;
     }
 
