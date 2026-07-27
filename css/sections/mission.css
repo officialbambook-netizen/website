@@ -229,7 +229,7 @@
   font-size: var(--fs-eyebrow);
   font-weight: 800;
   letter-spacing: 0.18em;
-  margin: clamp(var(--space-14), 7vw, var(--space-20)) auto 0;
+  margin: clamp(var(--space-12), 7vw, var(--space-20)) auto 0;
   text-transform: uppercase;
 }
 

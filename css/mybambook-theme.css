@@ -235,7 +235,7 @@ body.mybambook-page {
 }
 
 .mb-hero--home .mb-hero__inner::after {
-  background: linear-gradient(to right, transparent 0%, rgb(255 249 240 / 55%) 55%, var(--ivory) 100%);
+  background: none;
   content: "";
   display: block;
   grid-area: hero;
@@ -248,6 +248,7 @@ body.mybambook-page {
 .mb-hero--home .mb-hero__copy {
   align-self: center;
   background: transparent;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   grid-area: hero;
@@ -256,8 +257,9 @@ body.mybambook-page {
   margin-left: auto;
   margin-right: 0;
   max-width: min(54rem, 48vw);
-  min-height: 100%;
-  padding: clamp(var(--space-10), 6vw, var(--space-18)) clamp(var(--space-6), 7vw, var(--space-20)) clamp(var(--space-10), 6vw, var(--space-18)) clamp(var(--space-6), 5vw, var(--space-14));
+  height: 100%;
+  min-height: 0;
+  padding: clamp(var(--space-10), 6vw, var(--space-16)) clamp(var(--space-6), 7vw, var(--space-20)) clamp(var(--space-10), 6vw, var(--space-16)) clamp(var(--space-6), 5vw, var(--space-12));
   position: relative;
   z-index: 2;
 }
@@ -271,12 +273,11 @@ body.mybambook-page {
 .mb-hero--home h1 {
   color: var(--ink);
   display: grid;
-  font-size: clamp(3.2rem, 6.7vw, 7rem);
+  font-size: clamp(3rem, 5.45vw, 5.65rem);
   font-weight: 900;
   line-height: 0.95;
   max-width: 9.5ch;
   text-align: right;
-  text-shadow: 0 2px 12px rgb(251 253 251 / 55%);
 }
 
 .mb-hero--home h1 span,
@@ -287,18 +288,38 @@ body.mybambook-page {
 .mb-hero--home h1 em {
   color: var(--accent-emphasis);
   font-weight: 900;
-  text-shadow: 0 2px 12px rgb(251 253 251 / 46%);
 }
 
 .mb-hero--home .mb-hero__lead {
-  color: var(--ink);
+  color: var(--accent-emphasis);
   font-size: clamp(1.08rem, 1.9vw, 1.42rem);
   font-weight: 800;
   line-height: 1.65;
   margin: clamp(var(--space-5), 2.4vw, var(--space-8)) 0 0;
   max-width: 38rem;
   text-align: right;
-  text-shadow: 0 1px 8px rgb(251 253 251 / 62%);
+  text-shadow: 0 1px 4px rgb(16 37 54 / 35%);
+}
+
+.mb-hero--home .mb-hero__actions {
+  margin-bottom: 0;
+}
+
+.mb-hero--home .mb-button {
+  background: var(--blush);
+}
+
+.mb-hero--home .mb-link-button {
+  background: rgba(201, 137, 126, 0.12);
+  border-color: var(--blush);
+  color: var(--blush);
+}
+
+.mb-hero--home .mb-link-button:hover,
+.mb-hero--home .mb-link-button:focus-visible {
+  background: rgba(201, 137, 126, 0.22);
+  border-color: var(--blush);
+  color: var(--blush);
 }
 
 .mb-hero--home .mb-hero__media {
@@ -646,14 +667,15 @@ html[dir="rtl"] body.mybambook-page em {
   .mb-hero--home .mb-hero__copy {
     align-self: end;
     background: transparent;
+    box-sizing: border-box;
     max-width: none;
     min-height: auto;
-    padding: clamp(var(--space-16), 34svh, var(--space-24)) var(--section-px) clamp(var(--space-7), 8vw, var(--space-10));
+    padding: clamp(var(--space-12), 28svh, var(--space-20)) var(--section-px) clamp(var(--space-12), 12vw, var(--space-16));
     width: 100%;
   }
 
   .mb-hero--home .mb-hero__inner::after {
-    background: linear-gradient(to bottom, transparent 0%, rgb(255 249 240 / 55%) 55%, var(--ivory) 92%);
+    background: linear-gradient(to bottom, rgb(16 37 54 / 0%) 0%, rgb(251 253 251 / 16%) 48%, rgb(251 253 251 / 34%) 100%);
     display: block;
   }
 
@@ -675,6 +697,7 @@ html[dir="rtl"] body.mybambook-page em {
 
   .mb-hero--home .mb-hero__actions {
     box-sizing: border-box;
+    margin-bottom: var(--space-4);
     padding-inline-start: var(--space-16);
     width: 100%;
   }

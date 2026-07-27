@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">מדריך מידות לכפפות MyBambook</title>
+  <desc id="desc">מדדו סביב מפרקי האצבעות. מידה S מתאימה ל־15 עד 18 סנטימטר, מידה M ל־18 עד 20 סנטימטר, ומידה L ל־20 עד 23 סנטימטר.</desc>
+  <rect width="1080" height="1080" fill="#FBFDFB"/>
+  <rect x="0" y="0" width="1080" height="350" fill="#FBFDFB"/>
+
+  <g transform="translate(76,72) scale(0.82)">
+    <path d="M91 282c-16 0-29-13-29-29v-90c0-16 13-29 29-29s29 13 29 29v36h18V72c0-17 13-30 30-30s30 13 30 30v127h18V46c0-17 13-30 30-30s30 13 30 30v153h18V78c0-17 13-30 30-30s30 13 30 30v142l52-51c12-12 31-12 43 0s12 31 0 43L319 342c-20 20-47 31-75 31h-56c-54 0-97-37-97-91z" fill="#9BC9C2"/>
+    <path d="M202 238h-94v-45h221v45H202z" fill="#FBFDFB" stroke="#1F1F1F" stroke-width="2"/>
+    <path d="M119 215h197" stroke="#1F1F1F" stroke-width="3"/>
+    <path d="M119 203v24M174 203v12M229 203v12M284 203v24" stroke="#1F1F1F" stroke-width="3"/>
+    <text x="218" y="225" font-family="Heebo, Arial, sans-serif" font-size="25" font-weight="800" text-anchor="middle" fill="#1F1F1F">מדידה</text>
+  </g>
+
+  <g font-family="Heebo, Arial, sans-serif" direction="rtl" unicode-bidi="plaintext" text-anchor="middle">
+    <text x="782" y="145" font-size="58" font-weight="900" fill="#102536">מדדו סביב</text>
+    <text x="782" y="216" font-size="58" font-weight="900" fill="#102536">מפרקי האצבעות</text>
+    <text x="782" y="264" font-size="24" font-weight="700" fill="#5A6F78">הקיפו את החלק הרחב של פרקי האצבעות</text>
+    <text x="782" y="299" font-size="24" font-weight="700" fill="#5A6F78">בלי האגודל</text>
+  </g>
+
+  <rect x="0" y="398" width="1080" height="160" fill="#191919"/>
+  <g stroke="#7D7D7D" stroke-width="2">
+    <line x1="0" y1="398" x2="1080" y2="398"/>
+    <line x1="0" y1="558" x2="1080" y2="558"/>
+    <line x1="0" y1="732" x2="1080" y2="732"/>
+    <line x1="0" y1="906" x2="1080" y2="906"/>
+    <line x1="0" y1="1036" x2="1080" y2="1036"/>
+    <line x1="360" y1="398" x2="360" y2="1036"/>
+    <line x1="720" y1="398" x2="720" y2="1036"/>
+  </g>
+
+  <g font-family="Heebo, Arial, sans-serif" text-anchor="middle">
+    <g fill="#FBFDFB" direction="rtl" unicode-bidi="plaintext">
+      <text x="900" y="474" font-size="47" font-weight="900">מידה</text>
+      <text x="900" y="519" font-size="24" font-weight="700">כפפות MyBambook</text>
+
+      <text x="540" y="474" font-size="47" font-weight="900">ס״מ</text>
+      <text x="540" y="519" font-size="24" font-weight="700">היקף מפרקי האצבעות</text>
+
+      <text x="180" y="474" font-size="47" font-weight="900">אינץ׳</text>
+      <text x="180" y="519" font-size="24" font-weight="700">מדידה מקבילה</text>
+    </g>
+
+    <g fill="#181818" font-size="58" font-weight="900">
+      <text x="900" y="662">S</text>
+      <text x="540" y="662">15–18</text>
+      <text x="180" y="662">5.9–7.0</text>
+
+      <text x="900" y="836">M</text>
+      <text x="540" y="836">18–20</text>
+      <text x="180" y="836">7.0–7.8</text>
+
+      <text x="900" y="984">L</text>
+      <text x="540" y="984">20–23</text>
+      <text x="180" y="984">7.8–9.0</text>
+    </g>
+
+    <text x="540" y="1063" font-family="Heebo, Arial, sans-serif" font-size="24" font-weight="800" fill="#102536" direction="rtl" unicode-bidi="plaintext">אם אתם בין מידות — בחרו לפי תחושת הלחיצה הרצויה</text>
+  </g>
+</svg>

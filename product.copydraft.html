@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/meta-pixel.js?v=9bd4bc7d"></script>
+  <noscript><img height="1" width="1" hidden alt="" src="https://www.facebook.com/tr?id=890745560218621&ev=PageView&noscript=1" /></noscript>
+  <title>כפפות קומפרסיה MyBambook | תמיכה יומיומית לידיים</title>
+  <meta name="description" content="כפפות קומפרסיה מבד במבוק ללבישה יומיומית: קצות אצבעות חופשיים, מדריך מידות אמיתי ואחריות החזר כספי של 60 יום. זוג אחד 179 ₪, שני זוגות 249 ₪, שלושה זוגות 299 ₪.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Heebo (Hebrew display + UI) with Inter as Latin fallback. -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/components/main-menu.css?v=40452949">
+  <script src="js/main-menu.js?v=150500c2" defer></script>
+  <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
+  <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7">
+  <link rel="stylesheet" href="css/base.css?v=07bcde07">
+  <link rel="stylesheet" href="css/product.css?v=55220cc3">
+  <!-- Product hero elevation — loads last. -->
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=f70918c6">
+  <!-- Shared sections from home -->
+  <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
+  <link rel="stylesheet" href="css/sections/home-comparison.css?v=542eb696">
+  <link rel="stylesheet" href="css/sections/home-fair-question.css?v=4054afe0">
+  <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f">
+  <link rel="stylesheet" href="css/sections/product-funnel.css?v=63b286d5">
+  <link rel="stylesheet" href="css/components/footer.css?v=1d3a7535">
+  <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+</head>
+<body class="pdp-page">
+
+  <shopify-store
+    store-domain="w1c0ed-5s.myshopify.com"
+    public-access-token="f2863bebc601b26a3c6f35a9c63c560e"
+    country="IL"
+    language="he"
+    aria-hidden="true"
+  >
+    <shopify-cart id="cart"></shopify-cart>
+  </shopify-store>
+
+  <!-- ================================================
+       NAV
+  ================================================= -->
+  <header class="bambook-main-menu" aria-label="ניווט ראשי">
+    <button class="bambook-menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="bambook-primary-nav" onclick="toggleBambookMenu(this)">&#9776;</button>
+    <a href="index.html" class="bambook-brand bambook-brand--mybambook" aria-label="MyBambook — דף הבית">
+      <strong><span>My</span><span class="bambook-brand__bamboo">Bambook</span></strong>
+      <span>כפפות קומפרסיה</span>
+    </a>
+    <nav class="bambook-menu-links" id="bambook-primary-nav" aria-label="חלקי האתר">
+      <a href="index.html" data-section="home">בית</a>
+      <a href="product.html" data-section="shop" aria-current="page">חנות</a>
+      <a href="faq.html" data-section="faq">שאלות נפוצות</a>
+      <a href="mission.html" data-section="mission">אודות</a>
+    </nav>
+    <div class="bambook-menu-actions">
+      <a href="product.html" class="bambook-shop-button">לרכישה</a>
+    </div>
+  </header>
+
+  <!-- ================================================
+       1. HERO — GALLERY + BUY PANEL
+  ================================================= -->
+  <main class="pdp-hero" id="product">
+    <div class="pdp-hero__inner">
+
+      <!-- ── Gallery column ─────────────────────── -->
+      <div class="pdp-hero__gal-col" aria-label="גלריית מוצר">
+
+        <!-- Thumbnail rail (JS-driven active state via .is-active on thumbs) -->
+        <div class="pdp-hero__thumbs" role="list" aria-label="תמונות מוצר ממוזערות">
+          <button class="pdp-hero__thumb is-active" type="button" aria-label="הצגת תמונה 1" onclick="setGal(0)" role="listitem">
+            <img src="assets/product-gallery/01-daily-actions.jpg" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 2" onclick="setGal(1)" role="listitem">
+            <img src="assets/product-gallery/02-natural-breathable-support.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 3" onclick="setGal(2)" role="listitem">
+            <img src="assets/product-gallery/03-consumer-results-green.png" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 4" onclick="setGal(3)" role="listitem">
+            <img src="assets/product-gallery/04-kitchen-cooking.webp" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 5" onclick="setGal(4)" role="listitem">
+            <img src="assets/product-gallery/05-reading-tea.webp" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 6" onclick="setGal(5)" role="listitem">
+            <img src="assets/product-gallery/06-laptop-typing.webp" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 7" onclick="setGal(6)" role="listitem">
+            <img src="assets/product-gallery/07-smartphone-use.webp" alt="" loading="lazy">
+          </button>
+          <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 8" onclick="setGal(7)" role="listitem">
+            <img src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="" loading="lazy">
+          </button>
+        </div>
+
+        <!-- Main image — gal-main class kept for product.css rules + JS -->
+        <div class="pdp-hero__gal-main gal-main">
+          <img class="gal-image is-active" data-gal-image src="assets/product-gallery/01-daily-actions.jpg" alt="ידיים לובשות כפפות קומפרסיה אפורות של MyBambook בפעולות יומיומיות" loading="eager" decoding="async" fetchpriority="high">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/02-natural-breathable-support.png" alt="אישה לובשת כפפות קומפרסיה אפורות ליד מחשב" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" data-gallery-position="top" src="assets/product-gallery/03-consumer-results-green.png" alt="אינפוגרפיקת תוצאות משתמשים בעברית" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking.webp" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea.webp" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing.webp" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use.webp" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="מדריך מידות בעברית למדידת היקף מפרקי האצבעות: S ‏15–18 ס״מ, M ‏18–20 ס״מ, L ‏20–23 ס״מ" loading="lazy" decoding="async">
+          <!-- Everyday support badge overlaid on image -->
+          <div class="pdp-hero__gal-badge" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            תמיכה יומית
+          </div>
+        </div>
+
+      </div><!-- /.pdp-hero__gal-col -->
+
+      <!-- ── Buy column ────────────────────────── -->
+      <div class="pdp-hero__buy-col" id="pdp-buy-col">
+
+        <!-- Customer Choice badge -->
+        <div class="pdp-hero__badge" role="img" aria-label="בחירת לקוחות, מעל 1,520 לקוחות">
+          <span class="pdp-hero__badge-star" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+          <span class="pdp-hero__badge-title">בחירת לקוחות</span>
+          <span class="pdp-hero__badge-pipe" aria-hidden="true"></span>
+          <span class="pdp-hero__badge-sub">1,520+ לקוחות סומכים עלינו</span>
+        </div>
+
+        <!-- Rating + reviews on one line -->
+        <div class="pdp-hero__meta">
+          <a href="#faq" class="pdp-hero__rating" aria-label="דירוג 4.8 מתוך 5, 359 ביקורות">
+            <span class="pdp-hero__stars" aria-hidden="true">★★★★★</span>
+            <span class="pdp-hero__rating-text">4.8 · 359 ביקורות</span>
+          </a>
+        </div>
+
+        <!-- H1 + subhead -->
+        <h1 class="pdp-hero__title">כפפות <em>קומפרסיה</em> Bambook</h1>
+
+        <p class="pdp-hero__subhead">כפפות שנותנות לכף היד לחיצה ממוקדת ותומכת — לאורך היום, וגם בזמן השינה. פתוחות בקצות האצבעות כדי להמשיך לעשות הכול כרגיל, ומצטרפות לכל מה שאתם כבר עושים.</p>
+
+        <!-- 2×2 proof chips -->
+        <ul class="pdp-hero__chips" aria-label="יתרונות עיקריים">
+          <li class="pdp-hero__chip">
+            <span class="pdp-hero__chip-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 5.5,10.5 11,3"/></svg></span>
+            לחיצה ממוקדת יומיומית
+          </li>
+          <li class="pdp-hero__chip">
+            <span class="pdp-hero__chip-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 5.5,10.5 11,3"/></svg></span>
+            גזרה גמישה ללא אצבעות
+          </li>
+          <li class="pdp-hero__chip">
+            <span class="pdp-hero__chip-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 5.5,10.5 11,3"/></svg></span>
+            נועדו להקלדה, מטלות ומנוחה
+          </li>
+          <li class="pdp-hero__chip">
+            <span class="pdp-hero__chip-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 5.5,10.5 11,3"/></svg></span>
+            התאמה פשוטה ונוחה
+          </li>
+        </ul>
+
+        <!-- Buy card -->
+        <div class="pdp-hero__card-wrap">
+          <span class="pdp-hero__sold-badge" aria-label="מעל 143 הזמנות השבוע"><strong class="pdp-sold-num">143+</strong><span class="pdp-sold-sub">הזמנות השבוע</span></span>
+          <div class="pdp-hero__card" id="pdp-hero-card">
+          <div class="pdp-hero__card-body">
+
+            <!-- Price block -->
+            <div class="pdp-hero__price-block">
+              <div class="pdp-hero__price-row">
+                <div class="pdp-hero__offer-status" id="display-price" aria-live="polite">
+                  <span class="pdp-hero__price-original" id="compare-at-price">&rlm;359&nbsp;₪</span>
+                  <span class="pdp-hero__price-current">
+                    <span class="pdp-hero__price-amount" id="current-price">&rlm;179&nbsp;₪</span>
+                    <span class="pdp-hero__price-unit" id="price-unit">לזוג אחד</span>
+                  </span>
+                </div>
+                <span class="pdp-hero__price-badge">אחריות 60 יום</span>
+              </div>
+              <p class="pdp-hero__price-sub" id="price-sub-text">אפשר גם 2 או 3 זוגות — אחד עליכם, אחד בכביסה.</p>
+              <p class="pdp-hero__price-refill">בחרו מידה למטה, ואז החליטו כמה זוגות מתאימים לשגרה שלכם.</p>
+            </div>
+
+            <!-- Size picker + qty stepper -->
+            <div class="pdp-hero__options-row">
+              <div class="pdp-hero__size-area" id="fit">
+                <!-- JS injects size picker here — leave empty -->
+                <div class="color-options" id="size-options" aria-live="polite"></div>
+                <button class="pdp-hero__size-guide-link" type="button" id="size-guide-toggle" aria-expanded="false" aria-controls="pdp-size-guide">
+                  מדריך מידות
+                </button>
+                <div class="pdp-size-guide" id="pdp-size-guide" hidden>
+                  <div class="pdp-size-guide__header">
+                    <span>מדריך מידות</span>
+                    <button class="pdp-size-guide__close" type="button" aria-label="סגירת מדריך המידות">×</button>
+                  </div>
+                  <figure class="pdp-size-guide__chart">
+                    <img src="assets/mybambook-size-guide-hebrew.svg" alt="טבלת מידות לכפפות MyBambook: S ‏15–18 ס״מ, M ‏18–20 ס״מ, L ‏20–23 ס״מ." loading="lazy">
+                  </figure>
+                </div>
+              </div>
+
+              <div class="pdp-hero__qty-wrap">
+                <span class="pdp-hero__qty-label">כמות</span>
+                <div class="qty-stepper" role="group" aria-label="מספר זוגות כפפות">
+                  <button class="qty-btn" id="qty-minus" type="button" aria-label="הפחתת כמות" onclick="changeQty(-1)" disabled>−</button>
+                  <span class="qty-count" id="qty-display" aria-live="polite">1</span>
+                  <button class="qty-btn" id="qty-plus" type="button" aria-label="הוספת כמות" onclick="changeQty(1)">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extra pair upsell -->
+            <div class="filter-bundle-section" id="filter-bundle-section" aria-label="בחירת סט הזוגות">
+              <div class="filter-bundle-grid" role="group">
+                <div class="filter-bundle-card is-selected" data-bundle="0" tabindex="0" role="button" aria-pressed="true">
+                  <span class="filter-bundle-card-days">זוג אחד</span>
+                  <span class="filter-bundle-card-sub">&rlm;179&nbsp;₪</span>
+                </div>
+                <div class="filter-bundle-card" data-bundle="1" tabindex="0" role="button" aria-pressed="false">
+                  <span class="filter-bundle-best-value">הכי פופולרי</span>
+                  <span class="filter-bundle-card-days">2 זוגות</span>
+                  <span class="filter-bundle-card-sub">&rlm;249&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
+                </div>
+                <div class="filter-bundle-card" data-bundle="2" tabindex="0" role="button" aria-pressed="false">
+                  <span class="filter-bundle-best-value">התמורה הטובה ביותר</span>
+                  <span class="filter-bundle-card-days">3 זוגות</span>
+                  <span class="filter-bundle-card-sub">&rlm;299&nbsp;₪ · מלאי לכל השנה</span>
+                </div>
+              </div>
+              <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד — 179&nbsp;₪.</p>
+              <p class="pdp-hero__price-refill">בהזמנת 2 זוגות ומעלה — מדריך טיפוח הידיים הדיגיטלי מצורף במתנה.</p>
+            </div>
+
+            <!-- Cart status -->
+            <p class="cart-status" id="cart-status" role="status" aria-live="polite"></p>
+
+            <!-- CTA buttons -->
+            <div class="act-group">
+              <button class="btn-cta" id="pdp-hero-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 10H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+                הוספה לסל
+              </button>
+              <a class="pdp-hero__checkout-link" href="#" onclick="buySelectedProductsNow(event)">לקנייה מיידית</a>
+            </div>
+
+            <!-- Guarantee line -->
+            <p class="pdp-hero__guarantee-line">נסו אותן 60 יום. אם הן לא מתאימות לידיים שלכם — פשוט מחזירים.</p>
+
+            <!-- Trust row -->
+            <div class="pdp-hero__trust" aria-label="הבטחות רכישה">
+              <span class="pdp-hero__trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                אחריות 60 יום
+              </span>
+              <span class="pdp-hero__trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                תשלום מאובטח
+              </span>
+              <span class="pdp-hero__trust-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                מדריך מידות אמיתי
+              </span>
+            </div>
+
+          </div><!-- /.pdp-hero__card-body -->
+          </div><!-- /.pdp-hero__card -->
+        </div><!-- /.pdp-hero__card-wrap -->
+
+        <!-- Objection kills — collapsible -->
+        <ul class="pdp-objections">
+
+          <li class="pdp-obj">
+            <details class="pdp-obj__details">
+              <summary class="pdp-obj__summary">
+                <span class="pdp-obj__check" aria-hidden="true">✓</span>
+                <span class="pdp-obj__lead">ניסינו כבר הכל. למה שדווקא זה יעזור?</span>
+                <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="pdp-obj__sub">כי זה עובד אחרת מכל השאר: לא משהו שנספג ונגמר, אלא תמיכה שלובשים — שממשיכה לעבוד בזמן שאתם ישנים, מקלידים או מבשלים. והיא מצטרפת לטיפול שלכם, לא מחליפה אותו.</p>
+            </details>
+          </li>
+
+          <li class="pdp-obj">
+            <details class="pdp-obj__details">
+              <summary class="pdp-obj__summary">
+                <span class="pdp-obj__check" aria-hidden="true">✓</span>
+                <span class="pdp-obj__lead">מה אם זה יהיה הדוק מדי ויחסום את זרימת הדם?</span>
+                <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="pdp-obj__sub">לחיצה ממוקדת אמורה להרגיש כמו יד יציבה שאוחזת, לא כמו חוסם. מודדים את היקף פרקי האצבעות, ואם קצות האצבעות נרדמים או משנים צבע — המידה קטנה מדי, וזה לא משהו שצריך "להתרגל" אליו.</p>
+            </details>
+          </li>
+
+          <li class="pdp-obj">
+            <details class="pdp-obj__details">
+              <summary class="pdp-obj__summary">
+                <span class="pdp-obj__check" aria-hidden="true">✓</span>
+                <span class="pdp-obj__lead">ומה אם זה פשוט לא יתאים לנו?</span>
+                <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="pdp-obj__sub">יש לכם 60 יום. תלבשו, תישנו ותעבדו איתן שבועיים — ואם זה לא נתן לכם כלום, מחזירים ומקבלים את הכסף בחזרה. זה כל הסיכון.</p>
+            </details>
+          </li>
+
+        </ul><!-- /.pdp-objections -->
+
+        <!-- LOC / benefits / mechanism moved to full-width funnel sections below (see product-funnel.css) -->
+        <!-- pdp-stage script below is now inert (no .pdp-stage-node on page); left harmless. -->
+
+      </div><!-- /.pdp-hero__buy-col -->
+
+    </div><!-- /.pdp-hero__inner -->
+
+
+
+  <script>
+  (function(){
+    var nodes  = document.querySelectorAll('.pdp-stage-node[data-stage]');
+    var panels = document.querySelectorAll('.pdp-stage-panel[data-panel]');
+    function activate(i) {
+      nodes.forEach(function(n,j){ n.classList.toggle('is-active', i===j); });
+      panels.forEach(function(p,j){ p.classList.toggle('is-active', i===j); });
+    }
+    nodes.forEach(function(node, i){
+      node.addEventListener('click', function(){ activate(i); });
+      node.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') activate(i);
+      });
+    });
+  })();
+  </script>
+
+  </main>
+
+  <!-- Sticky add-to-cart bar — appears once main CTA scrolls out of view -->
+  <div class="pdp-sticky-bar" id="pdp-sticky-bar" role="complementary" aria-label="הוספה מהירה לסל">
+    <div class="pdp-sticky-bar__container">
+        <div class="pdp-sticky-bar__left">
+        <div class="pdp-sticky-bar__thumb" aria-hidden="true">
+          <img src="assets/product-gallery/01-daily-actions.jpg" alt="">
+        </div>
+
+        <div class="pdp-sticky-bar__info">
+          <span class="pdp-sticky-bar__name">
+            <span class="desktop-text">כפפות <em>קומפרסיה</em> Bambook</span>
+            <span class="mobile-text">כפפות <em>Bambook</em></span>
+          </span>
+          <div class="pdp-sticky-bar__sub-row">
+            <span class="pdp-sticky-bar__guarantee">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="desktop-text">תמיכה יומית</span>
+              <span class="mobile-text">תמיכה</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compact size selector — JS populates selected state -->
+      <div class="pdp-sticky-bar__color-wrap" id="sticky-size-wrap" aria-label="בחירת מידה">
+        <button class="pdp-sticky-bar__color-btn" id="sticky-size-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="pdp-sticky-bar__color-label" id="sticky-size-label">מידה M</span>
+          <svg class="pdp-sticky-bar__color-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="pdp-sticky-bar__color-menu" id="sticky-size-menu" role="listbox" aria-label="אפשרויות מידה">
+          <!-- JS renders li[role=option] items here -->
+        </ul>
+      </div>
+
+      <div class="pdp-sticky-bar__right">
+        <button class="pdp-sticky-bar__cta" id="sticky-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)" aria-label="הוספת כפפות Bambook לסל">
+          הוספה לסל
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ================================================
+       A. CALLOUT + AGITATION  (funnel: LOW)
+  ================================================= -->
+  <section class="section--cream reveal-page pf pf-agitation">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">הרגעים הקטנים</span>
+      <h2 class="pf__title">כאבים בידיים גונבים לכם את <em>הדברים הקטנים של היום?</em></h2>
+      <p class="pf__body">צנצנת שלא נפתחת. כפתור חולצה שלוקח שתי דקות. בוקר שהאצבעות פשוט לא נענות — עד שהן לאט לאט משתחררות. אף אחד מהרגעים האלה הוא לא דרמה. הם פשוט חוזרים כל יום, ובשקט לוקחים דברים שפעם עשיתם בלי לחשוב — לפתוח, לאחוז, להקליד, לסרוג.</p>
+      <p class="pf__body">אולי כבר ניסיתם הכל: משחות שנספגות ונגמרות, כדורים, אפילו זריקה. וזה עוזר לכאב הגדול — אבל את הנוקשות הקטנה של היום־יום, את האצבעות שנתקעות בבוקר, שם רוב הדברים פשוט לא מגיעים. ואם מישהו בדרך אמר לכם "זה הגיל, צריך פשוט להתרגל" — אתם יודעים בדיוק כמה זה מרגיז לשמוע.</p>
+      <p class="pf__body"><strong>יש דרך אחרת להתמודד עם הרגעים האלה. לא במקום מה שאתם כבר עושים — לצידו.</strong></p>
+      <p class="pf-checklist__header">לחיצה ממוקדת מקלה על ההתמודדות היומיומית עם:</p>
+      <ul class="pf-checklist">
+        <li>דלקת פרקים (ארתריטיס)</li>
+        <li>אצבע הדק</li>
+        <li>גידים מודלקים</li>
+        <li>נוקשות בוקר</li>
+        <li>כאבי מפרקים</li>
+        <li>נפיחות</li>
+        <li>כאב עמום בכף היד</li>
+        <li>ידיים עייפות מעבודה או יצירה</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================================================
+       B. THE TURN / HOPE  (funnel: HIGH)
+  ================================================= -->
+  <section class="section--sand reveal-page pf pf-hope">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">יש מה לעשות</span>
+      <h2 class="pf__title">זה <em>לא חייב</em> להיות ככה.</h2>
+      <p class="pf__lead">טקס קטן בלילה. בוקר אחר לגמרי.</p>
+      <p class="pf__body">תארו לעצמכם בוקר שמתחיל אחרת — הצנצנת שנפתחת בלי מלחמה, הכפתור שלא לוקח שתי דקות, היד שפשוט עונה כשקוראים לה. לא כי משהו נעלם בן־לילה, אלא כי נתתם לידיים תמיכה שעבדה בשקט בזמן שישנתם.</p>
+      <p class="pf__body">לובשים את כפפות הבמבוק לפני השינה, והלחיצה הממוקדת מלווה את הידיים לאורך כל הלילה — בשביל בוקר אחרי לילה של תמיכה, עם פחות נוקשות וידיים שמוכנות ליום מוקדם יותר. זו לא הבטחה גדולה. זו הרגשה קטנה של שליטה שחוזרת — בוקר אחד בכל פעם.</p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       C. HOW IT WORKS / MECHANISM  (funnel: HIGH / belief)
+  ================================================= -->
+  <section id="how-it-helps" class="section--ivory reveal-page pf pf-mechanism">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">איך זה עובד</span>
+      <h2 class="pf__title">למה לחיצה ממוקדת <em>עוזרת לידיים</em></h2>
+      <p class="pf__body">שמתם לב שכשכף יד כואבת, היד השנייה כאילו מעצמה עוטפת אותה ולוחצת עליה? יש בתנועה הזאת היגיון — לחיצה יציבה פשוט מרגישה טוב ליד שכואבת. על העיקרון הזה בדיוק בנויה כפפת הקומפרסיה, רק שהיא עושה את זה לאורך כל היום — בלי שתצטרכו להחזיק.</p>
+      <p class="pf__body">הרעיון פשוט: הלחיצה הממוקדת של הכפפה מעודדת זרימת דם טובה יותר בכף היד — וזרימת דם טובה עוזרת להתמודד עם נפיחות, דלקת ונוקשות. במקום משהו שנספג ונגמר, זו תמיכה שאתם פשוט לובשים — שממשיכה לעבוד שעה אחרי שעה, בדיוק במפרקים שצריכים אותה.</p>
+      <p class="pf__body">והכי חשוב: קצות האצבעות נשארים פתוחים. ממשיכים להקליד, לבשל, לגלול ולסרוג — היד מקבלת תמיכה בלי לוותר על מה שהיא צריכה לעשות. <strong>הכפפה מצטרפת לכל מה שאתם כבר עושים, לא מחליפה אותו.</strong></p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       D. BENEFITS + IMPACT  (funnel: HIGH)  + CTA #2
+  ================================================= -->
+  <section class="section--cream reveal-page pf pf-benefits-sec">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">מה זה משנה ביום־יום</span>
+      <h2 class="pf__title">תמיכה בדיוק <em>איפה שהיום קורה</em></h2>
+      <div class="pf-benefits__grid">
+        <div class="pf-benefit"><span class="pf-benefit__label">בעבודה</span><p class="pf-benefit__text">שעות מול המקלדת או הטלפון? קצות האצבעות פתוחים והיד נתמכת — ממשיכים לעבוד בלי שהיד תעצור אתכם באמצע.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">בבית</span><p class="pf-benefit__text">הכלים, הכביסה, הצנצנת שתמיד מתעקשת — זוג שאפשר להשאיר בהישג יד לכל המטלות הקטנות שמצטברות בשקט.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">ביצירה</span><p class="pf-benefit__text">מסרגה, מחט, מכחול — בחזרה לדברים שאתם אוהבים לעשות, ולעשות בשביל האנשים שאתם אוהבים.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">בלילה</span><p class="pf-benefit__text">כשהידיים סוף־סוף מאטות, לובשים לפני השינה ונותנים לתמיכה לעבוד בזמן שאתם ישנים.</p></div>
+      </div>
+      <p class="pf-benefits__close">הרגעים הקטנים שחוזרים אליכם — הם מה שמרכיב יום שמרגיש שלכם שוב.</p>
+      <a href="#product" class="pf-cta">בחרו מידה והתחילו</a>
+    </div>
+  </section>
+
+  <!-- Guarantee Certificate -->
+  <div class="pdp-cert-wrap">
+    <div class="pdp-cert">
+      <span aria-hidden="true" class="pdp-cert__rule pdp-cert__rule--top"></span>
+      <span aria-hidden="true" class="pdp-cert__rule pdp-cert__rule--bottom"></span>
+      <p class="pdp-cert__label">האחריות של MyBambook</p>
+      <p class="pdp-cert__head"><span class="pdp-cert__accent">60 יום.</span> בלי סיכון.</p>
+      <p class="pdp-cert__sub">אם הכפפות לא מרגישות נכונות לידיים שלכם — כתבו לנו. נחזיר לכם את הכסף, בלי טפסים מסובכים ובלי סיבובים מיותרים.</p>
+    </div>
+  </div>
+
+
+
+
+  <!-- ================================================
+       INSTALL EASE
+  ================================================= -->
+  <section class="section section--ivory reveal-page install-ease">
+    <div class="container two-col install-ease__grid">
+
+      <figure class="install-ease__img">
+        <img src="assets/mybambook-desk-gloves-2026-07-07.png" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן הקלדה על מחשב נייד">
+      </figure>
+
+      <div class="install-ease__text">
+        <p class="eyebrow install-ease__eyebrow">לבישה יומית קלה</p>
+        <h2 class="install-ease__title"><em>קל</em> ללבוש <em>אותן.</em><br>קשה <em>לוותר</em> עליהן.</h2>
+
+        <ul class="install-ease__list">
+
+          <li class="install-ease__item">
+            <span class="install-ease__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                <line x1="3" y1="21" x2="21" y2="3"/>
+              </svg>
+            </span>
+            <div class="install-ease__copy">
+              <p class="install-ease__label">נלבשות בשניות</p>
+              <p class="install-ease__sub">פשוט לובשים כשהידיים מבקשות קצת גיבוי.</p>
+            </div>
+          </li>
+
+          <li class="install-ease__item">
+            <span class="install-ease__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="7" r="3"/>
+                <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                <line x1="3" y1="3" x2="21" y2="21"/>
+              </svg>
+            </span>
+            <div class="install-ease__copy">
+              <p class="install-ease__label">בלי הכנות, בלי שגרה מסובכת</p>
+              <p class="install-ease__sub">השאירו זוג במקום שבו הידיים עובדות הכי קשה.</p>
+            </div>
+          </li>
+
+          <li class="install-ease__item">
+            <span class="install-ease__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+            </span>
+            <div class="install-ease__copy">
+              <p class="install-ease__label">תנועה חופשית, תמיכה יציבה</p>
+              <p class="install-ease__sub">נוחות ללא אצבעות לדברים שעדיין צריך לעשות.</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparison table removed (awareness-mismatched; overlaps Fair Question) — plan 2026-07-24. -->
+  <!-- was id="how-it-helps" — verify no nav anchor depends on it before live port. -->
+
+  <!-- ================================================
+       BAMBOO BENEFITS CAROUSEL
+  ================================================= -->
+  <section class="section section--ivory reveal-page bamboo-benefits" aria-labelledby="bamboo-benefits-heading">
+    <div class="bamboo-benefits__header">
+      <h2 id="bamboo-benefits-heading">למה בחרנו דווקא בד במבוק?</h2>
+      <span class="bamboo-benefits__rule" aria-hidden="true"></span>
+      <p>בד במבוק קל ונושם, נעים על העור לאורך שעות — בדיוק מה שצריך ממוצר שנשאר על הידיים רוב היום.</p>
+    </div>
+
+    <div class="bamboo-benefits__marquee" aria-label="יתרונות בד הבמבוק">
+      <div class="bamboo-benefits__track">
+        <div class="bamboo-benefits__group">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד — פחות תחושת כבדות לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב — בלי טקסים מסובכים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
+          </article>
+        </div>
+        <div class="bamboo-benefits__group" aria-hidden="true">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד — פחות תחושת כבדות לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב — בלי טקסים מסובכים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
+          </article>
+        </div>
+        <div class="bamboo-benefits__group" aria-hidden="true">
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד — פחות תחושת כבדות לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב — בלי טקסים מסובכים.</p>
+          </article>
+          <article class="bamboo-benefit">
+            <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function syncBambooMarqueeLoop() {
+      const track = document.querySelector('.bamboo-benefits__track');
+      if (!track) return;
+
+      function syncLoopDistance() {
+        const cards = track.querySelectorAll('.bamboo-benefit');
+        const firstRepeat = cards[6];
+        if (!cards[0] || !firstRepeat) return;
+
+        const distance = firstRepeat.getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+        if (distance > 0) track.style.setProperty('--bamboo-loop-distance', distance + 'px');
+      }
+
+      requestAnimationFrame(syncLoopDistance);
+      window.addEventListener('load', syncLoopDistance, { once: true });
+      window.addEventListener('resize', syncLoopDistance);
+    })();
+  </script>
+
+  <!-- ================================================
+       A FAIR QUESTION
+  ================================================= -->
+  <section class="section--ivory reveal-page c-d fair-question">
+
+    <p class="eyebrow fair-question__eyebrow">שאלה הוגנת</p>
+    <h2 class="fair-question__title">"רגע — אי אפשר פשוט למצוא משהו זול יותר באינטרנט?"</h2>
+    <p class="fair-question__lead">שאלה <em>הוגנת</em>. הנה התשובה <em>הכנה</em>.</p>
+
+    <div class="section-inner fair-question__inner">
+
+      <div class="fair-question__card">
+        <div class="fair-question__body-wrap">
+          <p class="fair-question__body">כשמחפשים כפפות קומפרסיה זולות במקומות כמו אליאקספרס או אמזון, רואים שוב ושוב את אותן תלונות: בד שנפרם, חום מוגזם, בד שלא נושם מספיק, מידה שלא יושבת נכון, ותפרים שמתחילים ללחוץ בדיוק במקום הלא נכון. אלה בדיוק הדברים שחשבנו עליהם ב־MyBambook: כפפות מבד במבוק, בגזרה שנועדה לתת לחיצה ממוקדת ואחידה, עם תחושה נושמת ונוחה יותר לשימוש יומיומי. לא עוד כפפה שמורידים אחרי כמה דקות — אלא זוג שאפשר באמת להשאיר על הידיים.</p>
+        </div>
+        <div class="fair-question__kicker-wrap">
+          <p class="fair-question__kicker"><em>זו</em> לא החלטה <em>זולה</em> יותר. זו החלטה <em>דחויה</em>.</p>
+        </div>
+      </div>
+
+      <a href="#product" class="fair-question__cta">לצפייה בכפפות</a>
+
+    </div>
+  </section>
+
+  <!-- ================================================
+       G. LOC AGAIN  (funnel: LOW / loss-aversion)
+  ================================================= -->
+  <section class="section--sand reveal-page pf pf-loc-again">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">ההחלטה הקטנה</span>
+      <h2 class="pf__title">עוד בוקר של אצבעות שנתקעות — <em>או התחלה של משהו אחר.</em></h2>
+      <p class="pf__body">אף אחד לא יכול להבטיח לכם איך היד שלכם תגיב. אבל אתם כן יכולים לבדוק את זה — בלי סיכון. תלבשו אותן שבועיים, תישנו ותעבדו איתן, ותנו ליד להגיד לכם בבוקר. אם זה לא שינה כלום — מחזירים ומקבלים את הכסף בחזרה. הדבר היחיד שאתם באמת מפסידים הוא עוד בוקר של "תתרגלו לזה".</p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       8. FAQ
+  ================================================= -->
+  <section class="section faq-section" id="faq" aria-labelledby="faq-heading">
+    <div class="sec-inner">
+      <span class="eyebrow">שאלות נפוצות</span>
+      <h2 id="faq-heading">תשובות <em>מהירות.</em></h2>
+      <div class="faq-list">
+
+        <details class="faq-item" open>
+          <summary>למי הכפפות האלה מתאימות?</summary>
+          <p>למי שחיים עם דלקת פרקים, אצבע הדק, גידים מודלקים, נוקשות בוקר, נפיחות או אי־נוחות של התעלה הקרפלית. גם למי שהידיים שלהם הן כלי העבודה — מקלדת, מספריים, מברג, מסרגה — והן מתחילות להתלונן בסוף היום.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>איך כפפה בכלל עוזרת לכאבים בכף היד?</summary>
+          <p>הלחיצה הממוקדת של הכפפה מעודדת זרימת דם טובה יותר בכף היד, וזרימת דם טובה עוזרת להתמודד עם נפיחות, דלקת ונוקשות. זו הסיבה שהיד מרגישה פחות "תקועה" אחרי כמה שעות איתן — במיוחד בבוקר, אחרי לילה שלם של לבישה.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>ניסינו כבר הכל. למה שדווקא זה יעזור?</summary>
+          <p>כי זה עובד אחרת מכל השאר. משחה נספגת ונגמרת. כדור עובר. הכפפה היא הדבר היחיד שממשיך לעבוד בשבילכם בזמן שאתם ישנים, מקלידים, מבשלים או סורגים — בלי שתצטרכו לזכור לעשות משהו. היא לא באה במקום הטיפול שלכם, היא עובדת לצידו.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>מה אם זה יהיה הדוק מדי ויחסום את זרימת הדם?</summary>
+          <p>חשש הגיוני, וזאת התלונה הכי נפוצה על כפפות לחיצה בכלל. הכלל פשוט: לחיצה ממוקדת אמורה להרגיש כמו יד יציבה שאוחזת, לא כמו חוסם. אם קצות האצבעות משנים צבע, מתקררים או נרדמים — המידה קטנה מדי. זה לא משהו שצריך "להתרגל אליו" ולא סימן שזה עובד. תורידו, וכתבו לנו ל-support@mybambook.com.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>אפשר לישון עם זה?</summary>
+          <p>כן, והן מתוכננות בדיוק לזה. אם הנוקשות מגיעה בעיקר בבוקר — הלילה הוא הזמן שבו הכפפה עובדת בשבילכם בלי שתעשו כלום. לובשים לפני השינה ומורידים כשקמים.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>לא יהיה לנו חם איתן? בקיץ הישראלי?</summary>
+          <p>הבד הוא במבוק קל ונושם, וקצות האצבעות פתוחות — כף היד לא נסגרת הרמטית כמו בכפפה רגילה. עם מזגן או מאוורר בלילה זה כמעט לא מורגש. בלילה לוהט בלי מיזוג, אפשר פשוט ללבוש אותן בערב מול הטלוויזיה ולהוריד לפני השינה — גם כמה שעות עושות את שלהן.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>ומה אם זה פשוט לא יתאים לנו?</summary>
+          <p>60 יום החזר כספי מלא. תלבשו אותן, תישנו איתן, תעבדו איתן שבועיים — זה הזמן שצריך כדי לדעת. אם זה לא נתן לכם את מה שרציתם, כתבו ל-support@mybambook.com והכסף חוזר.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>כמה זמן לוקח המשלוח?</summary>
+          <p>המשלוח לוקח בממוצע 7–14 ימי עסקים. ברגע שההזמנה יוצאת לדרך נעדכן אתכם, ואם משהו לא ברור בדרך — כתבו לנו ל-support@mybambook.com ונדאג לכם.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>אז איך מתחילים?</summary>
+          <p>אין דרך אמיתית לדעת אם משהו עוזר לידיים שלכם חוץ מלנסות אותו על הידיים שלכם. בוחרים מידה לפי המדידה, לובשים לילה או יומיים של עבודה, ורואים איך מרגישה היד בבוקר. יש לכם 60 יום — ואם זה לא משנה לכם כלום, הכסף חוזר. זה כל הסיכון.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>האם זה טיפול רפואי?</summary>
+          <p>לא. כפפות הקומפרסיה של Bambook הן מוצר נוחות ותמיכה. מטרתן לעזור ולספק תחושת תמיכה ונוחות לידיים כואבות, אבל הן אינן טיפול רפואי ואינן מחליפות ייעוץ, אבחון או טיפול רפואי מקצועי. אם יש כאב מתמשך, מצב מאובחן או חשש רפואי — חשוב לפנות לאיש מקצוע מתאים.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       9. FINAL CTA
+  ================================================= -->
+  <section class="section--sand reveal-page final-cta">
+    <div class="final-cta__watermark-wrap">
+      <span class="final-cta-watermark">MYBAMBOOK</span>
+    </div>
+    <div class="section-inner final-cta__inner">
+
+      <p class="final-cta__eyebrow">MyBambook · תמיכה יומיומית לידיים</p>
+
+      <h2 class="final-cta__title">הידיים שלכם עושות המון כל יום.</h2>
+      <h2 class="final-cta__title final-cta__title--accent"><em>הגיע הזמן להחזיר להן קצת שליטה.</em></h2>
+
+      <p class="final-cta__body">לא צריך להבטיח לעצמכם שום דבר גדול — רק לתת לידיים שלכם הזדמנות אחת. 60 יום, בלי סיכון, ואתם מחליטים.</p>
+      <p class="final-cta__kicker">הרימו את הכפפה — עכשיו תורכם.</p>
+
+      <a href="#product" class="button final-cta__button">בחרו מידה והתחילו</a>
+      <p class="final-cta__note">מדריך מידות אמיתי · אחריות 60 יום</p>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FOOTER — UNCHANGED
+  ================================================= -->
+  <footer class="site-footer" id="about">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand footer-brand--mybambook" aria-label="MyBambook — דף הבית">
+          <strong><span>My</span><span class="footer-brand__bamboo">Bambook</span></strong>
+          <span>כפפות קומפרסיה</span>
+        </a>
+        <p>כפפות קומפרסיה לתמיכה יומיומית בידיים, בנויות להשתלב בשגרה אמיתית.</p>
+        <div class="socials">
+          <a href="#" aria-label="אינסטגרם">Ig</a>
+          <a href="#" aria-label="טיקטוק">Tk</a>
+          <a href="#" aria-label="פינטרסט">Pi</a>
+          <a href="mailto:support@mybambook.com" aria-label="אימייל">Em</a>
+        </div>
+      </div>
+      <div>
+        <h3>חנות</h3>
+        <ul>
+          <li><a href="product.html">כפפות קומפרסיה</a></li>
+          <li><a href="product.html#fit">מדריך התאמה</a></li>
+          <li><a href="product.html">מארזים מרובי זוגות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="product.html#how-it-helps">איך זה עוזר</a></li>
+          <li><a href="product.html#faq">שאלות</a></li>
+          <li><a href="product.html#faq">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>אודות</h3>
+        <ul>
+          <li><a href="mission.html">אודות</a></li>
+          <li><a href="terms-of-service.html">תנאי שימוש</a></li>
+          <li><a href="refund-policy.html">מדיניות החזרים</a></li>
+          <li><a href="privacy-policy.html">מדיניות פרטיות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>שירות</h3>
+        <ul>
+          <li><a href="contact.html">צרו קשר</a></li>
+          <li><a href="shipping-returns.html">משלוחים והחזרות</a></li>
+          <li><a href="orders.html">ההזמנות שלי</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>נשארים בעניינים</h3>
+        <p>טיפים, שגרות והצעות — ישר למייל שלכם.</p>
+        <form class="email-form">
+          <input type="email" dir="ltr" placeholder="כתובת אימייל" aria-label="כתובת אימייל">
+          <button type="submit" aria-label="הרשמה">&#8592;</button>
+        </form>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 MyBambook. כל הזכויות שמורות.</span>
+      <span>
+        <a href="privacy-policy.html">מדיניות פרטיות</a> &middot;
+        <a href="terms-of-service.html">תנאי שימוש</a> &middot;
+        <a href="refund-policy.html">מדיניות החזרים</a> &middot;
+        <a href="accessibility.html">הצהרת נגישות</a>
+      </span>
+    </div>
+  </footer>
+
+
+  <!-- ================================================
+       SCRIPT
+  ================================================= -->
+  <script>
+    const SIZE_OPTIONS = ['S', 'M', 'L'];
+    const state = { sizes: ['M'], plan: 'one-time', quantity: 1, pairBundle: 0 };
+
+    function renderSizeSelectors() {
+      const mount = document.getElementById('size-options');
+      if (!mount) return;
+
+      state.sizes = Array.from({ length: state.quantity }, (_, i) => state.sizes[i] || state.sizes[0] || SIZE_OPTIONS[1]);
+
+      mount.innerHTML = state.sizes.map((size, index) => `
+        <div class="color-swatch-picker" data-picker="${index}">
+          <p class="color-swatch-header">
+            <span class="color-swatch-label">מידה${state.quantity > 1 ? ` ${index + 1}` : ''}</span>
+            <span class="color-swatch-sep" aria-hidden="true">—</span>
+            <span class="color-swatch-selected" id="size-name-${index}" dir="ltr">${size}</span>
+          </p>
+          <div class="color-swatch-options" role="group" aria-label="בחירת מידה">
+            ${SIZE_OPTIONS.map(opt => `
+              <button
+                class="size-swatch-btn${opt === size ? ' is-selected' : ''}"
+                type="button"
+                aria-label="מידה ${opt}"
+                aria-pressed="${opt === size ? 'true' : 'false'}"
+                data-size-index="${index}"
+                data-size="${opt}"
+              >${opt}</button>
+            `).join('')}
+          </div>
+        </div>`).join('');
+
+      mount.querySelectorAll('.size-swatch-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.sizeIndex);
+          state.sizes[idx] = btn.dataset.size;
+          renderSizeSelectors();
+        });
+      });
+
+      // Sync sticky size selector
+      const stickyLabel = document.getElementById('sticky-size-label');
+      const stickyMenu = document.getElementById('sticky-size-menu');
+
+      const activeSize = state.sizes[0] || SIZE_OPTIONS[1];
+
+      if (stickyLabel) stickyLabel.textContent = `מידה ${activeSize}`;
+
+      if (stickyMenu) {
+        stickyMenu.innerHTML = SIZE_OPTIONS.map(opt => `
+          <li class="pdp-sticky-bar__color-opt${opt === activeSize ? ' is-selected' : ''}"
+              role="option"
+              aria-selected="${opt === activeSize ? 'true' : 'false'}"
+              data-size="${opt}">
+            מידה ${opt}
+          </li>
+        `).join('');
+
+        stickyMenu.querySelectorAll('.pdp-sticky-bar__color-opt').forEach(opt => {
+          opt.addEventListener('click', (e) => {
+            e.stopPropagation();
+            state.sizes = state.sizes.map(() => opt.dataset.size);
+            renderSizeSelectors();
+            const btn = document.getElementById('sticky-size-btn');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+            stickyMenu.classList.remove('is-open');
+          });
+        });
+      }
+    }
+
+    function showCartStatus(message) {
+      const status = document.getElementById('cart-status');
+      if (!status) return;
+      status.textContent = message;
+      if (message) {
+        status.classList.add('is-visible');
+      } else {
+        status.classList.remove('is-visible');
+      }
+    }
+
+    async function addSelectedProductsToShopifyCart(event) {
+      event?.preventDefault();
+      if (!window.BambookCart) {
+        showCartStatus('העגלה לא זמינה כרגע. נסו שוב בעוד רגע.');
+        return;
+      }
+      await window.BambookCart.addConfiguredProduct(selectedCheckoutConfig(), { statusId: 'cart-status' });
+    }
+
+    async function buySelectedProductsNow(event) {
+      event?.preventDefault();
+      if (!window.BambookCart) {
+        showCartStatus('העגלה לא זמינה כרגע. נסו שוב בעוד רגע.');
+        return;
+      }
+      await window.BambookCart.buyConfiguredProductNow(selectedCheckoutConfig(), { statusId: 'cart-status' });
+    }
+
+    function selectedCheckoutConfig() {
+      const bundleQuantity = state.pairBundle + 1;
+      const quantity = Math.max(state.quantity, bundleQuantity);
+      const fallbackSize = state.sizes[0] || SIZE_OPTIONS[1];
+      const sizes = Array.from({ length: quantity }, (_, index) => state.sizes[index] || fallbackSize);
+      return { sizes, quantity };
+    }
+
+    // Plan display — one-time only
+    function updatePlanCards(selectedPlan) {
+      document.querySelectorAll('.plan-card[data-plan]').forEach(card => {
+        const isSelected = card.dataset.plan === selectedPlan;
+        card.classList.toggle('is-selected', isSelected);
+        card.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      });
+      const bundleSection = document.getElementById('filter-bundle-section');
+      if (bundleSection) bundleSection.classList.add('is-visible');
+    }
+
+    // Pair bundle card selection
+    function updateBundleSummary() {
+      const summary = document.getElementById('bundle-summary');
+      const compareAtPrice = document.getElementById('compare-at-price');
+      const currentPrice = document.getElementById('current-price');
+      const priceUnit = document.getElementById('price-unit');
+      const pairCount = state.pairBundle + 1;
+      // Display labels only — the charged price comes from Shopify at checkout
+      // (bundle discount configured in Shopify admin). Keep in sync with
+      // 01_BRAIN/OFFER_STRUCTURE.md and the Shopify automatic-discount rules.
+      // Compare-at ≈ 2× the offer, charm-priced to end in 9 (operator 2026-07-27: ~50% off).
+      // Single-pair 359 is the real Shopify compare_at; bundle anchors are display math.
+      const PAIR_PRICE = { 1: '179 ₪', 2: '249 ₪', 3: '299 ₪' };
+      const PAIR_COMPARE = { 1: '359 ₪', 2: '499 ₪', 3: '599 ₪' };
+      const price = PAIR_PRICE[pairCount] || PAIR_PRICE[1];
+      const compareAt = PAIR_COMPARE[pairCount] || PAIR_COMPARE[1];
+      const label = pairCount === 1 ? 'זוג אחד' : `${pairCount} זוגות`;
+      if (compareAtPrice) compareAtPrice.textContent = compareAt;
+      if (currentPrice) currentPrice.textContent = price;
+      if (priceUnit) priceUnit.textContent = pairCount === 1 ? 'לזוג אחד' : `ל־${pairCount} זוגות`;
+      if (summary) summary.textContent = `בחרתם ${label} — ${price}.`;
+    }
+
+    document.querySelectorAll('.filter-bundle-card[data-bundle]').forEach(card => {
+      card.addEventListener('click', () => {
+        state.pairBundle = Number(card.dataset.bundle);
+        document.querySelectorAll('.filter-bundle-card[data-bundle]').forEach(c => {
+          c.classList.toggle('is-selected', c === card);
+          c.setAttribute('aria-pressed', c === card ? 'true' : 'false');
+        });
+        updateBundleSummary();
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
+
+    // Qty stepper
+    function changeQty(delta) {
+      const next = state.quantity + delta;
+      if (next < 1 || next > 4) return;
+      state.quantity = next;
+      const display = document.getElementById('qty-display');
+      if (display) display.textContent = state.quantity;
+      const minusBtn = document.getElementById('qty-minus');
+      const plusBtn  = document.getElementById('qty-plus');
+      if (minusBtn) minusBtn.disabled = state.quantity <= 1;
+      if (plusBtn)  plusBtn.disabled  = state.quantity >= 4;
+      renderSizeSelectors();
+    }
+
+    // Set initial state
+    updatePlanCards(state.plan);
+    updateBundleSummary();
+    renderSizeSelectors();
+
+    // Quantity: handled by changeQty() called from inline onclick on qty buttons
+
+    (function initSizeGuideDropdown() {
+      const toggle = document.getElementById('size-guide-toggle');
+      const panel = document.getElementById('pdp-size-guide');
+      const close = panel && panel.querySelector('.pdp-size-guide__close');
+      if (!toggle || !panel) return;
+
+      function setSizeGuideOpen(isOpen) {
+        panel.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      toggle.addEventListener('click', function() {
+        setSizeGuideOpen(panel.hidden);
+      });
+
+      if (close) {
+        close.addEventListener('click', function() {
+          setSizeGuideOpen(false);
+          toggle.focus();
+        });
+      }
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && !panel.hidden) {
+          setSizeGuideOpen(false);
+          toggle.focus();
+        }
+      });
+    })();
+
+    // Hero gallery
+    const galleryImages = Array.from(document.querySelectorAll('[data-gal-image]'));
+    const thumbBtns = Array.from(document.querySelectorAll('.pdp-hero__thumb'));
+    const galleryFrame = document.querySelector('.pdp-hero__gal-main');
+    let galleryIndex = 0;
+
+    function setGal(index) {
+      if (!galleryImages.length) return;
+      galleryIndex = (index + galleryImages.length) % galleryImages.length;
+      galleryImages.forEach(function(image, i) {
+        image.classList.toggle('is-active', i === galleryIndex);
+      });
+      if (galleryFrame) {
+        galleryFrame.classList.toggle('is-gallery-square', galleryImages[galleryIndex]?.dataset.galleryFrame === 'square');
+        galleryFrame.classList.toggle('is-gallery-landscape', galleryImages[galleryIndex]?.dataset.galleryFrame === 'landscape');
+      }
+      thumbBtns.forEach(function(btn, i) {
+        btn.classList.toggle('is-active', i === galleryIndex);
+      });
+    }
+
+    function moveGal(direction) {
+      setGal(galleryIndex + direction);
+    }
+
+    // Re-settle deep links after late media/layout load so review anchors land cleanly.
+    (function initHashAnchorSettling() {
+      function settleHashAnchor() {
+        if (!window.location.hash) return;
+
+        var id = window.location.hash.slice(1);
+        var target;
+        try {
+          target = document.getElementById(decodeURIComponent(id));
+        } catch (error) {
+          target = document.getElementById(id);
+        }
+
+        if (target) {
+          var nav = document.querySelector('.nav-container');
+          var navOffset = nav ? nav.getBoundingClientRect().height : 0;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - navOffset - 24;
+          var previousScrollBehavior = document.documentElement.style.scrollBehavior;
+
+          document.documentElement.style.scrollBehavior = 'auto';
+          window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
+          document.documentElement.style.scrollBehavior = previousScrollBehavior;
+        }
+      }
+
+      function scheduleSettle() {
+        window.requestAnimationFrame(function() {
+          window.requestAnimationFrame(settleHashAnchor);
+        });
+        window.setTimeout(settleHashAnchor, 350);
+        window.setTimeout(settleHashAnchor, 900);
+      }
+
+      if (document.readyState === 'complete') {
+        scheduleSettle();
+      } else {
+        window.addEventListener('load', scheduleSettle, { once: true });
+      }
+      window.addEventListener('hashchange', scheduleSettle);
+    })();
+
+    // Mobile menu
+    function toggleBambookMenu(btn) {
+      const nav = document.getElementById('bambook-primary-nav');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (nav) nav.classList.toggle('is-open', !expanded);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const menuBtn = document.querySelector('.bambook-menu-toggle');
+        if (menuBtn && menuBtn.getAttribute('aria-expanded') === 'true') toggleBambookMenu(menuBtn);
+      }
+    });
+
+    renderSizeSelectors();
+
+    // Sticky bar — show once main CTA button scrolls off screen
+    (function initStickyBar() {
+      const heroCta = document.getElementById('pdp-hero-cta');
+      const stickyBar = document.getElementById('pdp-sticky-bar');
+      if (!heroCta || !stickyBar) return;
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          const hasScrolledPastCta = entry.boundingClientRect.top < 0;
+          stickyBar.classList.toggle('is-visible', !entry.isIntersecting && hasScrolledPastCta);
+        });
+      }, { threshold: 0.1 });
+      obs.observe(heroCta);
+
+      // Keep the floating bar above mobile browser chrome.
+      // CSS anchors `bottom` to the layout viewport, but mobile toolbars cover
+      // the visual viewport. Measure that gap and feed it to CSS as --vv-gap
+      // (a runtime measurement only — all styling stays in product-hero.css).
+      const vv = window.visualViewport;
+      if (vv) {
+        const syncViewportGap = function() {
+          const gap = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+          stickyBar.style.setProperty('--vv-gap', gap + 'px');
+        };
+        vv.addEventListener('resize', syncViewportGap);
+        vv.addEventListener('scroll', syncViewportGap);
+        syncViewportGap();
+      }
+
+      // Size selector toggle
+      const sizeBtn = document.getElementById('sticky-size-btn');
+      const sizeMenu = document.getElementById('sticky-size-menu');
+      if (sizeBtn && sizeMenu) {
+        sizeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const isOpen = sizeBtn.getAttribute('aria-expanded') === 'true';
+          sizeBtn.setAttribute('aria-expanded', String(!isOpen));
+          sizeMenu.classList.toggle('is-open', !isOpen);
+        });
+
+        document.addEventListener('click', function() {
+          sizeBtn.setAttribute('aria-expanded', 'false');
+          sizeMenu.classList.remove('is-open');
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      const CIRCUMFERENCE = 2 * Math.PI * 70; // r=70 → ~439.82
+      function animateRings() {
+        document.querySelectorAll('.stat-ring-fill').forEach(function (circle) {
+          const pct = parseFloat(circle.dataset.pct) / 100;
+          const offset = CIRCUMFERENCE * (1 - pct);
+          circle.style.strokeDasharray = CIRCUMFERENCE;
+          circle.style.strokeDashoffset = offset;
+        });
+      }
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateRings();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      const row = document.getElementById('stats-row');
+      if (row) observer.observe(row);
+    })();
+  </script>
+  <script src="js/universal-cart.js?v=db489da3"></script>
+  <script>
+    (function () {
+      if (typeof fbq !== 'function' || !window.BambookCart) return;
+      var variantId = window.BambookCart.getVariantNumericId(window.BambookCart.defaultSize);
+      fbq('track', 'ViewContent', {
+        content_type: 'product',
+        content_ids: variantId ? [variantId] : [],
+        // Mirror AddToCart's item-level shape. item_price is omitted on purpose:
+        // no cart exists at view time and client JS carries no price constant
+        // (site rule) — content_ids / contents.id already match the catalog.
+        contents: variantId ? [{ id: variantId, quantity: 1 }] : []
+      });
+    })();
+  </script>
+  <script src="https://negishot.co.il/cdn/widget.php?code=NGS_28E6F354A9E3"></script>
+</body>
+</html>

@@ -113,6 +113,8 @@ The legacy `980 / 640` blocks inside `home.css` are debt — fold them into the 
 2. **Preview the edited section in isolation:** `python3 -m http.server 8000`, open `http://127.0.0.1:8000/preview/`.
 3. **Playwright before AND after:** `cd ../visual-tests && npx playwright test`. Screenshots are layout-sensitive but tint-tolerant — they catch overflow/spacing/stack breaks, not subtle recolors. Re-baseline (`--update-snapshots`) only when the diff is intentional and approved.
 4. No horizontal scroll at 390/768/1024/1440 (the no-scroll assertion catches `body.scrollWidth > innerWidth`).
+5. **Updating snapshots for one intentional change:** never run a full-suite `--update-snapshots` after touching a single page — a parallel run can bake in a transient/half-loaded-font baseline for an *unrelated* page (CODER_BUGLOG 2026-07-15). Use `npm run update:one -- "<page>.html @ <width>px"` (serial, one page/viewport) instead, then run the normal `npm test` to confirm nothing else moved.
+6. **One-command pre-ship gate:** `python3 tools/verify.py` chains bump-cache `--check` + `audit.py --strict` + `link-checker.py` + the full Playwright suite, failing fast on the first red gate (`--no-visual` skips Playwright for a faster local loop).
 
 ---
 

@@ -33,7 +33,7 @@
 .replace-90-section .replace-90__body {
   color: var(--taupe);
   max-width: 42rem;
-  margin: 0 auto clamp(var(--space-8), 4vw, var(--space-14));
+  margin: 0 auto clamp(var(--space-8), 4vw, var(--space-16));
   font-size: clamp(1rem, 1.35vw, 1.12rem);
   line-height: 1.7;
 }

@@ -13,6 +13,8 @@ Deterministic guard for the problems that keep coming back:
     guard; client JS is public — prices/codes belong server-side / in Shopify)
   - BREAKPOINT DRIFT: media queries outside the canonical set (per-section widths
     that make responsive behaviour inconsistent page to page)
+  - IMAGE FIT: object-fit: cover with no object-position (a silent guess at the crop —
+    how a face ends up cut off; see "Adding an image to the site" in bambook-web-developer)
 
 Usage (from site/):
     python3 tools/audit.py                 # audit whole site
@@ -165,6 +167,175 @@ def scan_breakpoints() -> list[str]:
     return out
 
 
+RULE_BLOCK = re.compile(r"([^{}]+)\{([^{}]*)\}")
+OBJECT_FIT_COVER = re.compile(r"object-fit:\s*cover")
+OBJECT_POSITION = re.compile(r"object-position:")
+
+# --- custom-property hygiene: a var(--x) referencing an undeclared property is
+# silently dropped by the browser (CODER_BUGLOG 2026-07-23: undefined --space-18/-14/-22)
+VAR_DECL = re.compile(r"(--[\w-]+)\s*:")
+VAR_USE = re.compile(r"var\(\s*(--[\w-]+)\s*[,)]")
+# custom properties set at runtime via el.style.setProperty('--x', ...) — never declared in
+# CSS, so they'd otherwise false-positive (e.g. --vv-gap, --bamboo-loop-distance).
+JS_SET_PROPERTY = re.compile(r"setProperty\(\s*['\"](--[\w-]+)")
+
+
+def runtime_declared_properties() -> set[str]:
+    out = set()
+    for f in sorted(SITE.glob("*.html")):
+        out |= set(JS_SET_PROPERTY.findall(f.read_text()))
+    if JS.exists():
+        for f in sorted(JS.glob("*.js")):
+            out |= set(JS_SET_PROPERTY.findall(f.read_text()))
+    return out
+
+
+def scan_custom_properties() -> tuple[list[str], list[str]]:
+    """Hard — var(--x) referencing a custom property never declared anywhere silently
+    drops the whole CSS declaration (invisible until someone notices missing spacing/color)."""
+    hard, soft = [], []
+    # tokens.css is the palette file itself (excluded from css_files()) — it must still
+    # count toward what's "declared", or every legit --space-*/--radius/etc. use false-fails.
+    files = css_files()
+    tokens_file = CSS / "tokens.css"
+    if tokens_file.exists() and tokens_file not in files:
+        files = [tokens_file] + files
+    bodies = {}
+    declared = set()
+    for f in files:
+        body = re.sub(r"/\*.*?\*/", "", f.read_text(), flags=re.S)
+        bodies[f] = body
+        declared |= set(VAR_DECL.findall(body))
+    declared |= runtime_declared_properties()
+    for f, body in bodies.items():
+        rel = f.relative_to(CSS).as_posix()
+        missing = sorted(set(VAR_USE.findall(body)) - declared)
+        if missing:
+            noun = "property" if len(missing) == 1 else "properties"
+            msg = (f"  {{}} {rel}: references undefined custom {noun} {', '.join(missing)} "
+                   f"— the browser silently drops the whole declaration using it.")
+            (soft if f.name in DEBT else hard).append(msg.format("·" if f.name in DEBT else "✗"))
+    return hard, soft
+
+
+# --- pixel ID hygiene: an fbq('track', ...) call whose surrounding code references the
+# raw Shopify GID getter (or a literal gid://) instead of the numeric-ID normalizer will
+# ship content_ids Meta can't match to the catalog (CODER_BUGLOG 2026-07-19).
+INLINE_SCRIPT = re.compile(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", re.S)
+FBQ_TRACK = re.compile(r"fbq\(\s*['\"]track['\"]")
+RAW_GID_LITERAL = re.compile(r"gid://")
+RAW_VARIANT_GETTER = re.compile(r"\bgetVariantId\(")
+
+
+def scan_pixel_ids() -> list[str]:
+    """Scoped to inline <script> blocks in HTML — the actual call sites that build tracking
+    payloads in this codebase. universal-cart.js legitimately contains both a generic
+    fbq('track', eventName, params) wrapper AND the raw 'gid://' string inside the
+    normalizer function that strips it — a whole-file scan there is a guaranteed false
+    positive, not a real defect, so this check does not scan js/*.js bodies."""
+    hard = []
+    for f in sorted(SITE.glob("*.html")):
+        for block in INLINE_SCRIPT.findall(f.read_text()):
+            if FBQ_TRACK.search(block) and (RAW_VARIANT_GETTER.search(block) or RAW_GID_LITERAL.search(block)):
+                hard.append(f"  ✗ {f.name}: fbq('track', ...) call site reads a raw variant ID "
+                            f"(getVariantId(/gid://) — content_ids must come from "
+                            f"getVariantNumericId()/variantNumericId() so Meta can match the catalog.")
+    return hard
+
+
+# --- template hygiene: a tag with the same attribute declared twice (usually a template
+# string that appended a second `class="..."` instead of merging it — CODER_BUGLOG 2026-07-06)
+TAG_WITH_ATTRS = re.compile(r"<([a-zA-Z][\w-]*)((?:\s+[a-zA-Z][\w-]*=(?:\"[^\"]*\"|'[^']*'))+)\s*/?>")
+ATTR_NAME = re.compile(r"([a-zA-Z][\w-]*)=(?:\"[^\"]*\"|'[^']*')")
+
+
+def scan_duplicate_attrs() -> list[str]:
+    hard = []
+    targets = sorted(SITE.glob("*.html"))
+    if JS.exists():
+        targets += sorted(JS.glob("*.js"))
+    for f in targets:
+        rel = f.name if f.parent == SITE else f"js/{f.name}"
+        for tag, attrs_str in TAG_WITH_ATTRS.findall(f.read_text()):
+            names = ATTR_NAME.findall(attrs_str)
+            dupes = sorted({n for n in names if names.count(n) > 1})
+            if dupes:
+                hard.append(f"  ✗ {rel}: <{tag}> has duplicate attribute(s) {', '.join(dupes)} "
+                            f"— likely a template string that appended a second attribute instead of merging it.")
+    return hard
+
+
+# --- tooling portability: a hardcoded absolute /Users/ path only works on the machine
+# that wrote it — dead on any clone/checkout (CODER_BUGLOG 2026-07-20, link-checker.py)
+ABS_USERS_PATH = re.compile(r"['\"/]/Users/[^'\"\s]+")
+
+
+def scan_absolute_paths() -> list[str]:
+    hard = []
+    targets = sorted((SITE / "tools").glob("*.py")) if (SITE / "tools").exists() else []
+    if JS.exists():
+        targets += sorted(JS.glob("*.js"))
+    for f in targets:
+        rel = f"tools/{f.name}" if f.parent.name == "tools" else f"js/{f.name}"
+        hits = sorted(set(ABS_USERS_PATH.findall(f.read_text())))
+        if hits:
+            hard.append(f"  ✗ {rel}: hardcoded absolute path(s) {', '.join(hits)} "
+                        f"— resolve relative to __file__/the script's own location instead.")
+    return hard
+
+
+# --- dead assets: an unloaded js/css file is still a brand-leak/debt surface (CODER_BUGLOG
+# 2026-07-20 floating-cart.js entry) — generalized so it catches every orphan, not one file.
+LINK_OR_SCRIPT_REF = re.compile(r'(?:href|src)="([^"?]+\.(?:css|js))')
+IMPORT_REF = re.compile(r'@import\s+(?:url\()?[\'"]?([^\'")]+\.css)')
+
+
+def scan_dead_assets() -> list[str]:
+    referenced = set()
+    for f in sorted(SITE.glob("*.html")):
+        referenced |= set(LINK_OR_SCRIPT_REF.findall(f.read_text()))
+    for f in css_files():
+        referenced |= set(IMPORT_REF.findall(f.read_text()))
+    resolved = set()
+    for r in referenced:
+        p = (SITE / r).resolve()
+        if SITE in p.parents or p == SITE:
+            try:
+                resolved.add(p.relative_to(SITE).as_posix())
+            except ValueError:
+                pass
+
+    check_list = [CSS / "tokens.css"] + css_files()
+    if JS.exists():
+        check_list += sorted(JS.glob("*.js"))
+    out = []
+    for f in check_list:
+        if not f.exists():
+            continue
+        rel = f.relative_to(SITE).as_posix()
+        if rel not in resolved:
+            out.append(f"  ~ {rel}: not referenced by any <link>/<script src>/@import in the site "
+                       f"— dead code (a brand-leak/debt surface; queue for deletion or wire it in).")
+    return out
+
+
+def scan_image_fit() -> list[str]:
+    """Advisory — object-fit: cover with no object-position is a guess, not a decision;
+    on an image containing a person it's how faces get silently cropped (CODER_BUGLOG
+    2026-07-20/21 hero entries, 2026-07-22 gallery entry)."""
+    out = []
+    for f in css_files():
+        rel = f.relative_to(CSS).as_posix()
+        body = re.sub(r"/\*.*?\*/", "", f.read_text(), flags=re.S)
+        for selector, block in RULE_BLOCK.findall(body):
+            if OBJECT_FIT_COVER.search(block) and not OBJECT_POSITION.search(block):
+                sel = selector.strip().splitlines()[-1].strip()
+                out.append(f"  ~ {rel}: '{sel}' uses object-fit: cover with no object-position — "
+                           f"state the real focal point (e.g. center 20% to keep a face in frame) "
+                           f"or confirm the source aspect ratio already matches the slot.")
+    return out
+
+
 GRADIENT_TEXT = re.compile(r"background-clip:\s*text|-webkit-text-fill-color")
 RAW_RADIUS = re.compile(r"border-radius:\s*(\d+)(px|rem)")
 RAW_SHADOW = re.compile(r"box-shadow:\s*[^;]*\d+px[^;]*rgba?\(")  # literal shadow, not var()
@@ -244,9 +415,34 @@ def main() -> int:
     bp = scan_breakpoints()
     print("\n".join(bp) if bp else "  ✓ media queries on the canonical breakpoints")
 
-    hard_count = len(hard) + len(jhard) + len([h for h in html if h.strip().startswith("✗")])
+    print("\n── IMAGE FIT (advisory — object-fit: cover needs a stated focal point) ──")
+    imgfit = scan_image_fit()
+    print("\n".join(imgfit) if imgfit else "  ✓ every object-fit: cover declares an object-position")
+
+    print("\n── CSS TOKENS (undefined custom properties silently drop) ──")
+    thard, tsoft = scan_custom_properties()
+    print("\n".join(thard + tsoft) if (thard or tsoft) else "  ✓ every var(--x) reference is declared somewhere")
+
+    print("\n── PIXEL ID HYGIENE (fbq track calls must use the numeric-ID normalizer) ──")
+    pixel = scan_pixel_ids()
+    print("\n".join(pixel) if pixel else "  ✓ no fbq('track', ...) call site reads a raw GID")
+
+    print("\n── TEMPLATE HTML HYGIENE (duplicate attributes on one tag) ──")
+    dupes = scan_duplicate_attrs()
+    print("\n".join(dupes) if dupes else "  ✓ no duplicate attributes found on any tag")
+
+    print("\n── TOOLING PORTABILITY (hardcoded absolute paths) ──")
+    abspaths = scan_absolute_paths()
+    print("\n".join(abspaths) if abspaths else "  ✓ no hardcoded /Users/ paths in tools/ or js/")
+
+    print("\n── DEAD ASSETS (advisory — unreferenced css/js files) ──")
+    dead = scan_dead_assets()
+    print("\n".join(dead) if dead else "  ✓ every css/js file is referenced somewhere")
+
+    hard_count = (len(hard) + len(jhard) + len([h for h in html if h.strip().startswith("✗")])
+                  + len(thard) + len(pixel) + len(dupes) + len(abspaths))
     print(f"\n{'STRICT: ' if strict else ''}{hard_count} hard issue(s), "
-          f"{len(soft) + len(jsoft) + len(scatter)} debt/scatter note(s).")
+          f"{len(soft) + len(jsoft) + len(scatter) + len(tsoft)} debt/scatter note(s).")
     return 1 if (strict and hard_count) else 0
 
 

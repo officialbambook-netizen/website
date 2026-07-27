@@ -193,7 +193,7 @@
   line-height: 1.55;
   margin: clamp(var(--space-6), 3vw, var(--space-10)) auto 0;
   max-width: 58ch;
-  padding: clamp(var(--space-5), 2vw, var(--space-7)) clamp(var(--space-6), 3vw, var(--space-10));
+  padding: clamp(var(--space-5), 2vw, var(--space-8)) clamp(var(--space-6), 3vw, var(--space-10));
   text-align: left;
 }
 
@@ -453,11 +453,11 @@
     height: 100vh;
     min-height: 0;
     padding-inline: var(--space-5);
-    padding-bottom: clamp(var(--space-14), 12vh, var(--space-20));
+    padding-bottom: clamp(var(--space-12), 12vh, var(--space-20));
   }
 
   .edu-hero__copy {
-    margin-bottom: clamp(var(--space-12), 16vh, var(--space-18));
+    margin-bottom: clamp(var(--space-12), 16vh, var(--space-20));
   }
 
   .edu-media {

@@ -45,7 +45,7 @@
 .results-grid {
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(0.7rem, 1.4vw, 1.2rem);
-  margin-top: clamp(var(--space-10), 3.5vw, var(--space-14));
+  margin-top: clamp(var(--space-10), 3.5vw, var(--space-16));
 }
 .results-grid figure {
   margin: 0;
