@@ -436,6 +436,28 @@ def scan_canonicals() -> list[str]:
     return hard
 
 
+def scan_404_absolute_paths() -> list[str]:
+    """404.html is served for ANY unmatched URL, at any path depth. A relative
+    href there resolves against the bogus URL: from /a/b/c/nonsense, "faq.html"
+    points at /a/b/c/faq.html, which 404s again. The visitor lands on the error
+    page and cannot navigate out. Regressed once already when an unrelated edit
+    rewrote the links back to relative (CODER_BUGLOG 2026-07-29), and it is
+    invisible in review because the CSS paths stayed absolute so the page still
+    renders correctly.
+    """
+    hard = []
+    page = SITE / "404.html"
+    if not page.exists():
+        return hard
+    rel = [m for m in re.findall(r'(?:href|src)="([^"]*)"', page.read_text())
+           if m and not m.startswith(("/", "http://", "https://", "mailto:", "#", "data:"))]
+    if rel:
+        hard.append(f"  ✗ 404.html: {len(rel)} relative path(s) ({', '.join(sorted(set(rel))[:4])}"
+                    f"{'…' if len(set(rel)) > 4 else ''}) — 404 is served at arbitrary depth, so these "
+                    f"resolve against the bogus URL and break. Use root-absolute paths.")
+    return hard
+
+
 def scan_draft_pages() -> list[str]:
     """Static hosting publishes every file in the repo: there is no
     drafts-do-not-ship step. product.copydraft.html went live with a title tag
@@ -519,8 +541,9 @@ def main() -> int:
     canon = scan_canonicals()
     drafts = scan_draft_pages()
     pricedrift = scan_schema_price_drift()
-    seo = canon + drafts + pricedrift
-    print("\n".join(seo) if seo else "  ✓ one canonical per page, no draft pages shipped, schema price matches the page")
+    abs404 = scan_404_absolute_paths()
+    seo = canon + drafts + pricedrift + abs404
+    print("\n".join(seo) if seo else "  ✓ canonicals, no draft pages, schema price matches, 404 paths absolute")
 
     print("\n── DEAD ASSETS (advisory — unreferenced css/js files) ──")
     dead = scan_dead_assets()

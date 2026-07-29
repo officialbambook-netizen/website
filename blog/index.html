@@ -3,18 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--
-    404 page. Served for any unmatched route, at any path depth, so every
-    href/src below is root-absolute (/css/…, /product) rather than relative.
-    path depth. Page links use .html targets to keep the static verifier green.
-    A relative path here resolves against the bogus URL and breaks the page.
-  -->
-  <meta name="robots" content="noindex" />
   <script src="/js/meta-pixel.js?v=9bd4bc7d"></script>
   <noscript><img height="1" width="1" hidden alt="" src="https://www.facebook.com/tr?id=890745560218621&ev=PageView&noscript=1" /></noscript>
-  <title>MyBambook | הדף לא נמצא</title>
-  <meta name="description" content="הדף שחיפשתם לא נמצא באתר MyBambook. אפשר לחזור לדף הבית, לעמוד הכפפות או לשאלות הנפוצות." />
+  <title>הבלוג של MyBambook | על ידיים, נוקשות ותמיכה יומיומית</title>
+  <meta name="description" content="כתיבה פשוטה ומעשית על ידיים שכואבות: למה הבוקר קשה, מה עושה עומס יומיומי לכף היד, ואיפה תמיכה נכנסת לתמונה." />
   <meta property="og:locale" content="he_IL" />
+  <link rel="canonical" href="https://mybambook.com/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MyBambook" />
+  <meta property="og:title" content="הבלוג של MyBambook | על ידיים, נוקשות ותמיכה יומיומית" />
+  <meta property="og:description" content="כתיבה פשוטה ומעשית על ידיים שכואבות: למה הבוקר קשה, מה עושה עומס יומיומי לכף היד, ואיפה תמיכה נכנסת לתמונה." />
+  <meta property="og:url" content="https://mybambook.com/blog/" />
+  <meta property="og:image" content="https://mybambook.com/assets/mybambook-og-share-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "הבלוג של MyBambook",
+    "url": "https://mybambook.com/blog/",
+    "inLanguage": "he-IL",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MyBambook",
+      "url": "https://mybambook.com/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -22,6 +39,7 @@
   <link rel="stylesheet" href="/css/base.css?v=07bcde07" />
   <link rel="stylesheet" href="/css/mybambook-theme.css?v=cc47ab67" />
   <link rel="stylesheet" href="/css/policy.css?v=c69f2621" />
+  <link rel="stylesheet" href="/css/blog.css?v=1" />
   <link rel="stylesheet" href="/css/components/main-menu.css?v=40452949">
   <link rel="stylesheet" href="/css/components/footer.css?v=5673687a">
   <script src="/js/main-menu.js?v=150500c2" defer></script>
@@ -47,33 +65,36 @@
 
   <main>
 
-    <!-- Hero -->
     <div class="policy-hero" id="top">
       <div class="policy-hero__inner">
-        <span class="policy-hero__eyebrow">MyBambook &middot; שגיאה 404</span>
-        <h1 class="policy-hero__title">הדף הזה <em>לא נמצא</em></h1>
+        <span class="policy-hero__eyebrow">MyBambook &middot; הבלוג</span>
+        <h1 class="policy-hero__title">על ידיים, <em>ועל מה שהן עוברות</em></h1>
       </div>
     </div>
 
-    <!-- Body -->
     <div class="policy-body">
       <div class="policy-prose">
 
-        <p class="policy-intro">יכול להיות שהקישור השתנה, או שנפלה טעות קטנה בכתובת.</p>
+        <p class="policy-intro">כתיבה פשוטה על דברים שאנשים חווים בידיים ולא תמיד מדברים עליהם. בלי דרמה רפואית ובלי הבטחות, רק הסבר ישר ומה אפשר לעשות עם זה בפועל.</p>
 
-        <div class="policy-section">
-          <div class="policy-section__hd">
-            <span class="policy-section__num">מכאן</span>
-            <h2 class="policy-section__title">לאן ממשיכים</h2>
-          </div>
-          <p>אפשר לחזור ל<a href="/">דף הבית</a>, לעבור ישירות ל<a href="/product">עמוד הכפפות</a>, או להציץ ב<a href="/faq">שאלות הנפוצות</a>. אם הגעתם לכאן מקישור שנשלח אליכם ומשהו נראה שבור, כתבו לנו ונתקן.</p>
+        <div class="blog-list">
+
+          <article class="blog-card">
+            <figure class="blog-card__media">
+              <img src="/assets/mybambook-og-share-1200x630.jpg" alt="זוג יושב על הספה עם כפפות קומפרסיה אפורות ומחזיק ספלי קפה" loading="lazy" decoding="async">
+            </figure>
+            <div class="blog-card__body">
+              <p class="blog-card__eyebrow">29 ביולי 2026</p>
+              <h2 class="blog-card__title"><a href="/blog/morning-hand-stiffness">למה הידיים נוקשות דווקא בבוקר</a></h2>
+              <p class="blog-card__excerpt">קמים בבוקר והיד לא ממש נסגרת. מה קורה לידיים במהלך הלילה, למי זה קורה יותר, ומה מקצר את הזמן שלוקח ליד להיפתח.</p>
+              <a class="blog-card__more" href="/blog/morning-hand-stiffness">לקריאה &#8592;</a>
+            </div>
+          </article>
+
         </div>
 
-        <!-- Contact card -->
-        <div class="policy-contact">
-          <span class="policy-contact__eyebrow">צריכים עזרה</span>
-          <p>לא מצאתם את מה שחיפשתם? כתבו לנו ונעזור.</p>
-          <p><a href="mailto:support@mybambook.com" dir="ltr">support@mybambook.com</a></p>
+        <div class="policy-back">
+          <a href="/">&#8592; חזרה לדף הבית</a>
         </div>
 
       </div>

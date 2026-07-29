@@ -1,0 +1,141 @@
+/* ============================================================
+   BLOG — hub listing only.
+   The article pages reuse .policy-* (policy.css) wholesale: it is
+   already a prose layout in the brand system, so a post needs no
+   new CSS. This file covers the one thing policy.css has no
+   pattern for, a list of posts.
+   ============================================================ */
+
+.blog-list {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-10);
+}
+
+@media (min-width: 780px) {
+  .blog-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  /* A single post in a two-column grid leaves a hole beside it and reads
+     unfinished. Centre it instead. Reverts to the grid on its own as soon as
+     a second post exists, so this needs no maintenance. */
+  .blog-card:only-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 34rem;
+  }
+}
+
+.blog-card {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.blog-card__media {
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+}
+
+.blog-card__media img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  width: 100%;
+}
+
+.blog-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+
+.blog-card__eyebrow {
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.blog-card__title {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.blog-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-card__title a:hover,
+.blog-card__title a:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.blog-card__excerpt {
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.blog-card__more {
+  color: var(--accent-emphasis);
+  font-family: var(--font-sans);
+  font-size: var(--fs-footer);
+  font-weight: 700;
+  margin-top: auto;
+  padding-top: var(--space-3);
+  text-decoration: none;
+}
+
+.blog-card__more:hover,
+.blog-card__more:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* Article footer CTA back to the product, shared by every post. */
+.blog-cta {
+  background: var(--surface-alt);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--radius);
+  margin-top: var(--space-12);
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.blog-cta__title {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  margin: 0 0 var(--space-3);
+}
+
+.blog-cta p {
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  margin: 0 auto var(--space-6);
+  max-width: 46ch;
+}
