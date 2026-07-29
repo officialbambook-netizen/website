@@ -1,43 +1,17 @@
 # MyBambook — robots.txt
 #
-# NOTE: Cloudflare also injects a managed robots.txt for this domain. If this
-# file does not appear at https://mybambook.com/robots.txt after deploy, the
-# Cloudflare edge version is winning and the Sitemap line below must instead be
-# added via the Cloudflare dashboard. Either way the sitemap is submitted
-# directly in Google Search Console, which is the authoritative route.
+# Cloudflare PREPENDS its own managed block to this file (verified 2026-07-29):
+# the Content-Signal line, Allow: /, and the AI-training crawler blocks
+# (GPTBot, ClaudeBot, CCBot, Google-Extended, Amazonbot, Bytespider,
+# Applebot-Extended, meta-externalagent, CloudflareBrowserRenderingCrawler).
+#
+# So this file must only add what Cloudflare does NOT provide. Do not restate
+# the AI-crawler block here: it gets served twice and the file becomes noise.
+#
+# Those blocks affect AI *training* crawlers only. Googlebot and Bingbot are
+# unaffected and index the site normally.
 
 Sitemap: https://mybambook.com/sitemap.xml
 
 User-agent: *
-Allow: /
 Disallow: /preview/
-
-# AI training crawlers — blocked (mirrors the Cloudflare managed block).
-# These are training crawlers, not search crawlers: Googlebot and Bingbot are
-# unaffected and continue to index the site normally.
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: CloudflareBrowserRenderingCrawler
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: meta-externalagent
-Disallow: /
