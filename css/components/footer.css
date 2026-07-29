@@ -151,36 +151,6 @@
   letter-spacing: inherit;
 }
 
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
-}
-
-.socials a {
-  align-items: center;
-  border: 1px solid rgba(201, 154, 93, 0.46);
-  border-radius: 50%;
-  color: rgba(255, 249, 240, 0.72);
-  display: inline-flex;
-  font-size: var(--fs-eyebrow);
-  font-weight: 800;
-  height: var(--space-10);
-  justify-content: center;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  width: var(--space-10);
-}
-
-.socials a:hover,
-.socials a:focus-visible {
-  background: rgba(201, 154, 93, 0.12);
-  border-color: rgba(201, 154, 93, 0.9);
-  color: var(--gold);
-  transform: translateY(-1px);
-}
-
 .email-form {
   background: rgba(255, 249, 240, 0.08);
   border: 1px solid rgba(255, 249, 240, 0.16);
