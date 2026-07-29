@@ -23,6 +23,7 @@ Usage (from site/):
 
 No dependencies. Reads tokens.css to know the legal palette/scale.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -369,6 +370,85 @@ def scan_slop() -> list[str]:
     return out
 
 
+def scan_schema_price_drift() -> list[str]:
+    """Product JSON-LD hardcodes a price range while site rule 7 says pricing is
+    served by Shopify. That trade was accepted (operator, 2026-07-29) on the
+    condition that drift becomes a loud failure instead of a silent one: schema
+    saying 179 while the page renders 199 is a Google policy problem, not a typo.
+    Fails when lowPrice/highPrice stop matching the prices visible in the page.
+    """
+    hard = []
+    page = SITE / "product.html"
+    if not page.exists():
+        return hard
+    text = page.read_text()
+
+    block = re.search(r'<script type="application/ld\+json" id="product-schema">(.*?)</script>',
+                      text, re.S)
+    if not block:
+        return hard
+    try:
+        schema = json.loads(block.group(1))
+    except json.JSONDecodeError as err:
+        hard.append(f"  ✗ product.html: #product-schema is not valid JSON ({err}) "
+                    f"— Google silently discards a malformed block, so this is a total loss of the markup.")
+        return hard
+
+    offers = schema.get("offers") or {}
+    low, high = offers.get("lowPrice"), offers.get("highPrice")
+    if low is None or high is None:
+        return hard
+
+    # Compare against prices RENDERED to the customer only. Strip <script> bodies
+    # and HTML comments first: a superseded pricing scheme mentioned in a code
+    # comment is not a price anyone sees, and scanning it produced a false fail.
+    body = text[:block.start()] + text[block.end():]
+    body = re.sub(r"<script\b.*?</script>", " ", body, flags=re.S | re.I)
+    body = re.sub(r"<!--.*?-->", " ", body, flags=re.S)
+
+    rendered = {m for m in re.findall(r"(\d{2,5})(?:&nbsp;|&rlm;|\s)*₪", body)}
+    if not rendered:
+        return hard
+
+    numeric = sorted(int(p) for p in rendered)
+    if str(numeric[0]) != str(low) or str(numeric[-1]) != str(high):
+        hard.append(
+            f"  ✗ product.html: Product schema advertises {low}–{high} ILS but the page renders "
+            f"{numeric[0]}–{numeric[-1]} ILS — update the #product-schema block to match the visible "
+            f"prices (schema must never claim a price the customer is not shown).")
+    return hard
+
+
+def scan_canonicals() -> list[str]:
+    """Every indexable page needs exactly one self-referencing canonical.
+    Zero lets duplicate URLs (query strings, www) compete; two makes Google
+    ignore both, which is worse than none.
+    """
+    hard = []
+    for f in sorted(SITE.glob("*.html")):
+        if f.name == "404.html":          # error page: intentionally has none
+            continue
+        n = len(re.findall(r'<link\s+rel="canonical"', f.read_text()))
+        if n == 0:
+            hard.append(f"  ✗ {f.name}: no canonical tag — duplicate URLs of this page can compete with it.")
+        elif n > 1:
+            hard.append(f"  ✗ {f.name}: {n} canonical tags — Google ignores all of them when they conflict.")
+    return hard
+
+
+def scan_draft_pages() -> list[str]:
+    """Static hosting publishes every file in the repo: there is no
+    drafts-do-not-ship step. product.copydraft.html went live with a title tag
+    identical to product.html and competed with it (CODER_BUGLOG 2026-07-29).
+    """
+    hard = []
+    for f in sorted(SITE.glob("*.html")):
+        if re.search(r"(copydraft|\.draft|_draft|_backup|\.bak|-old|_old)", f.name, re.I):
+            hard.append(f"  ✗ {f.name}: draft/backup page in the deployable tree — static hosting "
+                        f"publishes it. Delete it (git is the backup) or it competes with the real page.")
+    return hard
+
+
 def scan_html() -> list[str]:
     out = []
     for f in sorted(SITE.glob("*.html")):
@@ -435,12 +515,19 @@ def main() -> int:
     abspaths = scan_absolute_paths()
     print("\n".join(abspaths) if abspaths else "  ✓ no hardcoded /Users/ paths in tools/ or js/")
 
+    print("\n── SEO INTEGRITY (canonicals, draft pages, schema/price drift) ──")
+    canon = scan_canonicals()
+    drafts = scan_draft_pages()
+    pricedrift = scan_schema_price_drift()
+    seo = canon + drafts + pricedrift
+    print("\n".join(seo) if seo else "  ✓ one canonical per page, no draft pages shipped, schema price matches the page")
+
     print("\n── DEAD ASSETS (advisory — unreferenced css/js files) ──")
     dead = scan_dead_assets()
     print("\n".join(dead) if dead else "  ✓ every css/js file is referenced somewhere")
 
     hard_count = (len(hard) + len(jhard) + len([h for h in html if h.strip().startswith("✗")])
-                  + len(thard) + len(pixel) + len(dupes) + len(abspaths))
+                  + len(thard) + len(pixel) + len(dupes) + len(abspaths) + len(seo))
     print(f"\n{'STRICT: ' if strict else ''}{hard_count} hard issue(s), "
           f"{len(soft) + len(jsoft) + len(scatter) + len(tsoft)} debt/scatter note(s).")
     return 1 if (strict and hard_count) else 0
