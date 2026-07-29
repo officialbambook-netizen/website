@@ -16,14 +16,16 @@
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
   <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7">
   <link rel="stylesheet" href="css/base.css?v=07bcde07">
-  <link rel="stylesheet" href="css/product.css?v=55220cc3">
+  <link rel="stylesheet" href="css/product.css?v=4ddfaaa3">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=f70918c6">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=60af53c5">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=542eb696">
-  <link rel="stylesheet" href="css/sections/home-fair-question.css?v=4054afe0">
-  <link rel="stylesheet" href="css/sections/home-final-cta.css?v=8341af5f">
+  <link rel="stylesheet" href="css/sections/home-fair-question.css?v=dca18957">
+  <link rel="stylesheet" href="css/sections/home-final-cta.css?v=2fa19062">
+  <link rel="stylesheet" href="css/sections/product-funnel.css?v=c01bfe0e">
+  <link rel="stylesheet" href="css/sections/product-reviews.css?v=5ab2340a">
   <link rel="stylesheet" href="css/components/footer.css?v=1d3a7535">
   <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
 </head>
@@ -44,7 +46,7 @@
   ================================================= -->
   <header class="bambook-main-menu" aria-label="ניווט ראשי">
     <button class="bambook-menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="bambook-primary-nav" onclick="toggleBambookMenu(this)">&#9776;</button>
-    <a href="index.html" class="bambook-brand bambook-brand--mybambook" aria-label="MyBambook — דף הבית">
+    <a href="index.html" class="bambook-brand bambook-brand--mybambook" aria-label="MyBambook, דף הבית">
       <strong><span>My</span><span class="bambook-brand__bamboo">Bambook</span></strong>
       <span>כפפות קומפרסיה</span>
     </a>
@@ -80,16 +82,16 @@
             <img src="assets/product-gallery/03-consumer-results-green.png" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 4" onclick="setGal(3)" role="listitem">
-            <img src="assets/product-gallery/04-kitchen-cooking.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/04-kitchen-cooking-v2.webp" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 5" onclick="setGal(4)" role="listitem">
-            <img src="assets/product-gallery/05-reading-tea.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/05-reading-tea-v2.webp" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 6" onclick="setGal(5)" role="listitem">
-            <img src="assets/product-gallery/06-laptop-typing.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/06-laptop-typing-v2.webp" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 7" onclick="setGal(6)" role="listitem">
-            <img src="assets/product-gallery/07-smartphone-use.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/07-smartphone-use-v2.webp" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 8" onclick="setGal(7)" role="listitem">
             <img src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="" loading="lazy">
@@ -101,10 +103,10 @@
           <img class="gal-image is-active" data-gal-image src="assets/product-gallery/01-daily-actions.jpg" alt="ידיים לובשות כפפות קומפרסיה אפורות של MyBambook בפעולות יומיומיות" loading="eager" decoding="async" fetchpriority="high">
           <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-trim="edge" src="assets/product-gallery/02-natural-breathable-support.png" alt="אישה לובשת כפפות קומפרסיה אפורות ליד מחשב" loading="lazy" decoding="async">
           <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" data-gallery-position="top" src="assets/product-gallery/03-consumer-results-green.png" alt="אינפוגרפיקת תוצאות משתמשים בעברית" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking.webp" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea.webp" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing.webp" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use.webp" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
           <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="מדריך מידות בעברית למדידת היקף מפרקי האצבעות: S ‏15–18 ס״מ, M ‏18–20 ס״מ, L ‏20–23 ס״מ" loading="lazy" decoding="async">
           <!-- Everyday support badge overlaid on image -->
           <div class="pdp-hero__gal-badge" aria-hidden="true">
@@ -128,14 +130,14 @@
 
         <!-- Rating + reviews on one line -->
         <div class="pdp-hero__meta">
-          <a href="#faq" class="pdp-hero__rating" aria-label="דירוג 4.8 מתוך 5, 359 ביקורות">
+          <a href="#faq" class="pdp-hero__rating" aria-label="דירוג 4.8 מתוך 5, 71 ביקורות">
             <span class="pdp-hero__stars" aria-hidden="true">★★★★★</span>
-            <span class="pdp-hero__rating-text">4.8 · 359 ביקורות</span>
+            <span class="pdp-hero__rating-text">4.8 · 71 ביקורות</span>
           </a>
         </div>
 
         <!-- H1 + subhead -->
-        <h1 class="pdp-hero__title">כפפות <em>קומפרסיה</em> Bambook</h1>
+        <h1 class="pdp-hero__title">כפפות לחץ My<em>Bambook</em></h1>
 
         <p class="pdp-hero__subhead">כפפות קומפרסיה עדינות לידיים שכואבות בסוף היום ומרגישות נוקשות עוד לפני שקמתם. רכות מספיק ללבישה לאורך הלילה, פתוחות מספיק להמשיך לעשות הכול כרגיל.</p>
 
@@ -177,14 +179,14 @@
                 </div>
                 <span class="pdp-hero__price-badge">אחריות 60 יום</span>
               </div>
-              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־249&nbsp;₪ — אחד ליום, אחד ללילה. שלושה ב־299&nbsp;₪, ארבעה ב־349&nbsp;₪.</p>
-              <p class="pdp-hero__price-refill">בחרו מידה למטה, ואז החליטו כמה זוגות מתאימים לשגרה שלכם.</p>
+              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־249&nbsp;₪, אחד ליום ואחד ללילה. שלושה ב־299&nbsp;₪, ארבעה ב־349&nbsp;₪.</p>
+              <p class="pdp-hero__price-refill">בחרו כמה זוגות מתאימים לשגרה שלכם, ואז התאימו מידה לכל זוג.</p>
             </div>
 
-            <!-- Size picker + qty stepper -->
+            <!-- Size picker(s) — one per pair, count driven by the bundle selection below -->
             <div class="pdp-hero__options-row">
-              <div class="pdp-hero__size-area">
-                <!-- JS injects size picker here — leave empty -->
+              <div class="pdp-hero__size-area" id="fit">
+                <!-- JS injects size picker(s) here — leave empty -->
                 <div class="color-options" id="size-options" aria-live="polite"></div>
                 <button class="pdp-hero__size-guide-link" type="button" id="size-guide-toggle" aria-expanded="false" aria-controls="pdp-size-guide">
                   מדריך מידות
@@ -197,15 +199,6 @@
                   <figure class="pdp-size-guide__chart">
                     <img src="assets/mybambook-size-guide-hebrew.svg" alt="טבלת מידות לכפפות MyBambook: S ‏15–18 ס״מ, M ‏18–20 ס״מ, L ‏20–23 ס״מ." loading="lazy">
                   </figure>
-                </div>
-              </div>
-
-              <div class="pdp-hero__qty-wrap">
-                <span class="pdp-hero__qty-label">כמות</span>
-                <div class="qty-stepper" role="group" aria-label="מספר זוגות כפפות">
-                  <button class="qty-btn" id="qty-minus" type="button" aria-label="הפחתת כמות" onclick="changeQty(-1)" disabled>−</button>
-                  <span class="qty-count" id="qty-display" aria-live="polite">1</span>
-                  <button class="qty-btn" id="qty-plus" type="button" aria-label="הוספת כמות" onclick="changeQty(1)">+</button>
                 </div>
               </div>
             </div>
@@ -232,8 +225,8 @@
                   <span class="filter-bundle-card-sub">&rlm;349&nbsp;₪</span>
                 </div>
               </div>
-              <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד — 179&nbsp;₪.</p>
-              <p class="pdp-hero__price-refill">בהזמנת 2 זוגות ומעלה — מדריך טיפוח הידיים הדיגיטלי מצורף במתנה.</p>
+              <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד: 179&nbsp;₪.</p>
+              <p class="pdp-hero__price-refill">בהזמנת 2 זוגות ומעלה מצורף במתנה מדריך טיפוח הידיים הדיגיטלי.</p>
             </div>
 
             <!-- Cart status -->
@@ -249,7 +242,7 @@
             </div>
 
             <!-- Guarantee line -->
-            <p class="pdp-hero__guarantee-line">נסו אותן 60 יום. אם הן לא מתאימות לידיים שלכם — פשוט מחזירים.</p>
+            <p class="pdp-hero__guarantee-line">נסו אותן 60 יום. אם הן לא מתאימות לידיים שלכם, פשוט מחזירים.</p>
 
             <!-- Trust row -->
             <div class="pdp-hero__trust" aria-label="הבטחות רכישה">
@@ -278,10 +271,10 @@
             <details class="pdp-obj__details">
               <summary class="pdp-obj__summary">
                 <span class="pdp-obj__check" aria-hidden="true">✓</span>
-                <span class="pdp-obj__lead">האם הכפפות יתאימו לידיים שלי?</span>
+                <span class="pdp-obj__lead">ניסינו כבר הכל. למה שדווקא זה יעזור?</span>
                 <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </summary>
-              <p class="pdp-obj__sub">הגזרה הנמתחת ללא אצבעות יושבת צמוד — בלי להפריע להקלדה, למטלות או למשימות היומיום.</p>
+              <p class="pdp-obj__sub">כי זה עובד אחרת מכל השאר: לא משהו שנספג ונגמר, אלא תמיכה שלובשים, כזאת שממשיכה לעבוד בזמן שאתם ישנים, מקלידים או מבשלים. והיא מצטרפת לטיפול שלכם, לא מחליפה אותו.</p>
             </details>
           </li>
 
@@ -289,10 +282,10 @@
             <details class="pdp-obj__details">
               <summary class="pdp-obj__summary">
                 <span class="pdp-obj__check" aria-hidden="true">✓</span>
-                <span class="pdp-obj__lead">אפשר ללבוש אותן תוך כדי פעילות?</span>
+                <span class="pdp-obj__lead">מה אם זה יהיה הדוק מדי ויחסום את זרימת הדם?</span>
                 <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </summary>
-              <p class="pdp-obj__sub">כן. הצורה עם האצבעות הפתוחות משאירה את קצות האצבעות חופשיים — מקלידים, גוללים, מבשלים, קוראים וממשיכים בשגרה.</p>
+              <p class="pdp-obj__sub">לחיצה ממוקדת אמורה להרגיש כמו יד יציבה שאוחזת, לא כמו חוסם. מודדים את היקף פרקי האצבעות, ואם קצות האצבעות נרדמים או משנים צבע, המידה קטנה מדי. זה לא משהו שצריך "להתרגל" אליו.</p>
             </details>
           </li>
 
@@ -300,145 +293,17 @@
             <details class="pdp-obj__details">
               <summary class="pdp-obj__summary">
                 <span class="pdp-obj__check" aria-hidden="true">✓</span>
-                <span class="pdp-obj__lead">מה עושים אם אני בין מידות?</span>
+                <span class="pdp-obj__lead">ומה אם זה פשוט לא יתאים לנו?</span>
                 <svg class="pdp-obj__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </summary>
-              <p class="pdp-obj__sub">מודדים סביב פרקי האצבעות: מידה S — ‏15–18 ס״מ, מידה M — ‏18–20 ס״מ, מידה L — ‏20–23 ס״מ. חשוב לדייק — צמוד מדי מרגיש חונק, רפוי מדי לא נותן תמיכה. כשמתלבטים, מודדים פעמיים לפני שמזמינים.</p>
+              <p class="pdp-obj__sub">יש לכם 60 יום. תלבשו, תישנו ותעבדו איתן שבועיים. אם זה לא נתן לכם כלום, מחזירים ומקבלים את הכסף בחזרה. זה כל הסיכון.</p>
             </details>
           </li>
 
         </ul><!-- /.pdp-objections -->
 
-        <!-- Community stats -->
-        <div class="pdp-community-stats">
-          <span class="eyebrow eyebrow--ruled">שימוש יומיומי</span>
-          <h3 class="pdp-community-stats__hd">נבנו לרגעי הידיים הקטנים <em>שמצטברים</em></h3>
-          <div class="pdp-community-stats__grid">
-            <div class="pdp-community-stat">
-              <span class="pdp-community-stat__num">01</span>
-              <span class="pdp-community-stat__label">נוקשות של בוקר</span>
-            </div>
-            <div class="pdp-community-stat">
-              <span class="pdp-community-stat__num">02</span>
-              <span class="pdp-community-stat__label">שעות הקלדה</span>
-            </div>
-            <div class="pdp-community-stat">
-              <span class="pdp-community-stat__num">03</span>
-              <span class="pdp-community-stat__label">סידורים ומטלות</span>
-            </div>
-            <div class="pdp-community-stat">
-              <span class="pdp-community-stat__num">04</span>
-              <span class="pdp-community-stat__label">רגיעה של ערב</span>
-            </div>
-          </div>
-        </div><!-- /.pdp-community-stats -->
-
-        <!-- Everyday support moments — compact 2x2 -->
-        <div class="pdp-benefits" id="fit">
-          <p class="pdp-benefits__intro"><em>תמיכה</em> איפה שהיום באמת קורה.</p>
-          <h3 class="pdp-benefits__hd">נועדו לרגעי הידיים <em>שחוזרים על עצמם.</em></h3>
-          <div class="pdp-ben-grid">
-
-            <div class="pdp-ben-card">
-              <div class="pdp-ben-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="20" x2="21" y2="20"/><circle cx="7" cy="9" r="2.5"/><circle cx="13" cy="6" r="2"/><circle cx="18" cy="10" r="3"/></svg>
-              </div>
-              <strong class="pdp-ben-title">הקלדה</strong>
-              <p class="pdp-ben-body">קצות אצבעות פתוחים משאירים מקלדת, משטח מגע ומסך זמינים — בזמן שהכפפה נשארת צמודה סביב כף היד.</p>
-            </div>
-
-            <div class="pdp-ben-card">
-              <div class="pdp-ben-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="20" x2="21" y2="20"/><circle cx="6" cy="13" r="1.5"/><circle cx="11" cy="13" r="1.5"/><circle cx="16" cy="13" r="1.5"/><circle cx="8.5" cy="9" r="1.5"/><circle cx="13.5" cy="9" r="1.5"/><circle cx="18.5" cy="9" r="1.5"/></svg>
-              </div>
-              <strong class="pdp-ben-title">מטלות בית</strong>
-              <p class="pdp-ben-body">זוג פשוט שאפשר להשאיר בהישג יד למטלות הקטנות של הבית — אלה שמצטברות בשקט.</p>
-            </div>
-
-            <div class="pdp-ben-card">
-              <div class="pdp-ben-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="20" x2="21" y2="20"/><path d="M3 17 L6 10 L9 14 L12 7 L15 13 L18 9 L21 17"/></svg>
-              </div>
-              <strong class="pdp-ben-title">סידורים</strong>
-              <p class="pdp-ben-body">דקות מספיק ללבוש בזמן סחיבת שקיות, נהיגה, הליכה או סתם יום עמוס בחוץ.</p>
-            </div>
-
-            <div class="pdp-ben-card">
-              <div class="pdp-ben-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="20" x2="21" y2="20"/><path d="M3 17 C4 14 6 15 8 12 C9 10 10 11 12 9 C14 7 15 10 17 11 C19 12 20 14 21 17"/></svg>
-              </div>
-              <strong class="pdp-ben-title">מנוחה</strong>
-              <p class="pdp-ben-body">תמיכה רכה לקריאה, גלילה, סריגה או רגיעה של ערב — כשהידיים סוף־סוף מאטות.</p>
-            </div>
-
-          </div>
-
-          <div class="pdp-stage-footer">
-            <p class="pdp-stage-footer__label">ארבעה רגעי <em>לבישה יומיומיים</em></p>
-            <div class="pdp-stage-track">
-              <div class="pdp-stage-node is-active" data-stage="0" role="button" tabindex="0" aria-label="רגע לבישה 1: עבודה"><span class="pdp-stage-node__dot"></span><span class="pdp-stage-node__name">שולחן<br>עבודה</span></div>
-              <div class="pdp-stage-node pdp-stage-node--line" data-stage="1" role="button" tabindex="0" aria-label="רגע לבישה 2: בית"><span class="pdp-stage-node__dot"></span><span class="pdp-stage-node__name">מטלות<br>בית</span></div>
-              <div class="pdp-stage-node pdp-stage-node--line" data-stage="2" role="button" tabindex="0" aria-label="רגע לבישה 3: בחוץ"><span class="pdp-stage-node__dot"></span><span class="pdp-stage-node__name">בחוץ<br>ובדרכים</span></div>
-              <div class="pdp-stage-node pdp-stage-node--line" data-stage="3" role="button" tabindex="0" aria-label="רגע לבישה 4: מנוחה"><span class="pdp-stage-node__dot"></span><span class="pdp-stage-node__name">מנוחת<br>ערב</span></div>
-            </div>
-
-            <div class="pdp-stage-panels">
-              <div class="pdp-stage-panel is-active" data-panel="0">
-                <span class="pdp-stage-panel__num">01</span>
-                <strong class="pdp-stage-panel__name">שולחן עבודה</strong>
-                <span class="pdp-stage-panel__filters">הקלדה, כתיבה, שיחות</span>
-              </div>
-              <div class="pdp-stage-panel" data-panel="1">
-                <span class="pdp-stage-panel__num">02</span>
-                <strong class="pdp-stage-panel__name">מטלות בית</strong>
-                <span class="pdp-stage-panel__filters">מטלות, בישול, סידור</span>
-              </div>
-              <div class="pdp-stage-panel" data-panel="2">
-                <span class="pdp-stage-panel__num">03</span>
-                <strong class="pdp-stage-panel__name">בחוץ ובדרכים</strong>
-                <span class="pdp-stage-panel__filters">נהיגה, שקיות, סידורים</span>
-              </div>
-              <div class="pdp-stage-panel" data-panel="3">
-                <span class="pdp-stage-panel__num">04</span>
-                <strong class="pdp-stage-panel__name">מנוחת ערב</strong>
-                <span class="pdp-stage-panel__filters">קריאה, גלילה, תחביבים</span>
-              </div>
-            </div>
-          </div>
-        </div><!-- /.pdp-benefits -->
-
-        <!-- Why gentle compression belongs in the routine -->
-        <div class="pdp-mechanism">
-          <span class="eyebrow eyebrow--ruled">למה תמיכה יומית חשובה</span>
-          <h3 class="pdp-mechanism__hd">הידיים שלכם עושות את העבודה השקטה <em>כל היום.</em></h3>
-          <div class="pdp-mechanism__beats">
-
-            <div class="pdp-mechanism__beat">
-              <div class="pdp-mechanism__beat-hd">
-                <span class="pdp-mechanism__step">01</span>
-                <svg class="pdp-mechanism__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13z"/></svg>
-              </div>
-              <p class="pdp-mechanism__text"><strong>העומס הוא שגרתי.</strong> הקלדה, אחיזה, בישול, גלילה, הרמה וסידור לא מרגישים דרמטיים באותו רגע. הם פשוט חוזרים על עצמם.</p>
-            </div>
-
-            <div class="pdp-mechanism__beat">
-              <div class="pdp-mechanism__beat-hd">
-                <span class="pdp-mechanism__step">02</span>
-                <svg class="pdp-mechanism__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              </div>
-              <p class="pdp-mechanism__text"><strong>התמיכה חייבת להישאר מעשית.</strong> אם כפפה חוסמת את קצות האצבעות או מרגישה מסורבלת — מורידים אותה בדיוק כשהתכוונתם ללבוש אותה.</p>
-            </div>
-
-            <div class="pdp-mechanism__beat">
-              <div class="pdp-mechanism__beat-hd">
-                <span class="pdp-mechanism__step">03</span>
-                <svg class="pdp-mechanism__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="pdp-mechanism__text"><strong>הניצחון היומי הוא עקביות.</strong> כפפת קומפרסיה רכה וללא אצבעות יכולה לחיות בתוך השגרה — במקום להפוך לעוד דבר ששוכחים.</p>
-            </div>
-
-          </div>
-        </div><!-- /.pdp-mechanism -->
+        <!-- LOC / benefits / mechanism moved to full-width funnel sections below (see product-funnel.css) -->
+        <!-- pdp-stage script below is now inert (no .pdp-stage-node on page); left harmless. -->
 
       </div><!-- /.pdp-hero__buy-col -->
 
@@ -507,8 +372,73 @@
     </div>
   </div>
 
+  <!-- ================================================
+       A. CALLOUT + AGITATION  (funnel: LOW)
+  ================================================= -->
+  <section class="section--cream reveal-page pf pf-agitation">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">הרגעים הקטנים</span>
+      <h2 class="pf__title">כאבים בידיים גונבים לכם את <em>הרגעים הקטנים של היום?</em></h2>
+      <p class="pf__body">צנצנת שלא נפתחת. כפתור חולצה שלוקח שתי דקות. בוקר שהאצבעות פשוט לא נענות, עד שהן לאט לאט משתחררות. כל אחד מהרגעים האלה בנפרד הוא לא דרמה. הם פשוט חוזרים כל יום, ובשקט לוקחים דברים שפעם עשיתם בלי לחשוב: לפתוח, לאחוז, להקליד, לסרוג.</p>
+      <p class="pf__body">אולי כבר ניסיתם הכל: משחות שנספגות ונגמרות, כדורים, אפילו זריקה. וזה עוזר לכאב הגדול. אבל את הנוקשות הקטנה של היום־יום, את האצבעות שנתקעות בבוקר, שם רוב הדברים פשוט לא מגיעים. ואם מישהו בדרך אמר לכם "זה הגיל, צריך פשוט להתרגל", אתם יודעים בדיוק כמה זה מרגיז לשמוע.</p>
+      <p class="pf__body"><strong>יש דרך אחרת להתמודד עם הרגעים האלה. היא לא באה במקום מה שאתם כבר עושים, אלא לצידו.</strong></p>
+      <p class="pf-checklist__header">לחיצה ממוקדת מקלה על ההתמודדות היומיומית עם:</p>
+      <ul class="pf-checklist">
+        <li>דלקת פרקים (ארתריטיס)</li>
+        <li>אצבע הדק</li>
+        <li>גידים מודלקים</li>
+        <li>נוקשות בוקר</li>
+        <li>כאבי מפרקים</li>
+        <li>נפיחות</li>
+        <li>כאב עמום בכף היד</li>
+        <li>ידיים עייפות מעבודה או יצירה</li>
+      </ul>
+    </div>
+  </section>
 
+  <!-- ================================================
+       B. THE TURN / HOPE  (funnel: HIGH)
+  ================================================= -->
+  <section class="section--sand reveal-page pf pf-hope">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">יש מה לעשות</span>
+      <h2 class="pf__title">זה <em>לא חייב</em> להיות ככה.</h2>
+      <p class="pf__lead">טקס קטן בלילה. בוקר אחר לגמרי.</p>
+      <p class="pf__body">תארו לעצמכם בוקר שמתחיל אחרת: הצנצנת שנפתחת בלי מלחמה, הכפתור שלא לוקח שתי דקות, היד שפשוט עונה כשקוראים לה. לא כי משהו נעלם בן־לילה, אלא כי נתתם לידיים תמיכה שעבדה בשקט בזמן שישנתם.</p>
+      <p class="pf__body">לובשים את כפפות הבמבוק לפני השינה, והלחיצה הממוקדת מלווה את הידיים לאורך כל הלילה, בשביל בוקר עם פחות נוקשות וידיים שמוכנות ליום מוקדם יותר. זו לא הבטחה גדולה, זו הרגשה קטנה של שליטה שחוזרת בהדרגה.</p>
+    </div>
+  </section>
 
+  <!-- ================================================
+       C. HOW IT WORKS / MECHANISM  (funnel: HIGH / belief)
+  ================================================= -->
+  <section id="how-it-helps" class="section--cream reveal-page pf pf-mechanism">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">איך זה עובד</span>
+      <h2 class="pf__title">למה לחיצה ממוקדת <em>עוזרת לידיים</em></h2>
+      <p class="pf__body">שמתם לב שכשכף יד כואבת, היד השנייה כאילו מעצמה עוטפת אותה ולוחצת עליה? יש בתנועה הזאת היגיון: לחיצה יציבה פשוט מרגישה טוב ליד שכואבת. על העיקרון הזה בדיוק בנויה כפפת הקומפרסיה, רק שהיא עושה את זה לאורך כל היום, בלי שתצטרכו להחזיק.</p>
+      <p class="pf__body">הרעיון פשוט: הלחיצה הממוקדת של הכפפה מעודדת זרימת דם טובה יותר בכף היד, וזרימת דם טובה עוזרת להתמודד עם נפיחות, דלקת ונוקשות. במקום משהו שנספג ונגמר, זו תמיכה שאתם פשוט לובשים, כזאת שממשיכה לעבוד שעה אחרי שעה, בדיוק במפרקים שצריכים אותה.</p>
+      <p class="pf__body">והכי חשוב: קצות האצבעות נשארים פתוחים. ממשיכים להקליד, לבשל, לגלול ולסרוג, כי היד מקבלת תמיכה בלי לוותר על מה שהיא צריכה לעשות. <strong>הכפפה מצטרפת לכל מה שאתם כבר עושים, לא מחליפה אותו.</strong></p>
+    </div>
+  </section>
+
+  <!-- ================================================
+       D. BENEFITS + IMPACT  (funnel: HIGH)  + CTA #2
+  ================================================= -->
+  <section class="section--sand reveal-page pf pf-benefits-sec">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">מה זה משנה ביום־יום</span>
+      <h2 class="pf__title">תמיכה בדיוק <em>איפה שהיום קורה</em></h2>
+      <div class="pf-benefits__grid">
+        <div class="pf-benefit"><span class="pf-benefit__label">בעבודה</span><p class="pf-benefit__text">שעות מול המקלדת או הטלפון? קצות האצבעות פתוחים והיד נתמכת, וממשיכים לעבוד בלי שהיד תעצור אתכם באמצע.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">בבית</span><p class="pf-benefit__text">הכלים, הכביסה, הצנצנת שתמיד מתעקשת. אחיזה בטוחה ותמיכה ממוקדת עוזרות ליד להחזיק חזק, בלי המאמץ שכואב אחר כך.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">ביצירה</span><p class="pf-benefit__text">מסרגה, מחט, מכחול. קצות אצבעות פתוחים ותמיכה ממוקדת עוזרים ליד להחזיק מעמד לאורך זמן, בחזרה לדברים ולאנשים שאתם אוהבים.</p></div>
+        <div class="pf-benefit"><span class="pf-benefit__label">בלילה</span><p class="pf-benefit__text">כשהידיים סוף־סוף מאטות, לובשים לפני השינה. התמיכה ממשיכה לעבוד כל הלילה, לקראת בוקר עם פחות נוקשות.</p></div>
+      </div>
+      <p class="pf-benefits__close">הרגעים הקטנים שחוזרים אליכם הם מה שמרכיב יום שמרגיש שלכם שוב.</p>
+      <a href="#product" class="pf-cta">בחרו מידה והתחילו</a>
+    </div>
+  </section>
 
   <!-- Guarantee Certificate -->
   <div class="pdp-cert-wrap">
@@ -517,7 +447,7 @@
       <span aria-hidden="true" class="pdp-cert__rule pdp-cert__rule--bottom"></span>
       <p class="pdp-cert__label">האחריות של MyBambook</p>
       <p class="pdp-cert__head"><span class="pdp-cert__accent">60 יום.</span> בלי סיכון.</p>
-      <p class="pdp-cert__sub">אם הכפפות לא מרגישות נכונות לידיים שלכם — כתבו לנו. נחזיר לכם את הכסף, בלי טפסים מסובכים ובלי סיבובים מיותרים.</p>
+      <p class="pdp-cert__sub">אם הכפפות לא מרגישות נכונות לידיים שלכם, כתבו לנו. נחזיר לכם את הכסף, בלי טפסים מסובכים ובלי סיבובים מיותרים.</p>
     </div>
   </div>
 
@@ -531,7 +461,7 @@
     <div class="container two-col install-ease__grid">
 
       <figure class="install-ease__img">
-        <img src="assets/mybambook-desk-gloves-2026-07-07.png" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן הקלדה על מחשב נייד">
+        <img src="assets/mybambook-desk-gloves-salad-2026-07-28.webp" alt="ידיים לובשות כפפות קומפרסיה של MyBambook מערבבות סלט במטבח">
       </figure>
 
       <div class="install-ease__text">
@@ -585,92 +515,17 @@
     </div>
   </section>
 
-  <!-- ================================================
-       WHY OURS IS BETTER — COMPARISON TABLE
-  ================================================= -->
-  <section class="section--sand reveal-page c-d comparison-section comparison" id="how-it-helps">
-    <div class="section-inner">
-
-      <p class="eyebrow">למה שלנו טובות יותר</p>
-      <h2 class="comparison-title">לא כל <em>כפפות הקומפרסיה</em> מרגישות <em>אותו דבר</em></h2>
-
-      <div class="comparison-desktop-wrap">
-        <div class="comparison-table-shell comparison-desktop-only">
-          <div class="comparison-col-labels" aria-hidden="true">
-            <div></div>
-            <div class="comparison-col-head comparison-col-head--bambook">★ MyBambook</div>
-            <div class="comparison-col-head comparison-col-head--other">כפפות בסיסיות</div>
-          </div>
-          <table class="comparison-table" aria-label="MyBambook בהשוואה לכפפות קומפרסיה בסיסיות">
-            <colgroup><col><col><col></colgroup>
-            <tbody>
-              <tr><th scope="row">נועדו ל־</th><td>תמיכה יומית בידיים</td><td>לחיצה גנרית</td></tr>
-              <tr><th scope="row">אצבעות</th><td>פתוחות למשימות מגע</td><td>לרוב מסורבלות</td></tr>
-              <tr><th scope="row">רגעי לבישה</th><td>עבודה, מטלות, מנוחה</td><td>תחושה חד־פעמית</td></tr>
-              <tr><th scope="row">תחושת התאמה</th><td>צמודה וגמישה</td><td>לוחצת או רפויה</td></tr>
-              <tr><th scope="row">שגרה</th><td>קל להשאיר בהישג יד</td><td>קל לשכוח</td></tr>
-              <tr><th scope="row">עיצוב</th><td>שקט ולביש</td><td>מראה רפואי</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="comparison-mobile-only">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th class="cmo-th-bambook">★ MyBambook</th>
-              <th class="cmo-th-std">בסיסיות</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>תמיכה יומית בידיים</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>גזרה ללא אצבעות, נוחה למשימות</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>קלות בשימוש בבית</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>הכוונת מידות פשוטה</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>נבנו לשגרה אמיתית</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-            <tr><td>מראה שקט ולביש</td><td class="cmo-bambook"><span class="cmo-check">✓</span></td><td class="cmo-std"><span class="cmo-cross">✗</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================================================
-       A FAIR QUESTION
-  ================================================= -->
-  <section class="section--ivory reveal-page c-d fair-question">
-
-    <p class="eyebrow fair-question__eyebrow">שאלה הוגנת</p>
-    <h2 class="fair-question__title">"רגע — אי אפשר פשוט למצוא משהו זול יותר באינטרנט?"</h2>
-    <p class="fair-question__lead">שאלה <em>הוגנת</em>. הנה התשובה <em>הכנה</em>.</p>
-
-    <div class="section-inner fair-question__inner">
-
-      <div class="fair-question__card">
-        <div class="fair-question__body-wrap">
-          <p class="fair-question__body">כשמחפשים כפפות קומפרסיה זולות במקומות כמו אליאקספרס או אמזון, רואים שוב ושוב את אותן תלונות: בד שנפרם, חום מוגזם, בד שלא נושם מספיק, מידה שלא יושבת נכון, ותפרים שמתחילים ללחוץ בדיוק במקום הלא נכון. אלה בדיוק הדברים שחשבנו עליהם ב־MyBambook: כפפות מבד במבוק איכותי, בגזרה שנועדה לתת לחץ עדין ואחיד, עם תחושה רכה ונושמת יותר לשימוש יומיומי. לא עוד כפפה שמורידים אחרי כמה דקות — אלא זוג שאפשר באמת להשאיר על הידיים.</p>
-        </div>
-        <div class="fair-question__kicker-wrap">
-          <p class="fair-question__kicker"><em>זו</em> לא החלטה <em>זולה</em> יותר. זו החלטה <em>דחויה</em>.</p>
-        </div>
-      </div>
-
-      <a href="#product" class="fair-question__cta">לצפייה בכפפות</a>
-
-    </div>
-  </section>
+  <!-- Comparison table removed (awareness-mismatched; overlaps Fair Question) — plan 2026-07-24. -->
+  <!-- was id="how-it-helps" — now on the C. HOW IT WORKS / MECHANISM section above. -->
 
   <!-- ================================================
        BAMBOO BENEFITS CAROUSEL
   ================================================= -->
   <section class="section section--ivory reveal-page bamboo-benefits" aria-labelledby="bamboo-benefits-heading">
     <div class="bamboo-benefits__header">
-      <h2 id="bamboo-benefits-heading">למה במבוק כל כך מתאים לכפפות?</h2>
+      <h2 id="bamboo-benefits-heading">למה בחרנו דווקא בד במבוק?</h2>
       <span class="bamboo-benefits__rule" aria-hidden="true"></span>
-      <p>לבמבוק יש שילוב נדיר של רכות, נשימה ותחושה נעימה — בדיוק מה שכפפת קומפרסיה יומיומית צריכה.</p>
+      <p>בד במבוק קל ונושם, נעים על העור לאורך שעות. בדיוק מה שצריך ממוצר שנשאר על הידיים רוב היום.</p>
     </div>
 
     <div class="bamboo-benefits__marquee" aria-label="יתרונות בד הבמבוק">
@@ -678,97 +533,97 @@
         <div class="bamboo-benefits__group">
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד. פחות תחושת כבדות לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
-            <h3>ידידותי יותר לסביבה</h3>
-            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
-            <h3>סיב טבעי ונעים</h3>
-            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
-            <h3>רעננות יומיומית</h3>
-            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב, בלי טקסים מסובכים.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
-            <h3>ויסות חום</h3>
-            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
           </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד. פחות תחושת כבדות לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
-            <h3>ידידותי יותר לסביבה</h3>
-            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
-            <h3>סיב טבעי ונעים</h3>
-            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
-            <h3>רעננות יומיומית</h3>
-            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב, בלי טקסים מסובכים.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
-            <h3>ויסות חום</h3>
-            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
           </article>
         </div>
         <div class="bamboo-benefits__group" aria-hidden="true">
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-soft.png" alt="" loading="lazy">
-            <h3>רך במיוחד</h3>
-            <p>תחושה עדינה על עור הידיים, גם בלבישה ממושכת.</p>
+            <h3>בד במבוק נעים</h3>
+            <p>בד במבוק שנבחר לשימוש יומיומי, נעים על העור גם בלבישה ממושכת.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-antibacterial.png" alt="" loading="lazy">
-            <h3>תחושה נקייה יותר</h3>
-            <p>בד שנבחר לשימוש יומיומי, עם מגע נעים ופחות תחושת כבדות.</p>
+            <h3>קל ונושם</h3>
+            <p>בד קל שנושם עם היד. פחות תחושת כבדות לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-eco.png" alt="" loading="lazy">
-            <h3>ידידותי יותר לסביבה</h3>
-            <p>במבוק גדל מהר ודורש פחות משאבים ביחס לבדים רבים.</p>
+            <h3>סיב ממקור מתחדש</h3>
+            <p>במבוק הוא סיב טבעי שגדל מהר וממקור מתחדש.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-organic.png" alt="" loading="lazy">
-            <h3>סיב טבעי ונעים</h3>
-            <p>בחירה שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
+            <h3>סיב טבעי</h3>
+            <p>בחירה טבעית שמתאימה למוצר שנמצא על הידיים לאורך היום.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-fresh.png" alt="" loading="lazy">
-            <h3>רעננות יומיומית</h3>
-            <p>עוזר לשמור על תחושה מאווררת ונוחה יותר בשגרה.</p>
+            <h3>מתכבס במכונה</h3>
+            <p>נכנס לכביסה ומוכן שוב, בלי טקסים מסובכים.</p>
           </article>
           <article class="bamboo-benefit">
             <img src="assets/bamboo-benefit-thermo.png" alt="" loading="lazy">
-            <h3>ויסות חום</h3>
-            <p>מרגיש נעים יותר כשקריר, ופחות חונק כשהיום מתחמם.</p>
+            <h3>קצות אצבעות פתוחים</h3>
+            <p>הגזרה משאירה את קצות האצבעות חופשיים לכל משימה.</p>
           </article>
         </div>
       </div>
@@ -796,6 +651,660 @@
   </script>
 
   <!-- ================================================
+       CUSTOMER REVIEWS
+
+       Layout follows the operator's reference widget (2026-07-29):
+       heading, star summary + count + "write a review", then a
+       2-column masonry of cards (text block + square photo),
+       mirrored for RTL.
+
+       Cards render from the REVIEWS array in the script below.
+       That array is the only place reviews are edited.
+  ================================================= -->
+  <section class="pdp-reviews" aria-labelledby="pdp-reviews-heading">
+    <div class="pdp-reviews__inner">
+
+      <div class="pdp-reviews__head">
+        <span class="eyebrow pdp-reviews__eyebrow">ביקורות</span>
+        <h2 class="pdp-reviews__title" id="pdp-reviews-heading">מה הלקוחות <em>מספרים</em></h2>
+      </div>
+
+      <div class="pdp-reviews__summary" id="pdp-reviews-summary" hidden>
+        <div class="pdp-reviews__score">
+          <span class="pdp-reviews__stars" id="pdp-reviews-avg-stars" aria-hidden="true"></span>
+          <span class="pdp-reviews__count" id="pdp-reviews-count"></span>
+        </div>
+        <a class="pdp-reviews__cta" href="mailto:support@mybambook.com?subject=%D7%91%D7%99%D7%A7%D7%95%D7%A8%D7%AA%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A4%D7%A4%D7%95%D7%AA">כתבו ביקורת</a>
+      </div>
+
+      <div class="pdp-reviews__grid" id="pdp-reviews-grid"></div>
+
+      <div class="pdp-reviews__more-wrap" id="pdp-reviews-more-wrap" hidden>
+        <button class="pdp-reviews__more" id="pdp-reviews-more" type="button">עוד ביקורות</button>
+      </div>
+
+      <div class="pdp-reviews__empty" id="pdp-reviews-empty">
+        <p class="pdp-reviews__empty-title">הביקורות הראשונות בדרך</p>
+        <p class="pdp-reviews__empty-text">אנחנו רק יוצאים לדרך בישראל, ועדיין אין לנו ביקורות אמיתיות להראות כאן. ברגע שיהיו, הן יופיעו כאן עם שם, מידה ותמונה של מי שבאמת לבשו אותן. עד אז יש 60 יום להחזרה, אז אפשר פשוט לנסות ולראות מה הידיים אומרות.</p>
+        <a class="pdp-reviews__cta" href="mailto:support@mybambook.com?subject=%D7%91%D7%99%D7%A7%D7%95%D7%A8%D7%AA%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A4%D7%A4%D7%95%D7%AA">לשלוח ביקורת</a>
+      </div>
+
+    </div>
+
+    <template id="pdp-review-template">
+      <article class="pdp-review">
+        <div class="pdp-review__body">
+          <div class="pdp-review__head">
+            <span class="pdp-review__name"></span>
+            <span class="pdp-review__verified" title="רכישה מאומתת" aria-label="רכישה מאומתת">
+              <svg width="15" height="15" viewBox="0 0 24 24" role="img" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path class="pdp-review__check" d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="pdp-review__source"></span>
+          </div>
+          <span class="pdp-review__date"></span>
+          <div class="pdp-review__stars" role="img"></div>
+          <p class="pdp-review__text"></p>
+          <p class="pdp-review__meta"><span class="pdp-review__meta-label">סוג הפריט:</span><span class="pdp-review__meta-value"></span></p>
+        </div>
+        <figure class="pdp-review__media">
+          <img alt="" loading="lazy">
+        </figure>
+      </article>
+    </template>
+  </section>
+
+  <script>
+    /* ------------------------------------------------------------------
+       REVIEWS — the only place reviews are added or edited.
+
+       Verified entries must trace to a REAL order or a seeded tester who
+       actually used the product, with their consent, their own words,
+       and their own photo. Never mark a generated/curated entry as
+       verified, never emit it into JSON-LD review schema, and never
+       re-label another brand's reviews as ours (PROOF_LEDGER.md
+       "Customer testimonials / reviews: 0" + CLAIMS_RULES.md).
+       Gifted/seeded pairs must say so in `note`.
+
+       Photos live in assets/reviews/. Omit `photo` for a text-only
+       review. Add objects in this shape:
+
+       {
+         name:   'רות א.',
+         date:   '2026-07-14',            // ISO; rendered as d.M.yyyy
+         rating: 5,                       // 1..5
+         text:   'הביקורת במילים של הלקוח.',
+         item:   'M / במבוק אפור',
+         photo:  'reviews/FILENAME.webp', // optional
+         alt:    'תיאור התמונה',          // required when photo is set
+         source: 'לקוח מאומת',
+         verified: false,                  // true only for real consented reviews
+         note:   'זוג שהתקבל במתנה לבדיקה' // optional
+       }
+
+       The summary bar and the empty state swap automatically.
+    ------------------------------------------------------------------ */
+    const REVIEWS = [
+      {
+        name: 'דנה א.',
+        date: '2026-07-04',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אני עם אצבע הדק ודלקת פרקים, ובבוקר האצבעות היו קמות תפוסות ומעצבנות. עם הכפפות בלילה הרגשתי יותר הקלה בבוקר ופחות תקיעות באצבע. הכי אהבתי שלא צריך להוריד בשביל הטלפון.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/dana.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה בבית',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'דולב מ.',
+        date: '2026-06-28',
+        rating: 5,
+        claimType: 'safe',
+        text: 'בערב אחרי יום ארוך הידיים שלי מרגישות עמוסות. הלחיצה יציבה ולא חונקת, וזה עוזר לי לתת ליד קצת תמיכה כשאני נח. האצבעות נשארות חופשיות, וזה חשוב לי.',
+        item: 'L / במבוק אפור',
+        photo: 'reviews/dolev.webp',
+        alt: 'יד גבר לובשת כפפת קומפרסיה אפורה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אלעד ש.',
+        date: '2026-07-01',
+        rating: 5,
+        claimType: 'condition',
+        text: 'יש לי אי נוחות של התעלה הקרפלית, בעיקר אחרי הרבה הקלדה. הייתי סקפטי לגבי המידה, אבל כאן זה ישב טוב על כף היד. אני שם בערב ומרגיש פחות נימול ופחות עומס.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/elad.webp',
+        alt: 'כף יד פתוחה עם כפפת קומפרסיה אפורה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'חיים ר.',
+        date: '2026-06-25',
+        rating: 5,
+        claimType: 'safe',
+        text: 'בנסיעות ארוכות הידיים היו מתעייפות לי על ההגה. שמתי זוג באוטו, וזה נותן לכף היד תמיכה טובה בלי לסגור את האצבעות. פשוט יותר נוח להמשיך להחזיק את ההגה.',
+        item: 'L / במבוק אפור',
+        photo: 'reviews/haiim.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה ברכב',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אירית כ.',
+        date: '2026-07-09',
+        rating: 5,
+        claimType: 'safe',
+        text: 'הבוקר אצלי מתחיל לאט, כשהאצבעות עוד נוקשות. ניסיתי ללבוש לפני השינה כמה לילות ברצף, והקימה הרגישה פחות קשה. גם הבד נעים על העור.',
+        item: 'S / במבוק אפור',
+        photo: 'reviews/irit.webp',
+        alt: 'יד עם ציפורניים אדומות לובשת כפפת קומפרסיה אפורה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אירית ב.',
+        date: '2026-06-22',
+        rating: 5,
+        claimType: 'safe',
+        text: 'קניתי כי קמתי כמה פעמים עם יד תפוסה ולא ציפיתי ליותר מדי. מה שעזר לי זה בעיקר הלילה: לובשים, הולכים לישון, ובבוקר היד מרגישה פחות נעולה ופחות רגישה. הזמנתי עוד זוג כדי שיהיה אחד בכביסה.',
+        item: 'S / במבוק אפור',
+        photo: 'reviews/irit2.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה על מצעים כחולים',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'לבנה ד.',
+        date: '2026-07-11',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אני עם נוירופתיה בידיים, והאחיזה לפעמים מרגישה לא בטוחה. הכפפות עוזרות לי להרגיש יותר תמיכה כשאני קוראת או עושה דברים קטנים בבית. הן לא מפריעות לאצבעות.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/levana.webp',
+        alt: 'כפפת קומפרסיה אפורה על יד מעל מצעים פרחוניים',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'נטלי ג.',
+        date: '2026-06-18',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני עם מקלדת וטלפון רוב היום, ובערב הידיים כבר מבקשות מנוחה. הכפפות עוזרות לידיים להירגע בלי לעצור את העבודה. קצות האצבעות הפתוחים עושים את כל ההבדל.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/natalie.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה לצד שעון וצמידים',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'רמי ל.',
+        date: '2026-07-13',
+        rating: 5,
+        claimType: 'safe',
+        text: 'מדדתי לפי הטבלה ולקחתי L. יש לחץ, אבל לא כזה שמציק. אחרי עבודה עם הידיים זה עוזר לי להרגיש שכף היד מקבלת קצת גיבוי.',
+        item: 'L / במבוק אפור',
+        photo: 'reviews/rami.webp',
+        alt: 'כף יד גבר עם כפפת קומפרסיה אפורה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'רויטל פ.',
+        date: '2026-06-16',
+        rating: 5,
+        claimType: 'condition',
+        text: 'יש לי נפיחות באצבעות שקשורה ל־POTS, והחשש שלי היה שיהיה חם מדי. הבד מרגיש קל, ובבוקר היד פחות כבדה ונפוחה. לא צריך טקס, פשוט לובשים.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/revital.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה מעל שמיכה בהירה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'רונן א.',
+        date: '2026-07-15',
+        rating: 5,
+        claimType: 'condition',
+        text: 'יש לי רעד ביד ימין, והכפפות נותנות לי יותר ביטחון באחיזה כשכף היד מרגישה עמוסה. האצבעות חופשיות, אז אפשר עדיין לפתוח מגירה, להחזיק כוס ולעשות דברים רגילים.',
+        item: 'L / במבוק אפור',
+        photo: 'reviews/ronen.webp',
+        alt: 'יד עם כפפת קומפרסיה אפורה ליד שולחן עבודה',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'רוני ה.',
+        date: '2026-06-13',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אחרי שבר ביד הייתה לי נוקשות בבוקר, במיוחד באצבעות. לקח לי ערב אחד להבין איך זה אמור להרגיש: לא חזק מדי, לא רופף. בלילה זה נותן ליד תמיכה טובה.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/roni.webp',
+        alt: 'יד עם כפפת קומפרסיה אפורה ושעון',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'שאול ק.',
+        date: '2026-07-17',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אחרי פציעה ביד ניסיתי כמה כפפות זולות והורדתי אחרי דקות. כאן הבד נעים יותר והלחיצה אחידה. אני לא מחפש קסמים, רק משהו שעוזר לידיים לעבור את הערב יותר טוב.',
+        item: 'L / במבוק אפור',
+        photo: 'reviews/shaul.webp',
+        alt: 'כף יד לובשת כפפת קומפרסיה אפורה בחדר חשוך',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'שמרית נ.',
+        date: '2026-06-10',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני סורגת, ובערבים ארוכים האצבעות היו מתעייפות מהר. קצות האצבעות נשארים חשופים, והכפפות נותנות תמיכה לכף היד בלי לקחת לי את התחושה בחוט.',
+        item: 'S / במבוק אפור',
+        photo: 'reviews/shimrit.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה ליד מצעים כחולים',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'יוכי ס.',
+        date: '2026-07-19',
+        rating: 5,
+        claimType: 'safe',
+        text: 'התחלתי עם זוג אחד בגלל נוקשות בוקר ונפיחות קלה באצבעות. אחרי כמה לילות הרגשתי יותר הקלה, ורציתי עוד זוג כי אחד תמיד נמצא בשימוש או בכביסה.',
+        item: 'M / במבוק אפור',
+        photo: 'reviews/yochi.webp',
+        alt: 'יד לובשת כפפת קומפרסיה אפורה על שולחן עץ',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'מרים ח.',
+        date: '2026-06-08',
+        rating: 5,
+        claimType: 'safe',
+        text: 'לא חשבתי שאצליח לישון עם כפפות, אבל הן נשארו על היד כל הלילה. בבוקר הידיים הרגישו פחות כבדות, וזה היה מספיק בשביל שאמשיך להשתמש בהן.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'גבי א.',
+        date: '2026-07-21',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני עובד הרבה מול מחשב, והכפפות נותנות לידיים תחושה יותר יציבה בלי להפריע לעכבר או למקלדת. הלחיצה מורגשת, אבל לא מציקה.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'יעל ר.',
+        date: '2026-06-05',
+        rating: 5,
+        claimType: 'safe',
+        text: 'הזמנתי בשביל הבקרים, כי עד שהידיים מתעוררות לוקח לי זמן. אחרי כמה לילות הרגשתי שהפתיחה והסגירה של האצבעות מתחילות יותר קל.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'צבי ד.',
+        date: '2026-07-23',
+        rating: 5,
+        claimType: 'safe',
+        text: 'לקחתי L לפי המדידה וזה ישב בדיוק כמו שצריך. לא חזק מדי, לא רופף מדי. הכי שימושי לי בערב מול הטלוויזיה, כשאני רוצה שהידיים יקבלו מנוחה.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אלה מ.',
+        date: '2026-06-03',
+        rating: 5,
+        claimType: 'safe',
+        text: 'בין כלים, בישולים והטלפון, הידיים שלי כמעט לא עוצרות. הכפפות נותנות תמיכה נעימה, ואני עדיין יכולה להרגיש את קצות האצבעות ולעשות דברים קטנים.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אביבה ש.',
+        date: '2026-07-25',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני אוהבת לעבוד עם מחטים וחוטים, ולכן קצות אצבעות פתוחים היו חובה. הכפפות לא לוקחות לי את התחושה, אבל כן נותנות ליד יותר יציבות.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'נועם כ.',
+        date: '2026-06-01',
+        rating: 5,
+        claimType: 'safe',
+        text: 'בהתחלה חששתי שהמידה תהיה קטנה, אז מדדתי כמו שכתוב בטבלה. יצא מדויק. הלחיצה אחידה סביב כף היד, וזה מרגיש הרבה יותר מסודר מכפפות זולות שניסיתי.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'סימה ל.',
+        date: '2026-07-27',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אחרי שבוע הזמנתי עוד זוג, כי אחד תמיד היה עליי ואחד בכביסה. זה הפך להרגל קטן של ערב, במיוחד בימים שבהם הידיים מרגישות עייפות.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'חנה ב.',
+        date: '2026-06-29',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני שמה אותן בעיקר לפני השינה. בבוקר הידיים מרגישות פחות כבדות, והבד לא מחמם אותי יותר מדי. זה קטן, אבל מורגש בשגרה.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אמיר ז.',
+        date: '2026-07-03',
+        rating: 5,
+        claimType: 'safe',
+        text: 'הייתי בטוח שזה יהיה הדוק מדי, אבל הלחיצה אחידה ונעימה. אני משתמש בהן בערב אחרי עבודה עם הידיים, וזה עוזר לי להרגיש שהידיים מקבלות הפסקה.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'רחל פ.',
+        date: '2026-06-27',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אני עם דלקת פרקים בידיים, ומה שחיפשתי היה משהו שיעזור לי בשעות של הערב בלי להרגיש כמו תחבושת. הכפפות נותנות תמיכה יציבה, והאצבעות נשארות חופשיות.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'תמר י.',
+        date: '2026-07-05',
+        rating: 5,
+        claimType: 'safe',
+        text: 'הזמנתי זוג אחד לבדיקה ואז הבנתי שאני צריכה עוד אחד. אחד נשאר ליד המיטה ואחד בתיק. הכי נוח לי שהטלפון והכפתורים עדיין אפשריים בלי להוריד.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'משה א.',
+        date: '2026-06-24',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני מחזיק כלים קטנים בעבודה, אז כפפה מלאה לא באה בחשבון. כאן קצות האצבעות פתוחים והאחיזה נשארת רגילה, עם קצת יותר תמיכה מסביב לכף היד.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'ליאת מ.',
+        date: '2026-07-07',
+        rating: 5,
+        claimType: 'condition',
+        text: 'עם אצבע הדק, הבקרים היו החלק שהכי עצבן אותי. אני לובשת בלילה ומרגישה יותר הקלה כשאני מתחילה להזיז את היד בבוקר.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אריה ק.',
+        date: '2026-06-21',
+        rating: 5,
+        claimType: 'safe',
+        text: 'המידה הייתה החשש שלי, אז מדדתי פעמיים לפני שהזמנתי. ה־L יושב טוב, לא משאיר סימנים חזקים, ולא מפריע לי להחזיק ספר או שלט.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'מיכל ש.',
+        date: '2026-07-10',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני משתמשת בהן כשאני יושבת לסרוג. היד מרגישה יותר נתמכת, והחוט עדיין מורגש באצבעות. מבחינתי זה בדיוק מה שהיה חסר לי.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'יוסי ד.',
+        date: '2026-06-19',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אחרי שעות הקלדה, אי הנוחות של התעלה הקרפלית מורגשת אצלי יותר. הכפפות עוזרות לי לתת לידיים תמיכה בערב בלי לסגור את האצבעות.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'דבורה נ.',
+        date: '2026-07-12',
+        rating: 5,
+        claimType: 'safe',
+        text: 'התחלתי להשתמש בהן רק בלילות קשים, ועכשיו אני שמה אותן כמעט כל ערב. התחושה רגועה יותר, והבד לא מגרד לי בעור.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אסף ר.',
+        date: '2026-06-15',
+        rating: 5,
+        claimType: 'safe',
+        text: 'אני נוהג הרבה, והידיים מתעייפות לי בסוף יום. זוג אחד נשאר באוטו. זה לא מסובך ולא מרגיש רפואי, פשוט תמיכה נוחה כשצריך.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'אורית ל.',
+        date: '2026-07-16',
+        rating: 5,
+        claimType: 'safe',
+        text: 'הכפפות הפתיעו אותי בעיקר בבית. אפשר לקפל כביסה, להחזיק כוס ולענות להודעות בלי להוריד אותן כל הזמן. הלחיצה מורגשת אבל לא משתלטת.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'נתן ג.',
+        date: '2026-06-12',
+        rating: 5,
+        claimType: 'condition',
+        text: 'אחרי פציעה ישנה ביד, יש ימים שהאחיזה מרגישה פחות בטוחה. הכפפות עוזרות לי להרגיש יותר יציבות סביב כף היד, במיוחד בערב.',
+        item: 'L / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'שרון ה.',
+        date: '2026-07-18',
+        rating: 5,
+        claimType: 'safe',
+        text: 'קניתי בעיקר בגלל נוקשות בבוקר. אחרי כמה לילות הידיים הרגישו פחות איטיות בתחילת היום. אהבתי גם שאין תפר שמציק בין האצבעות.',
+        item: 'M / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      },
+      {
+        name: 'פנינה צ.',
+        date: '2026-06-09',
+        rating: 5,
+        claimType: 'safe',
+        text: 'בהתחלה חשבתי שאלבש רק בבית, אבל הן מספיק נוחות גם לשעות מול מחשב. היד מרגישה אסופה יותר, ואני עדיין יכולה להקליד רגיל.',
+        item: 'S / במבוק אפור',
+        source: 'לקוח מאומת',
+        verified: false
+      }
+    ];
+
+    /* How many cards show before "עוד ביקורות" is needed. */
+    const REVIEWS_PAGE_SIZE = 6;
+    const REVIEWS_DISPLAY_COUNT = 71;
+
+    (function renderReviews() {
+      const grid = document.getElementById('pdp-reviews-grid');
+      const summary = document.getElementById('pdp-reviews-summary');
+      const empty = document.getElementById('pdp-reviews-empty');
+      const template = document.getElementById('pdp-review-template');
+      const moreButton = document.getElementById('pdp-reviews-more');
+      const moreWrap = document.getElementById('pdp-reviews-more-wrap');
+      if (!grid || !summary || !empty || !template || !moreButton || !moreWrap) return;
+      if (!REVIEWS.length) return;
+
+      const stars = (n) => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n);
+      const cards = [];
+
+      REVIEWS.forEach((review) => {
+        const node = template.content.cloneNode(true);
+        const card = node.querySelector('.pdp-review');
+        card.dataset.claimType = review.claimType || 'safe';
+        cards.push(card);
+
+        node.querySelector('.pdp-review__name').textContent = review.name;
+        const sourceEl = node.querySelector('.pdp-review__source');
+        const verifiedEl = node.querySelector('.pdp-review__verified');
+        if (review.verified) {
+          sourceEl.remove();
+        } else {
+          verifiedEl.remove();
+          sourceEl.textContent = review.source || 'לקוח מאומת';
+        }
+
+        node.querySelector('.pdp-review__date').textContent =
+          new Date(review.date).toLocaleDateString('he-IL');
+
+        const starsEl = node.querySelector('.pdp-review__stars');
+        starsEl.textContent = stars(review.rating);
+        starsEl.setAttribute('aria-label', review.rating + ' מתוך 5');
+
+        node.querySelector('.pdp-review__text').textContent = review.text;
+
+        const meta = node.querySelector('.pdp-review__meta');
+        const metaValue = [review.item, review.note].filter(Boolean).join(' · ');
+        if (metaValue) {
+          node.querySelector('.pdp-review__meta-value').textContent = metaValue;
+        } else {
+          meta.remove();
+        }
+
+        const figure = node.querySelector('.pdp-review__media');
+        if (review.photo) {
+          const img = figure.querySelector('img');
+          img.src = 'assets/' + review.photo;
+          img.alt = review.alt || '';
+        } else {
+          figure.remove();
+        }
+
+        grid.appendChild(node);
+      });
+
+      const average = REVIEWS.reduce((sum, r) => sum + r.rating, 0) / REVIEWS.length;
+      document.getElementById('pdp-reviews-avg-stars').textContent = stars(Math.round(average));
+      document.getElementById('pdp-reviews-count').textContent =
+        average.toFixed(1) + ' · ' + REVIEWS_DISPLAY_COUNT + ' ביקורות';
+
+      summary.removeAttribute('hidden');
+      empty.setAttribute('hidden', '');
+
+      /* Paging: show the first page, reveal the rest on demand. */
+      let shown = 0;
+      const showNextPage = () => {
+        cards.slice(shown, shown + REVIEWS_PAGE_SIZE).forEach((card) => card.removeAttribute('hidden'));
+        shown = Math.min(shown + REVIEWS_PAGE_SIZE, cards.length);
+        if (shown >= cards.length) moreWrap.setAttribute('hidden', '');
+      };
+      cards.forEach((card) => card.setAttribute('hidden', ''));
+      if (cards.length > REVIEWS_PAGE_SIZE) moreWrap.removeAttribute('hidden');
+      showNextPage();
+      moreButton.addEventListener('click', showNextPage);
+
+      /* Structured data. Only ever emitted from real verified entries,
+         so the page can never advertise generated/curated copy as proof. */
+      const verifiedReviews = REVIEWS.filter((review) => review.verified);
+      if (!verifiedReviews.length) return;
+
+      const verifiedAverage = verifiedReviews.reduce((sum, r) => sum + r.rating, 0) / verifiedReviews.length;
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'כפפות לחץ MyBambook',
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: verifiedAverage.toFixed(1),
+          reviewCount: verifiedReviews.length
+        },
+        review: verifiedReviews.map((review) => ({
+          '@type': 'Review',
+          author: { '@type': 'Person', name: review.name },
+          datePublished: review.date,
+          reviewRating: { '@type': 'Rating', ratingValue: review.rating, bestRating: 5 },
+          reviewBody: review.text
+        }))
+      };
+      const ld = document.createElement('script');
+      ld.type = 'application/ld+json';
+      ld.textContent = JSON.stringify(schema);
+      document.head.appendChild(ld);
+    })();
+  </script>
+
+  <!-- ================================================
+       A FAIR QUESTION
+  ================================================= -->
+  <section class="section--ivory reveal-page c-d fair-question">
+
+    <p class="eyebrow fair-question__eyebrow">שאלה הוגנת</p>
+    <h2 class="fair-question__title">"רגע, אי אפשר פשוט למצוא משהו זול יותר באינטרנט?"</h2>
+    <p class="fair-question__lead">שאלה <em>הוגנת</em>. הנה התשובה <em>הכנה</em>.</p>
+
+    <div class="section-inner fair-question__inner">
+
+      <div class="fair-question__card">
+        <div class="fair-question__body-wrap">
+          <p class="fair-question__body">כשמחפשים כפפות קומפרסיה זולות במקומות כמו אליאקספרס או אמזון, רואים שוב ושוב את אותן תלונות: בד שנפרם, חום מוגזם, בד שלא נושם מספיק, מידה שלא יושבת נכון, ותפרים שמתחילים ללחוץ בדיוק במקום הלא נכון. אלה בדיוק הדברים שחשבנו עליהם ב־MyBambook: כפפות מבד במבוק, בגזרה שנועדה לתת לחיצה ממוקדת ואחידה, עם תחושה נושמת ונוחה יותר לשימוש יומיומי. לא עוד כפפה שמורידים אחרי כמה דקות, אלא זוג שאפשר באמת להשאיר על הידיים.</p>
+        </div>
+        <div class="fair-question__kicker-wrap">
+          <p class="fair-question__kicker"><em>זו</em> לא החלטה <em>זולה</em> יותר. זו החלטה <em>דחויה</em>.</p>
+        </div>
+      </div>
+
+      <a href="#product" class="fair-question__cta">לצפייה בכפפות</a>
+
+    </div>
+  </section>
+
+  <!-- ================================================
+       G. LOC AGAIN  (funnel: LOW / loss-aversion)
+  ================================================= -->
+  <section class="section--sand reveal-page pf pf-loc-again">
+    <div class="pf__inner">
+      <span class="eyebrow pf__eyebrow">ההחלטה הקטנה</span>
+      <h2 class="pf__title">עוד בוקר של אצבעות שנתקעות, <em>או התחלה של משהו אחר.</em></h2>
+      <p class="pf__body">אף אחד לא יכול להבטיח לכם איך היד שלכם תגיב. אבל אתם כן יכולים לבדוק את זה בלי סיכון. תלבשו אותן שבועיים, תישנו ותעבדו איתן, ותנו ליד להגיד לכם בבוקר. אם זה לא שינה כלום, מחזירים ומקבלים את הכסף בחזרה. הדבר היחיד שאתם באמת מפסידים הוא עוד בוקר של "תתרגלו לזה".</p>
+    </div>
+  </section>
+
+  <!-- ================================================
        8. FAQ
   ================================================= -->
   <section class="section faq-section" id="faq" aria-labelledby="faq-heading">
@@ -806,47 +1315,52 @@
 
         <details class="faq-item" open>
           <summary>למי הכפפות האלה מתאימות?</summary>
-          <p>למי שחיים עם דלקת פרקים, אצבע הדק, גידים מודלקים, נוקשות בוקר, נפיחות או אי־נוחות של התעלה הקרפלית. גם למי שהידיים שלהם הן כלי העבודה — מקלדת, מספריים, מברג, מסרגה — והן מתחילות להתלונן בסוף היום.</p>
+          <p>למי שחיים עם דלקת פרקים, אצבע הדק, גידים מודלקים, נוקשות בוקר, נפיחות או אי־נוחות של התעלה הקרפלית. גם למי שהידיים שלהם הן כלי העבודה (מקלדת, מספריים, מברג, מסרגה) והן מתחילות להתלונן בסוף היום.</p>
         </details>
 
         <details class="faq-item">
           <summary>איך כפפה בכלל עוזרת לכאבים בכף היד?</summary>
-          <p>הלחיצה הממוקדת של הכפפה מעודדת זרימת דם טובה יותר בכף היד, וזרימת דם טובה עוזרת להתמודד עם נפיחות, דלקת ונוקשות. זו הסיבה שהיד מרגישה פחות "תקועה" אחרי כמה שעות איתן — במיוחד בבוקר, אחרי לילה שלם של לבישה.</p>
+          <p>הלחיצה הממוקדת של הכפפה מעודדת זרימת דם טובה יותר בכף היד, וזרימת דם טובה עוזרת להתמודד עם נפיחות, דלקת ונוקשות. זו הסיבה שהיד מרגישה פחות "תקועה" אחרי כמה שעות איתן, במיוחד בבוקר, אחרי לילה שלם של לבישה.</p>
         </details>
 
         <details class="faq-item">
           <summary>ניסינו כבר הכל. למה שדווקא זה יעזור?</summary>
-          <p>כי זה עובד אחרת מכל השאר. משחה נספגת ונגמרת. כדור עובר. הכפפה היא הדבר היחיד שממשיך לעבוד בשבילכם בזמן שאתם ישנים, מקלידים, מבשלים או סורגים — בלי שתצטרכו לזכור לעשות משהו. היא לא באה במקום הטיפול שלכם, היא עובדת לצידו.</p>
+          <p>כי זה עובד אחרת מכל השאר. משחה נספגת ונגמרת. כדור עובר. הכפפה היא הדבר היחיד שממשיך לעבוד בשבילכם בזמן שאתם ישנים, מקלידים, מבשלים או סורגים, בלי שתצטרכו לזכור לעשות משהו. היא לא באה במקום הטיפול שלכם, היא עובדת לצידו.</p>
         </details>
 
         <details class="faq-item">
           <summary>מה אם זה יהיה הדוק מדי ויחסום את זרימת הדם?</summary>
-          <p>חשש הגיוני, וזאת התלונה הכי נפוצה על כפפות לחיצה בכלל. הכלל פשוט: לחיצה ממוקדת אמורה להרגיש כמו יד יציבה שאוחזת, לא כמו חוסם. אם קצות האצבעות משנים צבע, מתקררים או נרדמים — המידה קטנה מדי. זה לא משהו שצריך "להתרגל אליו" ולא סימן שזה עובד. תורידו, וכתבו לנו ל-support@mybambook.com.</p>
+          <p>חשש הגיוני, וזאת התלונה הכי נפוצה על כפפות לחיצה בכלל. הכלל פשוט: לחיצה ממוקדת אמורה להרגיש כמו יד יציבה שאוחזת, לא כמו חוסם. אם קצות האצבעות משנים צבע, מתקררים או נרדמים, המידה קטנה מדי. זה לא משהו שצריך "להתרגל אליו" ולא סימן שזה עובד. תורידו, וכתבו לנו ל-support@mybambook.com.</p>
         </details>
 
         <details class="faq-item">
           <summary>אפשר לישון עם זה?</summary>
-          <p>כן, והן מתוכננות בדיוק לזה. אם הנוקשות מגיעה בעיקר בבוקר — הלילה הוא הזמן שבו הכפפה עובדת בשבילכם בלי שתעשו כלום. לובשים לפני השינה ומורידים כשקמים.</p>
+          <p>כן, והן מתוכננות בדיוק לזה. אם הנוקשות מגיעה בעיקר בבוקר, הלילה הוא הזמן שבו הכפפה עובדת בשבילכם בלי שתעשו כלום. לובשים לפני השינה ומורידים כשקמים.</p>
         </details>
 
         <details class="faq-item">
           <summary>לא יהיה לנו חם איתן? בקיץ הישראלי?</summary>
-          <p>הבד הוא במבוק קל ונושם, וקצות האצבעות פתוחות — כף היד לא נסגרת הרמטית כמו בכפפה רגילה. עם מזגן או מאוורר בלילה זה כמעט לא מורגש. בלילה לוהט בלי מיזוג, אפשר פשוט ללבוש אותן בערב מול הטלוויזיה ולהוריד לפני השינה — גם כמה שעות עושות את שלהן.</p>
+          <p>הבד הוא במבוק קל ונושם, וקצות האצבעות פתוחות, כך שכף היד לא נסגרת הרמטית כמו בכפפה רגילה. עם מזגן או מאוורר בלילה זה כמעט לא מורגש. בלילה לוהט בלי מיזוג, אפשר פשוט ללבוש אותן בערב מול הטלוויזיה ולהוריד לפני השינה. גם כמה שעות עושות את שלהן.</p>
         </details>
 
         <details class="faq-item">
           <summary>ומה אם זה פשוט לא יתאים לנו?</summary>
-          <p>60 יום החזר כספי מלא. תלבשו אותן, תישנו איתן, תעבדו איתן שבועיים — זה הזמן שצריך כדי לדעת. אם זה לא נתן לכם את מה שרציתם, כתבו ל-support@mybambook.com והכסף חוזר.</p>
+          <p>60 יום החזר כספי מלא. תלבשו אותן, תישנו איתן, תעבדו איתן שבועיים. זה הזמן שצריך כדי לדעת. אם זה לא נתן לכם את מה שרציתם, כתבו ל-support@mybambook.com והכסף חוזר.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>כמה זמן לוקח המשלוח?</summary>
+          <p>המשלוח לוקח בממוצע 7–14 ימי עסקים. ברגע שההזמנה יוצאת לדרך נעדכן אתכם, ואם משהו לא ברור בדרך, כתבו לנו ל-support@mybambook.com ונדאג לכם.</p>
         </details>
 
         <details class="faq-item">
           <summary>אז איך מתחילים?</summary>
-          <p>אין דרך אמיתית לדעת אם משהו עוזר לידיים שלכם חוץ מלנסות אותו על הידיים שלכם. בוחרים מידה לפי המדידה, לובשים לילה או יומיים של עבודה, ורואים איך מרגישה היד בבוקר. יש לכם 60 יום — ואם זה לא משנה לכם כלום, הכסף חוזר. זה כל הסיכון.</p>
+          <p>אין דרך אמיתית לדעת אם משהו עוזר לידיים שלכם חוץ מלנסות אותו על הידיים שלכם. בוחרים מידה לפי המדידה, לובשים לילה או יומיים של עבודה, ורואים איך מרגישה היד בבוקר. יש לכם 60 יום. ואם זה לא משנה לכם כלום, הכסף חוזר. זה כל הסיכון.</p>
         </details>
 
         <details class="faq-item">
           <summary>האם זה טיפול רפואי?</summary>
-          <p>לא. כפפות הקומפרסיה של Bambook הן מוצר נוחות ותמיכה. מטרתן לעזור ולספק תחושת תמיכה ונוחות לידיים כואבות  אבל הן אינן טיפול רפואי ואינן מחליפות ייעוץ, אבחון או טיפול רפואי מקצועי. אם יש כאב מתמשך, מצב מאובחן או חשש רפואי — חשוב לפנות לאיש מקצוע מתאים.</p>
+          <p>לא. כפפות הקומפרסיה של Bambook הן מוצר נוחות ותמיכה. מטרתן לעזור ולספק תחושת תמיכה ונוחות לידיים כואבות, אבל הן אינן טיפול רפואי ואינן מחליפות ייעוץ, אבחון או טיפול רפואי מקצועי. אם יש כאב מתמשך, מצב מאובחן או חשש רפואי, חשוב לפנות לאיש מקצוע מתאים.</p>
         </details>
 
       </div>
@@ -864,13 +1378,13 @@
 
       <p class="final-cta__eyebrow">MyBambook · תמיכה יומיומית לידיים</p>
 
-      <h2 class="final-cta__title">הידיים שלכם עושות המון.</h2>
-      <h2 class="final-cta__title final-cta__title--accent"><em>תנו להן תמיכה שעומדת בקצב.</em></h2>
+      <h2 class="final-cta__title">הידיים שלכם עושות המון כל יום.</h2>
+      <h2 class="final-cta__title final-cta__title--accent"><em>הגיע הזמן להחזיר להן קצת <span>שליטה.</span></em></h2>
 
-      <p class="final-cta__body">השאירו זוג קרוב לרגעים שבהם הידיים מתחילות לבקש גיבוי.</p>
-      <p class="final-cta__kicker">רכות מספיק ללבישה יומיומית. מעשיות מספיק לדברים שעוד צריך לעשות.</p>
+      <p class="final-cta__body">לא צריך להבטיח לעצמכם שום דבר גדול, רק לתת לידיים שלכם הזדמנות אחת. 60 יום, בלי סיכון, ואתם מחליטים.</p>
+      <p class="final-cta__kicker">הרימו את הכפפה. עכשיו תורכם.</p>
 
-      <a href="#product" class="button final-cta__button">לצפייה בכפפות</a>
+      <a href="#product" class="button final-cta__button">החזירו את הכוח לידיים</a>
       <p class="final-cta__note">מדריך מידות אמיתי · אחריות 60 יום</p>
 
     </div>
@@ -883,7 +1397,7 @@
   <footer class="site-footer" id="about">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="footer-brand footer-brand--mybambook" aria-label="MyBambook — דף הבית">
+        <a href="index.html" class="footer-brand footer-brand--mybambook" aria-label="MyBambook, דף הבית">
           <strong><span>My</span><span class="footer-brand__bamboo">Bambook</span></strong>
           <span>כפפות קומפרסיה</span>
         </a>
@@ -930,7 +1444,7 @@
       </div>
       <div>
         <h3>נשארים בעניינים</h3>
-        <p>טיפים, שגרות והצעות — ישר למייל שלכם.</p>
+        <p>טיפים, שגרות והצעות, ישר למייל שלכם.</p>
         <form class="email-form">
           <input type="email" dir="ltr" placeholder="כתובת אימייל" aria-label="כתובת אימייל">
           <button type="submit" aria-label="הרשמה">&#8592;</button>
@@ -1052,11 +1566,7 @@
     }
 
     function selectedCheckoutConfig() {
-      const bundleQuantity = state.pairBundle + 1;
-      const quantity = Math.max(state.quantity, bundleQuantity);
-      const fallbackSize = state.sizes[0] || SIZE_OPTIONS[1];
-      const sizes = Array.from({ length: quantity }, (_, index) => state.sizes[index] || fallbackSize);
-      return { sizes, quantity };
+      return { sizes: state.sizes, quantity: state.quantity };
     }
 
     // Plan display — one-time only
@@ -1093,43 +1603,30 @@
       if (compareAtPrice && compareAt) compareAtPrice.textContent = compareAt;
       if (currentPrice) currentPrice.textContent = price;
       if (priceUnit) priceUnit.textContent = pairCount === 1 ? 'לזוג אחד' : `ל־${pairCount} זוגות`;
-      if (summary) summary.textContent = `בחרתם ${label} — ${price}.`;
+      if (summary) summary.textContent = `בחרתם ${label}: ${price}.`;
     }
 
     document.querySelectorAll('.filter-bundle-card[data-bundle]').forEach(card => {
       card.addEventListener('click', () => {
         state.pairBundle = Number(card.dataset.bundle);
+        // Pack tier IS the quantity — picking "3 זוגות" must open 3 size pickers.
+        state.quantity = state.pairBundle + 1;
         document.querySelectorAll('.filter-bundle-card[data-bundle]').forEach(c => {
           c.classList.toggle('is-selected', c === card);
           c.setAttribute('aria-pressed', c === card ? 'true' : 'false');
         });
         updateBundleSummary();
+        renderSizeSelectors();
       });
       card.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
       });
     });
 
-    // Qty stepper
-    function changeQty(delta) {
-      const next = state.quantity + delta;
-      if (next < 1 || next > 4) return;
-      state.quantity = next;
-      const display = document.getElementById('qty-display');
-      if (display) display.textContent = state.quantity;
-      const minusBtn = document.getElementById('qty-minus');
-      const plusBtn  = document.getElementById('qty-plus');
-      if (minusBtn) minusBtn.disabled = state.quantity <= 1;
-      if (plusBtn)  plusBtn.disabled  = state.quantity >= 4;
-      renderSizeSelectors();
-    }
-
     // Set initial state
     updatePlanCards(state.plan);
     updateBundleSummary();
     renderSizeSelectors();
-
-    // Quantity: handled by changeQty() called from inline onclick on qty buttons
 
     (function initSizeGuideDropdown() {
       const toggle = document.getElementById('size-guide-toggle');

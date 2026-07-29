@@ -16,6 +16,14 @@
   width: fit-content;
   margin: 0 auto clamp(var(--space-3), 1.2vw, var(--space-4));
 }
+
+/* Operator, 2026-07-28: agitation's and mechanism's eyebrows both reverted to
+   the gold/beige default (were blue-on-blue) — their H2 accent words keep
+   the blue accent. */
+.pf-agitation .pf__title em,
+.pf-mechanism .pf__title em {
+  color: var(--blush);
+}
 .pf__title {
   font-family: "Heebo", var(--sans);
   font-weight: 800;
@@ -41,6 +49,20 @@
 }
 .pf__body:last-child { margin-bottom: 0; }
 .pf__body strong { color: var(--ink); font-weight: 700; }
+
+/* Operator, 2026-07-28: these two emphasised runs must each START a line rather
+   than beginning mid-row and wrapping, which was splitting one bold sentence
+   across two rows and orphaning the tail. Block display makes the break fall at
+   the clause boundary at every width instead of wherever the text happens to
+   run out. Scoped to these two sections on purpose — the other pf titles and
+   bodies keep their inline flow. Note this intentionally overrides the
+   "h2 reads as one line on desktop" default in site CLAUDE.md §3 for
+   .pf-loc-again only, per operator instruction. */
+.pf-mechanism .pf__body strong {
+  display: block;
+  margin-top: clamp(var(--space-3), 1.5vw, var(--space-4));
+}
+.pf-loc-again .pf__title em { display: block; }
 
 /* --- Agitation checklist --- */
 .pf-checklist__header {

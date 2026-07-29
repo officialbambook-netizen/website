@@ -348,7 +348,7 @@
   font-family: var(--font-sans);
   font-size: clamp(0.9rem, 1.1vw, 1rem);
   font-weight: 500;
-  color: var(--taupe);
+  color: var(--blush);
   line-height: 1.7;
   margin: 0;
 }
@@ -794,61 +794,6 @@
   border-color: var(--gold);
   background: rgba(184, 142, 74, 0.1);
   color: var(--gold);
-}
-
-/* Qty stepper — compact, right-aligned in the options row */
-.pdp-hero__qty-wrap {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-1);
-}
-
-.pdp-hero__qty-label {
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--taupe);
-}
-
-.pdp-hero .qty-stepper {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--ivory);
-  display: inline-grid;
-  grid-template-columns: repeat(3, minmax(44px, 1fr));
-  min-width: 168px;
-}
-
-.pdp-hero .qty-btn {
-  background: transparent;
-  color: var(--taupe);
-  font-family: var(--font-sans);
-  font-size: 1.2rem;
-  font-weight: 800;
-  width: auto;
-  height: 56px;
-  transition: background 140ms ease, color 140ms ease;
-}
-
-.pdp-hero .qty-btn:hover { background: var(--sand); color: var(--brown); }
-.pdp-hero .qty-btn:disabled { opacity: 0.25; cursor: not-allowed; }
-
-.pdp-hero .qty-count {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 1.18rem;
-  color: var(--brown);
-  min-width: 44px;
-  text-align: center;
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
-  line-height: 56px;
 }
 
 /* ── Filter bundle section ──────────────────────────────── */
@@ -1552,8 +1497,6 @@
   }
 
   .pdp-hero__options-row .color-options { width: 100%; }
-
-  .pdp-hero__qty-wrap { align-items: flex-start; }
 
   /* On mobile the gal col is above, no sticky */
   .pdp-hero__gal-col {

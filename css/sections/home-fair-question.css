@@ -22,7 +22,7 @@
 .fair-question__title em {
   font-style: italic;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--blush);
 }
 .fair-question__lead {
   font-size: clamp(1.15rem, 1.8vw, 1.35rem);
@@ -32,7 +32,7 @@
   margin: 0 0 clamp(1.2rem, 2vw, 1.8rem);
 }
 .fair-question__lead em {
-  color: var(--gold);
+  color: var(--blush);
   font-style: italic;
   font-family: var(--serif);
   font-weight: 700;

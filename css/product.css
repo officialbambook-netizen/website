@@ -2480,6 +2480,14 @@ details.faq-item::after,
   background: var(--ink);
 }
 
+.pdp-page .final-cta__title--accent {
+  color: var(--ivory);
+}
+
+.pdp-page .final-cta__title--accent span {
+  color: var(--blush);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .filter-compare-cta,
   .cta-section .btn-cta,

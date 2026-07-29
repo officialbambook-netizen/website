@@ -130,6 +130,7 @@ The legacy `980 / 640` blocks inside `home.css` are debt — fold them into the 
 - Hardcode hex or magic spacing — tokens only.
 - Use `!important` to win a cascade fight — fix the source rule.
 - Freelance copy as a coder — if the task changes the words, do it in combined web-dev + copywriting mode (on-voice, `CLAIMS_RULES`-compliant, offer facts from `OFFER_STRUCTURE.md`/the live site). Never invent specs, stats, testimonials, guarantees, claims, or offer details; route risky claims and angle rewrites out.
+- **Ship words that never passed the deslop gate.** Any change to customer-visible text on this site runs through `deslop` (`~/.claude/skills/deslop/SKILL.md`) before it lands. **Zero em/en dashes in shipped copy** — `grep -nE '—|–' <file>` must return only HTML/JS comments, the `.color-swatch-sep` glyph, and numeric ranges. Note macOS BSD `grep` does not read `\|` as alternation in a basic regex, so use `-E` or you will get a false clean.
 - Create `*_backup.html` — git is the backup.
 - Ship a section without `npx playwright test` from `05_WEBSITE/visual-tests/`.
 - Put CSS (a `<style>` string or hex literal) inside a `.js` file.

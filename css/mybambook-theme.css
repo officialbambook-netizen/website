@@ -214,7 +214,16 @@ body.mybambook-page {
   display: block;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 50%;
   width: 100%;
+}
+
+/* Operator, 2026-07-28: default center crop clipped the thumbnail against the
+   top edge on this portrait-sourced photo (near-zero headroom, read as cut).
+   Per-image override, not a change to the shared rule above — other
+   .mb-hero__media images keep the default center position. */
+.mb-hero__media-img--top-quarter {
+  object-position: 50% 25%;
 }
 
 .mb-hero--home {
@@ -270,8 +279,10 @@ body.mybambook-page {
   margin-bottom: clamp(var(--space-4), 2vw, var(--space-6));
 }
 
+/* Operator, 2026-07-29: the two halves swapped — the opening lines carry the
+   cyan accent, the payoff lines go white over the photo. */
 .mb-hero--home h1 {
-  color: var(--ink);
+  color: var(--accent-emphasis);
   display: grid;
   font-size: clamp(3rem, 5.45vw, 5.65rem);
   font-weight: 900;
@@ -286,12 +297,13 @@ body.mybambook-page {
 }
 
 .mb-hero--home h1 em {
-  color: var(--accent-emphasis);
+  color: var(--ivory);
   font-weight: 900;
+  text-shadow: 0 1px 6px rgb(16 37 54 / 40%);
 }
 
 .mb-hero--home .mb-hero__lead {
-  color: var(--accent-emphasis);
+  color: var(--ivory);
   font-size: clamp(1.08rem, 1.9vw, 1.42rem);
   font-weight: 800;
   line-height: 1.65;
@@ -463,6 +475,24 @@ body.mybambook-page {
   width: 100%;
 }
 
+.mb-split__media--portrait {
+  justify-self: center;
+  max-width: min(100%, 31rem);
+}
+
+.mb-split__media--portrait img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Operator, 2026-07-28: the second sentence of the "practical use" body copy
+   must start its own line rather than continuing mid-row. Scoped to this one
+   span (not .mb-split p) since .mb-split is shared with mission.html. */
+.mb-practical-use__second-line {
+  display: block;
+}
+
 .mb-faq-list {
   display: grid;
   gap: var(--space-3);
@@ -614,6 +644,12 @@ html[dir="rtl"] .mybambook-page .site-footer::before {
 
 html[dir="rtl"] .mybambook-page .mb-final::before {
   letter-spacing: 0.16em;
+}
+
+@media (max-width: 430px) {
+  html[dir="rtl"] .mybambook-page .mb-final::before {
+    letter-spacing: 0.07em;
+  }
 }
 
 /* Hebrew has no italics — browsers fake an ugly slant; emphasize with

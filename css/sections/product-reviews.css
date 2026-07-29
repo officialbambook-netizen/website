@@ -1,0 +1,338 @@
+/* ============================================================
+   PRODUCT REVIEWS — customer review section (product page)
+
+   Layout models the standard review-widget pattern the operator
+   supplied (2026-07-29 reference screenshot): centred heading,
+   summary bar with star average + count + "write a review", then
+   a 2-column masonry of cards, each card = text block + square
+   photo. Mirrored for RTL (photo sits at the inline end).
+
+   Colour stays on the Bambook PDP palette: white (--ivory)
+   surface, --gold stars, --line borders. Tokens only.
+
+   Cards are RENDERED FROM DATA — see the REVIEWS array in
+   product.html. Empty array renders the empty state below.
+   ============================================================ */
+
+.pdp-reviews {
+  background: var(--ivory);
+  border-top: 1px solid var(--line-warm);
+  padding: var(--section-py) var(--section-px) var(--section-py-b);
+}
+
+.pdp-reviews__inner {
+  margin-inline: auto;
+  max-width: 1120px;
+  min-width: 0;
+}
+
+.pdp-reviews__head {
+  margin-bottom: clamp(var(--space-5), 2.4vw, var(--space-8));
+  text-align: center;
+}
+
+.pdp-reviews__eyebrow {
+  color: var(--gold);
+  display: block;
+  margin: 0 auto clamp(var(--space-3), 1.2vw, var(--space-4));
+  width: fit-content;
+}
+
+.pdp-reviews__title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.pdp-reviews__title em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ── Summary bar ─────────────────────────────────────────── */
+.pdp-reviews__summary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  margin-bottom: clamp(var(--space-5), 2.4vw, var(--space-8));
+  min-width: 0;
+}
+
+.pdp-reviews__score {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.pdp-reviews__stars {
+  color: var(--gold);
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.pdp-reviews__count {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.pdp-reviews__cta {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 44px;
+  padding-inline: var(--space-6);
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.pdp-reviews__cta:hover,
+.pdp-reviews__cta:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Masonry grid (matches the reference's staggered flow) ── */
+.pdp-reviews__grid {
+  column-gap: clamp(var(--space-4), 2vw, var(--space-6));
+  columns: 2;
+  min-width: 0;
+}
+
+.pdp-review {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  break-inside: avoid;
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: clamp(var(--space-4), 2vw, var(--space-6));
+  min-width: 0;
+  padding: clamp(var(--space-4), 2vw, var(--space-5));
+  text-align: start;
+}
+
+.pdp-review__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.pdp-review__head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.pdp-review__name {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.pdp-review__verified {
+  align-items: center;
+  color: var(--ink);
+  display: inline-flex;
+}
+
+.pdp-review__source {
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  gap: var(--space-1);
+  line-height: 1.2;
+  padding: var(--space-1) var(--space-2);
+}
+
+.pdp-review__source::before {
+  align-items: center;
+  background: var(--blush);
+  border-radius: 50%;
+  color: var(--ivory);
+  content: "✓";
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 0.58rem;
+  height: 1rem;
+  justify-content: center;
+  line-height: 1;
+  width: 1rem;
+}
+
+.pdp-review__check {
+  stroke: var(--ivory);
+}
+
+.pdp-review__date {
+  color: var(--taupe);
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.pdp-review__stars {
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+
+.pdp-review__text {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 var(--space-4);
+}
+
+.pdp-review__meta {
+  color: var(--taupe);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pdp-review__meta-label {
+  display: block;
+}
+
+.pdp-review__media {
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  height: 172px;
+  margin: 0;
+  overflow: hidden;
+  width: 132px;
+}
+
+.pdp-review__media img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* Summary, empty state and paged-out cards all set an explicit display
+   above, which would otherwise beat the [hidden] UA default. */
+.pdp-reviews__summary[hidden],
+.pdp-reviews__empty[hidden],
+.pdp-reviews__more-wrap[hidden],
+.pdp-review[hidden] {
+  display: none;
+}
+
+/* ── Load more ───────────────────────────────────────────── */
+.pdp-reviews__more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(var(--space-2), 1.5vw, var(--space-4));
+}
+
+.pdp-reviews__more {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 44px;
+  padding-inline: var(--space-8);
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.pdp-reviews__more:hover,
+.pdp-reviews__more:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Empty state (no real reviews yet) ───────────────────── */
+.pdp-reviews__empty {
+  background: var(--cream);
+  border-radius: var(--radius);
+  margin-inline: auto;
+  max-width: 720px;
+  padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-5), 3vw, var(--space-8));
+  text-align: center;
+}
+
+.pdp-reviews__empty-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+  margin: 0 0 var(--space-4);
+}
+
+.pdp-reviews__empty-text {
+  color: var(--taupe);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 auto clamp(var(--space-6), 3vw, var(--space-8));
+  max-width: 46ch;
+}
+
+.pdp-reviews__empty .pdp-reviews__cta {
+  background: var(--ivory);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.pdp-reviews__empty .pdp-reviews__cta:hover,
+.pdp-reviews__empty .pdp-reviews__cta:focus-visible {
+  background: var(--gold);
+  color: var(--ivory);
+}
+
+@media (max-width: 768px) {
+  .pdp-reviews__grid {
+    columns: 1;
+  }
+
+  .pdp-reviews__summary {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pdp-review__media {
+    height: 148px;
+    width: 112px;
+  }
+}
