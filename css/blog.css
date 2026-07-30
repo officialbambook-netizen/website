@@ -6,6 +6,20 @@
    pattern for, a list of posts.
    ============================================================ */
 
+/* Blog hub hero title only — every other .policy-hero__title (blog posts,
+   FAQ, mission, contact, 404…) keeps the shared brand-blue treatment from
+   mybambook-theme.css. This is a deliberate one-page exception, not a token
+   change, so it can't leak onto pages nobody asked to change. Reuses --sand,
+   the same beige already used by .blog-cta, rather than a new hex. */
+/* Selector matches mybambook-theme.css's specificity
+   (.mybambook-policy .policy-hero__title, two classes) plus the modifier
+   class, so this reliably wins regardless of <link> order rather than
+   relying on cascade position. */
+.mybambook-policy .policy-hero__title.blog-hub-title,
+.mybambook-policy .policy-hero__title.blog-hub-title em {
+  color: var(--sand);
+}
+
 .blog-list {
   display: grid;
   gap: var(--space-6);

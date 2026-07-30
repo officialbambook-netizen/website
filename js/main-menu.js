@@ -40,7 +40,8 @@ window.openBambookCart = function () {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  var path = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'index';
+  var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  var path = pathname.split('/').pop() || 'index';
   var pageName = path.replace(/\.html$/, '') || 'index';
   var activeByPage = {
     'index': 'home',
@@ -48,7 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
     'faq': 'faq',
     'mission': 'mission',
   };
-  var activeSection = activeByPage[pageName] || '';
+  // /blog and every post under it (no per-post nav item exists) highlight the
+  // same "blog" nav link. Checked by path prefix, not the last-segment map
+  // above, since a post's last segment is its own slug (e.g.
+  // "typing-hand-fatigue"), never the literal word "blog".
+  var activeSection = (pathname === '/blog' || pathname.indexOf('/blog/') === 0)
+    ? 'blog'
+    : (activeByPage[pageName] || '');
 
   document.querySelectorAll('.bambook-menu-links a[data-section]').forEach(function (link) {
     if (link.dataset.section === activeSection) {
