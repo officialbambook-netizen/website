@@ -31,13 +31,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7" />
+  <link rel="stylesheet" href="css/tokens.css?v=7c4aad9e" />
   <link rel="stylesheet" href="css/base.css?v=07bcde07" />
-  <link rel="stylesheet" href="css/mybambook-theme.css?v=cc47ab67" />
-  <link rel="stylesheet" href="css/components/main-menu.css?v=40452949">
-  <link rel="stylesheet" href="css/components/footer.css?v=5673687a">
+  <link rel="stylesheet" href="css/mybambook-theme.css?v=bdd02b03" />
+  <link rel="stylesheet" href="css/components/main-menu.css?v=d6177a15">
+  <link rel="stylesheet" href="css/components/footer.css?v=82747d8f">
   <script src="js/main-menu.js?v=616b7988" defer></script>
   <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <link rel="stylesheet" href="css/components/bambook-assistant.css?v=ea718c49">
 </head>
 <body class="mybambook-page mybambook-about">
 
@@ -60,7 +61,7 @@
       <a href="index.html" data-section="home">בית</a>
       <a href="product.html" data-section="shop">חנות</a>
       <a href="faq.html" data-section="faq">שאלות נפוצות</a>
-      <a href="/blog/" data-section="blog">בלוג</a>
+      <a href="blog/index.html" data-section="blog">בלוג</a>
       <a href="mission.html" data-section="mission" aria-current="page">אודות</a>
     </nav>
     <div class="bambook-menu-actions">
@@ -81,7 +82,7 @@
           </div>
         </div>
         <figure class="mb-hero__media">
-          <img src="assets/mybambook-laptop-typing-gloves-2026-07-28.png" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן הקלדה על מחשב נייד" loading="eager" fetchpriority="high">
+          <img src="assets/mybambook-laptop-typing-gloves-2026-07-28-1024w.webp" srcset="assets/mybambook-laptop-typing-gloves-2026-07-28-800w.webp 800w, assets/mybambook-laptop-typing-gloves-2026-07-28-1024w.webp 1024w" sizes="(max-width: 780px) 92vw, 700px" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן הקלדה על מחשב נייד" loading="eager" fetchpriority="high">
         </figure>
       </div>
     </section>
@@ -89,7 +90,7 @@
     <section class="mb-section mb-section--ivory reveal-page">
       <div class="mb-section__inner mb-split">
         <figure class="mb-split__media mb-split__media--portrait">
-          <img src="assets/mybambook-smartphone-use-gloves-2026-07-28.png" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן שימוש בטלפון" loading="lazy">
+          <img src="assets/mybambook-smartphone-use-gloves-2026-07-28-1000w.webp" srcset="assets/mybambook-smartphone-use-gloves-2026-07-28-640w.webp 640w, assets/mybambook-smartphone-use-gloves-2026-07-28-768w.webp 768w, assets/mybambook-smartphone-use-gloves-2026-07-28-1000w.webp 1000w" sizes="(max-width: 780px) 92vw, 496px" width="1122" height="1402" alt="ידיים לובשות כפפות קומפרסיה של MyBambook בזמן שימוש בטלפון" loading="lazy">
         </figure>
         <div>
           <p class="eyebrow">איך זה התחיל</p>
@@ -165,7 +166,7 @@
         <h3>מידע</h3>
         <ul>
           <li><a href="faq.html">שאלות נפוצות</a></li>
-          <li><a href="/blog/">הבלוג</a></li>
+          <li><a href="blog/index.html">הבלוג</a></li>
           <li><a href="product.html#how-it-helps">איך זה עוזר</a></li>
           <li><a href="mission.html">על MyBambook</a></li>
         </ul>
@@ -219,6 +220,8 @@
     );
     revealPages.forEach((page) => observer.observe(page));
   </script>
+  <script src="js/bambook-assistant-knowledge.js?v=2bd1f340"></script>
+  <script src="js/bambook-assistant.js?v=4dd0affc"></script>
   <script src="https://negishot.co.il/cdn/widget.php?code=NGS_28E6F354A9E3"></script>
 </body>
 </html>

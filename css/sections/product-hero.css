@@ -821,6 +821,20 @@
   margin-bottom: var(--space-6);
 }
 
+.pdp-hero__gift-banner {
+  background: var(--sand);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--radius-sm);
+  color: var(--brown);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(0.86rem, 1.05vw, 0.98rem);
+  line-height: 1.4;
+  text-align: center;
+  padding: var(--space-3) var(--space-4);
+  margin: 0 0 var(--space-4);
+}
+
 .pdp-hero .filter-bundle-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -888,7 +902,10 @@
   background: var(--blush);
   color: var(--ivory);
   font-family: var(--font-sans);
-  font-size: 0.58rem;
+  /* Was 0.58rem = 9.3px. Measurement showed 169px of unused width beside this
+     badge even at 320px, so the shrink was not defending anything — it just
+     made the "most popular" signal hard to read on a phone. */
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1006,12 +1023,13 @@
 /* ── Guarantee line (under CTA, above trust row) ───────── */
 .pdp-hero__guarantee-line {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  font-weight: 750;
+  line-height: 1.5;
   color: var(--brown);
   text-align: center;
   margin: 0;
-  padding: var(--space-3) 0 var(--space-1);
+  padding: var(--space-3) 0 var(--space-2);
 }
 
 /* ── Trust row ──────────────────────────────────────────── */
@@ -1030,13 +1048,19 @@
   align-items: center;
   gap: var(--space-1);
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: clamp(0.86rem, 1.08vw, 0.95rem);
+  font-weight: 750;
+  line-height: 1.45;
   color: var(--taupe);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
-.pdp-hero__trust-item svg { flex-shrink: 0; color: var(--gold); }
+.pdp-hero__trust-item svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: var(--gold);
+}
 
 /* ── Accordions ─────────────────────────────────────────── */
 .pdp-hero .pdp-accordions {
@@ -1206,7 +1230,10 @@
   align-items: center;
   gap: 3px;
   font-family: var(--font-sans);
-  font-size: 0.55rem;
+  /* Was 0.55rem = 8.8px, the smallest text anywhere on the site. The sticky
+     bar had 35px of slack at 320px, so this fits comfortably. The >=768px
+     override below keeps desktop where it was. */
+  font-size: 0.66rem;
   font-weight: 850;
   letter-spacing: 0.06em;
   color: var(--gold);
@@ -1389,6 +1416,41 @@
   border: 1px solid var(--line);
 }
 
+/* Buy link — routes back up to the full purchase options block */
+.pdp-sticky-bar__buy-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  color: var(--brown);
+  font-family: var(--font-sans);
+  font-weight: 750;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--line-soft);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  min-height: 40px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+@media (min-width: 768px) {
+  .pdp-sticky-bar__buy-link {
+    font-size: 0.8rem;
+    padding: 10px 18px;
+    min-height: 46px;
+  }
+}
+
+.pdp-sticky-bar__buy-link:hover {
+  border-color: var(--gold);
+  background: var(--ivory);
+  color: var(--gold);
+}
+
 /* Right group: price + CTA */
 .pdp-sticky-bar__right {
   flex-shrink: 0;
@@ -1521,7 +1583,9 @@
 
   .pdp-hero__badge-sub {
     min-width: 0;
-    font-size: 0.62rem;
+    /* 0.62rem was 9.9px. The badge row measures 258px inside 291px at 320px,
+       so there is room to bring the social-proof line back over 10px. */
+    font-size: 0.66rem;
     letter-spacing: 0.07em;
   }
 }
@@ -1534,7 +1598,7 @@
   }
 
   .pdp-hero__badge-sub {
-    font-size: 0.58rem;
+    font-size: 0.64rem;
     letter-spacing: 0.05em;
   }
 

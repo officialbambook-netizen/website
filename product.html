@@ -57,23 +57,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Heebo (Hebrew display + UI) with Inter as Latin fallback. -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/components/main-menu.css?v=40452949">
+  <link rel="stylesheet" href="css/components/main-menu.css?v=d6177a15">
   <script src="js/main-menu.js?v=616b7988" defer></script>
   <!-- Product page styles (MyBambook blue-cyan + bamboo token system). -->
-  <link rel="stylesheet" href="css/tokens.css?v=b2dbe4d7">
+  <link rel="stylesheet" href="css/tokens.css?v=7c4aad9e">
   <link rel="stylesheet" href="css/base.css?v=07bcde07">
-  <link rel="stylesheet" href="css/product.css?v=4ddfaaa3">
+  <link rel="stylesheet" href="css/product.css?v=da64fb50">
   <!-- Product hero elevation — loads last. -->
-  <link rel="stylesheet" href="css/sections/product-hero.css?v=60af53c5">
+  <link rel="stylesheet" href="css/sections/product-hero.css?v=86679a3e">
   <!-- Shared sections from home -->
   <link rel="stylesheet" href="css/sections/home-install-ease.css?v=1cdf855c">
   <link rel="stylesheet" href="css/sections/home-comparison.css?v=542eb696">
   <link rel="stylesheet" href="css/sections/home-fair-question.css?v=dca18957">
   <link rel="stylesheet" href="css/sections/home-final-cta.css?v=2fa19062">
-  <link rel="stylesheet" href="css/sections/product-funnel.css?v=c01bfe0e">
+  <link rel="stylesheet" href="css/sections/product-funnel.css?v=42474e7c">
   <link rel="stylesheet" href="css/sections/product-reviews.css?v=5ab2340a">
-  <link rel="stylesheet" href="css/components/footer.css?v=5673687a">
+  <link rel="stylesheet" href="css/components/footer.css?v=82747d8f">
   <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <link rel="stylesheet" href="css/components/bambook-assistant.css?v=ea718c49">
 </head>
 <body class="pdp-page">
 
@@ -100,7 +101,7 @@
       <a href="index.html" data-section="home">בית</a>
       <a href="product.html" data-section="shop" aria-current="page">חנות</a>
       <a href="faq.html" data-section="faq">שאלות נפוצות</a>
-      <a href="/blog/" data-section="blog">בלוג</a>
+      <a href="blog/index.html" data-section="blog">בלוג</a>
       <a href="mission.html" data-section="mission">אודות</a>
     </nav>
     <div class="bambook-menu-actions">
@@ -120,25 +121,25 @@
         <!-- Thumbnail rail (JS-driven active state via .is-active on thumbs) -->
         <div class="pdp-hero__thumbs" role="list" aria-label="תמונות מוצר ממוזערות">
           <button class="pdp-hero__thumb is-active" type="button" aria-label="הצגת תמונה 1" onclick="setGal(0)" role="listitem">
-            <img src="assets/product-gallery/01-daily-actions.jpg" alt="" loading="lazy">
+            <img src="assets/product-gallery/01-daily-actions-1080w.webp" srcset="assets/product-gallery/01-daily-actions-720w.webp 720w, assets/product-gallery/01-daily-actions-1080w.webp 1080w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 2" onclick="setGal(1)" role="listitem">
-            <img src="assets/product-gallery/02-natural-breathable-support.png" alt="" loading="lazy">
+            <img src="assets/product-gallery/02-natural-breathable-support-512w.webp" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 3" onclick="setGal(2)" role="listitem">
-            <img src="assets/product-gallery/03-consumer-results-green.png" alt="" loading="lazy">
+            <img src="assets/product-gallery/03-consumer-results-green-1254w.webp" srcset="assets/product-gallery/03-consumer-results-green-720w.webp 720w, assets/product-gallery/03-consumer-results-green-1254w.webp 1254w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 4" onclick="setGal(3)" role="listitem">
-            <img src="assets/product-gallery/04-kitchen-cooking-v2.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/04-kitchen-cooking-v2.webp" srcset="assets/product-gallery/04-kitchen-cooking-v2-720w.webp 720w, assets/product-gallery/04-kitchen-cooking-v2.webp 1023w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 5" onclick="setGal(4)" role="listitem">
-            <img src="assets/product-gallery/05-reading-tea-v2.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/05-reading-tea-v2.webp" srcset="assets/product-gallery/05-reading-tea-v2-720w.webp 720w, assets/product-gallery/05-reading-tea-v2.webp 1003w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 6" onclick="setGal(5)" role="listitem">
-            <img src="assets/product-gallery/06-laptop-typing-v2.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/06-laptop-typing-v2.webp" srcset="assets/product-gallery/06-laptop-typing-v2-720w.webp 720w, assets/product-gallery/06-laptop-typing-v2.webp 1024w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 7" onclick="setGal(6)" role="listitem">
-            <img src="assets/product-gallery/07-smartphone-use-v2.webp" alt="" loading="lazy">
+            <img src="assets/product-gallery/07-smartphone-use-v2.webp" srcset="assets/product-gallery/07-smartphone-use-v2-720w.webp 720w, assets/product-gallery/07-smartphone-use-v2.webp 1122w" sizes="(max-width: 780px) 92vw, 510px" alt="" loading="lazy">
           </button>
           <button class="pdp-hero__thumb" type="button" aria-label="הצגת תמונה 8" onclick="setGal(7)" role="listitem">
             <img src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="" loading="lazy">
@@ -147,13 +148,13 @@
 
         <!-- Main image — gal-main class kept for product.css rules + JS -->
         <div class="pdp-hero__gal-main gal-main">
-          <img class="gal-image is-active" data-gal-image src="assets/product-gallery/01-daily-actions.jpg" alt="ידיים לובשות כפפות קומפרסיה אפורות של MyBambook בפעולות יומיומיות" loading="eager" decoding="async" fetchpriority="high">
-          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-trim="edge" src="assets/product-gallery/02-natural-breathable-support.png" alt="אישה לובשת כפפות קומפרסיה אפורות ליד מחשב" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" data-gallery-position="top" src="assets/product-gallery/03-consumer-results-green.png" alt="אינפוגרפיקת תוצאות משתמשים בעברית" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
-          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use-v2.webp" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
+          <img class="gal-image is-active" data-gal-image src="assets/product-gallery/01-daily-actions-1080w.webp" srcset="assets/product-gallery/01-daily-actions-720w.webp 720w, assets/product-gallery/01-daily-actions-1080w.webp 1080w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים לובשות כפפות קומפרסיה אפורות של MyBambook בפעולות יומיומיות" loading="eager" decoding="async" fetchpriority="high">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-trim="edge" src="assets/product-gallery/02-natural-breathable-support-512w.webp" alt="אישה לובשת כפפות קומפרסיה אפורות ליד מחשב" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" data-gallery-position="top" src="assets/product-gallery/03-consumer-results-green-1254w.webp" srcset="assets/product-gallery/03-consumer-results-green-720w.webp 720w, assets/product-gallery/03-consumer-results-green-1254w.webp 1254w" sizes="(max-width: 780px) 92vw, 510px" alt="אינפוגרפיקת תוצאות משתמשים בעברית" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/04-kitchen-cooking-v2.webp" srcset="assets/product-gallery/04-kitchen-cooking-v2-720w.webp 720w, assets/product-gallery/04-kitchen-cooking-v2.webp 1023w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים עם כפפות קומפרסיה אפורות מערבבות סלט במטבח" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/05-reading-tea-v2.webp" srcset="assets/product-gallery/05-reading-tea-v2-720w.webp 720w, assets/product-gallery/05-reading-tea-v2.webp 1003w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים עם כפפות קומפרסיה אפורות מחזיקות ספר ליד כוס תה" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/06-laptop-typing-v2.webp" srcset="assets/product-gallery/06-laptop-typing-v2-720w.webp 720w, assets/product-gallery/06-laptop-typing-v2.webp 1024w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים עם כפפות קומפרסיה אפורות מקלידות במחשב נייד" loading="lazy" decoding="async">
+          <img class="gal-image" data-gal-image src="assets/product-gallery/07-smartphone-use-v2.webp" srcset="assets/product-gallery/07-smartphone-use-v2-720w.webp 720w, assets/product-gallery/07-smartphone-use-v2.webp 1122w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים עם כפפות קומפרסיה אפורות משתמשות בטלפון" loading="lazy" decoding="async">
           <img class="gal-image" data-gal-image data-gallery-frame="square" data-gallery-fit="contain" src="assets/product-gallery/08-sizing-chart-hebrew.png?v=he-20260724" alt="מדריך מידות בעברית למדידת היקף מפרקי האצבעות: S ‏15–18 ס״מ, M ‏18–20 ס״מ, L ‏20–23 ס״מ" loading="lazy" decoding="async">
           <!-- Everyday support badge overlaid on image -->
           <div class="pdp-hero__gal-badge" aria-hidden="true">
@@ -252,6 +253,7 @@
 
             <!-- Extra pair upsell -->
             <div class="filter-bundle-section" id="filter-bundle-section" aria-label="בחירת סט הזוגות">
+              <p class="pdp-hero__gift-banner">בהזמנת 2 זוגות ומעלה מצורף במתנה מדריך טיפוח הידיים שלנו</p>
               <div class="filter-bundle-grid" role="group">
                 <div class="filter-bundle-card is-selected" data-bundle="0" tabindex="0" role="button" aria-pressed="true">
                   <span class="filter-bundle-card-days">זוג אחד</span>
@@ -260,7 +262,7 @@
                 <div class="filter-bundle-card" data-bundle="1" tabindex="0" role="button" aria-pressed="false">
                   <span class="filter-bundle-best-value">הכי פופולרי</span>
                   <span class="filter-bundle-card-days">2 זוגות</span>
-                  <span class="filter-bundle-card-sub">&rlm;249&nbsp;₪ · אחד עליכם, אחד בכביסה</span>
+                  <span class="filter-bundle-card-sub">&rlm;249&nbsp;₪ · אחד ליום, אחד ללילה</span>
                 </div>
                 <div class="filter-bundle-card" data-bundle="2" tabindex="0" role="button" aria-pressed="false">
                   <span class="filter-bundle-best-value">התמורה הטובה ביותר</span>
@@ -273,7 +275,6 @@
                 </div>
               </div>
               <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד: 179&nbsp;₪.</p>
-              <p class="pdp-hero__price-refill">בהזמנת 2 זוגות ומעלה מצורף במתנה מדריך טיפוח הידיים הדיגיטלי.</p>
             </div>
 
             <!-- Cart status -->
@@ -294,15 +295,15 @@
             <!-- Trust row -->
             <div class="pdp-hero__trust" aria-label="הבטחות רכישה">
               <span class="pdp-hero__trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 אחריות 60 יום
               </span>
               <span class="pdp-hero__trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 תשלום מאובטח
               </span>
               <span class="pdp-hero__trust-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                 מדריך מידות אמיתי
               </span>
             </div>
@@ -382,7 +383,7 @@
     <div class="pdp-sticky-bar__container">
         <div class="pdp-sticky-bar__left">
         <div class="pdp-sticky-bar__thumb" aria-hidden="true">
-          <img src="assets/product-gallery/01-daily-actions.jpg" alt="">
+          <img src="assets/product-gallery/01-daily-actions-1080w.webp" srcset="assets/product-gallery/01-daily-actions-720w.webp 720w, assets/product-gallery/01-daily-actions-1080w.webp 1080w" sizes="(max-width: 780px) 92vw, 510px" alt="">
         </div>
 
         <div class="pdp-sticky-bar__info">
@@ -411,6 +412,10 @@
         </ul>
       </div>
 
+      <a class="pdp-sticky-bar__buy-link" href="#pdp-buy-col" aria-label="מעבר לאפשרויות רכישה">
+        רכישה
+      </a>
+
       <div class="pdp-sticky-bar__right">
         <button class="pdp-sticky-bar__cta" id="sticky-cta" type="button" onclick="addSelectedProductsToShopifyCart(event)" aria-label="הוספת כפפות Bambook לסל">
           הוספה לסל
@@ -418,6 +423,22 @@
       </div>
     </div>
   </div>
+
+  <section class="section--cream reveal-page pf pf-checklist-band" aria-labelledby="pf-checklist-heading">
+    <div class="pf__inner">
+      <p class="pf-checklist__header" id="pf-checklist-heading">לחיצה ממוקדת מקלה על ההתמודדות היומיומית עם:</p>
+      <ul class="pf-checklist">
+        <li>דלקת פרקים (ארתריטיס)</li>
+        <li>אצבע הדק</li>
+        <li>גידים מודלקים</li>
+        <li>נוקשות בוקר</li>
+        <li>כאבי מפרקים</li>
+        <li>נפיחות</li>
+        <li>כאב עמום בכף היד</li>
+        <li>ידיים עייפות מעבודה או יצירה</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- ================================================
        A. CALLOUT + AGITATION  (funnel: LOW)
@@ -429,17 +450,6 @@
       <p class="pf__body">צנצנת שלא נפתחת. כפתור חולצה שלוקח שתי דקות. בוקר שהאצבעות פשוט לא נענות, עד שהן לאט לאט משתחררות. כל אחד מהרגעים האלה בנפרד הוא לא דרמה. הם פשוט חוזרים כל יום, ובשקט לוקחים דברים שפעם עשיתם בלי לחשוב: לפתוח, לאחוז, להקליד, לסרוג.</p>
       <p class="pf__body">אולי כבר ניסיתם הכל: משחות שנספגות ונגמרות, כדורים, אפילו זריקה. וזה עוזר לכאב הגדול. אבל את הנוקשות הקטנה של היום־יום, את האצבעות שנתקעות בבוקר, שם רוב הדברים פשוט לא מגיעים. ואם מישהו בדרך אמר לכם "זה הגיל, צריך פשוט להתרגל", אתם יודעים בדיוק כמה זה מרגיז לשמוע.</p>
       <p class="pf__body"><strong>יש דרך אחרת להתמודד עם הרגעים האלה. היא לא באה במקום מה שאתם כבר עושים, אלא לצידו.</strong></p>
-      <p class="pf-checklist__header">לחיצה ממוקדת מקלה על ההתמודדות היומיומית עם:</p>
-      <ul class="pf-checklist">
-        <li>דלקת פרקים (ארתריטיס)</li>
-        <li>אצבע הדק</li>
-        <li>גידים מודלקים</li>
-        <li>נוקשות בוקר</li>
-        <li>כאבי מפרקים</li>
-        <li>נפיחות</li>
-        <li>כאב עמום בכף היד</li>
-        <li>ידיים עייפות מעבודה או יצירה</li>
-      </ul>
     </div>
   </section>
 
@@ -498,6 +508,51 @@
     </div>
   </div>
 
+  <!-- Photo Carousel — AI-generated lifestyle UGC (avatar-ugc-gloves-*-2026-07-31), not customer reviews -->
+  <section class="review-photo-strip" aria-label="תמונות של אנשים לובשים את הכפפות בשגרת היום־יום">
+    <div class="carousel-viewport">
+      <div class="carousel-track">
+        <img src="assets/ugc-lifestyle/ugc-16-living-room-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות בסלון">
+        <img src="assets/ugc-lifestyle/ugc-15-workbench-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות בעבודה עם מברג בחניה">
+        <img src="assets/ugc-lifestyle/ugc-06-entryway-keys-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה מפתחות בכניסה לבית">
+        <img src="assets/ugc-lifestyle/ugc-11-craft-desk-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות בעבודת מלאכת יד">
+        <img src="assets/ugc-lifestyle/ugc-07-balcony-plant-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות שותלות עציץ במרפסת">
+        <img src="assets/ugc-lifestyle/ugc-22-entryway-groceries-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה מפתחות ושקיות קניות בכניסה">
+        <img src="assets/ugc-lifestyle/ugc-20-kitchen-cereal-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות במטבח">
+        <img src="assets/ugc-lifestyle/ugc-08-kitchen-spices-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה צנצנת תבלינים במטבח">
+        <img src="assets/ugc-lifestyle/ugc-14-kitchen-phone-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה טלפון ליד ספל קפה">
+        <img src="assets/ugc-lifestyle/ugc-23-kitchen-salad-prep-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה חותכת ירקות במטבח">
+        <img src="assets/ugc-lifestyle/ugc-12-car-coffee-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה כוס קפה ברכב">
+        <img src="assets/ugc-lifestyle/ugc-02-kitchen-mug-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה אוחזת בספל בבוקר">
+        <img src="assets/ugc-lifestyle/ugc-13-bathroom-vanity-540w.webp" alt="ידיים לובשות כפפות קומפרסיה אפורות ליד כיור האמבטיה">
+        <img src="assets/ugc-lifestyle/ugc-03-sofa-book-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מחזיקה ספר על הספה">
+        <img src="assets/ugc-lifestyle/ugc-21-living-room-blue-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה בסלון">
+        <img src="assets/ugc-lifestyle/ugc-09-crossword-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה פותרת תשבץ">
+        <img src="assets/ugc-lifestyle/ugc-10-laundry-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה מקפלת כביסה">
+        <img src="assets/ugc-lifestyle/ugc-01-kitchen-table-laptop-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה ליד מחשב נייד במטבח">
+        <img src="assets/ugc-lifestyle/ugc-05-bedroom-desk-540w.webp" alt="יד לובשת כפפת קומפרסיה אפורה ליד שולחן עבודה בחדר שינה">
+        <img src="assets/ugc-lifestyle/ugc-16-living-room-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-15-workbench-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-06-entryway-keys-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-11-craft-desk-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-07-balcony-plant-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-22-entryway-groceries-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-20-kitchen-cereal-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-08-kitchen-spices-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-14-kitchen-phone-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-23-kitchen-salad-prep-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-12-car-coffee-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-02-kitchen-mug-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-13-bathroom-vanity-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-03-sofa-book-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-21-living-room-blue-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-09-crossword-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-10-laundry-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-01-kitchen-table-laptop-540w.webp" alt="" aria-hidden="true">
+        <img src="assets/ugc-lifestyle/ugc-05-bedroom-desk-540w.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
 
 
 
@@ -508,7 +563,7 @@
     <div class="container two-col install-ease__grid">
 
       <figure class="install-ease__img">
-        <img src="assets/mybambook-desk-gloves-salad-2026-07-28.webp" alt="ידיים לובשות כפפות קומפרסיה של MyBambook מערבבות סלט במטבח">
+        <img src="assets/mybambook-desk-gloves-salad-2026-07-28-720w.webp" srcset="assets/mybambook-desk-gloves-salad-2026-07-28-720w.webp 720w, assets/mybambook-desk-gloves-salad-2026-07-28.webp 1023w" sizes="(max-width: 780px) 92vw, 510px" alt="ידיים לובשות כפפות קומפרסיה של MyBambook מערבבות סלט במטבח">
       </figure>
 
       <div class="install-ease__text">
@@ -1469,7 +1524,7 @@
         <ul>
           <li><a href="product.html#how-it-helps">איך זה עוזר</a></li>
           <li><a href="faq.html">שאלות נפוצות</a></li>
-          <li><a href="/blog/">הבלוג</a></li>
+          <li><a href="blog/index.html">הבלוג</a></li>
         </ul>
       </div>
       <div>
@@ -1872,6 +1927,8 @@
       });
     })();
   </script>
+  <script src="js/bambook-assistant-knowledge.js?v=2bd1f340"></script>
+  <script src="js/bambook-assistant.js?v=4dd0affc"></script>
   <script src="https://negishot.co.il/cdn/widget.php?code=NGS_28E6F354A9E3"></script>
 </body>
 </html>

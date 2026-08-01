@@ -110,7 +110,9 @@ The legacy `980 / 640` blocks inside `home.css` are debt — fold them into the 
 ## 5. Verify before you call it done (closes the broken-phone loop)
 
 1. **Bump the cache string** for every CSS/JS file you changed — run `python3 tools/bump-cache.py` from `site/`, or hand-bump the `?v=N` on that file's `<link>`. The browser serves stale CSS otherwise — this is why "I changed it but don't see it."
-2. **Preview the edited section in isolation:** `python3 -m http.server 8000`, open `http://127.0.0.1:8000/preview/`.
+2. **Preview the edited section in isolation:** `python3 tools/dev-server.py 8000`, open `http://127.0.0.1:8000/preview/`. Use this (not bare `python3 -m http.server`) — it also resolves the site's deliberate extensionless canonical links (`/faq`, `/blog/morning-hand-stiffness`, …) the same way production does, so local nav doesn't 404 on links that are actually correct (CODER_BUGLOG 2026-08-01, `HARDENED`).
+
+   **Link relatively — every page must also open straight off disk.** The operator previews by double-clicking the `.html` file, not by starting a server first. A root-absolute `href="/blog/"` resolves to the *filesystem* root there and dead-ends on `ERR_FILE_NOT_FOUND`, while the page around it still renders perfectly — which is exactly why it hid through two reviews (CODER_BUGLOG 2026-08-01 ×2). Use `blog/index.html`, `faq.html`, `../css/tokens.css`. **`404.html` is the one exception** and must stay root-absolute: it is served at arbitrary URL depth. `audit.py` hard-fails both mistakes, in either direction.
 3. **Playwright before AND after:** `cd ../visual-tests && npx playwright test`. Screenshots are layout-sensitive but tint-tolerant — they catch overflow/spacing/stack breaks, not subtle recolors. Re-baseline (`--update-snapshots`) only when the diff is intentional and approved.
 4. No horizontal scroll at 390/768/1024/1440 (the no-scroll assertion catches `body.scrollWidth > innerWidth`).
 5. **Updating snapshots for one intentional change:** never run a full-suite `--update-snapshots` after touching a single page — a parallel run can bake in a transient/half-loaded-font baseline for an *unrelated* page (CODER_BUGLOG 2026-07-15). Use `npm run update:one -- "<page>.html @ <width>px"` (serial, one page/viewport) instead, then run the normal `npm test` to confirm nothing else moved.
@@ -131,6 +133,7 @@ The legacy `980 / 640` blocks inside `home.css` are debt — fold them into the 
 - Use `!important` to win a cascade fight — fix the source rule.
 - Freelance copy as a coder — if the task changes the words, do it in combined web-dev + copywriting mode (on-voice, `CLAIMS_RULES`-compliant, offer facts from `OFFER_STRUCTURE.md`/the live site). Never invent specs, stats, testimonials, guarantees, claims, or offer details; route risky claims and angle rewrites out.
 - **Ship words that never passed the deslop gate.** Any change to customer-visible text on this site runs through `deslop` (`~/.claude/skills/deslop/SKILL.md`) before it lands. **Zero em/en dashes in shipped copy** — `grep -nE '—|–' <file>` must return only HTML/JS comments, the `.color-swatch-sep` glyph, and numeric ranges. Note macOS BSD `grep` does not read `\|` as alternation in a basic regex, so use `-E` or you will get a false clean.
+- Link with a root-absolute path (`/blog/`, `/css/x`) anywhere except `404.html` — it dead-ends when the page is opened as a file.
 - Create `*_backup.html` — git is the backup.
 - Ship a section without `npx playwright test` from `05_WEBSITE/visual-tests/`.
 - Put CSS (a `<style>` string or hex literal) inside a `.js` file.

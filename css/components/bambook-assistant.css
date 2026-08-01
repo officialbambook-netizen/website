@@ -1,0 +1,460 @@
+/* Universal MyBambook product and support assistant.
+   It is positioned from the Negishot button at runtime and falls back to the
+   current Negishot dimensions when that third-party script is unavailable. */
+
+.bambook-assistant {
+  --assistant-bottom: var(--assistant-default-bottom);
+  --assistant-inline-start: var(--assistant-edge);
+  bottom: var(--assistant-bottom);
+  color: var(--ink);
+  direction: rtl;
+  font-family: var(--font-sans);
+  inset-inline-start: var(--assistant-inline-start);
+  position: fixed;
+  z-index: var(--assistant-z);
+}
+
+.bambook-assistant,
+.bambook-assistant *,
+.bambook-assistant *::before,
+.bambook-assistant *::after {
+  box-sizing: border-box;
+}
+
+.bambook-assistant__launcher {
+  align-items: center;
+  background: var(--green);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-lift);
+  color: var(--ivory);
+  cursor: pointer;
+  display: inline-flex;
+  font: 700 var(--assistant-option-size) / 1 var(--font-sans);
+  gap: var(--space-2);
+  height: var(--assistant-control-size);
+  justify-content: flex-start;
+  min-inline-size: var(--assistant-launcher-min-width);
+  padding-block: 0;
+  padding-inline: var(--space-3) var(--space-4);
+  touch-action: manipulation;
+  transition: background-color var(--motion-fast) ease-out,
+    box-shadow var(--motion-fast) ease-out,
+    transform var(--motion-fast) ease-out;
+  white-space: nowrap;
+  width: auto;
+}
+
+.bambook-assistant__launcher:hover {
+  background: var(--ink);
+  box-shadow: var(--shadow-deep);
+}
+
+.bambook-assistant__launcher:active {
+  transform: scale(var(--assistant-closed-scale));
+}
+
+.bambook-assistant__send svg,
+.bambook-assistant__close svg,
+.bambook-assistant__reset svg {
+  fill: none;
+  height: var(--assistant-icon-size);
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: var(--assistant-icon-size);
+}
+
+.bambook-assistant__launcher-mark {
+  color: var(--gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.bambook-assistant__launcher-mark svg {
+  fill: none;
+  height: var(--assistant-launcher-mark-size);
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: var(--assistant-launcher-mark-size);
+}
+
+.bambook-assistant__launcher-leaf {
+  fill: currentColor;
+  stroke: none;
+}
+
+.bambook-assistant__launcher-label {
+  letter-spacing: normal;
+}
+
+.bambook-assistant.is-open .bambook-assistant__launcher {
+  justify-content: center;
+  min-inline-size: var(--assistant-control-size);
+  padding: 0;
+  width: var(--assistant-control-size);
+}
+
+.bambook-assistant.is-open .bambook-assistant__launcher-label {
+  display: none;
+}
+
+.bambook-assistant__launcher:focus-visible,
+.bambook-assistant__close:focus-visible,
+.bambook-assistant__reset:focus-visible,
+.bambook-assistant__suggestion:focus-visible,
+.bambook-assistant__send:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.bambook-assistant__panel {
+  background: var(--ivory);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--assistant-panel-radius);
+  bottom: calc(var(--assistant-control-size) + var(--assistant-stack-gap));
+  box-shadow: var(--shadow-deep);
+  display: flex;
+  flex-direction: column;
+  inline-size: var(--assistant-panel-width);
+  inset-inline-start: 0;
+  max-block-size: min(
+    var(--assistant-panel-max-height),
+    calc(
+      100dvh - var(--assistant-bottom) - var(--assistant-control-size) -
+        var(--assistant-stack-gap) - var(--assistant-stack-gap)
+    )
+  );
+  max-inline-size: calc(100vw - (var(--assistant-panel-gutter) * 2));
+  min-block-size: min(
+    var(--assistant-panel-min-height),
+    calc(
+      100dvh - var(--assistant-bottom) - var(--assistant-control-size) -
+        var(--assistant-stack-gap) - var(--assistant-stack-gap)
+    )
+  );
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(var(--space-2)) scale(var(--assistant-closed-scale));
+  transform-origin: bottom right;
+  transition: opacity var(--motion-fast) ease-out,
+    transform var(--motion-standard) var(--ease-out),
+    visibility 0s linear var(--motion-standard);
+  visibility: hidden;
+}
+
+.bambook-assistant.is-open .bambook-assistant__panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+.bambook-assistant__header {
+  align-items: center;
+  background: var(--green);
+  display: flex;
+  gap: var(--space-3);
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+}
+
+.bambook-assistant__identity {
+  min-inline-size: 0;
+}
+
+.bambook-assistant__brand {
+  color: var(--ivory);
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--assistant-title-size);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.bambook-assistant .bambook-assistant__status {
+  align-items: center;
+  color: var(--ivory);
+  display: flex;
+  font-size: var(--assistant-label-size);
+  font-weight: 500;
+  gap: var(--space-2);
+  line-height: 1.4;
+  margin: var(--space-1) 0 0;
+}
+
+.bambook-assistant__status::before {
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+  content: "";
+  display: inline-block;
+  height: var(--space-2);
+  width: var(--space-2);
+}
+
+.bambook-assistant__header-actions {
+  align-items: center;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.bambook-assistant__reset,
+.bambook-assistant__close {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--ivory);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-height: var(--assistant-touch-target);
+  min-width: var(--assistant-touch-target);
+  padding: var(--space-2);
+  touch-action: manipulation;
+  transition: background-color var(--motion-fast) ease-out,
+    color var(--motion-fast) ease-out;
+}
+
+.bambook-assistant__reset svg,
+.bambook-assistant__close svg {
+  height: var(--assistant-header-icon-size);
+  width: var(--assistant-header-icon-size);
+}
+
+.bambook-assistant__reset:hover,
+.bambook-assistant__close:hover {
+  background: var(--line-warm);
+  color: var(--ivory);
+}
+
+.bambook-assistant__body {
+  flex: 1;
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.bambook-assistant__messages {
+  padding: var(--space-5) var(--space-4) var(--space-2);
+}
+
+.bambook-assistant__message {
+  display: flex;
+  margin-block-end: var(--space-3);
+}
+
+.bambook-assistant__message.is-user {
+  justify-content: flex-start;
+}
+
+.bambook-assistant__message.is-assistant {
+  justify-content: flex-end;
+}
+
+.bambook-assistant__bubble {
+  border-radius: var(--radius);
+  font-size: var(--assistant-body-size);
+  line-height: 1.6;
+  margin: 0;
+  max-inline-size: var(--assistant-message-width);
+  padding: var(--space-3) var(--space-4);
+  unicode-bidi: plaintext;
+  white-space: pre-line;
+}
+
+.bambook-assistant__message.is-assistant .bambook-assistant__bubble {
+  background: var(--cream);
+  border: 1px solid var(--line-soft);
+  border-end-start-radius: var(--radius-sm);
+  color: var(--ink);
+}
+
+.bambook-assistant__message.is-user .bambook-assistant__bubble {
+  background: var(--green);
+  border-end-end-radius: var(--radius-sm);
+  color: var(--ivory);
+}
+
+.bambook-assistant__suggestion-group {
+  padding: var(--space-2) var(--space-4) var(--space-5);
+}
+
+.bambook-assistant__suggestion-group[hidden] {
+  display: none;
+}
+
+.bambook-assistant__suggestion-title {
+  color: var(--taupe);
+  font-size: var(--assistant-label-size);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 var(--space-2);
+  text-align: start;
+}
+
+.bambook-assistant__suggestions {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.bambook-assistant__suggestion {
+  align-items: center;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--assistant-option-radius);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  font: 600 var(--assistant-option-size) / 1.4 var(--font-sans);
+  gap: var(--space-3);
+  inline-size: 100%;
+  min-height: var(--assistant-option-min-height);
+  padding: var(--space-3) var(--space-4);
+  text-align: start;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background-color var(--motion-fast) ease-out,
+    border-color var(--motion-fast) ease-out;
+}
+
+.bambook-assistant__suggestion::before {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  content: "";
+  flex: 0 0 auto;
+  height: var(--space-5);
+  width: var(--space-5);
+}
+
+.bambook-assistant__suggestion:hover {
+  background: var(--sand);
+  border-color: var(--gold);
+}
+
+.bambook-assistant__suggestion:hover::before {
+  border-color: var(--gold);
+}
+
+.bambook-assistant__suggestion:active {
+  background: var(--cream);
+}
+
+.bambook-assistant__composer {
+  align-items: center;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--assistant-option-radius);
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 var(--space-4) var(--space-2);
+  padding: var(--space-2);
+  transition: border-color var(--motion-fast) ease-out,
+    box-shadow var(--motion-fast) ease-out;
+}
+
+.bambook-assistant__composer:focus-within {
+  border-color: var(--gold);
+  box-shadow: var(--assistant-focus-ring);
+}
+
+.bambook-assistant__input {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  flex: 1;
+  font: 500 var(--assistant-body-size) / 1.4 var(--font-sans);
+  min-height: var(--assistant-touch-target);
+  min-inline-size: 0;
+  outline: 0;
+  padding: var(--space-2);
+  text-align: start;
+}
+
+.bambook-assistant__input::placeholder {
+  color: var(--taupe);
+  opacity: 1;
+}
+
+.bambook-assistant__send {
+  align-items: center;
+  background: var(--line-soft);
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--taupe);
+  cursor: not-allowed;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: var(--assistant-composer-control-size);
+  justify-content: center;
+  padding: 0;
+  touch-action: manipulation;
+  width: var(--assistant-composer-control-size);
+}
+
+.bambook-assistant__send:not(:disabled) {
+  background: var(--green);
+  color: var(--ivory);
+  cursor: pointer;
+}
+
+.bambook-assistant__send:not(:disabled):hover {
+  background: var(--ink);
+}
+
+.bambook-assistant__privacy {
+  background: var(--ivory);
+  color: var(--taupe);
+  font-size: var(--fs-eyebrow);
+  line-height: 1.45;
+  margin: 0;
+  padding: 0 var(--space-4) var(--space-4);
+  text-align: center;
+}
+
+.bambook-assistant__sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (max-width: 768px) {
+  .bambook-assistant__panel {
+    inline-size: calc(100vw - (var(--assistant-panel-gutter) * 2));
+    max-inline-size: none;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .bambook-assistant__panel {
+    inset: var(--assistant-panel-gutter);
+    inline-size: auto;
+    max-block-size: none;
+    max-inline-size: none;
+    min-block-size: 0;
+    position: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bambook-assistant__launcher,
+  .bambook-assistant__panel,
+  .bambook-assistant__suggestion,
+  .bambook-assistant__body {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

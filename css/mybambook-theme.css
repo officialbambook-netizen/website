@@ -222,8 +222,8 @@ body.mybambook-page {
    top edge on this portrait-sourced photo (near-zero headroom, read as cut).
    Per-image override, not a change to the shared rule above — other
    .mb-hero__media images keep the default center position. */
-.mb-hero__media-img--top-quarter {
-  object-position: 50% 25%;
+.mb-hero__media img.mb-hero__media-img--top-quarter {
+  object-position: 50% 18%;
 }
 
 .mb-hero--home {
@@ -604,15 +604,19 @@ body.mybambook-page {
     grid-template-columns: 1fr;
   }
 
+  /* The home hero is an overlay at every width: the media and the copy both
+     sit in the single "hero" grid area declared on the base rule. This block
+     used to remap the areas to a stacked "media"/"copy" pair, but neither
+     child was ever re-assigned off `grid-area: hero`, so between 781px and
+     1024px both landed in an implicit track and the copy's `48vw` max-width
+     shrank the whole hero to a ~375-490px column with blank page beside it.
+     Keep the overlay here; the <=780px block already restores it below. */
   .mb-hero--home .mb-hero__inner {
-    grid-template-areas:
-      "media"
-      "copy";
-    min-height: 0;
+    min-height: min(820px, calc(100svh - 64px));
   }
 
-  .mb-hero--home .mb-hero__inner::after {
-    display: none;
+  .mb-hero--home .mb-hero__copy {
+    max-width: min(54rem, 62vw);
   }
 
   .mb-grid-4 {
@@ -683,17 +687,47 @@ html[dir="rtl"] body.mybambook-page em {
     padding-top: 0;
   }
 
+  /* ------------------------------------------------------------------
+     Home hero, phone: banner over panel — NOT the desktop overlay.
+
+     The source photo is square (1254x1254) and composes horizontally: the
+     woman sits across x 13-47%, the man across x 53-96%. Overlaying the copy
+     meant the media box was the full hero (390x780 = 1:2), and `cover` on a
+     1:2 box can only ever show 50% of a square's width — so the phone got the
+     middle half and sliced the man vertically down his face. No
+     object-position fixes that: containing both people needs 83% of the
+     width, and 1:2 mathematically cannot show more than 50%.
+
+     So on phones the media becomes its own 5:4 band. `cover` then crops
+     vertically instead of horizontally: 100% of the width survives (both
+     people whole) and the 20% it trims comes off the coffee-table foreground.
+     The copy moves below onto a solid ivory panel, which also retires the
+     white-text-on-busy-photo contrast problem. Desktop (>=781px) is
+     untouched — it keeps the overlay, where a 1440x828 box shows ~96%.
+     ------------------------------------------------------------------ */
   .mb-hero--home .mb-hero__inner {
-    grid-template-areas: "hero";
+    grid-template-areas:
+      "media"
+      "copy";
     grid-template-columns: 1fr;
-    min-height: min(820px, calc(100svh - 64px));
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 0;
+  }
+
+  .mb-hero--home .mb-hero__media {
+    grid-area: media;
+    inset: auto;
+    min-height: 0;
+    position: relative;
   }
 
   .mb-hero--home .mb-hero__media img {
-    aspect-ratio: auto;
-    height: 100%;
+    aspect-ratio: 5 / 4;
+    height: auto;
     object-fit: cover;
-    object-position: 50% 18%;
+    object-position: 50% 30%;
+    width: 100%;
   }
 
   .mb-hero--home .mb-hero__media::before {
@@ -701,18 +735,22 @@ html[dir="rtl"] body.mybambook-page em {
   }
 
   .mb-hero--home .mb-hero__copy {
-    align-self: end;
-    background: transparent;
+    align-self: start;
+    background: var(--ivory);
     box-sizing: border-box;
+    grid-area: copy;
+    height: auto;
+    margin-left: 0;
     max-width: none;
     min-height: auto;
-    padding: clamp(var(--space-12), 28svh, var(--space-20)) var(--section-px) clamp(var(--space-12), 12vw, var(--space-16));
+    padding: clamp(var(--space-8), 7vw, var(--space-12)) var(--section-px) clamp(var(--space-10), 9vw, var(--space-16));
     width: 100%;
   }
 
+  /* The scrim only existed to hold text off the photo; there is no text on
+     the photo any more. */
   .mb-hero--home .mb-hero__inner::after {
-    background: linear-gradient(to bottom, rgb(16 37 54 / 0%) 0%, rgb(251 253 251 / 16%) 48%, rgb(251 253 251 / 34%) 100%);
-    display: block;
+    display: none;
   }
 
   .mb-hero--home .mb-kicker {
@@ -726,15 +764,25 @@ html[dir="rtl"] body.mybambook-page em {
     max-width: 100%;
   }
 
+  /* On the photo the payoff lines were ivory-on-image with a shadow; on the
+     ivory panel they have to carry ink. The cyan/dark two-tone split the
+     operator set on 2026-07-29 is preserved, just re-grounded. */
+  .mb-hero--home h1 em {
+    color: var(--ink);
+    text-shadow: none;
+  }
+
   .mb-hero--home .mb-hero__lead {
-    font-size: clamp(0.9rem, 3.9vw, 1rem);
-    line-height: 1.5;
+    color: var(--taupe);
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+    line-height: 1.6;
+    text-shadow: none;
   }
 
   .mb-hero--home .mb-hero__actions {
     box-sizing: border-box;
-    margin-bottom: var(--space-4);
-    padding-inline-start: var(--space-16);
+    margin-bottom: 0;
+    padding-inline-start: 0;
     width: 100%;
   }
 }

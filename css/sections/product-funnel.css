@@ -8,6 +8,9 @@
   padding: var(--section-py) var(--section-px) var(--section-py-b);
   text-align: center;
 }
+.pf-checklist-band {
+  padding-block: clamp(var(--space-8), 4vw, var(--space-12));
+}
 .pf__inner { max-width: 820px; margin: 0 auto; min-width: 0; }
 
 .pf__eyebrow {
@@ -70,6 +73,9 @@
   font-weight: 800;
   color: var(--ink);
   margin: clamp(var(--space-6), 2.5vw, var(--space-8)) 0 var(--space-5);
+}
+.pf-checklist-band .pf-checklist__header {
+  margin-top: 0;
 }
 .pf-checklist {
   list-style: none;

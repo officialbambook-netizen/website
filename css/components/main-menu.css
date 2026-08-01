@@ -273,7 +273,7 @@ body {
   }
 
   .bambook-brand > span {
-    font-size: 0.52rem;
+    font-size: 0.6rem;
   }
 
   .bambook-menu-links {
@@ -361,8 +361,12 @@ body {
     letter-spacing: 0.18em;
   }
 
+  /* Was clamp(0.38rem, 1.7vw, 0.46rem) — 6.6px at 390px, which rendered the
+     Hebrew descriptor as an unreadable grey smudge under the wordmark. The
+     brand column has ~215px of room at 390px and this line only needs ~70px,
+     so the shrink was never buying space it needed. */
   .bambook-brand > span {
-    font-size: clamp(0.38rem, 1.7vw, 0.46rem);
+    font-size: clamp(0.56rem, 2.4vw, 0.68rem);
     letter-spacing: 0.14em;
   }
 

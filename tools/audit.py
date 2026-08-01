@@ -15,6 +15,9 @@ Deterministic guard for the problems that keep coming back:
     that make responsive behaviour inconsistent page to page)
   - IMAGE FIT: object-fit: cover with no object-position (a silent guess at the crop —
     how a face ends up cut off; see "Adding an image to the site" in bambook-web-developer)
+  - LOCAL BROWSABILITY: a root-absolute href (/blog/) dead-ends on ERR_FILE_NOT_FOUND
+    when the page is opened straight off disk, while the page around it still renders —
+    which is exactly why it survived review twice (404.html exempt by design)
 
 Usage (from site/):
     python3 tools/audit.py                 # audit whole site
@@ -458,6 +461,55 @@ def scan_404_absolute_paths() -> list[str]:
     return hard
 
 
+def scan_file_protocol_links() -> list[str]:
+    """Every page except 404.html must be browsable straight off disk (file://).
+
+    The operator previews this site by opening the .html file, not by remembering
+    to start a server. Under file:// a root-absolute href like "/blog/" resolves
+    against the FILESYSTEM root, so it lands on ERR_FILE_NOT_FOUND — while the
+    page around it still renders perfectly, because the rest of the site already
+    links relatively. That asymmetry is what made it survive review twice
+    (CODER_BUGLOG 2026-08-01 x2). Shipping a dev-server was not enough: a guard
+    the operator has to remember to run is not a guard.
+
+    404.html is the one deliberate exception — it is served at arbitrary URL
+    depth and MUST stay root-absolute (see scan_404_absolute_paths above).
+    """
+    skip = ("http://", "https://", "mailto:", "tel:", "#", "data:", "//", "javascript:")
+    exempt_dirs = {".worktrees", "artifacts", "test-results", "node_modules", "preview"}
+    hard = []
+    for page in sorted(SITE.rglob("*.html")):
+        if exempt_dirs & set(page.relative_to(SITE).parts) or page.name == "404.html":
+            continue
+        rel_page = page.relative_to(SITE)
+        absolute, missing = [], []
+        for link in re.findall(r'(?:href|src)="([^"]+)"', page.read_text()):
+            if link.startswith(skip):
+                continue
+            clean = link.split("?")[0].split("#")[0]
+            if not clean:
+                continue
+            if clean.startswith("/"):
+                absolute.append(link)
+                continue
+            target = (page.parent / clean).resolve()
+            if target.is_dir():
+                target = target / "index.html"
+            if not target.exists():
+                missing.append(link)
+        if absolute:
+            hard.append(f"  ✗ {rel_page}: {len(absolute)} root-absolute path(s) "
+                        f"({', '.join(sorted(set(absolute))[:4])}"
+                        f"{'…' if len(set(absolute)) > 4 else ''}) — these hit the filesystem root "
+                        f"and dead-end when the page is opened as a file. Link relatively "
+                        f"(../css/x, blog/index.html, faq.html).")
+        if missing:
+            hard.append(f"  ✗ {rel_page}: {len(missing)} relative path(s) point at nothing "
+                        f"({', '.join(sorted(set(missing))[:4])}"
+                        f"{'…' if len(set(missing)) > 4 else ''}).")
+    return hard
+
+
 def scan_draft_pages() -> list[str]:
     """Static hosting publishes every file in the repo: there is no
     drafts-do-not-ship step. product.copydraft.html went live with a title tag
@@ -545,12 +597,18 @@ def main() -> int:
     seo = canon + drafts + pricedrift + abs404
     print("\n".join(seo) if seo else "  ✓ canonicals, no draft pages, schema price matches, 404 paths absolute")
 
+    print("\n── LOCAL BROWSABILITY (every page must open straight off disk via file://) ──")
+    fileproto = scan_file_protocol_links()
+    print("\n".join(fileproto) if fileproto else
+          "  ✓ every link resolves when the page is opened as a file (404.html exempt by design)")
+
     print("\n── DEAD ASSETS (advisory — unreferenced css/js files) ──")
     dead = scan_dead_assets()
     print("\n".join(dead) if dead else "  ✓ every css/js file is referenced somewhere")
 
     hard_count = (len(hard) + len(jhard) + len([h for h in html if h.strip().startswith("✗")])
-                  + len(thard) + len(pixel) + len(dupes) + len(abspaths) + len(seo))
+                  + len(thard) + len(pixel) + len(dupes) + len(abspaths) + len(seo)
+                  + len(fileproto))
     print(f"\n{'STRICT: ' if strict else ''}{hard_count} hard issue(s), "
           f"{len(soft) + len(jsoft) + len(scatter) + len(tsoft)} debt/scatter note(s).")
     return 1 if (strict and hard_count) else 0

@@ -321,11 +321,16 @@
   color: var(--ink);
 }
 
+/* max(), not a bare --fs-footer: iOS Safari force-zooms the whole page when a
+   focused field computes under 16px, and --fs-footer bottoms out at 14.4px on
+   a phone. The max() lifts only that mobile floor — --fs-footer already tops
+   out at exactly 1rem, so every width from tablet up is left untouched
+   (site CLAUDE.md §3: body text >= 16px on mobile). */
 .policy-form input,
 .policy-form select,
 .policy-form textarea {
   font-family: var(--sans);
-  font-size: var(--fs-footer);
+  font-size: max(1rem, var(--fs-footer));
   color: var(--ink);
   background: var(--ivory);
   border: 1px solid rgba(64, 54, 50, 0.18);
@@ -377,6 +382,23 @@
 }
 
 /* ---- Responsive ------------------------------------------ */
+
+@media (max-width: 768px) {
+  /* "Back to top" is a standalone control, not a link inside a sentence, so
+     the WCAG inline-target exemption doesn't cover it — and at 66x19px it was
+     a genuinely hard thumb target. Grow the anchor's box upward by 1.5rem and
+     take the same 1.5rem off the wrapper's top padding, so the tap area goes
+     from 19px to ~43px while the text lands in exactly the same place. */
+  .policy-back {
+    padding-top: 0.5rem;
+  }
+
+  .policy-back a {
+    display: inline-block;
+    padding-inline: var(--space-4);
+    padding-top: 1.5rem;
+  }
+}
 
 @media (max-width: 640px) {
   .policy-form__grid {

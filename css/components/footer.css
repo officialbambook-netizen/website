@@ -250,4 +250,27 @@
   .legal {
     justify-content: flex-start;
   }
+
+  /* Thumb targets, phone only. The link text is ~21px tall with a 12px list
+     gap, so on a touch screen adjacent footer links sit ~36px apart — inside
+     the miss radius of a thumb. Move the list's spacing into the anchor's own
+     padding: the gap on screen is unchanged, but each link now owns a ~45px
+     tap box instead of 21px (site CLAUDE.md §3: touch targets >= 44x44). */
+  .site-footer ul {
+    gap: 0;
+  }
+
+  .site-footer ul a {
+    display: block;
+    padding-block: var(--space-3);
+  }
+
+  .legal {
+    gap: var(--space-2) var(--space-4);
+  }
+
+  .legal a {
+    display: inline-block;
+    padding-block: var(--space-3);
+  }
 }

@@ -79,6 +79,39 @@
   --section-px:  4.5vw;                                    /* section horizontal pad */
   --grid-gap:    clamp(2rem, 3.5vw, 3.5rem);               /* two-column gap */
 
+
+  /* ---- Motion ---------------------------------------------- */
+  --motion-fast: 180ms;
+  --motion-standard: 240ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Universal assistant -------------------------------- */
+  --assistant-edge: 20px;
+  --assistant-control-size: 52px;
+  --assistant-launcher-min-width: 190px;
+  --assistant-launcher-mark-size: 32px;
+  --assistant-stack-gap: 14px;
+  --assistant-default-bottom: 86px;
+  --assistant-panel-width: 400px;
+  --assistant-panel-max-height: 650px;
+  --assistant-panel-min-height: 520px;
+  --assistant-panel-gutter: 16px;
+  --assistant-icon-size: 24px;
+  --assistant-header-icon-size: 20px;
+  --assistant-touch-target: 44px;
+  --assistant-composer-control-size: 48px;
+  --assistant-option-min-height: 52px;
+  --assistant-title-size: 1.25rem;
+  --assistant-body-size: 1rem;
+  --assistant-label-size: 0.82rem;
+  --assistant-option-size: 0.95rem;
+  --assistant-message-width: 92%;
+  --assistant-panel-radius: 20px;
+  --assistant-option-radius: 14px;
+  --assistant-focus-ring: 0 0 0 2px var(--line-warm);
+  --assistant-closed-scale: 0.98;
+  --assistant-z: 10000;
+
   /* ---- Radius ---------------------------------------------- */
   --radius:    16px;   /* cards, image blocks */
   --radius-sm: 8px;    /* buttons, small chips */
