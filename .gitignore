@@ -3,3 +3,4 @@ tools/.qa-state/
 .agents/
 test-results/
 .DS_Store
+.worktrees/
