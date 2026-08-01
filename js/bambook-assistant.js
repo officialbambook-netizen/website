@@ -16,6 +16,7 @@
   var suggestionsEl;
   var input;
   var sendButton;
+  var expandButton;
   var state = { messages: [], purchaseScore: 0, seenIntents: [] };
 
   function createAssistant() {
@@ -44,6 +45,12 @@
       '    <div class="bambook-assistant__header-actions">',
       '      <button class="bambook-assistant__reset" type="button" aria-label="פתיחת שיחה חדשה">',
       '        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v6h6"></path></svg>',
+      '      </button>',
+      '      <button class="bambook-assistant__expand" type="button" aria-label="הגדלת חלון הצ׳אט" aria-pressed="false">',
+      '        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">',
+      '          <path class="bambook-assistant__expand-maximize" d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"></path>',
+      '          <path class="bambook-assistant__expand-restore" d="M3 8h5V3M21 8h-5V3M21 16h-5v5M3 16h5v5"></path>',
+      '        </svg>',
       '      </button>',
       '      <button class="bambook-assistant__close" type="button" aria-label="סגירת העוזר הדיגיטלי">',
       '        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>',
@@ -78,6 +85,7 @@
     suggestionsEl = root.querySelector('.bambook-assistant__suggestions');
     input = root.querySelector('.bambook-assistant__input');
     sendButton = root.querySelector('.bambook-assistant__send');
+    expandButton = root.querySelector('.bambook-assistant__expand');
 
     root.querySelector('.bambook-assistant__brand').textContent = knowledge.brand;
     root.querySelector('.bambook-assistant__status').textContent = knowledge.status;
@@ -93,6 +101,7 @@
   function bindEvents() {
     launcher.addEventListener('click', togglePanel);
     root.querySelector('.bambook-assistant__close').addEventListener('click', closePanel);
+    expandButton.addEventListener('click', togglePanelSize);
     root.querySelector('.bambook-assistant__reset').addEventListener('click', resetConversation);
     root.querySelector('.bambook-assistant__composer').addEventListener('submit', submitQuestion);
     suggestionsEl.addEventListener('click', handleSuggestionClick);
@@ -132,6 +141,16 @@
     panel.setAttribute('aria-hidden', 'true');
     launcher.focus();
     track('close', 'assistant');
+  }
+
+  function togglePanelSize() {
+    var isExpanded = root.classList.toggle('is-expanded');
+    expandButton.setAttribute('aria-pressed', String(isExpanded));
+    expandButton.setAttribute(
+      'aria-label',
+      isExpanded ? 'החזרת חלון הצ׳אט לגודל רגיל' : 'הגדלת חלון הצ׳אט'
+    );
+    track(isExpanded ? 'expand' : 'restore', 'assistant');
   }
 
   function resetConversation() {
