@@ -56,7 +56,6 @@
     /* ── Reduced motion ─────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .carousel-track { animation: none; overflow-x: auto; }
       *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
     }
 
@@ -801,7 +800,9 @@
       gap: 14px;
       width: max-content;
       animation: carousel-scroll 39s linear infinite;
+      animation-play-state: paused;
     }
+    .review-photo-strip.is-carousel-ready .carousel-track { animation-play-state: running; }
     @media (hover: hover) and (pointer: fine) {
       .carousel-viewport:hover .carousel-track { animation-play-state: paused; }
     }
@@ -812,11 +813,23 @@
     .carousel-track img {
       width: 260px;
       height: 340px;
+      aspect-ratio: 13 / 17;
       object-fit: cover;
       object-position: center top;
       border-radius: 14px;
       flex-shrink: 0;
       display: block;
+      background: var(--surface-fill);
+    }
+    /* Must stay below the component: an equal-specificity base rule declared
+       later would silently cancel this fallback (CODER_BUGLOG 2026-08-01). */
+    @media (prefers-reduced-motion: reduce) {
+      .review-photo-strip .carousel-viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      .review-photo-strip .carousel-track { animation: none; }
+      .review-photo-strip .carousel-track img { scroll-snap-align: start; }
     }
 
     .included-section { background: var(--cream); }

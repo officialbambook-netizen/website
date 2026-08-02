@@ -9,15 +9,20 @@
 /* Blog hub hero title only — every other .policy-hero__title (blog posts,
    FAQ, mission, contact, 404…) keeps the shared brand-blue treatment from
    mybambook-theme.css. This is a deliberate one-page exception, not a token
-   change, so it can't leak onto pages nobody asked to change. Reuses --sand,
-   the same beige already used by .blog-cta, rather than a new hex. */
+   change, so it can't leak onto pages nobody asked to change. Was --sand,
+   but on this page's blue-cyan reskin --sand resolves to a near-white
+   rgb(243,233,218) that read as plain white against the navy hero — every
+   other warm-toned token in mybambook-theme.css's :root (--peach, --blush,
+   --green) is actually part of the blue-cyan family too, so --gold is the
+   only token here that reads as genuinely beige/tan, and it already
+   matches the eyebrow above this title. */
 /* Selector matches mybambook-theme.css's specificity
    (.mybambook-policy .policy-hero__title, two classes) plus the modifier
    class, so this reliably wins regardless of <link> order rather than
    relying on cascade position. */
 .mybambook-policy .policy-hero__title.blog-hub-title,
 .mybambook-policy .policy-hero__title.blog-hub-title em {
-  color: var(--sand);
+  color: var(--gold);
 }
 
 .blog-list {
