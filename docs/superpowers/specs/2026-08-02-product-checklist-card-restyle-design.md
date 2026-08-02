@@ -41,3 +41,14 @@ Use existing design tokens wherever a matching token exists. If the reference's 
 ## Rollback
 
 Restore the prior `.pf-checklist-band`, `.pf-checklist`, `.pf-checklist li`, and `.pf-checklist li::before` declarations and regenerate cache references.
+
+## Operator Revision — 50% Compact Scale
+
+After reviewing the first implementation, the operator requested a 50% reduction. Interpret this as approximately halving the section's vertical footprint while preserving readable Hebrew rather than literally halving the font size.
+
+- Reduce card height from 80px to approximately 40–48px.
+- Reduce grid gaps from 16px to 8px.
+- Reduce section padding and heading-to-grid spacing by approximately half.
+- Reduce label and checkmark sizes modestly so they remain legible.
+- Narrow the desktop grid moderately; do not force the longest label to wrap.
+- Preserve the existing copy, item order, two desktop columns, one mobile column, blue checks, and RTL alignment.
