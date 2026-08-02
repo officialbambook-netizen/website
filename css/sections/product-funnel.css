@@ -117,7 +117,7 @@
   padding: var(--space-2) var(--space-10);
   background: var(--ivory);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   text-align: center;
   font-weight: 800;
   font-size: var(--fs-footer);
