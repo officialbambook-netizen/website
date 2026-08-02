@@ -10,7 +10,7 @@
 }
 .pf-checklist-band {
   padding-block: clamp(var(--space-5), 2vw, var(--space-6));
-  background: color-mix(in srgb, var(--ivory) 88%, var(--cream));
+  background: var(--cream);
 }
 .pf-checklist-band .pf__inner {
   max-width: calc(var(--container) - (2 * var(--space-24)));
