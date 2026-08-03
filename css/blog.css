@@ -25,6 +25,17 @@
   color: var(--gold);
 }
 
+.mybambook-policy .blog-intro-title {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.45;
+  margin-top: 0;
+  text-align: center;
+  text-wrap: balance;
+}
+
 .blog-list {
   display: grid;
   gap: var(--space-6);

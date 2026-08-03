@@ -10,8 +10,16 @@
   };
   var DEFAULT_SIZE = 'M';
 
+  // Reverse lookup so the cart drawer can show/select the right size per line
+  // from the live merchandise.id Shopify returns — no size ever hardcoded per line.
+  var VARIANT_ID_TO_SIZE = {};
+  Object.keys(SIZE_VARIANTS).forEach(function (size) {
+    VARIANT_ID_TO_SIZE[SIZE_VARIANTS[size].variantId] = size;
+  });
+
   var CART_LINE_FIELDS = [
     'id quantity',
+    'attributes { key value }',
     'merchandise { ... on ProductVariant {',
     '  id',
     '  title',
@@ -113,7 +121,12 @@
       '.cdlg-item-img-placeholder{width:72px;height:72px;border-radius:10px;background:var(--cream,#f7efe3);flex-shrink:0;}',
       '.cdlg-item-body{flex:1;min-width:0;}',
       '.cdlg-item-name{font:700 14px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);}',
+      '.cdlg-item-index{color:var(--gold,#b88e4a);font-weight:800;margin-inline-end:4px;}',
       '.cdlg-item-variant{font:500 12px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);margin-top:2px;}',
+      '.cdlg-item-sizewrap{display:flex;align-items:center;gap:8px;margin-top:6px;}',
+      '.cdlg-item-sizelabel{font:500 12px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);}',
+      '.cdlg-item-sizeselect{font:600 13px var(--font-sans,Inter,Arial,sans-serif);color:var(--brown,#403632);border:1px solid var(--line,#eadfd3);border-radius:8px;padding:4px 10px;background:var(--ivory,#fff9f0);cursor:pointer;}',
+      '.cdlg-item-sizeselect:disabled{opacity:.6;cursor:wait;}',
       '.cdlg-item-plan{font:600 12px var(--font-sans,Inter,Arial,sans-serif);color:var(--gold,#b88e4a);margin-top:2px;}',
       '.cdlg-item-note{font:500 11px var(--font-sans,Inter,Arial,sans-serif);color:var(--taupe,#786f68);margin-top:1px;}',
       '.cdlg-item-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:12px;}',
@@ -206,7 +219,10 @@
       if (!variant || !variant.variantId) {
         throw new Error('מידה ' + size + ' אינה זמינה כרגע.');
       }
-      return { size: size, variantId: variant.variantId, quantity: 1 };
+      // A distinct attribute per pair keeps same-size pairs as separate cart lines
+      // instead of Shopify merging them into one line — each pair stays individually
+      // addressable (its own remove button, its own size dropdown) in the drawer.
+      return { size: size, variantId: variant.variantId, quantity: 1, attributes: [{ key: '_pair', value: String(index + 1) }] };
     });
   }
 
@@ -226,7 +242,7 @@
 
   async function buildShopifyCart(config) {
     var lines = selectedLines(config).map(function (line) {
-      return { merchandiseId: line.variantId, quantity: line.quantity };
+      return { merchandiseId: line.variantId, quantity: line.quantity, attributes: line.attributes };
     });
 
     var data = await storefrontFetch([
@@ -395,9 +411,17 @@
       return picked;
     }
 
+    // Original (pre-discount) value per line comes from Shopify's own compareAtPrice,
+    // never a hardcoded anchor — sum(originalTotal) - sum(lineTotal) across all lines
+    // is the total-savings figure shown in the footer below.
+    var originalSubtotal = 0;
+    var chargedSubtotal = 0;
+
+    var showIndex = edges.length > 1;
+
     try {
       var linesHTML = '';
-      edges.forEach(function (edge) {
+      edges.forEach(function (edge, index) {
         var node = edge.node;
         var merchandise = node.merchandise;
         var img = (merchandise.image && merchandise.image.url) ||
@@ -412,16 +436,37 @@
         var priceHTML = showCompare
           ? '<span class="cdlg-item-original">' + compareTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span><span class="cdlg-item-price">' + lineTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span>'
           : '<span class="cdlg-item-price">' + lineTotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span>';
+        var saveHTML = '';
+        if (showCompare) {
+          var linePct = Math.round(((compareTotal - lineTotal) / compareTotal) * 100);
+          saveHTML = '<div class="cdlg-item-save">חסכתם ' + linePct + '%</div>';
+        }
+
+        originalSubtotal += showCompare ? compareTotal : lineTotal;
+        chargedSubtotal += lineTotal;
+
+        // Size dropdown: options come from SIZE_VARIANTS (S/M/L), current selection
+        // read back from the live merchandise.id Shopify returned for this line — no
+        // color/material picker, since every Bambook variant is the same gray bamboo fabric.
+        var currentSize = VARIANT_ID_TO_SIZE[merchandise.id] || '';
+        var sizeOptionsHTML = Object.keys(SIZE_VARIANTS).map(function (sz) {
+          return '<option value="' + sz + '"' + (sz === currentSize ? ' selected' : '') + '>' + sz + '</option>';
+        }).join('');
+        var lineAttrs = (node.attributes || []).map(function (a) { return { key: a.key, value: a.value }; });
+        var qtyHTML = node.quantity > 1 ? '<span class="cdlg-item-qty">כמות ' + node.quantity + '</span>' : '';
 
         linesHTML += [
           '<div class="cdlg-item">',
           img ? '<img class="cdlg-item-img" src="' + escapeHTML(img) + '" alt="">' : '<div class="cdlg-item-img-placeholder"></div>',
           '  <div class="cdlg-item-body">',
-          '    <div class="cdlg-item-name">' + escapeHTML(merchandise.product.title) + '</div>',
-          '    <div class="cdlg-item-variant">' + escapeHTML(merchandise.title) + '</div>',
+          '    <div class="cdlg-item-name">' + (showIndex ? '<span class="cdlg-item-index">#' + (index + 1) + '</span>' : '') + escapeHTML(merchandise.product.title) + '</div>',
+          '    <label class="cdlg-item-sizewrap">',
+          '      <span class="cdlg-item-sizelabel">מידה</span>',
+          '      <select class="cdlg-item-sizeselect" data-cart-line-id="' + escapeHTML(node.id) + '" data-line-attrs=\'' + escapeHTML(JSON.stringify(lineAttrs)) + '\'>' + sizeOptionsHTML + '</select>',
+          '    </label>',
           '    <div class="cdlg-item-bottom">',
-          '      <span class="cdlg-item-qty">כמות ' + node.quantity + '</span>',
-          '      <span>' + priceHTML + '</span>',
+          qtyHTML,
+          '      <span>' + priceHTML + saveHTML + '</span>',
           '    </div>',
           '    <button class="cdlg-item-remove" type="button" data-cart-line-id="' + escapeHTML(node.id) + '">הסרה</button>',
           '  </div>',
@@ -430,9 +475,20 @@
       });
 
       linesEl.innerHTML = linesHTML;
-      linesEl.querySelectorAll('[data-cart-line-id]').forEach(function (button) {
+      linesEl.querySelectorAll('.cdlg-item-remove').forEach(function (button) {
         button.addEventListener('click', function () {
           removeCartLine(button.dataset.cartLineId);
+        });
+      });
+      linesEl.querySelectorAll('.cdlg-item-sizeselect').forEach(function (select) {
+        select.addEventListener('change', function () {
+          var newSize = select.value;
+          var variant = SIZE_VARIANTS[newSize];
+          if (!variant) return;
+          var attrs = [];
+          try { attrs = JSON.parse(select.dataset.lineAttrs || '[]'); } catch (e) {}
+          select.disabled = true;
+          updateLineSize(select.dataset.cartLineId, variant.variantId, attrs);
         });
       });
     } catch (renderErr) {
@@ -442,7 +498,16 @@
 
     var todayBill = parseFloat(cart.cost.totalAmount.amount);
     if (isNaN(todayBill)) todayBill = 0;
-    totalsEl.innerHTML = '<div class="cdlg-total-row"><span class="cdlg-total-label">לתשלום היום</span><span class="cdlg-total-value">' + todayBill.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
+
+    var totalSavings = originalSubtotal - chargedSubtotal;
+    var savingsPct = originalSubtotal > 0 ? Math.round((totalSavings / originalSubtotal) * 100) : 0;
+    var totalsHTML = '';
+    if (totalSavings > 0.01) {
+      totalsHTML += '<div class="cdlg-totals-row"><span class="cdlg-totals-sub-label">סכום ביניים (לפני הנחה)</span><span class="cdlg-totals-sub-value">' + originalSubtotal.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
+      totalsHTML += '<div class="cdlg-totals-row"><span class="cdlg-totals-discount-label">הנחה &middot; חסכתם ' + savingsPct + '%</span><span class="cdlg-totals-discount-value">&minus;' + totalSavings.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
+    }
+    totalsHTML += '<div class="cdlg-total-row"><span class="cdlg-total-label">לתשלום היום</span><span class="cdlg-total-value">' + todayBill.toFixed(2) + '&nbsp;' + escapeHTML(sym) + '</span></div>';
+    totalsEl.innerHTML = totalsHTML;
     if (checkoutBtn) checkoutBtn.href = normalizeCheckoutUrl(cart.checkoutUrl);
   }
 
@@ -512,6 +577,41 @@
       showStatus('');
     } catch (e) {
       showStatus(e.message || 'לא הצלחנו להסיר את הפריט. נסו שוב.');
+    }
+  }
+
+  // Changes one line's size in place (keeps the same line — and its distinguishing
+  // _pair attribute, resent as-is — so it doesn't get re-merged with a sibling line
+  // of the same size). Discount recalculates live from Shopify same as any other cart change.
+  async function updateLineSize(lineId, newVariantId, attributes) {
+    if (!currentCart || !lineId || !newVariantId) return;
+    showStatus('מעדכנים מידה…');
+    try {
+      var data = await storefrontFetch([
+        'mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {',
+        '  cartLinesUpdate(cartId: $cartId, lines: $lines) {',
+        '    cart {',
+        '      id checkoutUrl',
+        '      lines(first: 20) { edges { node { ' + CART_LINE_FIELDS + ' } } }',
+        '      cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }',
+        '      discountCodes { code applicable }',
+        '    }',
+        '    userErrors { field message }',
+        '  }',
+        '}'
+      ].join('\n'), {
+        cartId: currentCart.id,
+        lines: [{ id: lineId, merchandiseId: newVariantId, attributes: attributes || [] }]
+      });
+
+      var errors = data.cartLinesUpdate.userErrors;
+      if (errors.length) throw new Error(errors[0].message);
+      var cartAfter = data.cartLinesUpdate.cart;
+      render(cartAfter, currentConfig);
+      showStatus('');
+    } catch (e) {
+      showStatus(e.message || 'לא הצלחנו לעדכן את המידה. נסו שוב.');
+      render(currentCart, currentConfig);
     }
   }
 

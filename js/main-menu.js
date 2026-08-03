@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
     'mission': 'mission',
   };
   // /blog and every post under it (no per-post nav item exists) highlight the
-  // same "blog" nav link. Checked by path prefix, not the last-segment map
-  // above, since a post's last segment is its own slug (e.g.
-  // "typing-hand-fatigue"), never the literal word "blog".
-  var activeSection = (pathname === '/blog' || pathname.indexOf('/blog/') === 0)
+  // same "blog" nav link. A complete path-segment check also supports direct
+  // file previews, whose path begins with the local checkout directory.
+  var isBlogPage = /(?:^|\/)blog(?:\/|$)/.test(pathname);
+  var activeSection = isBlogPage
     ? 'blog'
     : (activeByPage[pageName] || '');
 
