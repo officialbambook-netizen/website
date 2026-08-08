@@ -4,27 +4,29 @@
   var knowledge = window.BambookAssistantKnowledge;
   if (!knowledge || document.getElementById('bambook-assistant')) return;
 
-  var SESSION_KEY = 'bambookAssistantSessionV1';
-  var MAX_MESSAGES = 16;
   var root;
   var launcher;
   var panel;
-  var bodyEl;
-  var messagesEl;
-  var suggestionsGroup;
-  var suggestionsTitle;
-  var suggestionsEl;
-  var input;
-  var sendButton;
+  var screenEl;
+  var questionEl;
+  var answerEl;
+  var contextLinksEl;
+  var followUpsEl;
+  var followUpTitleEl;
+  var choicesEl;
+  var backButton;
+  var menuButton;
+  var productLink;
+  var supportLink;
   var expandButton;
-  var state = { messages: [], purchaseScore: 0, seenIntents: [] };
+  var state = { nodeId: knowledge.rootId, history: [] };
 
   function createAssistant() {
     root = document.createElement('div');
     root.className = 'bambook-assistant';
     root.id = 'bambook-assistant';
     root.innerHTML = [
-      '<button class="bambook-assistant__launcher" type="button" aria-label="פתיחת הצ׳אט: קבלו עזרה מהצ׳אט" aria-expanded="false" aria-controls="bambook-assistant-panel">',
+      '<button class="bambook-assistant__launcher" type="button" aria-label="פתיחת העוזר הדיגיטלי: קבלו עזרה מהצ׳אט" aria-expanded="false" aria-controls="bambook-assistant-panel">',
       '  <span class="bambook-assistant__launcher-mark" aria-hidden="true">',
       '    <svg viewBox="0 0 32 32" focusable="false">',
       '      <path d="M10 4v24"></path>',
@@ -43,10 +45,10 @@
       '      <p class="bambook-assistant__status"></p>',
       '    </div>',
       '    <div class="bambook-assistant__header-actions">',
-      '      <button class="bambook-assistant__reset" type="button" aria-label="פתיחת שיחה חדשה">',
+      '      <button class="bambook-assistant__reset" type="button" aria-label="חזרה לתפריט הראשי">',
       '        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v6h6"></path></svg>',
       '      </button>',
-      '      <button class="bambook-assistant__expand" type="button" aria-label="הגדלת חלון הצ׳אט" aria-pressed="false">',
+      '      <button class="bambook-assistant__expand" type="button" aria-label="הגדלת חלון העוזר" aria-pressed="false">',
       '        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">',
       '          <path class="bambook-assistant__expand-maximize" d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"></path>',
       '          <path class="bambook-assistant__expand-restore" d="M3 8h5V3M21 8h-5V3M21 16h-5v5M3 16h5v5"></path>',
@@ -57,43 +59,52 @@
       '      </button>',
       '    </div>',
       '  </header>',
-      '  <div class="bambook-assistant__body">',
-      '    <div class="bambook-assistant__messages" role="log" aria-live="polite" aria-relevant="additions text"></div>',
-      '    <section class="bambook-assistant__suggestion-group" aria-label="שאלות מוצעות">',
-      '      <p class="bambook-assistant__suggestion-title"></p>',
-      '      <div class="bambook-assistant__suggestions"></div>',
+      '  <div class="bambook-assistant__screen" aria-live="polite" aria-atomic="true">',
+      '    <section class="bambook-assistant__answer-card" aria-labelledby="bambook-assistant-question">',
+      '      <h2 class="bambook-assistant__question" id="bambook-assistant-question"></h2>',
+      '      <p class="bambook-assistant__answer"></p>',
+      '      <div class="bambook-assistant__context-links"></div>',
+      '    </section>',
+      '    <section class="bambook-assistant__follow-ups" aria-label="שאלות המשך">',
+      '      <p class="bambook-assistant__follow-up-title"></p>',
+      '      <div class="bambook-assistant__choices"></div>',
       '    </section>',
       '  </div>',
-      '  <form class="bambook-assistant__composer">',
-      '    <label class="bambook-assistant__sr-only" for="bambook-assistant-input">כתבו שאלה</label>',
-      '    <input class="bambook-assistant__input" id="bambook-assistant-input" type="text" inputmode="text" dir="auto" autocomplete="off" maxlength="300" placeholder="כתבו שאלה...">',
-      '    <button class="bambook-assistant__send" type="submit" aria-label="שליחת השאלה" disabled>',
-      '      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>',
-      '    </button>',
-      '  </form>',
-      '  <p class="bambook-assistant__privacy"></p>',
+      '  <nav class="bambook-assistant__navigation" aria-label="ניווט בעוזר הדיגיטלי">',
+      '    <button class="bambook-assistant__back" type="button"></button>',
+      '    <button class="bambook-assistant__menu" type="button"></button>',
+      '    <a class="bambook-assistant__product" href="https://mybambook.com/product"></a>',
+      '  </nav>',
+      '  <a class="bambook-assistant__support" href="' + knowledge.urls.support + '"></a>',
       '</section>'
     ].join('');
 
     document.body.appendChild(root);
     launcher = root.querySelector('.bambook-assistant__launcher');
     panel = root.querySelector('.bambook-assistant__panel');
-    bodyEl = root.querySelector('.bambook-assistant__body');
-    messagesEl = root.querySelector('.bambook-assistant__messages');
-    suggestionsGroup = root.querySelector('.bambook-assistant__suggestion-group');
-    suggestionsTitle = root.querySelector('.bambook-assistant__suggestion-title');
-    suggestionsEl = root.querySelector('.bambook-assistant__suggestions');
-    input = root.querySelector('.bambook-assistant__input');
-    sendButton = root.querySelector('.bambook-assistant__send');
+    screenEl = root.querySelector('.bambook-assistant__screen');
+    questionEl = root.querySelector('.bambook-assistant__question');
+    answerEl = root.querySelector('.bambook-assistant__answer');
+    contextLinksEl = root.querySelector('.bambook-assistant__context-links');
+    followUpsEl = root.querySelector('.bambook-assistant__follow-ups');
+    followUpTitleEl = root.querySelector('.bambook-assistant__follow-up-title');
+    choicesEl = root.querySelector('.bambook-assistant__choices');
+    backButton = root.querySelector('.bambook-assistant__back');
+    menuButton = root.querySelector('.bambook-assistant__menu');
+    productLink = root.querySelector('.bambook-assistant__product');
+    supportLink = root.querySelector('.bambook-assistant__support');
     expandButton = root.querySelector('.bambook-assistant__expand');
 
     root.querySelector('.bambook-assistant__brand').textContent = knowledge.brand;
     root.querySelector('.bambook-assistant__status').textContent = knowledge.status;
-    root.querySelector('.bambook-assistant__privacy').textContent = knowledge.privacy;
-    suggestionsTitle.textContent = knowledge.suggestionsLabel;
+    followUpTitleEl.textContent = knowledge.labels.followUps;
+    backButton.textContent = knowledge.labels.back;
+    menuButton.textContent = knowledge.labels.menu;
+    productLink.textContent = knowledge.labels.product;
+    supportLink.textContent = knowledge.labels.support;
 
     bindEvents();
-    restoreConversation();
+    renderNode();
     syncNegishotPosition();
     watchForNegishot();
   }
@@ -101,11 +112,21 @@
   function bindEvents() {
     launcher.addEventListener('click', togglePanel);
     root.querySelector('.bambook-assistant__close').addEventListener('click', closePanel);
+    root.querySelector('.bambook-assistant__reset').addEventListener('click', goToMenu);
     expandButton.addEventListener('click', togglePanelSize);
-    root.querySelector('.bambook-assistant__reset').addEventListener('click', resetConversation);
-    root.querySelector('.bambook-assistant__composer').addEventListener('submit', submitQuestion);
-    suggestionsEl.addEventListener('click', handleSuggestionClick);
-    input.addEventListener('input', updateComposerState);
+    choicesEl.addEventListener('click', handleChoiceClick);
+    backButton.addEventListener('click', goBack);
+    menuButton.addEventListener('click', goToMenu);
+    productLink.addEventListener('click', function () {
+      track('link', productLink.href);
+    });
+    supportLink.addEventListener('click', function () {
+      track('link', 'human_email');
+    });
+    contextLinksEl.addEventListener('click', function (event) {
+      var link = event.target.closest('a[data-assistant-link]');
+      if (link) track('link', link.getAttribute('data-assistant-link'));
+    });
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && root.classList.contains('is-open')) closePanel();
@@ -119,17 +140,15 @@
   }
 
   function togglePanel() {
-    if (root.classList.contains('is-open')) {
-      closePanel();
-    } else {
-      openPanel();
-    }
+    if (root.classList.contains('is-open')) closePanel();
+    else openPanel();
   }
 
   function openPanel() {
+    goToMenu(false);
     root.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
-    launcher.setAttribute('aria-label', 'סגירת הצ׳אט');
+    launcher.setAttribute('aria-label', 'סגירת העוזר הדיגיטלי');
     panel.setAttribute('aria-hidden', 'false');
     track('open', 'assistant');
   }
@@ -137,7 +156,7 @@
   function closePanel() {
     root.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
-    launcher.setAttribute('aria-label', 'פתיחת הצ׳אט: קבלו עזרה מהצ׳אט');
+    launcher.setAttribute('aria-label', 'פתיחת העוזר הדיגיטלי: קבלו עזרה מהצ׳אט');
     panel.setAttribute('aria-hidden', 'true');
     launcher.focus();
     track('close', 'assistant');
@@ -148,207 +167,80 @@
     expandButton.setAttribute('aria-pressed', String(isExpanded));
     expandButton.setAttribute(
       'aria-label',
-      isExpanded ? 'החזרת חלון הצ׳אט לגודל רגיל' : 'הגדלת חלון הצ׳אט'
+      isExpanded ? 'החזרת חלון העוזר לגודל רגיל' : 'הגדלת חלון העוזר'
     );
     track(isExpanded ? 'expand' : 'restore', 'assistant');
   }
 
-  function resetConversation() {
-    state.messages = [];
-    state.purchaseScore = 0;
-    state.seenIntents = [];
-    clearSavedConversation();
-    messagesEl.replaceChildren();
-    addMessage('assistant', knowledge.welcome, false);
-    renderSuggestions(knowledge.quickActions);
-    scrollConversationStart();
-    input.focus();
-    track('reset', 'assistant');
-  }
-
-  function submitQuestion(event) {
-    event.preventDefault();
-    var text = input.value.trim();
-    if (!text) return;
-    input.value = '';
-    updateComposerState();
-    addMessage('user', text, !containsSensitiveData(text));
-    respond(resolveIntent(text));
-  }
-
-  function handleSuggestionClick(event) {
-    var link = event.target.closest('a[data-assistant-link]');
-    if (link) {
-      track('link', link.getAttribute('data-assistant-link'));
-      return;
-    }
-
-    var button = event.target.closest('button[data-assistant-intent]');
+  function handleChoiceClick(event) {
+    var button = event.target.closest('button[data-assistant-node]');
     if (!button) return;
-    var intent = button.getAttribute('data-assistant-intent');
-    addMessage('user', button.textContent.trim(), true);
-    respond(intent);
+    navigateTo(button.getAttribute('data-assistant-node'));
   }
 
-  function respond(intent) {
-    var response = knowledge.responses[intent] || knowledge.responses.fallback;
-    recordIntent(intent);
-    addMessage('assistant', response.text, intent !== 'sensitive');
-    renderSuggestions(actionsForResponse(intent, response));
-    track('answer', intent || 'fallback');
+  function navigateTo(nodeId) {
+    if (!knowledge.nodes[nodeId] || nodeId === state.nodeId) return;
+    state.history.push(state.nodeId);
+    state.nodeId = nodeId;
+    renderNode();
+    track('answer', nodeId);
   }
 
-  function recordIntent(intent) {
-    var purchaseIntent = knowledge.purchaseIntent;
-    if (!purchaseIntent || state.seenIntents.indexOf(intent) !== -1) return;
-    var weight = purchaseIntent.weights[intent] || 0;
-    if (!weight) return;
-    state.seenIntents.push(intent);
-    state.purchaseScore += weight;
+  function goBack() {
+    if (!state.history.length) return;
+    state.nodeId = state.history.pop();
+    renderNode();
+    track('back', state.nodeId);
   }
 
-  function actionsForResponse(intent, response) {
-    var actions = (response.actions || knowledge.quickActions).slice();
-    var purchaseIntent = knowledge.purchaseIntent;
-    if (!purchaseIntent) return actions;
-    var isEligible = purchaseIntent.eligibleIntents.indexOf(intent) !== -1;
-    var isWarm = state.purchaseScore >= purchaseIntent.threshold;
-    var alreadyLinked = actions.some(function (action) {
-      return action.href === purchaseIntent.action.href;
-    });
-    if (isEligible && isWarm && !alreadyLinked) actions.push(purchaseIntent.action);
-    return actions;
+  function goToMenu(shouldTrack) {
+    state.nodeId = knowledge.rootId;
+    state.history = [];
+    renderNode();
+    if (shouldTrack !== false) track('menu', knowledge.rootId);
   }
 
-  function addMessage(role, text, persist) {
-    var message = { role: role, text: text, persist: persist !== false };
-    state.messages.push(message);
-    if (state.messages.length > MAX_MESSAGES) state.messages.shift();
+  function renderNode() {
+    var node = knowledge.nodes[state.nodeId];
+    if (!node) return;
 
-    var row = document.createElement('div');
-    row.className = 'bambook-assistant__message ' + (role === 'user' ? 'is-user' : 'is-assistant');
-    var bubble = document.createElement('p');
-    bubble.className = 'bambook-assistant__bubble';
-    bubble.textContent = text;
-    row.appendChild(bubble);
-    messagesEl.appendChild(row);
-    scrollConversation();
-    saveConversation();
-  }
+    questionEl.textContent = node.question;
+    answerEl.textContent = node.answer;
+    choicesEl.replaceChildren();
 
-  function renderSuggestions(actions) {
-    suggestionsEl.replaceChildren();
-    var availableActions = actions || [];
-    suggestionsGroup.hidden = !availableActions.length;
-    availableActions.forEach(function (action) {
-      var element;
-      if (action.href) {
-        element = document.createElement('a');
-        element.href = action.href;
-        element.setAttribute('data-assistant-link', action.href.indexOf('mailto:') === 0 ? 'human_email' : action.href);
-      } else {
-        element = document.createElement('button');
-        element.type = 'button';
-        element.setAttribute('data-assistant-intent', action.intent);
-      }
-      element.className = 'bambook-assistant__suggestion';
-      element.textContent = action.label;
-      suggestionsEl.appendChild(element);
-    });
-    scrollConversation();
-  }
-
-  function updateComposerState() {
-    sendButton.disabled = !input.value.trim();
-  }
-
-  function scrollConversation() {
-    window.requestAnimationFrame(function () {
-      bodyEl.scrollTop = bodyEl.scrollHeight;
-    });
-  }
-
-  function scrollConversationStart() {
-    window.requestAnimationFrame(function () {
-      bodyEl.scrollTop = 0;
-    });
-  }
-
-  function restoreConversation() {
-    var saved = readSavedConversation();
-    if (!saved.length) {
-      addMessage('assistant', knowledge.welcome, false);
-      renderSuggestions(knowledge.quickActions);
-      scrollConversationStart();
-      return;
-    }
-
-    saved.forEach(function (message) {
-      addMessage(message.role, message.text, true);
-    });
-    renderSuggestions(knowledge.quickActions);
-  }
-
-  function readSavedConversation() {
-    try {
-      var parsed = JSON.parse(window.sessionStorage.getItem(SESSION_KEY) || '[]');
-      if (!Array.isArray(parsed)) return [];
-      return parsed.filter(function (message) {
-        return message && (message.role === 'user' || message.role === 'assistant') && typeof message.text === 'string';
-      }).slice(-MAX_MESSAGES);
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function saveConversation() {
-    try {
-      var safeMessages = state.messages.filter(function (message) {
-        return message.persist;
-      }).map(function (message) {
-        return { role: message.role, text: message.text };
-      }).slice(-MAX_MESSAGES);
-      window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(safeMessages));
-    } catch (error) {}
-  }
-
-  function clearSavedConversation() {
-    try {
-      window.sessionStorage.removeItem(SESSION_KEY);
-    } catch (error) {}
-  }
-
-  function normalize(text) {
-    return String(text || '').toLowerCase().replace(/[.,!?"'״׳()]/g, ' ').replace(/\s+/g, ' ').trim();
-  }
-
-  function resolveIntent(text) {
-    if (containsSensitiveData(text)) return 'sensitive';
-    var normalized = normalize(text);
-    var bestIntent = 'fallback';
-    var bestScore = 0;
-
-    knowledge.routes.forEach(function (route) {
-      var score = route.keywords.reduce(function (total, keyword) {
-        return total + (normalized.indexOf(normalize(keyword)) !== -1 ? 1 : 0);
-      }, 0);
-      if (score > bestScore) {
-        bestScore = score;
-        bestIntent = route.intent;
-      }
+    node.children.forEach(function (childId) {
+      var child = knowledge.nodes[childId];
+      var button = document.createElement('button');
+      button.className = 'bambook-assistant__choice';
+      button.type = 'button';
+      button.setAttribute('data-assistant-node', childId);
+      button.textContent = child.question;
+      choicesEl.appendChild(button);
     });
 
-    return bestIntent;
+    followUpsEl.hidden = !node.children.length;
+    backButton.disabled = !state.history.length;
+    menuButton.disabled = state.nodeId === knowledge.rootId;
+    productLink.href = node.productUrl || knowledge.urls.product;
+    productLink.classList.toggle('is-emphasized', Boolean(node.emphasizeProduct));
+    renderContextLinks(node.links || []);
+    screenEl.scrollTop = 0;
   }
 
-  function containsSensitiveData(text) {
-    var normalized = normalize(text);
-    var longNumber = /(?:\d[\s-]?){8,}/.test(text);
-    var email = /[^\s@]+@[^\s@]+\.[^\s@]+/.test(text);
-    var sensitiveWords = ['סיסמה', 'תעודת זהות', 'מספר כרטיס', 'קוד אבטחה', 'cvv'];
-    return longNumber || email || sensitiveWords.some(function (word) {
-      return normalized.indexOf(normalize(word)) !== -1;
+  function renderContextLinks(links) {
+    contextLinksEl.replaceChildren();
+    links.forEach(function (linkData) {
+      var link = document.createElement('a');
+      link.className = 'bambook-assistant__context-link';
+      link.href = linkData.href;
+      link.setAttribute(
+        'data-assistant-link',
+        linkData.href.indexOf('mailto:') === 0 ? 'human_email' : linkData.href
+      );
+      link.textContent = linkData.label;
+      contextLinksEl.appendChild(link);
     });
+    contextLinksEl.hidden = !links.length;
   }
 
   function getNegishotButton() {
