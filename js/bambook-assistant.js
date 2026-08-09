@@ -187,7 +187,11 @@
   }
 
   function goBack() {
-    if (!state.history.length) return;
+    if (!state.history.length) {
+      goToMenu(false);
+      track('back', knowledge.rootId);
+      return;
+    }
     state.nodeId = state.history.pop();
     renderNode();
     track('back', state.nodeId);
@@ -219,8 +223,8 @@
     });
 
     followUpsEl.hidden = !node.children.length;
-    backButton.disabled = !state.history.length;
-    menuButton.disabled = state.nodeId === knowledge.rootId;
+    backButton.disabled = false;
+    menuButton.disabled = false;
     productLink.href = node.productUrl || knowledge.urls.product;
     productLink.classList.toggle('is-emphasized', Boolean(node.emphasizeProduct));
     renderContextLinks(node.links || []);
