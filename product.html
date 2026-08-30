@@ -45,7 +45,7 @@
         "@type": "AggregateOffer",
         "priceCurrency": "ILS",
         "lowPrice": "179",
-        "highPrice": "349",
+        "highPrice": "347",
         "offerCount": "4",
         "availability": "https://schema.org/InStock",
         "url": "https://mybambook.com/product"
@@ -227,7 +227,7 @@
                 </div>
                 <span class="pdp-hero__price-badge">אחריות 60 יום</span>
               </div>
-              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־249&nbsp;₪, אחד ליום ואחד ללילה. שלושה ב־299&nbsp;₪, ארבעה ב־349&nbsp;₪.</p>
+              <p class="pdp-hero__price-sub" id="price-sub-text">או שני זוגות ב־249&nbsp;₪, אחד ליום ואחד ללילה. שלושה ב־299&nbsp;₪, ארבעה ב־347&nbsp;₪.</p>
               <p class="pdp-hero__price-refill">בחרו כמה זוגות מתאימים לשגרה שלכם, ואז התאימו מידה לכל זוג.</p>
             </div>
 
@@ -271,7 +271,7 @@
                 </div>
                 <div class="filter-bundle-card" data-bundle="3" tabindex="0" role="button" aria-pressed="false">
                   <span class="filter-bundle-card-days">4 זוגות</span>
-                  <span class="filter-bundle-card-sub">&rlm;349&nbsp;₪</span>
+                  <span class="filter-bundle-card-sub">&rlm;347&nbsp;₪</span>
                 </div>
               </div>
               <p class="pdp-hero__bundle-summary" id="bundle-summary">בחרתם זוג אחד: 179&nbsp;₪.</p>
@@ -1690,15 +1690,16 @@
       // Display labels only — the charged price comes from Shopify at checkout
       // (bundle discount configured in Shopify admin). Keep in sync with
       // 01_BRAIN/OFFER_STRUCTURE.md and the Shopify automatic-discount rules.
-      const PAIR_PRICE = { 1: '179 ₪', 2: '249 ₪', 3: '299 ₪', 4: '349 ₪' };
-      // 2026-08-02 [operator]: reverted from the 359/499/599 charm-priced anchors
-      // to a flat 279-per-pair scheme (359 read as an implausible ~2x markup for
-      // one pair). Anchor = 279 × pair count. Requires the live Shopify variant
-      // compare_at_price to be updated from 359 to 279 to match (OFFER_STRUCTURE.md
-      // 2026-08-02) — until that's done in Shopify admin, the cart (which reads
-      // compareAtPrice live) will still show 359 while this page shows 279.
-      // 4-pair has no approved anchor yet — hide rather than invent one.
-      const PAIR_COMPARE = { 1: '279 ₪', 2: '558 ₪', 3: '837 ₪' };
+      const PAIR_PRICE = { 1: '179 ₪', 2: '249 ₪', 3: '299 ₪', 4: '347 ₪' };
+      // 2026-08-02 [operator]: flat 279-per-pair anchor scheme (the earlier
+      // 359/499/599 read as an implausible ~2x markup on a single pair).
+      // Anchor = 279 × pair count. The live Shopify variant compare_at_price is
+      // ₪279 on all three S/M/L variants (verified via Storefront API), which is
+      // what the cart drawer reads live — so these labels and the cart agree.
+      // 2026-08-29: added the 4-pair anchor (4 × 279 = 1116). It had been hidden
+      // while no 4-pair number was approved; the cart was already showing 1116
+      // from Shopify, so the hidden label was the outlier, not the number.
+      const PAIR_COMPARE = { 1: '279 ₪', 2: '558 ₪', 3: '837 ₪', 4: '1116 ₪' };
       const price = PAIR_PRICE[pairCount] || PAIR_PRICE[1];
       const compareAt = PAIR_COMPARE[pairCount];
       const label = pairCount === 1 ? 'זוג אחד' : `${pairCount} זוגות`;
@@ -1929,7 +1930,7 @@
     })();
   </script>
   <script src="js/bambook-assistant-knowledge.js?v=822790bf"></script>
-  <script src="js/bambook-assistant.js?v=66e633f9"></script>
+  <script src="js/bambook-assistant.js?v=9a5db058"></script>
   <script src="js/lifestyle-carousel.js?v=84a208f0" defer></script>
   <script src="https://negishot.co.il/cdn/widget.php?code=NGS_28E6F354A9E3"></script>
 </body>
